@@ -5,7 +5,7 @@ import java.io.File;
 import mods.gollum.core.creativetab.GollumCreativeTabs;
 import mods.gollum.core.helper.items.HItem;
 import mods.gollum.core.mod.GollumMod;
-import mods.gollum.core.sound.SoundRegistry;
+import mods.gollum.core.registry.SoundRegistry;
 import mods.gollum.core.version.VersionChecker;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.JFBathBlock;
@@ -305,7 +305,7 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public void initBlocks () {
 		
-		blockWoodBlocksOne   = new JFWoodBlocksOne  (this.config.blockWoodBlocksOneID  , "woodBlocks"     , 0, TileEntityWoodBlocksOne.class)  .setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
+		blockWoodBlocksOne   = new JFWoodBlocksOne  (this.config.blockWoodBlocksOneID  , "woodBlocksOne"  , 0, TileEntityWoodBlocksOne.class)  .setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockWoodBlocksTwo   = new JFWoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "woodBlocksTwo"  , 0, TileEntityWoodBlocksTwo.class)  .setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockWoodBlocksThree = new JFWoodBlocksThree(this.config.blockWoodBlocksThreeID, "woodBlocksThree", 0, TileEntityWoodBlocksThree.class).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockBathTub         = new JFBathBlock      (this.config.blockBathTubID        , "bathBlock"      , 0, TileEntityBath.class)           .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
