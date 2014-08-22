@@ -1,14 +1,11 @@
 package mods.jammyfurniture.common.block;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.Random;
 
+import mods.gollum.core.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.util.BlockMountable;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,13 +14,15 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFBathBlock extends BlockContainer {
+public class JFBathBlock extends HBlockContainer {
 	public static final int[][] footBlockToHeadBlockMap = new int[][] { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
 	private Icon jfm_blockIcon;
 
-	public JFBathBlock(int par1, int notsure, Class teClass) {
-		super(par1, Material.iron);
+	public JFBathBlock(int par1, String registerName, int notsure, Class teClass) {
+		super(par1, registerName, Material.iron);
 		this.setBounds();
 	}
 

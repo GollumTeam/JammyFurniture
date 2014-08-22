@@ -1,14 +1,11 @@
 package mods.jammyfurniture.common.block.wood;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
 import java.util.Random;
 
+import mods.gollum.core.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,15 +20,17 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFWoodBlocksTwo extends BlockContainer {
+public class JFWoodBlocksTwo extends HBlockContainer {
 	private Class teClass;
 	public static int rotation;
 	public Random random;
 	private Icon jfm_blockIcon;
 
-	public JFWoodBlocksTwo(int id, int notsure, Class c) {
-		super(id, Material.wood);
+	public JFWoodBlocksTwo(int id, String registerName, int notsure, Class c) {
+		super(id, registerName, Material.wood);
 		this.teClass = c;
 		this.random = new Random();
 	}

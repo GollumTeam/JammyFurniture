@@ -1,14 +1,11 @@
 package mods.jammyfurniture.common.block.wood;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
 import java.util.Random;
 
+import mods.gollum.core.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksOne;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,14 +21,16 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFWoodBlocksOne extends BlockContainer {
+public class JFWoodBlocksOne extends HBlockContainer {
 	private Class teClass;
 	public Random random;
 	private Icon jfm_blockIcon;
 
-	public JFWoodBlocksOne(int id, int notsure, Class c) {
-		super(id, Material.wood);
+	public JFWoodBlocksOne(int id, String registerName, int notsure, Class c) {
+		super(id, registerName, Material.wood);
 		this.teClass = c;
 		this.random = new Random();
 	}
@@ -361,7 +360,9 @@ public class JFWoodBlocksOne extends BlockContainer {
 
 		return par1;
 	}
-
+	
+	
+	// TODO Revoir
 	@SideOnly(Side.CLIENT)
 	/**
 	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This

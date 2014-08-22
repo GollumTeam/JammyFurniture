@@ -9,44 +9,19 @@ import mods.gollum.core.sound.SoundRegistry;
 import mods.gollum.core.version.VersionChecker;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.JFBathBlock;
-import mods.jammyfurniture.common.block.jfm_BlockLightsOn;
-import mods.jammyfurniture.common.block.jfm_BlockMiscOne;
-import mods.jammyfurniture.common.block.ceramic.jfm_CeramicBlocksOne;
-import mods.jammyfurniture.common.block.head.jfm_MobHeadsFour;
-import mods.jammyfurniture.common.block.head.jfm_MobHeadsOne;
-import mods.jammyfurniture.common.block.head.jfm_MobHeadsThree;
-import mods.jammyfurniture.common.block.head.jfm_MobHeadsTwo;
 import mods.jammyfurniture.common.block.iron.JFIronBlocksOne;
 import mods.jammyfurniture.common.block.iron.JFIronBlocksTwo;
-import mods.jammyfurniture.common.block.roofing.jfm_RoofingBlocksOne;
-import mods.jammyfurniture.common.block.sofa.jfm_BlockArmChair;
-import mods.jammyfurniture.common.block.sofa.jfm_BlockSofaCenter;
-import mods.jammyfurniture.common.block.sofa.jfm_BlockSofaCorner;
-import mods.jammyfurniture.common.block.sofa.jfm_BlockSofaLeft;
-import mods.jammyfurniture.common.block.sofa.jfm_BlockSofaRight;
 import mods.jammyfurniture.common.block.wood.JFWoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.JFWoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.JFWoodBlocksTwo;
 import mods.jammyfurniture.common.config.ConfigJammyFuniture;
-import mods.jammyfurniture.common.item.JFItemArmChair;
 import mods.jammyfurniture.common.item.JFItemBath;
-import mods.jammyfurniture.common.item.JFItemCeramicBlocksOne;
 import mods.jammyfurniture.common.item.JFItemIronBlocksOne;
 import mods.jammyfurniture.common.item.JFItemIronBlocksTwo;
-import mods.jammyfurniture.common.item.JFItemMobHeadsFour;
-import mods.jammyfurniture.common.item.JFItemMobHeadsOne;
-import mods.jammyfurniture.common.item.JFItemMobHeadsThree;
-import mods.jammyfurniture.common.item.JFItemMobHeadsTwo;
-import mods.jammyfurniture.common.item.JFItemRoofingBlocksOne;
 import mods.jammyfurniture.common.item.JFItemWoodBlocksOne;
 import mods.jammyfurniture.common.item.JFItemWoodBlocksThree;
 import mods.jammyfurniture.common.item.JFItemWoodBlocksTwo;
-import mods.jammyfurniture.common.item.jfm_ItemLightsOn;
-import mods.jammyfurniture.common.item.jfm_ItemMiscOne;
-import mods.jammyfurniture.common.item.jfm_ItemSofaCenter;
-import mods.jammyfurniture.common.item.jfm_ItemSofaCorner;
-import mods.jammyfurniture.common.item.jfm_ItemSofaLeft;
-import mods.jammyfurniture.common.item.jfm_ItemSofaRight;
+import mods.jammyfurniture.common.recipes.JFRecipes;
 import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
@@ -73,7 +48,6 @@ import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -319,19 +293,11 @@ public class ModJammyFurniture extends GollumMod {
 		// Initialisation les TileEntities
 		this.initTileEntities ();
 		
-		
-		
-		
-		
-		LanguageRegistry.instance().addStringLocalization("itemGroup.JammyFurniture", "en_US", "Jammy Furniture Mod"); // TODO a virer
-		
-//		this.loadNames();
-		
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, "EntityMountableBlock", 1, this, 400, 5, false);
 		NetworkRegistry.instance().registerGuiHandler(instance, new JFGuiHandler());
-		
-		
-//		jfm_Recipes.initRecipes();
+
+//		// Ajout des recettes
+//		JFRecipes.initRecipes();
 	}
 	
 	/**
@@ -339,12 +305,12 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public void initBlocks () {
 		
-		blockWoodBlocksOne   = new JFWoodBlocksOne  (this.config.blockWoodBlocksOneID  , 0, TileEntityWoodBlocksOne.class)  .setHardness(2.0F).setResistance(1.0F).setUnlocalizedName("woodBlocks")     .setStepSound(Block.soundWoodFootstep).setCreativeTab(tabJammyFurniture);
-		blockWoodBlocksTwo   = new JFWoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , 0, TileEntityWoodBlocksTwo.class)  .setHardness(2.0F).setResistance(1.0F).setUnlocalizedName("woodBlocksTwo")  .setStepSound(Block.soundWoodFootstep).setCreativeTab(tabJammyFurniture);
-		blockWoodBlocksThree = new JFWoodBlocksThree(this.config.blockWoodBlocksThreeID, 0, TileEntityWoodBlocksThree.class).setHardness(2.0F).setResistance(1.0F).setUnlocalizedName("woodBlocksThree").setStepSound(Block.soundWoodFootstep).setCreativeTab(tabJammyFurniture);
-		blockBathTub         = new JFBathBlock      (this.config.blockBathTubID        , 0, TileEntityBath.class)           .setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("bathBlock")                                            .setCreativeTab(tabJammyFurniture);
-		blockIronBlocksOne   = new JFIronBlocksOne  (this.config.blockIronBlocksOneID  , 0, TileEntityIronBlocksOne.class)  .setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("ironBlockOne")                                         .setCreativeTab(tabJammyFurniture);
-		blockIronBlocksTwo   = new JFIronBlocksTwo  (this.config.blockIronBlocksTwoID  , 0, TileEntityIronBlocksTwo.class)  .setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("ironBlocksTwo")                                        .setCreativeTab(tabJammyFurniture);
+		blockWoodBlocksOne   = new JFWoodBlocksOne  (this.config.blockWoodBlocksOneID  , "woodBlocks"     , 0, TileEntityWoodBlocksOne.class)  .setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
+		blockWoodBlocksTwo   = new JFWoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "woodBlocksTwo"  , 0, TileEntityWoodBlocksTwo.class)  .setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
+		blockWoodBlocksThree = new JFWoodBlocksThree(this.config.blockWoodBlocksThreeID, "woodBlocksThree", 0, TileEntityWoodBlocksThree.class).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
+		blockBathTub         = new JFBathBlock      (this.config.blockBathTubID        , "bathBlock"      , 0, TileEntityBath.class)           .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
+		blockIronBlocksOne   = new JFIronBlocksOne  (this.config.blockIronBlocksOneID  , "ironBlockOne"   , 0, TileEntityIronBlocksOne.class)  .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
+		blockIronBlocksTwo   = new JFIronBlocksTwo  (this.config.blockIronBlocksTwoID  , "ironBlocksTwo"  , 0, TileEntityIronBlocksTwo.class)  .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 		
 	}
 
