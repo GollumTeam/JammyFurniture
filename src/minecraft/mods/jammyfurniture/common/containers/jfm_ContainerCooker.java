@@ -1,6 +1,6 @@
 package mods.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,13 +10,13 @@ import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
 public class jfm_ContainerCooker extends Container {
-	private jfm_TileEntityIronBlocksOne oven;
+	private TileEntityIronBlocksOne oven;
 	private int CookTime = 0;
 	private int CookTime2 = 0;
 	private int BurnTime = 0;
 	private int ItemBurnTime = 0;
 
-	public jfm_ContainerCooker(InventoryPlayer inventoryplayer, jfm_TileEntityIronBlocksOne teCooker) {
+	public jfm_ContainerCooker(InventoryPlayer inventoryplayer, TileEntityIronBlocksOne teCooker) {
 		this.oven = teCooker;
 		this.addSlotToContainer(new Slot(teCooker, 0, 77, 20));
 		this.addSlotToContainer(new Slot(teCooker, 1, 20, 44));

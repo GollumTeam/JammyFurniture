@@ -1,7 +1,7 @@
 package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.sofa.jfm_ModelArmChair;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityArmChair;
+import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -17,7 +17,7 @@ public class jfm_ArmChairRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureGreen = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_armchair_green.png");
 	protected static final ResourceLocation textureBlue = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_armchair_blue.png");
 
-	public void renderAModel(jfm_TileEntityArmChair tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityArmChair tileentity1, double d, double d1, double d2, float f) {
 		short ac1_rot = 0;
 		short ac2_rot = 0;
 		short ac3_rot = 0;
@@ -25,7 +25,7 @@ public class jfm_ArmChairRenderer extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityArmChair.md;
+			i = TileEntityArmChair.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -200,9 +200,9 @@ public class jfm_ArmChairRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityArmChair) null, d, d1, d2, f);
+			this.renderAModel((TileEntityArmChair) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityArmChair) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityArmChair) tileentity, d, d1, d2, f);
 		}
 	}
 }

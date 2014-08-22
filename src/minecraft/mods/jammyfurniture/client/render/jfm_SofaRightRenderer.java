@@ -1,7 +1,7 @@
 package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.sofa.jfm_ModelSofaRight;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntitySofaRight;
+import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -17,7 +17,7 @@ public class jfm_SofaRightRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureGreen = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sofaright_green.png");
 	protected static final ResourceLocation textureGrey = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sofaright_grey.png");
 
-	public void renderAModel(jfm_TileEntitySofaRight tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntitySofaRight tileentity1, double d, double d1, double d2, float f) {
 		short ac1_rot = 0;
 		short ac2_rot = 0;
 		short ac3_rot = 0;
@@ -25,7 +25,7 @@ public class jfm_SofaRightRenderer extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntitySofaRight.md;
+			i = TileEntitySofaRight.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -200,9 +200,9 @@ public class jfm_SofaRightRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntitySofaRight) null, d, d1, d2, f);
+			this.renderAModel((TileEntitySofaRight) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntitySofaRight) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntitySofaRight) tileentity, d, d1, d2, f);
 		}
 	}
 }

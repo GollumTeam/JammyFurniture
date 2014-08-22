@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.wood.jfm_ModelBlinds;
 import mods.jammyfurniture.client.model.wood.jfm_ModelChair;
 import mods.jammyfurniture.client.model.wood.jfm_ModelRadio;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityWoodBlocksThree;
+import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -20,7 +20,7 @@ public class jfm_WoodBlocksRendererThree extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureRadio = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_radio.png");
 	protected static final ResourceLocation textureBlinds = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_blinds.png");
 
-	public void renderAModel(jfm_TileEntityWoodBlocksThree tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityWoodBlocksThree tileentity1, double d, double d1, double d2, float f) {
 		short ch_rot = 0;
 		short radio_rot = 0;
 		short bl_rot = 0;
@@ -28,7 +28,7 @@ public class jfm_WoodBlocksRendererThree extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityWoodBlocksThree.md;
+			i = TileEntityWoodBlocksThree.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -234,9 +234,9 @@ public class jfm_WoodBlocksRendererThree extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityWoodBlocksThree) null, d, d1, d2, f);
+			this.renderAModel((TileEntityWoodBlocksThree) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityWoodBlocksThree) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityWoodBlocksThree) tileentity, d, d1, d2, f);
 		}
 	}
 }

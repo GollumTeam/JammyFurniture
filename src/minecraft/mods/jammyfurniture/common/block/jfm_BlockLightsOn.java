@@ -6,8 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-import mods.jammyfurniture.JammyFurnitureModCore;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityLightsOn;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -39,7 +39,7 @@ public class jfm_BlockLightsOn extends BlockContainer {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	public int idDropped(int i, Random random, int j) {
-		return JammyFurnitureModCore.lightsOn.blockID;
+		return ModJammyFurniture.blockLightsOn.blockID;
 	}
 
 	/**
@@ -109,10 +109,10 @@ public class jfm_BlockLightsOn extends BlockContainer {
 		int l = par1World.getBlockMetadata(par2, par3, par4);
 		int id = par1World.getBlockId(par2, par3, par4);
 
-		if (id == JammyFurnitureModCore.lightsOn.blockID) {
-			par1World.setBlock(par2, par3, par4, JammyFurnitureModCore.lightsOff.blockID, l, 0);
+		if (id == ModJammyFurniture.blockLightsOn.blockID) {
+			par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockLightsOff.blockID, l, 0);
 		} else {
-			par1World.setBlock(par2, par3, par4, JammyFurnitureModCore.lightsOn.blockID, l, 0);
+			par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockLightsOn.blockID, l, 0);
 		}
 
 		return true;
@@ -129,7 +129,7 @@ public class jfm_BlockLightsOn extends BlockContainer {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return JammyFurnitureModCore.lightsRenderID;
+		return ModJammyFurniture.lightsRenderID;
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class jfm_BlockLightsOn extends BlockContainer {
 	}
 
 	public TileEntity getBlockEntity() {
-		return new jfm_TileEntityLightsOn();
+		return new TileEntityLightsOn();
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class jfm_BlockLightsOn extends BlockContainer {
 	 * the block.
 	 */
 	public TileEntity createNewTileEntity(World var1) {
-		return new jfm_TileEntityLightsOn();
+		return new TileEntityLightsOn();
 	}
 
 	/**

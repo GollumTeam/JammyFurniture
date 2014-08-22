@@ -1,6 +1,6 @@
 package mods.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -9,7 +9,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class jfm_ContainerWashingMachine extends Container {
-	private jfm_TileEntityIronBlocksTwo washingMachine;
+	private TileEntityIronBlocksTwo washingMachine;
 	public int wmSlot1Time = 0;
 	public int wmSlot2Time = 0;
 	public int wmSlot3Time = 0;
@@ -17,7 +17,7 @@ public class jfm_ContainerWashingMachine extends Container {
 	private int BurnTime = 0;
 	private int ItemBurnTime = 0;
 
-	public jfm_ContainerWashingMachine(InventoryPlayer inventoryplayer, jfm_TileEntityIronBlocksTwo teWashingMachine) {
+	public jfm_ContainerWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
 		this.washingMachine = teWashingMachine;
 		teWashingMachine.openChest();
 		this.addSlotToContainer(new Slot(teWashingMachine, 0, 79, 22));

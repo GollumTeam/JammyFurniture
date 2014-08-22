@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelSquidHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelWolfHead;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityMobHeadsThree;
+import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsThree;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -21,7 +21,7 @@ public class jfm_MobHeadsThreeRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureZom = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_zombiehead.png");
 	protected static final ResourceLocation textureSqu = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_squidhead.png");
 
-	public void renderAModel(jfm_TileEntityMobHeadsThree tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityMobHeadsThree tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;
 		short h2_rot = 0;
 		short h3_rot = 0;
@@ -29,7 +29,7 @@ public class jfm_MobHeadsThreeRenderer extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityMobHeadsThree.md;
+			i = TileEntityMobHeadsThree.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -208,9 +208,9 @@ public class jfm_MobHeadsThreeRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityMobHeadsThree) null, d, d1, d2, f);
+			this.renderAModel((TileEntityMobHeadsThree) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityMobHeadsThree) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityMobHeadsThree) tileentity, d, d1, d2, f);
 		}
 	}
 }

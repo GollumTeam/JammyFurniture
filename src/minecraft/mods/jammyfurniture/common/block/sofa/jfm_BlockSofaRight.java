@@ -6,8 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-import mods.jammyfurniture.JammyFurnitureModCore;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntitySofaRight;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
 import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -37,7 +37,7 @@ public class jfm_BlockSofaRight extends BlockContainer {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	public int idDropped(int i, Random random, int j) {
-		return JammyFurnitureModCore.sofaPartRight.blockID;
+		return ModJammyFurniture.blockSofaPartRight.blockID;
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class jfm_BlockSofaRight extends BlockContainer {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return JammyFurnitureModCore.sofaPartRightRenderID;
+		return ModJammyFurniture.sofaPartRightRenderID;
 	}
 
 	/**
@@ -189,7 +189,7 @@ public class jfm_BlockSofaRight extends BlockContainer {
 	}
 
 	public TileEntity getBlockEntity() {
-		return new jfm_TileEntitySofaRight();
+		return new TileEntitySofaRight();
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class jfm_BlockSofaRight extends BlockContainer {
 	 * the block.
 	 */
 	public TileEntity createNewTileEntity(World var1) {
-		return new jfm_TileEntitySofaRight();
+		return new TileEntitySofaRight();
 	}
 
 	/**

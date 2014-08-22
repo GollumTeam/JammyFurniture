@@ -6,8 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-import mods.jammyfurniture.JammyFurnitureModCore;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityMiscOne;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.tilesentities.TileEntityMiscOne;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -35,7 +35,7 @@ public class jfm_BlockMiscOne extends BlockContainer {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	public int idDropped(int i, Random random, int j) {
-		return JammyFurnitureModCore.miscBlocksOne.blockID;
+		return ModJammyFurniture.blockMiscBlocksOne.blockID;
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class jfm_BlockMiscOne extends BlockContainer {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return JammyFurnitureModCore.miscBlocksOneRenderID;
+		return ModJammyFurniture.miscBlocksOneRenderID;
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class jfm_BlockMiscOne extends BlockContainer {
 	}
 
 	public TileEntity getBlockEntity() {
-		return new jfm_TileEntityMiscOne();
+		return new TileEntityMiscOne();
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class jfm_BlockMiscOne extends BlockContainer {
 	 * the block.
 	 */
 	public TileEntity createNewTileEntity(World var1) {
-		return new jfm_TileEntityMiscOne();
+		return new TileEntityMiscOne();
 	}
 
 	/**

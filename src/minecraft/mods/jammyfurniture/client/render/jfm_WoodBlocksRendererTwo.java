@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.wood.jfm_ModelBasket;
 import mods.jammyfurniture.client.model.wood.jfm_ModelKitchenCupboard;
 import mods.jammyfurniture.client.model.wood.jfm_ModelTV;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityWoodBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -24,14 +24,14 @@ public class jfm_WoodBlocksRendererTwo extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureBaskGreen = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_basket_green.png");
 	protected static final ResourceLocation textureBaskGrey = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_basket_grey.png");
 
-	public void renderAModel(jfm_TileEntityWoodBlocksTwo tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityWoodBlocksTwo tileentity1, double d, double d1, double d2, float f) {
 		short kc_rot = 0;
 		short kct_rot = 0;
 		short tv_rot = 0;
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityWoodBlocksTwo.md;
+			i = TileEntityWoodBlocksTwo.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -216,9 +216,9 @@ public class jfm_WoodBlocksRendererTwo extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityWoodBlocksTwo) null, d, d1, d2, f);
+			this.renderAModel((TileEntityWoodBlocksTwo) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityWoodBlocksTwo) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityWoodBlocksTwo) tileentity, d, d1, d2, f);
 		}
 	}
 }

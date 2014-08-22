@@ -2,7 +2,7 @@ package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.iron.jfm_ModelDishwasher;
 import mods.jammyfurniture.client.model.iron.jfm_ModelWashingMachine;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -17,14 +17,14 @@ public class jfm_IronBlocksRendererTwo extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureDish = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_dishwasher.png");
 	protected static final ResourceLocation textureWasher = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_washingmachine.png");
 
-	public void renderAModel(jfm_TileEntityIronBlocksTwo tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityIronBlocksTwo tileentity1, double d, double d1, double d2, float f) {
 		short dis_rot = 0;
 		short wm_rot = 0;
 		float var12 = 0.0F;
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityIronBlocksTwo.md;
+			i = TileEntityIronBlocksTwo.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -142,9 +142,9 @@ public class jfm_IronBlocksRendererTwo extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityIronBlocksTwo) null, d, d1, d2, f);
+			this.renderAModel((TileEntityIronBlocksTwo) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityIronBlocksTwo) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityIronBlocksTwo) tileentity, d, d1, d2, f);
 		}
 	}
 }

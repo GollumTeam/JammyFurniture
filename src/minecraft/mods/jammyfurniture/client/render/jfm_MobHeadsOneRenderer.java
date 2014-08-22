@@ -4,7 +4,7 @@ import mods.jammyfurniture.client.model.heads.jfm_ModelChickenHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelCowHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelEnderDragonHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityMobHeadsOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -23,7 +23,7 @@ public class jfm_MobHeadsOneRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureCre = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_creeperhead.png");
 	protected static final ResourceLocation textureDrag = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_enderdragonhead.png");
 
-	public void renderAModel(jfm_TileEntityMobHeadsOne tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityMobHeadsOne tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;
 		short h2_rot = 0;
 		short h3_rot = 0;
@@ -31,7 +31,7 @@ public class jfm_MobHeadsOneRenderer extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityMobHeadsOne.md;
+			i = TileEntityMobHeadsOne.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -211,9 +211,9 @@ public class jfm_MobHeadsOneRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityMobHeadsOne) null, d, d1, d2, f);
+			this.renderAModel((TileEntityMobHeadsOne) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityMobHeadsOne) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityMobHeadsOne) tileentity, d, d1, d2, f);
 		}
 	}
 }

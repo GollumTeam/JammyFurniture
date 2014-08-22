@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.jfm_ModelChimney;
 import mods.jammyfurniture.client.model.jfm_ModelChristmasTree;
 import mods.jammyfurniture.client.model.jfm_ModelMantlePiece;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityMiscOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityMiscOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -20,13 +20,13 @@ public class jfm_MiscOneRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureMantle = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_mantlepiece.png");
 	protected static final ResourceLocation textureTree = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_tree.png");
 
-	public void renderAModel(jfm_TileEntityMiscOne tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityMiscOne tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;
 		short h2_rot = 0;
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityMiscOne.md;
+			i = TileEntityMiscOne.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -146,9 +146,9 @@ public class jfm_MiscOneRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityMiscOne) null, d, d1, d2, f);
+			this.renderAModel((TileEntityMiscOne) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityMiscOne) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityMiscOne) tileentity, d, d1, d2, f);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 package mods.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -9,7 +9,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class jfm_ContainerDishwasher extends Container {
-	private jfm_TileEntityIronBlocksTwo dishwasher;
+	private TileEntityIronBlocksTwo dishwasher;
 	public int dwSlot1Time = 0;
 	public int dwSlot2Time = 0;
 	public int dwSlot3Time = 0;
@@ -17,7 +17,7 @@ public class jfm_ContainerDishwasher extends Container {
 	private int BurnTime = 0;
 	private int ItemBurnTime = 0;
 
-	public jfm_ContainerDishwasher(InventoryPlayer inventoryplayer, jfm_TileEntityIronBlocksTwo teDishwasher) {
+	public jfm_ContainerDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) {
 		this.dishwasher = teDishwasher;
 		this.dishwasher.openChest();
 		this.addSlotToContainer(new Slot(teDishwasher, 0, 79, 27));

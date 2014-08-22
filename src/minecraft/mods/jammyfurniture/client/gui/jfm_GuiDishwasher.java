@@ -1,7 +1,7 @@
 package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerDishwasher;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -10,10 +10,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class jfm_GuiDishwasher extends GuiContainer {
-	private jfm_TileEntityIronBlocksTwo dwInv;
+	private TileEntityIronBlocksTwo dwInv;
 	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.GUI_PATH + "jammy_dishwasher.png");
 
-	public jfm_GuiDishwasher(InventoryPlayer inventoryplayer, jfm_TileEntityIronBlocksTwo teDishwasher) {
+	public jfm_GuiDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) {
 		super(new jfm_ContainerDishwasher(inventoryplayer, teDishwasher));
 		this.dwInv = teDishwasher;
 	}

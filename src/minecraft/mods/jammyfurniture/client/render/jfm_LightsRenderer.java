@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.lights.jfm_ModelLight;
 import mods.jammyfurniture.client.model.lights.jfm_ModelOutsideLamp;
 import mods.jammyfurniture.client.model.lights.jfm_ModelTableLamp;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityLightsOn;
+import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -20,12 +20,12 @@ public class jfm_LightsRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureLamp = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_lamp.png");
 	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_tablelamp.png");
 
-	public void renderAModel(jfm_TileEntityLightsOn tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityLightsOn tileentity1, double d, double d1, double d2, float f) {
 		short ol_rot = 0;
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityLightsOn.md;
+			i = TileEntityLightsOn.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -129,9 +129,9 @@ public class jfm_LightsRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityLightsOn) null, d, d1, d2, f);
+			this.renderAModel((TileEntityLightsOn) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityLightsOn) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityLightsOn) tileentity, d, d1, d2, f);
 		}
 	}
 }

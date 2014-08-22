@@ -6,8 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-import mods.jammyfurniture.JammyFurnitureModCore;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityMobHeadsThree;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsThree;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -33,7 +33,7 @@ public class jfm_MobHeadsThree extends BlockContainer {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	public int idDropped(int i, Random random, int j) {
-		return JammyFurnitureModCore.mobHeadsThree.blockID;
+		return ModJammyFurniture.blockMobHeadsThree.blockID;
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class jfm_MobHeadsThree extends BlockContainer {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return JammyFurnitureModCore.mobHeadsThreeRenderID;
+		return ModJammyFurniture.mobHeadsThreeRenderID;
 	}
 
 	/**
@@ -195,7 +195,7 @@ public class jfm_MobHeadsThree extends BlockContainer {
 	}
 
 	public TileEntity getBlockEntity() {
-		return new jfm_TileEntityMobHeadsThree();
+		return new TileEntityMobHeadsThree();
 	}
 
 	/**
@@ -203,7 +203,7 @@ public class jfm_MobHeadsThree extends BlockContainer {
 	 * the block.
 	 */
 	public TileEntity createNewTileEntity(World var1) {
-		return new jfm_TileEntityMobHeadsThree();
+		return new TileEntityMobHeadsThree();
 	}
 
 	/**

@@ -4,7 +4,7 @@ import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofing;
 import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofingBlock;
 import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofingCorner;
 import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofingInverted;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityRoofingBlocksOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -20,14 +20,14 @@ public class jfm_RoofingBlocksRendererOne extends TileEntitySpecialRenderer {
 	private jfm_ModelRoofingBlock roofing_block = new jfm_ModelRoofingBlock();
 	protected static final ResourceLocation textureRoofing = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_roofing.png");
 
-	public void renderAModel(jfm_TileEntityRoofingBlocksOne tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityRoofingBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short rof_rot = 0;
 		short rofc_rot = 0;
 		short roin_rot = 0;
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityRoofingBlocksOne.md;
+			i = TileEntityRoofingBlocksOne.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -189,9 +189,9 @@ public class jfm_RoofingBlocksRendererOne extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityRoofingBlocksOne) null, d, d1, d2, f);
+			this.renderAModel((TileEntityRoofingBlocksOne) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityRoofingBlocksOne) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityRoofingBlocksOne) tileentity, d, d1, d2, f);
 		}
 	}
 }

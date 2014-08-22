@@ -9,6 +9,6 @@ public class jfm_CreativeTabs extends CreativeTabs {
 	}
 
 	public ItemStack getIconItemStack() {
-		return new ItemStack(JammyFurnitureModCore.itemArmChair);
+		return new ItemStack(ModJammyFurniture.itemArmChair);
 	}
 }

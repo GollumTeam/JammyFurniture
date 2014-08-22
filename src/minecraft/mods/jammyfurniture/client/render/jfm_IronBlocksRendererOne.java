@@ -4,7 +4,7 @@ import mods.jammyfurniture.client.model.iron.jfm_ModelCoffeeTable;
 import mods.jammyfurniture.client.model.iron.jfm_ModelCooker;
 import mods.jammyfurniture.client.model.iron.jfm_ModelFridge;
 import mods.jammyfurniture.client.model.iron.jfm_ModelRubbishBin;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -24,7 +24,7 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureBin = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_rubbishbin.png");
 	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_coffeetable.png");
 
-	public void renderAModel(jfm_TileEntityIronBlocksOne tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityIronBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short fri_rot = 0;
 		short fre_rot = 0;
 		short c_rot = 0;
@@ -32,7 +32,7 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityIronBlocksOne.md;
+			i = TileEntityIronBlocksOne.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -211,9 +211,9 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityIronBlocksOne) null, d, d1, d2, f);
+			this.renderAModel((TileEntityIronBlocksOne) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityIronBlocksOne) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityIronBlocksOne) tileentity, d, d1, d2, f);
 		}
 	}
 }

@@ -4,7 +4,7 @@ import mods.jammyfurniture.client.model.ceramic.jfm_ModelBathroomCupboard;
 import mods.jammyfurniture.client.model.ceramic.jfm_ModelBathroomSink;
 import mods.jammyfurniture.client.model.ceramic.jfm_ModelKitchenSink;
 import mods.jammyfurniture.client.model.ceramic.jfm_ModelToilet;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityCeramicBlocksOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -23,7 +23,7 @@ public class jfm_CeramicBlocksRendererOne extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureKitchenSink = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_kitchensink.png");
 	protected static final ResourceLocation textureSink = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sink.png");
 
-	public void renderAModel(jfm_TileEntityCeramicBlocksOne tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityCeramicBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short bc_rot = 0;
 		short bs_rot = 0;
 		short ks_rot = 0;
@@ -31,7 +31,7 @@ public class jfm_CeramicBlocksRendererOne extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityCeramicBlocksOne.md;
+			i = TileEntityCeramicBlocksOne.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -221,9 +221,9 @@ public class jfm_CeramicBlocksRendererOne extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityCeramicBlocksOne) null, d, d1, d2, f);
+			this.renderAModel((TileEntityCeramicBlocksOne) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityCeramicBlocksOne) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityCeramicBlocksOne) tileentity, d, d1, d2, f);
 		}
 	}
 }

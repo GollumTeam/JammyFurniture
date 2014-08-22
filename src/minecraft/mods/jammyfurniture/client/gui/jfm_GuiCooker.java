@@ -1,7 +1,7 @@
 package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -10,10 +10,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class jfm_GuiCooker extends GuiContainer {
-	private jfm_TileEntityIronBlocksOne cookerInventory;
+	private TileEntityIronBlocksOne cookerInventory;
 	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.GUI_PATH + "jammy_cooker.png");
 
-	public jfm_GuiCooker(InventoryPlayer inventoryplayer, jfm_TileEntityIronBlocksOne teCooker) {
+	public jfm_GuiCooker(InventoryPlayer inventoryplayer, TileEntityIronBlocksOne teCooker) {
 		super(new jfm_ContainerCooker(inventoryplayer, teCooker));
 		this.cookerInventory = teCooker;
 	}

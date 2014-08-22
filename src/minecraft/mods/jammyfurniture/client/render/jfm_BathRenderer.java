@@ -1,7 +1,7 @@
 package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.jfm_ModelBath;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityBath;
+import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -14,7 +14,7 @@ public class jfm_BathRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelBath bath = new jfm_ModelBath();
 	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_bath.png");
 
-	public void renderAModel(jfm_TileEntityBath tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityBath tileentity1, double d, double d1, double d2, float f) {
 		short rot_1 = 0;
 		short rot_2 = 0;
 		int i;
@@ -133,9 +133,9 @@ public class jfm_BathRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityBath) null, d, d1, d2, f);
+			this.renderAModel((TileEntityBath) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityBath) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityBath) tileentity, d, d1, d2, f);
 		}
 	}
 }

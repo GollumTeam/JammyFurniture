@@ -6,8 +6,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
 
-import mods.jammyfurniture.JammyFurnitureModCore;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityCeramicBlocksOne;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -39,7 +39,7 @@ public class jfm_CeramicBlocksOne extends BlockContainer {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	public int idDropped(int i, Random random, int j) {
-		return JammyFurnitureModCore.ceramicBlocksOne.blockID;
+		return ModJammyFurniture.blockCeramicBlocksOne.blockID;
 	}
 
 	/**
@@ -195,10 +195,10 @@ public class jfm_CeramicBlocksOne extends BlockContainer {
 					return true;
 				}
 			} else {
-				jfm_TileEntityCeramicBlocksOne var15 = (jfm_TileEntityCeramicBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
+				TileEntityCeramicBlocksOne var15 = (TileEntityCeramicBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
 
 				if (var15 != null) {
-					entityplayer.openGui(JammyFurnitureModCore.instance, 150, par1World, par2, par3, par4);
+					entityplayer.openGui(ModJammyFurniture.instance, 150, par1World, par2, par3, par4);
 					return true;
 				}
 			}
@@ -268,7 +268,7 @@ public class jfm_CeramicBlocksOne extends BlockContainer {
 	 * ID, old metadata
 	 */
 	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
-		jfm_TileEntityCeramicBlocksOne te = (jfm_TileEntityCeramicBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
+		TileEntityCeramicBlocksOne te = (TileEntityCeramicBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
 
 		if (te != null) {
 			for (int j1 = 0; j1 < te.getSizeInventory(); ++j1) {
@@ -317,7 +317,7 @@ public class jfm_CeramicBlocksOne extends BlockContainer {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return JammyFurnitureModCore.ceramicBlocksOneRenderID;
+		return ModJammyFurniture.ceramicBlocksOneRenderID;
 	}
 
 	/**
@@ -338,7 +338,7 @@ public class jfm_CeramicBlocksOne extends BlockContainer {
 	}
 
 	public TileEntity getBlockEntity() {
-		return new jfm_TileEntityCeramicBlocksOne();
+		return new TileEntityCeramicBlocksOne();
 	}
 
 	/**
@@ -346,7 +346,7 @@ public class jfm_CeramicBlocksOne extends BlockContainer {
 	 * the block.
 	 */
 	public TileEntity createNewTileEntity(World var1) {
-		return new jfm_TileEntityCeramicBlocksOne();
+		return new TileEntityCeramicBlocksOne();
 	}
 
 	/**

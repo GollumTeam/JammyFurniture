@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelPigHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelSheepHead;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityMobHeadsTwo;
+import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -21,7 +21,7 @@ public class jfm_MobHeadsTwoRenderer extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureSke = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_skeletonhead.png");
 	protected static final ResourceLocation textureSpi = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_spiderhead.png");
 
-	public void renderAModel(jfm_TileEntityMobHeadsTwo tileentity1, double d, double d1, double d2, float f) {
+	public void renderAModel(TileEntityMobHeadsTwo tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;
 		short h2_rot = 0;
 		short h3_rot = 0;
@@ -29,7 +29,7 @@ public class jfm_MobHeadsTwoRenderer extends TileEntitySpecialRenderer {
 		int i;
 
 		if (tileentity1 == null) {
-			i = jfm_TileEntityMobHeadsTwo.md;
+			i = TileEntityMobHeadsTwo.md;
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();
@@ -209,9 +209,9 @@ public class jfm_MobHeadsTwoRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		if (tileentity.worldObj == null) {
-			this.renderAModel((jfm_TileEntityMobHeadsTwo) null, d, d1, d2, f);
+			this.renderAModel((TileEntityMobHeadsTwo) null, d, d1, d2, f);
 		} else {
-			this.renderAModel((jfm_TileEntityMobHeadsTwo) tileentity, d, d1, d2, f);
+			this.renderAModel((TileEntityMobHeadsTwo) tileentity, d, d1, d2, f);
 		}
 	}
 }

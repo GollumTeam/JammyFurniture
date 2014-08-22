@@ -3,7 +3,7 @@ package mods.jammyfurniture.client.gui;
 import java.util.Random;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerRubbishBin;
-import mods.jammyfurniture.common.tilesentities.jfm_TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
@@ -20,7 +20,7 @@ public class jfm_GuiRubbishBin extends GuiContainer {
 	public static int y;
 	public static int z;
 	public Random random;
-	public static jfm_TileEntityIronBlocksOne teRB;
+	public static TileEntityIronBlocksOne teRB;
 	private int inventoryRows = 0;
 	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.GUI_PATH + "jammy_rubbishbin.png");
 
@@ -48,7 +48,7 @@ public class jfm_GuiRubbishBin extends GuiContainer {
 		this.fontRenderer.drawString(StatCollector.translateToLocal(this.upperChestInventory.getInvName()), 8, this.ySize - 80 + 3, 4210752);
 	}
 
-	public void removeItems(jfm_TileEntityIronBlocksOne te) {
+	public void removeItems(TileEntityIronBlocksOne te) {
 		if (te != null) {
 			for (int i = 0; i < te.getSizeInventory(); ++i) {
 				ItemStack itemstack = te.getStackInSlot(i);
