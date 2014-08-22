@@ -1,6 +1,5 @@
 package net.minecraft.jammy780.furniture;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.jammy780.furniture.tiles.jfm_TileEntityArmChair;
 import net.minecraft.jammy780.furniture.tiles.jfm_TileEntityBath;
 import net.minecraft.jammy780.furniture.tiles.jfm_TileEntityCeramicBlocksOne;
@@ -20,6 +19,8 @@ import net.minecraft.jammy780.furniture.tiles.jfm_TileEntitySofaRight;
 import net.minecraft.jammy780.furniture.tiles.jfm_TileEntityWoodBlocks;
 import net.minecraft.jammy780.furniture.tiles.jfm_TileEntityWoodBlocksThree;
 import net.minecraft.jammy780.furniture.tiles.jfm_TileEntityWoodBlocksTwo;
+import cpw.mods.fml.common.registry.GameRegistry;
+
 
 public class jfm_CommonProxy
 {

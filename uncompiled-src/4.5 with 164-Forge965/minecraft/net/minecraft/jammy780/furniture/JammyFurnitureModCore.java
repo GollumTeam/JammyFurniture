@@ -194,24 +194,35 @@ public class JammyFurnitureModCore
             itemWMDrum = (new jfm_Items(Integer.parseInt(WMDRUM_ID.getString()))).setUnlocalizedName("itemWMDrum").setCreativeTab(jfmCustomTab);
             Property BLIND_PART_ID = config.getItem("blind_part.id", "item", jfm_ConfigDefault.ITEM_BLIND_PART_ID);
             itemBlindPart = (new jfm_Items(Integer.parseInt(BLIND_PART_ID.getString()))).setUnlocalizedName("itemBlindPart").setCreativeTab(jfmCustomTab);
+            
+            
+            
             Property WOOD_ONE_ID = config.getBlock("wood_one.id", "block", jfm_ConfigDefault.WOOD_ONE_ID);
             woodBlocksOne = (new jfm_WoodBlocksOne(Integer.parseInt(WOOD_ONE_ID.getString()), 0, jfm_TileEntityWoodBlocks.class)).setHardness(2.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodBlocks").setCreativeTab(jfmCustomTab);
             itemWoodBlocksOne = (new jfm_ItemWoodBlocksOne(Integer.parseInt(WOOD_ONE_ID.getString()) - 256, woodBlocksOne)).setUnlocalizedName("itemClockBase").setCreativeTab(jfmCustomTab);
+            
             Property WOOD_TWO_ID = config.getBlock("wood_two.id", "block", jfm_ConfigDefault.WOOD_TWO_ID);
             woodBlocksTwo = (new jfm_WoodBlocksTwo(Integer.parseInt(WOOD_TWO_ID.getString()), 0, jfm_TileEntityWoodBlocksTwo.class)).setHardness(2.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodBlocksTwo").setCreativeTab(jfmCustomTab);
             itemWoodBlocksTwo = (new jfm_ItemWoodBlocksTwo(Integer.parseInt(WOOD_TWO_ID.getString()) - 256, woodBlocksTwo)).setUnlocalizedName("itemWoodBlocksTwo").setCreativeTab(jfmCustomTab);
+            
             Property WOOD_THREE_ID = config.getBlock("wood_three.id", "block", jfm_ConfigDefault.WOOD_THREE_ID);
             woodBlocksThree = (new jfm_WoodBlocksThree(Integer.parseInt(WOOD_THREE_ID.getString()), 0, jfm_TileEntityWoodBlocksThree.class)).setHardness(2.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("woodBlocksThree").setCreativeTab(jfmCustomTab);
             itemWoodBlocksThree = (new jfm_ItemWoodBlocksThree(Integer.parseInt(WOOD_THREE_ID.getString()) - 256, woodBlocksThree)).setUnlocalizedName("itemWoodBlocksThree").setCreativeTab(jfmCustomTab);
+            
             Property BATH_BLOCK_ID = config.getBlock("bath.id", "block", jfm_ConfigDefault.BATH_ID);
             bathTub = (new jfm_BathBlock(Integer.parseInt(BATH_BLOCK_ID.getString()), 0, jfm_TileEntityBath.class)).setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("bathBlock").setCreativeTab(jfmCustomTab);
             itemBathTub = (new jfm_ItemBath(Integer.parseInt(BATH_BLOCK_ID.getString()) - 256, bathTub)).setUnlocalizedName("itemBath").setCreativeTab(jfmCustomTab);
+            
+            
             Property IRON_ONE_ID = config.getBlock("iron_one.id", "block", jfm_ConfigDefault.IRON_ONE_ID);
             ironBlocksOne = (new jfm_IronBlocksOne(Integer.parseInt(IRON_ONE_ID.getString()), 0, jfm_TileEntityIronBlocksOne.class)).setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("ironBlockOne").setCreativeTab(jfmCustomTab);
             itemIronBlocksOne = (new jfm_ItemIronBlocksOne(Integer.parseInt(IRON_ONE_ID.getString()) - 256, ironBlocksOne)).setUnlocalizedName("itemIronBlocksOne").setCreativeTab(jfmCustomTab);
+            
             Property IRON_TWO_ID = config.getBlock("iron_two.id", "block", jfm_ConfigDefault.IRON_TWO_ID);
             ironBlocksTwo = (new jfm_IronBlocksTwo(Integer.parseInt(IRON_TWO_ID.getString()), 0, jfm_TileEntityIronBlocksTwo.class)).setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("ironBlocksTwo").setCreativeTab(jfmCustomTab);
             itemIronBlocksTwo = (new jfm_ItemIronBlocksTwo(Integer.parseInt(IRON_TWO_ID.getString()) - 256, ironBlocksTwo)).setUnlocalizedName("itemIronBlocksTwo").setCreativeTab(jfmCustomTab);
+            
+            
             Property CERAMIC_ONE_ID = config.getBlock("ceramic_one.id", "block", jfm_ConfigDefault.CERAMIC_ONE_ID);
             ceramicBlocksOne = (new jfm_CeramicBlocksOne(Integer.parseInt(CERAMIC_ONE_ID.getString()), 0, jfm_TileEntityCeramicBlocksOne.class)).setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("ceramicBlockOne").setCreativeTab(jfmCustomTab);
             itemCeramicBlocksOne = (new jfm_ItemCeramicBlocksOne(Integer.parseInt(CERAMIC_ONE_ID.getString()) - 256, ceramicBlocksOne)).setUnlocalizedName("itemCeramicBlocksOne").setCreativeTab(jfmCustomTab);
