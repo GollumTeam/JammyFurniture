@@ -6,7 +6,7 @@ import mods.jammyfurniture.client.model.wood.jfm_ModelClockMiddle;
 import mods.jammyfurniture.client.model.wood.jfm_ModelClockTop;
 import mods.jammyfurniture.client.model.wood.jfm_ModelKitchenSide;
 import mods.jammyfurniture.client.model.wood.jfm_ModelTable;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksOne;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

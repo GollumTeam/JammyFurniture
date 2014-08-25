@@ -1,6 +1,6 @@
-package mods.jammyfurniture.common.tilesentities;
+package mods.jammyfurniture.common.tilesentities.iron;
 
-import mods.gollum.core.tileentities.GCLTileEntityInventory;
+import mods.gollum.core.tileentities.GCLInventoryTileEntity;
 import mods.gollum.core.tools.helper.IBlockHelper;
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
@@ -15,7 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.src.ModLoader;
 
-public class TileEntityIronBlocksOne extends GCLTileEntityInventory {
+public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	
 
 	private static final int INV_SIZE_FRIDGE     = 9;
@@ -229,14 +229,6 @@ public class TileEntityIronBlocksOne extends GCLTileEntityInventory {
 //				this.onInventoryChanged();
 //			}
 //		}
-	}
-
-	/**
-	 * invalidates a tile entity
-	 */
-	public void invalidate() {
-		this.updateContainingBlockInfo();
-		super.invalidate();
 	}
 	
 	////////////////

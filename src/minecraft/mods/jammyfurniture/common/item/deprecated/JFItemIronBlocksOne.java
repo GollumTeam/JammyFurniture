@@ -1,13 +1,14 @@
-package mods.jammyfurniture.common.item;
+package mods.jammyfurniture.common.item.deprecated;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class JFItemIronBlocksTwo extends ItemBlock {
+/** @deprecated */
+public class JFItemIronBlocksOne extends ItemBlock {
 	public static Block theBlock;
 
-	public JFItemIronBlocksTwo(Block block) {
+	public JFItemIronBlocksOne(Block block) {
 		super(block.blockID - 256);
 		this.setHasSubtypes(true);
 		theBlock = block;
@@ -26,18 +27,33 @@ public class JFItemIronBlocksTwo extends ItemBlock {
 		case 1:
 		case 2:
 		case 3:
-			name = "Dishwasher";
+			name = "Fridge";
 			break;
 
 		case 4:
 		case 5:
 		case 6:
 		case 7:
-			name = "WashingMachine";
+			name = "Freezer";
+			break;
+
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+			name = "Cooker";
+			break;
+
+		case 12:
+			name = "RubbishBin";
+			break;
+
+		case 13:
+			name = "CoffeeTable";
 			break;
 
 		default:
-			name = "Dishwasher";
+			name = "Fridge";
 		}
 
 		return this.getUnlocalizedName() + "." + name;

@@ -4,7 +4,7 @@ import mods.jammyfurniture.client.model.iron.jfm_ModelCoffeeTable;
 import mods.jammyfurniture.client.model.iron.jfm_ModelCooker;
 import mods.jammyfurniture.client.model.iron.jfm_ModelFridge;
 import mods.jammyfurniture.client.model.iron.jfm_ModelRubbishBin;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

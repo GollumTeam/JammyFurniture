@@ -2,7 +2,7 @@ package mods.jammyfurniture.common.block.iron;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFAMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.util.JFGuiHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;

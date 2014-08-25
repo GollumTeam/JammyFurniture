@@ -1,9 +1,10 @@
-package mods.jammyfurniture.common.item;
+package mods.jammyfurniture.common.item.deprecated;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
+/** @deprecated */
 public class JFItemWoodBlocksOne extends ItemBlock {
 	public static Block theBlock;
 

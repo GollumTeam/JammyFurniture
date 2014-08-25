@@ -1,7 +1,7 @@
 package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

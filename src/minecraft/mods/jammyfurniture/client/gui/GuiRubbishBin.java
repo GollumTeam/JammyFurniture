@@ -5,7 +5,7 @@ import java.util.Random;
 
 import mods.gollum.core.client.gui.GCLGuiContainer;
 import mods.jammyfurniture.common.containers.ContainerRubbishBin;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 

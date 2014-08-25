@@ -4,7 +4,7 @@ import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFAMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksOne;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -232,8 +232,7 @@ public class JFWoodBlocksOne extends JFAMetadataBlock {
 				return false;
 			}
 
-			teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(
-					x, y, z);
+			teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
 
 			if (teWoodBlocks != null) {
 				entityplayer.openGui(ModJammyFurniture.instance, 151,
