@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -115,17 +116,32 @@ public class JFWoodBlocksOne extends JFAMetadataBlock {
 	 * Called upon block activation (right click on the block.)
 	 */
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int par6, float entityX, float entityY, float entityZ) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float hitX, float hitY, float hitZ) {
 		
 		int metadata    = world.getBlockMetadata(x, y, z);
-		int orientation = this.getOrientation(entityplayer);
+		int orientation = this.getOrientation(player);
+		int subBlock    = this.getEnabledMetadata(metadata);
 		
+		ItemStack itemstack = player.inventory.getCurrentItem();
 		
-		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		TileEntityWoodBlocksOne teWoodBlocks;
-
-		if (metadata != 1 && metadata != 2 && metadata != 3 && metadata != 4) {
-			if (metadata == 5 || metadata == 6 || metadata == 7 || metadata == 8) {
+		switch (subBlock) {
+			
+			case 1: // Horloge milieux
+				
+				// Exclu les les block horloge
+				if (
+					itemstack != null && itemstack. == this.) {
+					return false;
+				}
+		
+				TileEntityWoodBlocksOne  teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
+		
+				if (teWoodBlocks != null) {
+					player.openGui(ModJammyFurniture.instance, 151, world, x, y, z);
+					return true;
+				}
+				
+			case 5: // Horloge top
 				if (world.isRemote) {
 					return true;
 				}
@@ -170,75 +186,49 @@ public class JFWoodBlocksOne extends JFAMetadataBlock {
 				}
 
 				if (message != "") {
-					entityplayer.addChatMessage("The Time is currently: " + time);
-					entityplayer.addChatMessage("It\'s " + message);
+					player.addChatMessage("The Time is currently: " + time);
+					player.addChatMessage("It\'s " + message);
 				} else {
-					entityplayer.addChatMessage("The Time is currently: " + time);
+					player.addChatMessage("The Time is currently: " + time);
 				}
 
 				if (itemstack != null && itemstack.itemID == Item.book.itemID) {
-					entityplayer.addChatMessage("---- Information ----");
-					entityplayer
-							.addChatMessage("There are 100 hours from midday to midnight.");
-					entityplayer
-							.addChatMessage("The time resets to 0 at midday.");
-					entityplayer
-							.addChatMessage("When the time is 50, it is midnight.");
-					entityplayer.addChatMessage("---- End Information ----");
+					player.addChatMessage(EnumChatFormatting.YELLOW + "---------------------------");
+					player.addChatMessage("There are 100 hours from midday to midnight.");
+					player.addChatMessage("The time resets to 0 at midday.");
+					player.addChatMessage("When the time is 50, it is midnight.");
+					player.addChatMessage(EnumChatFormatting.YELLOW + "---------------------------");
 				}
-
+				
 				return true;
-			}
-
-			if (metadata == 9) {
-				world.setBlock(x, y, z,
-						ModJammyFurniture.blockWoodBlocksThree.blockID, 8, 2);
+				
+			case 9: // Le store en position initial
+				world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, metadata-1, 2); // Les autres stores sont dans le block wood 3
 				return true;
-			}
-
-			if (metadata == 10) {
-				world.setBlock(x, y, z,
-						ModJammyFurniture.blockWoodBlocksThree.blockID, 9, 2);
-				return true;
-			}
-
-			if (metadata == 11) {
-				world.setBlock(x, y, z,
-						ModJammyFurniture.blockWoodBlocksThree.blockID, 10, 2);
-				return true;
-			}
-
-			if (metadata == 12) {
-				world.setBlock(x, y, z,
-						ModJammyFurniture.blockWoodBlocksThree.blockID, 11, 2);
-				return true;
-			}
+				
+			
+			
+			default:
+				break;
+		}
+		
+		
+		if (metadata != 1 && metadata != 2 && metadata != 3 && metadata != 4) {
+			
+			
 
 			if (metadata == 13) {
 				teWoodBlocks = (TileEntityWoodBlocksOne) world
 						.getBlockTileEntity(x, y, z);
 
 				if (teWoodBlocks != null) {
-					entityplayer.openGui(ModJammyFurniture.instance, 160,
+					player.openGui(ModJammyFurniture.instance, 160,
 							world, x, y, z);
 					return true;
 				}
 			}
 		} else {
-			if (itemstack != null && itemstack.getItemDamage() == 5
-					|| itemstack != null && itemstack.getItemDamage() == 6
-					|| itemstack != null && itemstack.getItemDamage() == 7
-					|| itemstack != null && itemstack.getItemDamage() == 8) {
-				return false;
-			}
-
-			teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
-
-			if (teWoodBlocks != null) {
-				entityplayer.openGui(ModJammyFurniture.instance, 151,
-						world, x, y, z);
-				return true;
-			}
+			
 		}
 
 		return true;
