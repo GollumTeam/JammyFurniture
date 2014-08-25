@@ -5,7 +5,6 @@ import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofingBlock;
 import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofingCorner;
 import mods.jammyfurniture.client.model.roofing.jfm_ModelRoofingInverted;
 import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -18,7 +17,7 @@ public class jfm_RoofingBlocksRendererOne extends TileEntitySpecialRenderer {
 	private jfm_ModelRoofingCorner roofing_corner = new jfm_ModelRoofingCorner();
 	private jfm_ModelRoofingInverted roofing_inverted = new jfm_ModelRoofingInverted();
 	private jfm_ModelRoofingBlock roofing_block = new jfm_ModelRoofingBlock();
-	protected static final ResourceLocation textureRoofing = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_roofing.png");
+	protected static final ResourceLocation textureRoofing = new ResourceLocation("jammyfurniture:textures/models/jammy_roofing.png");
 
 	public void renderAModel(TileEntityRoofingBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short rof_rot = 0;

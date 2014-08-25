@@ -2,7 +2,6 @@ package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
 import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsFour;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -11,10 +10,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class jfm_MobHeadsFourRenderer extends TileEntitySpecialRenderer {
-	protected static final ResourceLocation textureEnd = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_enderman.png");
-	protected static final ResourceLocation textureSli = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_slime.png");
-	protected static final ResourceLocation textureBla = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_blaze.png");
-	protected static final ResourceLocation texturePig = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_pigman.png");
+	protected static final ResourceLocation textureEnd = new ResourceLocation("jammyfurniture:textures/models/jammy_enderman.png");
+	protected static final ResourceLocation textureSli = new ResourceLocation("jammyfurniture:textures/models/jammy_slime.png");
+	protected static final ResourceLocation textureBla = new ResourceLocation("jammyfurniture:textures/models/jammy_blaze.png");
+	protected static final ResourceLocation texturePig = new ResourceLocation("jammyfurniture:textures/models/jammy_pigman.png");
 	private jfm_ModelHead model_head = new jfm_ModelHead();
 
 	public void renderAModel(TileEntityMobHeadsFour tileentity1, double d, double d1, double d2, float f) {

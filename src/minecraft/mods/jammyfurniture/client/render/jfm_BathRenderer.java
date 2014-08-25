@@ -2,7 +2,6 @@ package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.jfm_ModelBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -12,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class jfm_BathRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelBath bath = new jfm_ModelBath();
-	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_bath.png");
+	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:textures/models/jammy_bath.png");
 
 	public void renderAModel(TileEntityBath tileentity1, double d, double d1, double d2, float f) {
 		short rot_1 = 0;

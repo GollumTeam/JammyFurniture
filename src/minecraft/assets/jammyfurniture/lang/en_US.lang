@@ -1,0 +1,27 @@
+itemGroup.JammyFurniture=Jammy Furniture
+
+item.LightBulb.name=Light Bulb
+item.MantlePieceUnf.name=Mantle Piece(Unf)
+item.CeramicPanelUnf.name=Ceramic Panel(Unf)
+item.CeramicPanel.name=Ceramic Panel
+item.WMDrum.name=Washing Machine Drum
+item.BlindPart.name=Blind Part
+
+AAtile.WoodBlocksOne.0.name=Clock Base
+AAtile.WoodBlocksOne.1.name=Clock Middle
+AAtile.WoodBlocksOne.5.name=Clock Top
+AAtile.WoodBlocksOne.9.name=Blinds
+AAtile.WoodBlocksOne.13.name=Crafting Side
+AAtile.WoodBlocksOne.14.name=Kitchen Side
+AAtile.WoodBlocksOne.15.name=Table
+AAtile.WoodBlocksTwo.0.name=Kitchen Cupboard
+AAtile.WoodBlocksTwo.4.name=Kitchen Cupboard (Shelf)
+AAtile.WoodBlocksTwo.8.name=Television
+AAtile.WoodBlocksTwo.12.name=Basket
+AAtile.WoodBlocksTwo.13.name=Basket
+AAtile.WoodBlocksTwo.14.name=Basket
+AAtile.WoodBlocksTwo.15.name=Basket
+AAtile.WoodBlocksThree.0.name=Chair
+AAtile.WoodBlocksThree.4.name=Radio
+
+entity..name=

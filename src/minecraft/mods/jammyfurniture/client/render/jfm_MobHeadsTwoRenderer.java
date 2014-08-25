@@ -4,7 +4,6 @@ import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelPigHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelSheepHead;
 import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsTwo;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,10 +15,10 @@ public class jfm_MobHeadsTwoRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelPigHead pig_head = new jfm_ModelPigHead();
 	private jfm_ModelSheepHead sheep_head = new jfm_ModelSheepHead();
 	private jfm_ModelHead model_head = new jfm_ModelHead();
-	protected static final ResourceLocation texturePig = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_pighead.png");
-	protected static final ResourceLocation textureShe = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sheephead.png");
-	protected static final ResourceLocation textureSke = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_skeletonhead.png");
-	protected static final ResourceLocation textureSpi = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_spiderhead.png");
+	protected static final ResourceLocation texturePig = new ResourceLocation("jammyfurniture:textures/models/jammy_pighead.png");
+	protected static final ResourceLocation textureShe = new ResourceLocation("jammyfurniture:textures/models/jammy_sheephead.png");
+	protected static final ResourceLocation textureSke = new ResourceLocation("jammyfurniture:textures/models/jammy_skeletonhead.png");
+	protected static final ResourceLocation textureSpi = new ResourceLocation("jammyfurniture:textures/models/jammy_spiderhead.png");
 
 	public void renderAModel(TileEntityMobHeadsTwo tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;

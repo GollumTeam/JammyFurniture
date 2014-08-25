@@ -7,7 +7,6 @@ import mods.jammyfurniture.client.model.wood.jfm_ModelClockTop;
 import mods.jammyfurniture.client.model.wood.jfm_ModelKitchenSide;
 import mods.jammyfurniture.client.model.wood.jfm_ModelTable;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -22,13 +21,13 @@ public class jfm_WoodBlocksRendererOne extends TileEntitySpecialRenderer {
 	private jfm_ModelBlinds blinds = new jfm_ModelBlinds();
 	private jfm_ModelKitchenSide kitchen_side = new jfm_ModelKitchenSide();
 	private jfm_ModelTable table = new jfm_ModelTable();
-	protected static final ResourceLocation textureBase = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_clockbase.png");
-	protected static final ResourceLocation textureMid = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_clockmiddle.png");
-	protected static final ResourceLocation textureTop = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_clocktop.png");
-	protected static final ResourceLocation textureBlinds = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_blinds.png");
-	protected static final ResourceLocation textureCSide = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_craftside.png");
-	protected static final ResourceLocation textureKSide = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_kitchenside.png");
-	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_table.png");
+	protected static final ResourceLocation textureBase = new ResourceLocation("jammyfurniture:textures/models/jammy_clockbase.png");
+	protected static final ResourceLocation textureMid = new ResourceLocation("jammyfurniture:textures/models/jammy_clockmiddle.png");
+	protected static final ResourceLocation textureTop = new ResourceLocation("jammyfurniture:textures/models/jammy_clocktop.png");
+	protected static final ResourceLocation textureBlinds = new ResourceLocation("jammyfurniture:textures/models/jammy_blinds.png");
+	protected static final ResourceLocation textureCSide = new ResourceLocation("jammyfurniture:textures/models/jammy_craftside.png");
+	protected static final ResourceLocation textureKSide = new ResourceLocation("jammyfurniture:textures/models/jammy_kitchenside.png");
+	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:textures/models/jammy_table.png");
 
 	public void renderAModel(TileEntityWoodBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short cm_rot = 0;

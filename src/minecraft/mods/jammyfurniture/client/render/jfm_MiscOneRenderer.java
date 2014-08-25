@@ -4,7 +4,6 @@ import mods.jammyfurniture.client.model.jfm_ModelChimney;
 import mods.jammyfurniture.client.model.jfm_ModelChristmasTree;
 import mods.jammyfurniture.client.model.jfm_ModelMantlePiece;
 import mods.jammyfurniture.common.tilesentities.TileEntityMiscOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,9 +15,9 @@ public class jfm_MiscOneRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelChimney chimney = new jfm_ModelChimney();
 	private jfm_ModelMantlePiece mantle_piece = new jfm_ModelMantlePiece();
 	private jfm_ModelChristmasTree christmas_tree = new jfm_ModelChristmasTree();
-	protected static final ResourceLocation textureChim = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_chimney.png");
-	protected static final ResourceLocation textureMantle = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_mantlepiece.png");
-	protected static final ResourceLocation textureTree = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_tree.png");
+	protected static final ResourceLocation textureChim = new ResourceLocation("jammyfurniture:textures/models/jammy_chimney.png");
+	protected static final ResourceLocation textureMantle = new ResourceLocation("jammyfurniture:textures/models/jammy_mantlepiece.png");
+	protected static final ResourceLocation textureTree = new ResourceLocation("jammyfurniture:textures/models/jammy_tree.png");
 
 	public void renderAModel(TileEntityMiscOne tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;

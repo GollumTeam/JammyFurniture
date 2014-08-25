@@ -5,7 +5,6 @@ import mods.jammyfurniture.client.model.iron.jfm_ModelCooker;
 import mods.jammyfurniture.client.model.iron.jfm_ModelFridge;
 import mods.jammyfurniture.client.model.iron.jfm_ModelRubbishBin;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -18,11 +17,12 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 	private jfm_ModelCooker cooker = new jfm_ModelCooker();
 	private jfm_ModelRubbishBin bin = new jfm_ModelRubbishBin();
 	private jfm_ModelCoffeeTable ctable = new jfm_ModelCoffeeTable();
-	protected static final ResourceLocation textureFridge = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_fridge.png");
-	protected static final ResourceLocation textureFreezer = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_freezer.png");
-	protected static final ResourceLocation textureCooker = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_cooker.png");
-	protected static final ResourceLocation textureBin = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_rubbishbin.png");
-	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_coffeetable.png");
+	
+	protected static final ResourceLocation textureFridge = new ResourceLocation("jammyfurniture:textures/models/jammy_fridge.png");
+	protected static final ResourceLocation textureFreezer = new ResourceLocation("jammyfurniture:textures/models/jammy_freezer.png");
+	protected static final ResourceLocation textureCooker = new ResourceLocation("jammyfurniture:textures/models/jammy_cooker.png");
+	protected static final ResourceLocation textureBin = new ResourceLocation("jammyfurniture:textures/models/jammy_rubbishbin.png");
+	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:textures/models/jammy_coffeetable.png");
 
 	public void renderAModel(TileEntityIronBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short fri_rot = 0;

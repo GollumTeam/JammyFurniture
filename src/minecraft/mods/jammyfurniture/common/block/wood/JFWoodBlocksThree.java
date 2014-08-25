@@ -1,67 +1,59 @@
 package mods.jammyfurniture.common.block.wood;
 
-import java.util.List;
 import java.util.Random;
 
-import mods.gollum.core.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.block.JFAMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFWoodBlocksThree extends HBlockContainer {
+public class JFWoodBlocksThree extends JFAMetadataBlock {
 	public static int rotation;
 	private Icon jfm_blockIcon;
-
-	public JFWoodBlocksThree(int id, String registerName, int notsure, Class teClass) {
-		super(id, registerName, Material.wood);
+	
+	public JFWoodBlocksThree(int id, String registerName) {
+		super(id, registerName, Material.wood, TileEntityWoodBlocksThree.class, new int[] { 0, 4 });
 	}
-
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
-	public int idDropped(int i, Random random, int j) {
-		return i >= 8 ? ModJammyFurniture.blockWoodBlocksOne.blockID : ModJammyFurniture.blockWoodBlocksThree.blockID;
-	}
-
+	
+	/////////////////////////////////
+	// Forme et collition du block //
+	/////////////////////////////////
+	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int i) {
-		int b = par1World.getBlockMetadata(par2, par3, i);
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		int metadata = world.getBlockMetadata(x, y, z);
 
-		if (b != 0 && b != 1 && b != 2 && b != 3) {
-			if (b != 4 && b != 6) {
-				if (b != 5 && b != 7) {
-					if (b == 8) {
+		if (metadata != 0 && metadata != 1 && metadata != 2 && metadata != 3) {
+			if (metadata != 4 && metadata != 6) {
+				if (metadata != 5 && metadata != 7) {
+					if (metadata == 8) {
 						this.setBlockBounds(0.0F, 0.0F, 0.9F, 1.0F, 1.0F, 1.0F);
-					} else if (b == 9) {
+					} else if (metadata == 9) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 1.0F, 1.0F);
-					} else if (b == 10) {
+					} else if (metadata == 10) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1F);
-					} else if (b == 11) {
+					} else if (metadata == 11) {
 						this.setBlockBounds(0.9F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-					} else if (b == 12) {
+					} else if (metadata == 12) {
 						this.setBlockBounds(0.0F, 0.0F, 0.9F, 1.0F, 1.0F, 1.0F);
-					} else if (b == 13) {
+					} else if (metadata == 13) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 1.0F, 1.0F);
-					} else if (b == 14) {
+					} else if (metadata == 14) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1F);
-					} else if (b == 15) {
+					} else if (metadata == 15) {
 						this.setBlockBounds(0.9F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 					} else {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -73,37 +65,37 @@ public class JFWoodBlocksThree extends HBlockContainer {
 				this.setBlockBounds(0.0F, 0.0F, 0.3F, 1.0F, 1.0F, 0.7F);
 			}
 
-			return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, i);
+			return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 		} else {
 			return null;
 		}
 	}
 
 	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y,
-	 * z
+	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
-		int b = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
+		int metadata = blockAccess.getBlockMetadata(x, y, z);
 
-		if (b != 0 && b != 1 && b != 2 && b != 3) {
-			if (b != 4 && b != 6) {
-				if (b != 5 && b != 7) {
-					if (b == 8) {
+		if (metadata != 0 && metadata != 1 && metadata != 2 && metadata != 3) {
+			if (metadata != 4 && metadata != 6) {
+				if (metadata != 5 && metadata != 7) {
+					if (metadata == 8) {
 						this.setBlockBounds(0.0F, 0.0F, 0.9F, 1.0F, 1.0F, 1.0F);
-					} else if (b == 9) {
+					} else if (metadata == 9) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 1.0F, 1.0F);
-					} else if (b == 10) {
+					} else if (metadata == 10) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1F);
-					} else if (b == 11) {
+					} else if (metadata == 11) {
 						this.setBlockBounds(0.9F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-					} else if (b == 12) {
+					} else if (metadata == 12) {
 						this.setBlockBounds(0.0F, 0.0F, 0.9F, 1.0F, 1.0F, 1.0F);
-					} else if (b == 13) {
+					} else if (metadata == 13) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 1.0F, 1.0F);
-					} else if (b == 14) {
+					} else if (metadata == 14) {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1F);
-					} else if (b == 15) {
+					} else if (metadata == 15) {
 						this.setBlockBounds(0.9F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 					} else {
 						this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -118,197 +110,146 @@ public class JFWoodBlocksThree extends HBlockContainer {
 			this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 1.0F, 0.85F);
 		}
 	}
-
+	
+	///////////
+	// Event //
+	///////////
+	
 	/**
 	 * Called when the block is placed in the world.
 	 */
-	public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack is) {
-		int meta = world.getBlockMetadata(i, j, k);
-		int l = (MathHelper.floor_double((double) (entityliving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
+		int metadata    = world.getBlockMetadata(x, y, z);
+		int orientation = this.getOrientation(entityliving);
 
-		if (meta == 0 || meta == 4) {
-			world.setBlockMetadataWithNotify(i, j, k, meta + l, 0);
+		if (metadata == 0 || metadata == 4) {
+			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
 
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
-		int l = par1World.getBlockMetadata(par2, par3, par4);
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int hitX, float hitY, float hitZ, float par9) {
+		int metadata = world.getBlockMetadata(x, y, z);
 
-		if (l != 0 && l != 1 && l != 2 && l != 3) {
-			if (l != 4 && l != 5 && l != 6 && l != 7) {
-				if (l == 8) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksThree.blockID, 12, 2);
+		if (metadata != 0 && metadata != 1 && metadata != 2 && metadata != 3) {
+			if (metadata != 4 && metadata != 5 && metadata != 6 && metadata != 7) {
+				if (metadata == 8) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, 12, 2);
 					return true;
-				} else if (l == 9) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksThree.blockID, 13, 2);
+				} else if (metadata == 9) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, 13, 2);
 					return true;
-				} else if (l == 10) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksThree.blockID, 14, 2);
+				} else if (metadata == 10) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, 14, 2);
 					return true;
-				} else if (l == 11) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksThree.blockID, 15, 2);
+				} else if (metadata == 11) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, 15, 2);
 					return true;
-				} else if (l == 12) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksOne.blockID, 9, 2);
+				} else if (metadata == 12) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksOne.blockID, 9, 2);
 					return true;
-				} else if (l == 13) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksOne.blockID, 10, 2);
+				} else if (metadata == 13) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksOne.blockID, 10, 2);
 					return true;
-				} else if (l == 14) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksOne.blockID, 11, 2);
+				} else if (metadata == 14) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksOne.blockID, 11, 2);
 					return true;
-				} else if (l == 15) {
-					par1World.setBlock(par2, par3, par4, ModJammyFurniture.blockWoodBlocksOne.blockID, 12, 2);
+				} else if (metadata == 15) {
+					world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksOne.blockID, 12, 2);
 					return true;
 				} else {
 					return false;
 				}
 			} else {
-				par1World.playSoundAtEntity(par5EntityPlayer, "jammyfurniture:radio", 1.0F, 1.0F);
+				world.playSoundAtEntity(entityPlayer, "jammyfurniture:radio", 1.0F, 1.0F);
 				return true;
 			}
-		} else if (par1World.isRemote) {
+		} else if (world.isRemote) {
 			return true;
 		} else {
-			l %= 4;
+			metadata %= 4;
 
-			if (l == 0) {
-				par5EntityPlayer.rotationYaw = 180.0F;
+			if (metadata == 0) {
+				entityPlayer.rotationYaw = 180.0F;
 			}
 
-			if (l == 1) {
-				par5EntityPlayer.rotationYaw = -90.0F;
+			if (metadata == 1) {
+				entityPlayer.rotationYaw = -90.0F;
 			}
 
-			if (l == 2) {
-				par5EntityPlayer.rotationYaw = 0.0F;
+			if (metadata == 2) {
+				entityPlayer.rotationYaw = 0.0F;
+			}
+			
+			if (metadata == 3) {
+				entityPlayer.rotationYaw = 90.0F;
 			}
 
-			if (l == 3) {
-				par5EntityPlayer.rotationYaw = 90.0F;
+			float newX = 0.0F;
+			float newY = 0.0F;
+			float newZ = 0.0F;
+
+			if (metadata == 0) {
+				newX = 0.5F;
+				newY = 0.4F;
+				newZ = 0.5F;
 			}
 
-			float x = 0.0F;
-			float y = 0.0F;
-			float z = 0.0F;
-
-			if (l == 0) {
-				x = 0.5F;
-				y = 0.4F;
-				z = 0.5F;
+			if (metadata == 1) {
+				newX = 0.5F;
+				newY = 0.4F;
+				newZ = 0.5F;
 			}
 
-			if (l == 1) {
-				x = 0.5F;
-				y = 0.4F;
-				z = 0.5F;
+			if (metadata == 2) {
+				newX = 0.5F;
+				newY = 0.4F;
+				newZ = 0.5F;
 			}
 
-			if (l == 2) {
-				x = 0.5F;
-				y = 0.4F;
-				z = 0.5F;
+			if (metadata == 3) {
+				newX = 0.5F;
+				newY = 0.4F;
+				newZ = 0.5F;
 			}
 
-			if (l == 3) {
-				x = 0.5F;
-				y = 0.4F;
-				z = 0.5F;
-			}
-
-			return BlockMountable.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, x, y, z, 0, 0, 0, 0);
+			return BlockMountable.onBlockActivated(world, x, y, z, entityPlayer, newX, newY, newZ, 0, 0, 0, 0);
 		}
 	}
-
+	
+	///////////////////
+	// Data du block //
+	///////////////////
+	
 	/**
-	 * Returns the quantity of items to drop on block destruction.
+	 * Returns the ID of the items to drop on destruction.
 	 */
-	public int quantityDropped(Random par1Random) {
-		return 1;
+	@Override
+	public int idDropped(int metadata, Random random, int j) {
+		return metadata >= 8 ? ModJammyFurniture.blockWoodBlocksOne.blockID : ModJammyFurniture.blockWoodBlocksThree.blockID;
 	}
-
+	
+	/**
+	 * Called when a user uses the creative pick block button on this block
+	 * 
+	 * @param target The full target the player is looking at
+	 * @return A ItemStack to add to the player's inventory, Null if nothing should be added.
+	 */
+	@Override
+	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
+		int metadata = world.getBlockMetadata(x, y, z);
+		return (metadata >= 8) ? new ItemStack (ModJammyFurniture.blockWoodBlocksOne.blockID, 1, 9) : super.getPickBlock(target, world, x, y, z);
+	}
+	
 	/**
 	 * The type of render function that is called for this block
 	 */
+	@Override
 	public int getRenderType() {
 		return ModJammyFurniture.woodBlocksThreeRenderID;
-	}
-
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
-	 */
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	public TileEntity getBlockEntity() {
-		return new TileEntityWoodBlocksThree();
-	}
-
-	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing
-	 * the block.
-	 */
-	public TileEntity createNewTileEntity(World var1) {
-		return new TileEntityWoodBlocksThree();
-	}
-
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
-	public void getSubBlocks(int id, CreativeTabs ctabs, List list) {
-		list.add(new ItemStack(id, 1, 0));
-		list.add(new ItemStack(id, 1, 4));
-	}
-
-	/**
-	 * Determines the damage on the item the block drops. Used in cloth and
-	 * wood.
-	 */
-	public int damageDropped(int par1) {
-		if (par1 == 1 || par1 == 2 || par1 == 3) {
-			par1 = 0;
-		}
-
-		if (par1 == 5 || par1 == 6 || par1 == 7) {
-			par1 = 4;
-		}
-
-		if (par1 >= 8) {
-			par1 = 9;
-		}
-
-		return par1;
-	}
-
-	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.jfm_blockIcon = par1IconRegister.registerIcon("jammyfurniture:jammy_wood");
-	}
-
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture.
-	 * Args: side, metadata
-	 */
-	public Icon getIcon(int side, int metadata) {
-		return this.jfm_blockIcon;
 	}
 }

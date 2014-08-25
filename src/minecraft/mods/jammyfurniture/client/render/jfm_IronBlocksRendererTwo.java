@@ -3,7 +3,6 @@ package mods.jammyfurniture.client.render;
 import mods.jammyfurniture.client.model.iron.jfm_ModelDishwasher;
 import mods.jammyfurniture.client.model.iron.jfm_ModelWashingMachine;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -14,8 +13,8 @@ import org.lwjgl.opengl.GL11;
 public class jfm_IronBlocksRendererTwo extends TileEntitySpecialRenderer {
 	private jfm_ModelDishwasher dishwasher = new jfm_ModelDishwasher();
 	private jfm_ModelWashingMachine washing_machine = new jfm_ModelWashingMachine();
-	protected static final ResourceLocation textureDish = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_dishwasher.png");
-	protected static final ResourceLocation textureWasher = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_washingmachine.png");
+	protected static final ResourceLocation textureDish = new ResourceLocation("jammyfurniture:textures/models/jammy_dishwasher.png");
+	protected static final ResourceLocation textureWasher = new ResourceLocation("jammyfurniture:textures/models/jammy_washingmachine.png");
 
 	public void renderAModel(TileEntityIronBlocksTwo tileentity1, double d, double d1, double d2, float f) {
 		short dis_rot = 0;

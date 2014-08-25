@@ -1,7 +1,6 @@
 package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerClockMiddle;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
@@ -13,7 +12,7 @@ public class jfm_GuiClockMiddle extends GuiContainer {
 	private IInventory upperChestInventory;
 	private IInventory lowerChestInventory;
 	private int inventoryRows = 0;
-	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.GUI_PATH + "jammy_clockmiddle.png");
+	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_clockmiddle.png");
 
 	public jfm_GuiClockMiddle(IInventory par1IInventory, IInventory par2IInventory) {
 		super(new jfm_ContainerClockMiddle(par1IInventory, par2IInventory));

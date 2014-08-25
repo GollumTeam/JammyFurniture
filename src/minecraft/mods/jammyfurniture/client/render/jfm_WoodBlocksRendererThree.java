@@ -4,7 +4,6 @@ import mods.jammyfurniture.client.model.wood.jfm_ModelBlinds;
 import mods.jammyfurniture.client.model.wood.jfm_ModelChair;
 import mods.jammyfurniture.client.model.wood.jfm_ModelRadio;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,9 +15,9 @@ public class jfm_WoodBlocksRendererThree extends TileEntitySpecialRenderer {
 	private jfm_ModelChair chair = new jfm_ModelChair();
 	private jfm_ModelRadio radio = new jfm_ModelRadio();
 	private jfm_ModelBlinds blinds = new jfm_ModelBlinds();
-	protected static final ResourceLocation textureChair = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_chair.png");
-	protected static final ResourceLocation textureRadio = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_radio.png");
-	protected static final ResourceLocation textureBlinds = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_blinds.png");
+	protected static final ResourceLocation textureChair = new ResourceLocation("jammyfurniture:textures/models/jammy_chair.png");
+	protected static final ResourceLocation textureRadio = new ResourceLocation("jammyfurniture:textures/models/jammy_radio.png");
+	protected static final ResourceLocation textureBlinds = new ResourceLocation("jammyfurniture:textures/models/jammy_blinds.png");
 
 	public void renderAModel(TileEntityWoodBlocksThree tileentity1, double d, double d1, double d2, float f) {
 		short ch_rot = 0;

@@ -2,7 +2,6 @@ package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.sofa.jfm_ModelSofaCorner;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -12,10 +11,10 @@ import org.lwjgl.opengl.GL11;
 
 public class jfm_SofaCornerRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelSofaCorner sofa_corner = new jfm_ModelSofaCorner();
-	protected static final ResourceLocation textureRed = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sofacorner_red.png");
-	protected static final ResourceLocation textureBlue = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sofacorner_blue.png");
-	protected static final ResourceLocation textureGreen = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sofacorner_green.png");
-	protected static final ResourceLocation textureGrey = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sofacorner_grey.png");
+	protected static final ResourceLocation textureRed = new ResourceLocation("jammyfurniture:textures/models/jammy_sofacorner_red.png");
+	protected static final ResourceLocation textureBlue = new ResourceLocation("jammyfurniture:textures/models/jammy_sofacorner_blue.png");
+	protected static final ResourceLocation textureGreen = new ResourceLocation("jammyfurniture:textures/models/jammy_sofacorner_green.png");
+	protected static final ResourceLocation textureGrey = new ResourceLocation("jammyfurniture:textures/models/jammy_sofacorner_grey.png");
 
 	public void renderAModel(TileEntitySofaCorner tileentity1, double d, double d1, double d2, float f) {
 		short ac1_rot = 0;

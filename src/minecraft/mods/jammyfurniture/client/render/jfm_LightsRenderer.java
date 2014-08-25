@@ -4,7 +4,6 @@ import mods.jammyfurniture.client.model.lights.jfm_ModelLight;
 import mods.jammyfurniture.client.model.lights.jfm_ModelOutsideLamp;
 import mods.jammyfurniture.client.model.lights.jfm_ModelTableLamp;
 import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,9 +15,9 @@ public class jfm_LightsRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelLight light = new jfm_ModelLight();
 	private jfm_ModelOutsideLamp outside_lamp = new jfm_ModelOutsideLamp();
 	private jfm_ModelTableLamp table_lamp = new jfm_ModelTableLamp();
-	protected static final ResourceLocation textureLight = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_lightbulb.png");
-	protected static final ResourceLocation textureLamp = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_lamp.png");
-	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_tablelamp.png");
+	protected static final ResourceLocation textureLight = new ResourceLocation("jammyfurniture:textures/models/jammy_lightbulb.png");
+	protected static final ResourceLocation textureLamp = new ResourceLocation("jammyfurniture:textures/models/jammy_lamp.png");
+	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:textures/models/jammy_tablelamp.png");
 
 	public void renderAModel(TileEntityLightsOn tileentity1, double d, double d1, double d2, float f) {
 		short ol_rot = 0;

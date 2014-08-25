@@ -1,6 +1,5 @@
 package mods.jammyfurniture.client.render;
 
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
@@ -25,6 +24,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.world.IBlockAccess;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class jfm_InvRenderer implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
@@ -46,6 +46,7 @@ public class jfm_InvRenderer implements ISimpleBlockRenderingHandler {
 
 		if (block == ModJammyFurniture.blockIronBlocksOne) {
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityIronBlocksOne(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
+//			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityIronBlocksOne(), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
 
 		if (block == ModJammyFurniture.blockIronBlocksTwo) {

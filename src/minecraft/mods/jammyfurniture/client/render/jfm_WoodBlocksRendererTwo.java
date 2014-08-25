@@ -4,7 +4,6 @@ import mods.jammyfurniture.client.model.wood.jfm_ModelBasket;
 import mods.jammyfurniture.client.model.wood.jfm_ModelKitchenCupboard;
 import mods.jammyfurniture.client.model.wood.jfm_ModelTV;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,13 +15,13 @@ public class jfm_WoodBlocksRendererTwo extends TileEntitySpecialRenderer {
 	private jfm_ModelKitchenCupboard kitchen_cupboard = new jfm_ModelKitchenCupboard();
 	private jfm_ModelTV tv = new jfm_ModelTV();
 	private jfm_ModelBasket basket = new jfm_ModelBasket();
-	protected static final ResourceLocation textureCubNT = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_kitchencupboardnotop.png");
-	protected static final ResourceLocation textureCub = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_kitchencupboard.png");
-	protected static final ResourceLocation textureTV = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_tv.png");
-	protected static final ResourceLocation textureBaskRed = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_basket_red.png");
-	protected static final ResourceLocation textureBaskBlue = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_basket_blue.png");
-	protected static final ResourceLocation textureBaskGreen = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_basket_green.png");
-	protected static final ResourceLocation textureBaskGrey = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_basket_grey.png");
+	protected static final ResourceLocation textureCubNT = new ResourceLocation("jammyfurniture:textures/models/jammy_kitchencupboardnotop.png");
+	protected static final ResourceLocation textureCub = new ResourceLocation("jammyfurniture:textures/models/jammy_kitchencupboard.png");
+	protected static final ResourceLocation textureTV = new ResourceLocation("jammyfurniture:textures/models/jammy_tv.png");
+	protected static final ResourceLocation textureBaskRed = new ResourceLocation("jammyfurniture:textures/models/jammy_basket_red.png");
+	protected static final ResourceLocation textureBaskBlue = new ResourceLocation("jammyfurniture:textures/models/jammy_basket_blue.png");
+	protected static final ResourceLocation textureBaskGreen = new ResourceLocation("jammyfurniture:textures/models/jammy_basket_green.png");
+	protected static final ResourceLocation textureBaskGrey = new ResourceLocation("jammyfurniture:textures/models/jammy_basket_grey.png");
 
 	public void renderAModel(TileEntityWoodBlocksTwo tileentity1, double d, double d1, double d2, float f) {
 		short kc_rot = 0;

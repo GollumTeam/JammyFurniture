@@ -13,15 +13,21 @@ public class JFItemWoodBlocksThree extends ItemBlock {
 		theBlock = block;
 	}
 
+	public JFItemWoodBlocksThree(int id, Block block) {
+		super(id);
+		this.setHasSubtypes(true);
+		theBlock = block;
+	}
+
 	/**
 	 * Returns the unlocalized name of this item. This version accepts an
 	 * ItemStack so different stacks can have different names based on their
 	 * damage or NBT.
 	 */
-	public String getUnlocalizedName(ItemStack itemstack) {
+	public String getUnlocalizedName(ItemStack itemStack) {
 		String name = "";
 
-		switch (itemstack.getItemDamage()) {
+		switch (itemStack.getItemDamage()) {
 		case 0:
 		case 1:
 		case 2:
@@ -40,7 +46,8 @@ public class JFItemWoodBlocksThree extends ItemBlock {
 			name = "Basket";
 		}
 
-		return this.getUnlocalizedName() + "." + name;
+//		return this.getUnlocalizedName() + "." + name;
+		return this.getUnlocalizedName() + "." + itemStack.getItemDamage();
 	}
 
 	/**

@@ -2,18 +2,17 @@ package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerWashingMachine;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-public class jfm_GuiWashingMachine extends GuiContainer {
+public class GuiWashingMachine extends GuiContainer {
 	private TileEntityIronBlocksTwo wmInv;
-	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.GUI_PATH + "jammy_washingmachine.png");
+	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_washingmachine.png");
 
-	public jfm_GuiWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
+	public GuiWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
 		super(new jfm_ContainerWashingMachine(inventoryplayer, teWashingMachine));
 		this.wmInv = teWashingMachine;
 	}

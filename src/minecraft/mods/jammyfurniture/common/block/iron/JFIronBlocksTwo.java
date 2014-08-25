@@ -3,8 +3,8 @@ package mods.jammyfurniture.common.block.iron;
 import java.util.List;
 import java.util.Random;
 
-import mods.gollum.core.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.block.JFAMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -23,89 +23,90 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFIronBlocksTwo extends HBlockContainer {
-	public Random random = new Random();
-	private Icon jfm_blockIcon;
-
-	public JFIronBlocksTwo(int id, String registerName, int notsure, Class teClass) {
-		super(id, registerName, Material.iron);
+public class JFIronBlocksTwo extends JFAMetadataBlock {
+	
+	public JFIronBlocksTwo(int id, String registerName) {
+		super(id, registerName, Material.iron, TileEntityIronBlocksTwo.class, new int[]{ 0, 4 });
 	}
-
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
-	public int idDropped(int i, Random random, int j) {
-		return ModJammyFurniture.blockIronBlocksTwo.blockID;
-	}
-
+	
+	/////////////////////////////////
+	// Forme et collition du block //
+	/////////////////////////////////
+	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int i) {
-		par1World.getBlockMetadata(par2, par3, i);
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		world.getBlockMetadata(x, y, z);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-		return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, i);
+		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
-
+	
 	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y,
-	 * z
+	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
-		par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
+		blockAccess.getBlockMetadata(x, y, z);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
-
+	
+	///////////
+	// Event //
+	///////////
+	
 	/**
 	 * Called when the block is placed in the world.
 	 */
-	public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack is) {
-		int meta = world.getBlockMetadata(i, j, k);
-		int l = (MathHelper.floor_double((double) (entityliving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
+		int metadata    = world.getBlockMetadata(x, y, z);
+		int orientation = this.getOrientation(entityliving);
 
-		if (meta == 0 || meta == 4) {
-			world.setBlockMetadataWithNotify(i, j, k, meta + l, 0);
+		if (metadata == 0 || metadata == 4) {
+			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
-
+	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer entityplayer, int par6, float par7, float par8, float par9) {
-		int meta = par1World.getBlockMetadata(par2, par3, par4);
-		int l = (MathHelper.floor_double((double) (entityplayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+		int meta = world.getBlockMetadata(x, y, z);
+		int orientation = this.getOrientation(player);
 		TileEntityIronBlocksTwo teIronTwo;
 
 		if (meta != 0 && meta != 1 && meta != 2 && meta != 3) {
 			if (meta == 4 || meta == 5 || meta == 6 || meta == 7) {
-				teIronTwo = (TileEntityIronBlocksTwo) par1World.getBlockTileEntity(par2, par3, par4);
+				teIronTwo = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
 
 				if (teIronTwo != null) {
-					entityplayer.openGui(ModJammyFurniture.instance, 155, par1World, par2, par3, par4);
+					player.openGui(ModJammyFurniture.instance, 155, world, x, y, z);
 					return true;
 				}
 			}
 		} else {
-			teIronTwo = (TileEntityIronBlocksTwo) par1World.getBlockTileEntity(par2, par3, par4);
-
+			teIronTwo = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
+			
 			if (teIronTwo != null) {
-				entityplayer.openGui(ModJammyFurniture.instance, 159, par1World, par2, par3, par4);
+				player.openGui(ModJammyFurniture.instance, 159, world, x, y, z);
 				return true;
 			}
 		}
-
+		
 		return true;
 	}
-
+	
 	/**
 	 * Called on server worlds only when the block has been replaced by a
 	 * different block ID, or the same block with a different metadata value,
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
-	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
-		TileEntityIronBlocksTwo te = (TileEntityIronBlocksTwo) par1World.getBlockTileEntity(par2, par3, par4);
+	public void breakBlock(World world, int x, int y, int z, int oldId, int oldMetadata) {
+		TileEntityIronBlocksTwo te = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
 
 		if (te != null) {
 			for (int j1 = 0; j1 < te.getSizeInventory(); ++j1) {
@@ -116,7 +117,7 @@ public class JFIronBlocksTwo extends HBlockContainer {
 					float f1 = this.random.nextFloat() * 0.8F + 0.1F;
 					EntityItem entityitem;
 
-					for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; par1World.spawnEntityInWorld(entityitem)) {
+					for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem)) {
 						int k1 = this.random.nextInt(21) + 10;
 
 						if (k1 > itemstack.stackSize) {
@@ -124,7 +125,7 @@ public class JFIronBlocksTwo extends HBlockContainer {
 						}
 
 						itemstack.stackSize -= k1;
-						entityitem = new EntityItem(par1World, (double) ((float) par2 + f), (double) ((float) par3 + f1), (double) ((float) par4 + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
+						entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
 						float f3 = 0.05F;
 						entityitem.motionX = (double) ((float) this.random.nextGaussian() * f3);
 						entityitem.motionY = (double) ((float) this.random.nextGaussian() * f3 + 0.2F);
@@ -136,95 +137,21 @@ public class JFIronBlocksTwo extends HBlockContainer {
 					}
 				}
 			}
-
-			par1World.func_96440_m(par2, par3, par4, par5);
+			
+			world.func_96440_m(x, y, z, oldId);
 		}
-
-		super.breakBlock(par1World, par2, par3, par4, par5, par6);
+		
+		super.breakBlock(world, x, y, z, oldId, oldMetadata);
 	}
-
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
-	public int quantityDropped(Random par1Random) {
-		return 1;
-	}
+	
+	///////////////////
+	// Data du block //
+	///////////////////
 
 	/**
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
 		return ModJammyFurniture.ironBlocksTwoRenderID;
-	}
-
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
-	 */
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	public TileEntity getBlockEntity() {
-		return new TileEntityIronBlocksTwo();
-	}
-
-	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing
-	 * the block.
-	 */
-	public TileEntity createNewTileEntity(World var1) {
-		return new TileEntityIronBlocksTwo();
-	}
-
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
-	public void getSubBlocks(int id, CreativeTabs ctabs, List list) {
-		list.add(new ItemStack(id, 1, 0));
-		list.add(new ItemStack(id, 1, 4));
-	}
-
-	/**
-	 * Determines the damage on the item the block drops. Used in cloth and
-	 * wood.
-	 */
-	public int damageDropped(int par1) {
-		if (par1 == 1 || par1 == 2 || par1 == 3) {
-			par1 = 0;
-		}
-
-		if (par1 == 5 || par1 == 6 || par1 == 7) {
-			par1 = 4;
-		}
-
-		return par1;
-	}
-
-	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.jfm_blockIcon = par1IconRegister.registerIcon("jammyfurniture:jammy_iron");
-	}
-
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture.
-	 * Args: side, metadata
-	 */
-	public Icon getIcon(int side, int metadata) {
-		return this.jfm_blockIcon;
 	}
 }

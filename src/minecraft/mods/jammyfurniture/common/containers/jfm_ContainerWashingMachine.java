@@ -47,24 +47,24 @@ public class jfm_ContainerWashingMachine extends Container {
 		for (int i = 0; i < this.crafters.size(); ++i) {
 			ICrafting icrafting = (ICrafting) this.crafters.get(i);
 
-			if (this.wmSlot1Time != this.washingMachine.wmSlot1Time) {
-				icrafting.sendProgressBarUpdate(this, 0, this.washingMachine.wmSlot1Time);
+			if (this.wmSlot1Time != this.washingMachine.slot1Time) {
+				icrafting.sendProgressBarUpdate(this, 0, this.washingMachine.slot1Time);
 			}
 
-			if (this.wmSlot2Time != this.washingMachine.wmSlot2Time) {
-				icrafting.sendProgressBarUpdate(this, 1, this.washingMachine.wmSlot2Time);
+			if (this.wmSlot2Time != this.washingMachine.slot2Time) {
+				icrafting.sendProgressBarUpdate(this, 1, this.washingMachine.slot2Time);
 			}
 
-			if (this.wmSlot3Time != this.washingMachine.wmSlot3Time) {
-				icrafting.sendProgressBarUpdate(this, 2, this.washingMachine.wmSlot3Time);
+			if (this.wmSlot3Time != this.washingMachine.slot3Time) {
+				icrafting.sendProgressBarUpdate(this, 2, this.washingMachine.slot3Time);
 			}
 
-			if (this.wmSlot4Time != this.washingMachine.wmSlot4Time) {
-				icrafting.sendProgressBarUpdate(this, 3, this.washingMachine.wmSlot4Time);
+			if (this.wmSlot4Time != this.washingMachine.slot4Time) {
+				icrafting.sendProgressBarUpdate(this, 3, this.washingMachine.slot4Time);
 			}
 
-			if (this.BurnTime != this.washingMachine.wmBurnTime) {
-				icrafting.sendProgressBarUpdate(this, 4, this.washingMachine.wmBurnTime);
+			if (this.BurnTime != this.washingMachine.burnTime) {
+				icrafting.sendProgressBarUpdate(this, 4, this.washingMachine.burnTime);
 			}
 
 			if (this.ItemBurnTime != this.washingMachine.currentItemBurnTime) {
@@ -72,33 +72,33 @@ public class jfm_ContainerWashingMachine extends Container {
 			}
 		}
 
-		this.wmSlot1Time = this.washingMachine.wmSlot1Time;
-		this.wmSlot2Time = this.washingMachine.wmSlot2Time;
-		this.wmSlot3Time = this.washingMachine.wmSlot3Time;
-		this.wmSlot4Time = this.washingMachine.wmSlot4Time;
-		this.BurnTime = this.washingMachine.wmBurnTime;
+		this.wmSlot1Time = this.washingMachine.slot1Time;
+		this.wmSlot2Time = this.washingMachine.slot2Time;
+		this.wmSlot3Time = this.washingMachine.slot3Time;
+		this.wmSlot4Time = this.washingMachine.slot4Time;
+		this.BurnTime = this.washingMachine.burnTime;
 		this.ItemBurnTime = this.washingMachine.currentItemBurnTime;
 	}
 
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			this.washingMachine.wmSlot1Time = j;
+			this.washingMachine.slot1Time = j;
 		}
 
 		if (i == 1) {
-			this.washingMachine.wmSlot2Time = j;
+			this.washingMachine.slot2Time = j;
 		}
 
 		if (i == 2) {
-			this.washingMachine.wmSlot3Time = j;
+			this.washingMachine.slot3Time = j;
 		}
 
 		if (i == 3) {
-			this.washingMachine.wmSlot4Time = j;
+			this.washingMachine.slot4Time = j;
 		}
 
 		if (i == 4) {
-			this.washingMachine.wmBurnTime = j;
+			this.washingMachine.burnTime = j;
 		}
 
 		if (i == 5) {

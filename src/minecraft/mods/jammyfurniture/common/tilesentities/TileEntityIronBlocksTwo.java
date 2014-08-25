@@ -1,5 +1,6 @@
 package mods.jammyfurniture.common.tilesentities;
 
+import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.recipes.jfm_DishwasherRecipes;
 import mods.jammyfurniture.client.recipes.jfm_WashingMachineRecipes;
 import net.minecraft.block.Block;
@@ -14,25 +15,36 @@ import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
-	public ItemStack[] dwItemStacks;
-	public int dwItemBurnTime;
-	public int dwSlot1Time;
-	public int dwSlot2Time;
-	public int dwSlot3Time;
-	public int dwSlot4Time;
-	public int dwBurnTime;
-	public ItemStack[] wmItemStacks;
-	public int currentItemBurnTime;
-	public int wmSlot1Time;
-	public int wmSlot2Time;
-	public int wmSlot3Time;
-	public int wmSlot4Time;
-	public int wmBurnTime;
+	
 	public static int md = 0;
+	
 	public float lidAngle;
+	
 	public float prevLidAngle;
+	
 	public int numUsingPlayers;
+	
 	private int ticksSinceSync;
+	
+	//////////////
+	// ???????? //
+	//////////////
+
+	public int currentItemBurnTime;
+	/**  @deprecated */
+	public int dwItemBurnTime;
+	
+	//////////////////////////////
+	// Liste des items du block //
+	//////////////////////////////
+	/**  @deprecated */
+	public ItemStack[] itemStacks;
+	public ItemStack[] dwItemStacks;
+	
+	/////////////////////////////////////////
+	// A revoir pour gérer tous les amures //
+	/////////////////////////////////////////
+	
 	public static int[] woodTools = new int[] { 270, 269, 271, 290, 268 };
 	public static int[] stoneTools = new int[] { 274, 273, 275, 291, 272 };
 	public static int[] steelTools = new int[] { 257, 256, 258, 292, 267 };
@@ -44,14 +56,39 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 	public static int[] steelArmour = new int[] { 306, 307, 308, 309 };
 	public static int[] leatherArmour = new int[] { 298, 299, 300, 301 };
 
+	/////////////////////////////////
+	// Temps actif dans la machine //
+	/////////////////////////////////
+
+	
+
+	public int slot1Time;
+	public int slot2Time;
+	public int slot3Time;
+	public int slot4Time;
+	public int burnTime;
+
+	/**  @deprecated */
+	public int dwSlot1Time;
+	/**  @deprecated */
+	public int dwSlot2Time;
+	/**  @deprecated */
+	public int dwSlot3Time;
+	/**  @deprecated */
+	public int dwSlot4Time;
+	/**  @deprecated */
+	public int dwBurnTime;
+	
 	public TileEntityIronBlocksTwo() {
-		this.wmItemStacks = new ItemStack[5];
-		this.wmBurnTime = 0;
+		this.itemStacks = new ItemStack[5];
+		this.burnTime = 0;
 		this.currentItemBurnTime = 0;
-		this.wmSlot1Time = 0;
-		this.wmSlot2Time = 0;
-		this.wmSlot3Time = 0;
-		this.wmSlot4Time = 0;
+		
+		this.slot1Time = 0;
+		this.slot2Time = 0;
+		this.slot3Time = 0;
+		this.slot4Time = 0;
+		
 		this.dwItemStacks = new ItemStack[5];
 		this.dwBurnTime = 0;
 		this.dwItemBurnTime = 0;
@@ -69,9 +106,12 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 	 * Returns the number of slots in the inventory.
 	 */
 	public int getSizeInventory() {
+		
 		if (this.worldObj != null && this.worldObj.blockExists(this.xCoord, this.yCoord, this.zCoord)) {
-			int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
-			return meta <= 3 ? this.dwItemStacks.length : (meta != 4 && meta != 5 && meta != 6 && meta != 7 ? 0 : this.wmItemStacks.length);
+			
+			int metadata = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
+			return metadata <= 3 ? this.dwItemStacks.length : (metadata != 4 && metadata != 5 && metadata != 6 && metadata != 7 ? 0 : this.itemStacks.length);
+			
 		} else {
 			return 0;
 		}
@@ -97,7 +137,7 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 			case 5:
 			case 6:
 			case 7:
-				return this.wmItemStacks[par1];
+				return this.itemStacks[par1];
 
 			default:
 				return null;
@@ -130,17 +170,17 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 				this.onInventoryChanged();
 				return itemstack1;
 			}
-		} else if (this.wmItemStacks[par1] != null) {
-			if (this.wmItemStacks[par1].stackSize <= par2) {
-				itemstack1 = this.wmItemStacks[par1];
-				this.wmItemStacks[par1] = null;
+		} else if (this.itemStacks[par1] != null) {
+			if (this.itemStacks[par1].stackSize <= par2) {
+				itemstack1 = this.itemStacks[par1];
+				this.itemStacks[par1] = null;
 				this.onInventoryChanged();
 				return itemstack1;
 			} else {
-				itemstack1 = this.wmItemStacks[par1].splitStack(par2);
+				itemstack1 = this.itemStacks[par1].splitStack(par2);
 
-				if (this.wmItemStacks[par1].stackSize == 0) {
-					this.wmItemStacks[par1] = null;
+				if (this.itemStacks[par1].stackSize == 0) {
+					this.itemStacks[par1] = null;
 				}
 
 				this.onInventoryChanged();
@@ -163,9 +203,9 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 			itemstack = this.dwItemStacks[par1];
 			this.dwItemStacks[par1] = null;
 			return itemstack;
-		} else if (this.wmItemStacks[par1] != null) {
-			itemstack = this.wmItemStacks[par1];
-			this.wmItemStacks[par1] = null;
+		} else if (this.itemStacks[par1] != null) {
+			itemstack = this.itemStacks[par1];
+			this.itemStacks[par1] = null;
 			return itemstack;
 		} else {
 			return null;
@@ -182,7 +222,7 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 		if (meta <= 3) {
 			this.dwItemStacks[par1] = par2ItemStack;
 		} else if (meta == 4 || meta == 5 || meta == 6 || meta == 7) {
-			this.wmItemStacks[par1] = par2ItemStack;
+			this.itemStacks[par1] = par2ItemStack;
 		}
 
 		if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit()) {
@@ -222,7 +262,7 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("dwItems");
 		NBTTagList nbttaglist2 = par1NBTTagCompound.getTagList("wmItems");
 		this.dwItemStacks = new ItemStack[5];
-		this.wmItemStacks = new ItemStack[5];
+		this.itemStacks = new ItemStack[5];
 		int i;
 		NBTTagCompound nbttagcompound2;
 
@@ -246,17 +286,17 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 			nbttagcompound2 = (NBTTagCompound) nbttaglist2.tagAt(i);
 			byte var7 = nbttagcompound2.getByte("Slot");
 
-			if (var7 >= 0 && var7 < this.wmItemStacks.length) {
-				this.wmItemStacks[var7] = ItemStack.loadItemStackFromNBT(nbttagcompound2);
+			if (var7 >= 0 && var7 < this.itemStacks.length) {
+				this.itemStacks[var7] = ItemStack.loadItemStackFromNBT(nbttagcompound2);
 			}
 		}
 
-		this.wmBurnTime = par1NBTTagCompound.getShort("wmBurnTime");
-		this.wmSlot1Time = par1NBTTagCompound.getShort("wmSlot1Time");
-		this.wmSlot2Time = par1NBTTagCompound.getShort("wmSlot2Time");
-		this.wmSlot3Time = par1NBTTagCompound.getShort("wmSlot3Time");
-		this.wmSlot4Time = par1NBTTagCompound.getShort("wmSlot4Time");
-		this.currentItemBurnTime = getItemBurnTime(this.wmItemStacks[1]);
+		this.burnTime = par1NBTTagCompound.getShort("wmBurnTime");
+		this.slot1Time = par1NBTTagCompound.getShort("wmSlot1Time");
+		this.slot2Time = par1NBTTagCompound.getShort("wmSlot2Time");
+		this.slot3Time = par1NBTTagCompound.getShort("wmSlot3Time");
+		this.slot4Time = par1NBTTagCompound.getShort("wmSlot4Time");
+		this.currentItemBurnTime = getItemBurnTime(this.itemStacks[1]);
 	}
 
 	/**
@@ -292,17 +332,17 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 
 			par1NBTTagCompound.setTag("dwItems", nbttaglist);
 		} else if (meta == 4 || meta == 5 || meta == 6 || meta == 7) {
-			par1NBTTagCompound.setShort("wmBurnTime", (short) this.wmBurnTime);
-			par1NBTTagCompound.setShort("wmSlot1Time", (short) this.wmSlot1Time);
-			par1NBTTagCompound.setShort("wmSlot2Time", (short) this.wmSlot2Time);
-			par1NBTTagCompound.setShort("wmSlot3Time", (short) this.wmSlot3Time);
-			par1NBTTagCompound.setShort("wmSlot4Time", (short) this.wmSlot4Time);
+			par1NBTTagCompound.setShort("wmBurnTime", (short) this.burnTime);
+			par1NBTTagCompound.setShort("wmSlot1Time", (short) this.slot1Time);
+			par1NBTTagCompound.setShort("wmSlot2Time", (short) this.slot2Time);
+			par1NBTTagCompound.setShort("wmSlot3Time", (short) this.slot3Time);
+			par1NBTTagCompound.setShort("wmSlot4Time", (short) this.slot4Time);
 
-			for (i = 0; i < this.wmItemStacks.length; ++i) {
-				if (this.wmItemStacks[i] != null) {
+			for (i = 0; i < this.itemStacks.length; ++i) {
+				if (this.itemStacks[i] != null) {
 					nbttagcompound = new NBTTagCompound();
 					nbttagcompound.setByte("Slot", (byte) i);
-					this.wmItemStacks[i].writeToNBT(nbttagcompound);
+					this.itemStacks[i].writeToNBT(nbttagcompound);
 					nbttaglist.appendTag(nbttagcompound);
 				}
 			}
@@ -343,19 +383,19 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 	}
 
 	public int getProgressSlot1(int par1) {
-		return this.wmSlot1Time * par1 / this.getSmeltTime1();
+		return this.slot1Time * par1 / this.getSmeltTime1();
 	}
 
 	public int getProgressSlot2(int par1) {
-		return this.wmSlot2Time * par1 / this.getSmeltTime2();
+		return this.slot2Time * par1 / this.getSmeltTime2();
 	}
 
 	public int getProgressSlot3(int par1) {
-		return this.wmSlot3Time * par1 / this.getSmeltTime3();
+		return this.slot3Time * par1 / this.getSmeltTime3();
 	}
 
 	public int getProgressSlot4(int par1) {
-		return this.wmSlot4Time * par1 / this.getSmeltTime4();
+		return this.slot4Time * par1 / this.getSmeltTime4();
 	}
 
 	public int dwGetProgressSlot1(int par1) {
@@ -379,7 +419,7 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 			this.currentItemBurnTime = 200;
 		}
 
-		return this.wmBurnTime * par1 / this.currentItemBurnTime;
+		return this.burnTime * par1 / this.currentItemBurnTime;
 	}
 
 	public int dwGetBurnTimeRemainingScaled(int par1) {
@@ -391,7 +431,7 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 	}
 
 	public boolean isBurning() {
-		return this.wmBurnTime > 0;
+		return this.burnTime > 0;
 	}
 
 	public boolean dwIsBurning() {
@@ -404,9 +444,11 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 	 * inside its implementation.
 	 */
 	public void updateEntity() {
-		int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
-
-		if (meta <= 3) {
+		
+		int metadata = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
+		
+		if (metadata <= 3) {
+			
 			if (++this.ticksSinceSync % 20 * 4 == 0) {
 				;
 			}
@@ -472,10 +514,12 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 				}
 
 				boolean var14 = false;
-
+				
+//				ModJammyFurniture.log.debug("his.dwIsBurning()="+this.dwIsBurning()+" !var14="+!var14);
+				
 				if (this.dwIsBurning() && !var14) {
 					var14 = true;
-
+					
 					if (var14) {
 						this.worldObj.playSoundEffect((double) this.xCoord, (double) this.yCoord, (double) this.zCoord, "jammyfurniture:washingmachine", 0.2F, 1.0F);
 					}
@@ -536,27 +580,28 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 				this.onInventoryChanged();
 			}
 		}
-
-		if (meta == 4 || meta == 5 || meta == 6 || meta == 7) {
-			boolean var9 = this.wmBurnTime > 0;
+		
+		if (metadata == 4 || metadata == 5 || metadata == 6 || metadata == 7) {
+			
+			boolean var9 = this.burnTime > 0;
 			boolean var10 = false;
-
-			if (this.wmBurnTime > 0) {
-				--this.wmBurnTime;
+			
+			if (this.burnTime > 0) {
+				--this.burnTime;
 			}
 
 			if (!this.worldObj.isRemote) {
-				if (this.wmBurnTime == 0 && (this.canSmeltSlot1() || this.canSmeltSlot2() || this.canSmeltSlot3() || this.canSmeltSlot4())) {
-					this.currentItemBurnTime = this.wmBurnTime = getItemBurnTime(this.wmItemStacks[1]);
+				if (this.burnTime == 0 && (this.canSmeltSlot1() || this.canSmeltSlot2() || this.canSmeltSlot3() || this.canSmeltSlot4())) {
+					this.currentItemBurnTime = this.burnTime = getItemBurnTime(this.itemStacks[1]);
 
-					if (this.wmBurnTime > 0) {
+					if (this.burnTime > 0) {
 						var10 = true;
 
-						if (this.wmItemStacks[1] != null) {
-							--this.wmItemStacks[1].stackSize;
+						if (this.itemStacks[1] != null) {
+							--this.itemStacks[1].stackSize;
 
-							if (this.wmItemStacks[1].stackSize == 0) {
-								this.wmItemStacks[1] = this.wmItemStacks[1].getItem().getContainerItemStack(this.wmItemStacks[1]);
+							if (this.itemStacks[1].stackSize == 0) {
+								this.itemStacks[1] = this.itemStacks[1].getItem().getContainerItemStack(this.itemStacks[1]);
 							}
 						}
 					}
@@ -575,51 +620,51 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 				}
 
 				if (this.canSmeltSlot1() && this.isBurning()) {
-					++this.wmSlot1Time;
+					++this.slot1Time;
 
-					if (this.wmSlot1Time == this.getSmeltTime1()) {
-						this.wmSlot1Time = 0;
+					if (this.slot1Time == this.getSmeltTime1()) {
+						this.slot1Time = 0;
 						this.fixArmourSlot1();
 						var10 = true;
 					}
 				} else {
-					this.wmSlot1Time = 0;
+					this.slot1Time = 0;
 				}
 
 				if (this.canSmeltSlot2() && this.isBurning()) {
-					++this.wmSlot2Time;
+					++this.slot2Time;
 
-					if (this.wmSlot2Time == this.getSmeltTime2()) {
-						this.wmSlot2Time = 0;
+					if (this.slot2Time == this.getSmeltTime2()) {
+						this.slot2Time = 0;
 						this.fixArmourSlot2();
 						var10 = true;
 					}
 				} else {
-					this.wmSlot2Time = 0;
+					this.slot2Time = 0;
 				}
 
 				if (this.canSmeltSlot3() && this.isBurning()) {
-					++this.wmSlot3Time;
+					++this.slot3Time;
 
-					if (this.wmSlot3Time == this.getSmeltTime3()) {
-						this.wmSlot3Time = 0;
+					if (this.slot3Time == this.getSmeltTime3()) {
+						this.slot3Time = 0;
 						this.fixArmourSlot3();
 						var10 = true;
 					}
 				} else {
-					this.wmSlot3Time = 0;
+					this.slot3Time = 0;
 				}
 
 				if (this.canSmeltSlot4() && this.isBurning()) {
-					++this.wmSlot4Time;
+					++this.slot4Time;
 
-					if (this.wmSlot4Time == this.getSmeltTime4()) {
-						this.wmSlot4Time = 0;
+					if (this.slot4Time == this.getSmeltTime4()) {
+						this.slot4Time = 0;
 						this.fixArmourSlot4();
 						var10 = true;
 					}
 				} else {
-					this.wmSlot4Time = 0;
+					this.slot4Time = 0;
 				}
 			}
 
@@ -866,31 +911,31 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 		int i;
 
 		for (i = 0; i < diamondArmour.length; ++i) {
-			if (this.wmItemStacks[0] != null && this.wmItemStacks[0].itemID == diamondArmour[i]) {
+			if (this.itemStacks[0] != null && this.itemStacks[0].itemID == diamondArmour[i]) {
 				time = 7200;
 			}
 		}
 
 		for (i = 0; i < chainArmour.length; ++i) {
-			if (this.wmItemStacks[0] != null && this.wmItemStacks[0].itemID == chainArmour[i]) {
+			if (this.itemStacks[0] != null && this.itemStacks[0].itemID == chainArmour[i]) {
 				time = 6000;
 			}
 		}
 
 		for (i = 0; i < goldenArmour.length; ++i) {
-			if (this.wmItemStacks[0] != null && this.wmItemStacks[0].itemID == goldenArmour[i]) {
+			if (this.itemStacks[0] != null && this.itemStacks[0].itemID == goldenArmour[i]) {
 				time = 4800;
 			}
 		}
 
 		for (i = 0; i < steelArmour.length; ++i) {
-			if (this.wmItemStacks[0] != null && this.wmItemStacks[0].itemID == steelArmour[i]) {
+			if (this.itemStacks[0] != null && this.itemStacks[0].itemID == steelArmour[i]) {
 				time = 4000;
 			}
 		}
 
 		for (i = 0; i < leatherArmour.length; ++i) {
-			if (this.wmItemStacks[0] != null && this.wmItemStacks[0].itemID == leatherArmour[i]) {
+			if (this.itemStacks[0] != null && this.itemStacks[0].itemID == leatherArmour[i]) {
 				time = 1500;
 			}
 		}
@@ -903,31 +948,31 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 		int i;
 
 		for (i = 0; i < diamondArmour.length; ++i) {
-			if (this.wmItemStacks[2] != null && this.wmItemStacks[2].itemID == diamondArmour[i]) {
+			if (this.itemStacks[2] != null && this.itemStacks[2].itemID == diamondArmour[i]) {
 				time = 7200;
 			}
 		}
 
 		for (i = 0; i < chainArmour.length; ++i) {
-			if (this.wmItemStacks[2] != null && this.wmItemStacks[2].itemID == chainArmour[i]) {
+			if (this.itemStacks[2] != null && this.itemStacks[2].itemID == chainArmour[i]) {
 				time = 6000;
 			}
 		}
 
 		for (i = 0; i < goldenArmour.length; ++i) {
-			if (this.wmItemStacks[2] != null && this.wmItemStacks[2].itemID == goldenArmour[i]) {
+			if (this.itemStacks[2] != null && this.itemStacks[2].itemID == goldenArmour[i]) {
 				time = 4800;
 			}
 		}
 
 		for (i = 0; i < steelArmour.length; ++i) {
-			if (this.wmItemStacks[2] != null && this.wmItemStacks[2].itemID == steelArmour[i]) {
+			if (this.itemStacks[2] != null && this.itemStacks[2].itemID == steelArmour[i]) {
 				time = 4000;
 			}
 		}
 
 		for (i = 0; i < leatherArmour.length; ++i) {
-			if (this.wmItemStacks[2] != null && this.wmItemStacks[2].itemID == leatherArmour[i]) {
+			if (this.itemStacks[2] != null && this.itemStacks[2].itemID == leatherArmour[i]) {
 				time = 1500;
 			}
 		}
@@ -940,31 +985,31 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 		int i;
 
 		for (i = 0; i < diamondArmour.length; ++i) {
-			if (this.wmItemStacks[3] != null && this.wmItemStacks[3].itemID == diamondArmour[i]) {
+			if (this.itemStacks[3] != null && this.itemStacks[3].itemID == diamondArmour[i]) {
 				time = 7200;
 			}
 		}
 
 		for (i = 0; i < chainArmour.length; ++i) {
-			if (this.wmItemStacks[3] != null && this.wmItemStacks[3].itemID == chainArmour[i]) {
+			if (this.itemStacks[3] != null && this.itemStacks[3].itemID == chainArmour[i]) {
 				time = 6000;
 			}
 		}
 
 		for (i = 0; i < goldenArmour.length; ++i) {
-			if (this.wmItemStacks[3] != null && this.wmItemStacks[3].itemID == goldenArmour[i]) {
+			if (this.itemStacks[3] != null && this.itemStacks[3].itemID == goldenArmour[i]) {
 				time = 4800;
 			}
 		}
 
 		for (i = 0; i < steelArmour.length; ++i) {
-			if (this.wmItemStacks[3] != null && this.wmItemStacks[3].itemID == steelArmour[i]) {
+			if (this.itemStacks[3] != null && this.itemStacks[3].itemID == steelArmour[i]) {
 				time = 4000;
 			}
 		}
 
 		for (i = 0; i < leatherArmour.length; ++i) {
-			if (this.wmItemStacks[3] != null && this.wmItemStacks[3].itemID == leatherArmour[i]) {
+			if (this.itemStacks[3] != null && this.itemStacks[3].itemID == leatherArmour[i]) {
 				time = 1500;
 			}
 		}
@@ -977,31 +1022,31 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 		int i;
 
 		for (i = 0; i < diamondArmour.length; ++i) {
-			if (this.wmItemStacks[4] != null && this.wmItemStacks[4].itemID == diamondArmour[i]) {
+			if (this.itemStacks[4] != null && this.itemStacks[4].itemID == diamondArmour[i]) {
 				time = 7200;
 			}
 		}
 
 		for (i = 0; i < chainArmour.length; ++i) {
-			if (this.wmItemStacks[4] != null && this.wmItemStacks[4].itemID == chainArmour[i]) {
+			if (this.itemStacks[4] != null && this.itemStacks[4].itemID == chainArmour[i]) {
 				time = 6000;
 			}
 		}
 
 		for (i = 0; i < goldenArmour.length; ++i) {
-			if (this.wmItemStacks[4] != null && this.wmItemStacks[4].itemID == goldenArmour[i]) {
+			if (this.itemStacks[4] != null && this.itemStacks[4].itemID == goldenArmour[i]) {
 				time = 4800;
 			}
 		}
 
 		for (i = 0; i < steelArmour.length; ++i) {
-			if (this.wmItemStacks[4] != null && this.wmItemStacks[4].itemID == steelArmour[i]) {
+			if (this.itemStacks[4] != null && this.itemStacks[4].itemID == steelArmour[i]) {
 				time = 4000;
 			}
 		}
 
 		for (i = 0; i < leatherArmour.length; ++i) {
-			if (this.wmItemStacks[4] != null && this.wmItemStacks[4].itemID == leatherArmour[i]) {
+			if (this.itemStacks[4] != null && this.itemStacks[4].itemID == leatherArmour[i]) {
 				time = 1500;
 			}
 		}
@@ -1010,85 +1055,85 @@ public class TileEntityIronBlocksTwo extends TileEntity implements IInventory {
 	}
 
 	private boolean canSmeltSlot1() {
-		if (this.wmItemStacks[0] == null) {
+		if (this.itemStacks[0] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.wmItemStacks[0].getItem().itemID);
-			return this.wmItemStacks[0].getItemDamageForDisplay() == 0 ? false : itemstack != null;
+			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.itemStacks[0].getItem().itemID);
+			return this.itemStacks[0].getItemDamageForDisplay() == 0 ? false : itemstack != null;
 		}
 	}
 
 	private boolean canSmeltSlot2() {
-		if (this.wmItemStacks[2] == null) {
+		if (this.itemStacks[2] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.wmItemStacks[2].getItem().itemID);
-			return this.wmItemStacks[2].getItemDamageForDisplay() == 0 ? false : itemstack != null;
+			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.itemStacks[2].getItem().itemID);
+			return this.itemStacks[2].getItemDamageForDisplay() == 0 ? false : itemstack != null;
 		}
 	}
 
 	private boolean canSmeltSlot3() {
-		if (this.wmItemStacks[3] == null) {
+		if (this.itemStacks[3] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.wmItemStacks[3].getItem().itemID);
-			return this.wmItemStacks[3].getItemDamageForDisplay() == 0 ? false : itemstack != null;
+			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.itemStacks[3].getItem().itemID);
+			return this.itemStacks[3].getItemDamageForDisplay() == 0 ? false : itemstack != null;
 		}
 	}
 
 	private boolean canSmeltSlot4() {
-		if (this.wmItemStacks[4] == null) {
+		if (this.itemStacks[4] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.wmItemStacks[4].getItem().itemID);
-			return this.wmItemStacks[4].getItemDamageForDisplay() == 0 ? false : itemstack != null;
+			ItemStack itemstack = jfm_WashingMachineRecipes.smelting().getSmeltingResult(this.itemStacks[4].getItem().itemID);
+			return this.itemStacks[4].getItemDamageForDisplay() == 0 ? false : itemstack != null;
 		}
 	}
 
 	public void fixArmourSlot1() {
 		if (this.canSmeltSlot1()) {
-			if (this.wmItemStacks[0].stackSize <= 0) {
-				this.wmItemStacks[0] = null;
+			if (this.itemStacks[0].stackSize <= 0) {
+				this.itemStacks[0] = null;
 			}
 
-			if (this.wmItemStacks[0].getItemDamageForDisplay() != 0) {
-				this.wmItemStacks[0].setItemDamage(0);
+			if (this.itemStacks[0].getItemDamageForDisplay() != 0) {
+				this.itemStacks[0].setItemDamage(0);
 			}
 		}
 	}
 
 	public void fixArmourSlot2() {
 		if (this.canSmeltSlot2()) {
-			if (this.wmItemStacks[2].stackSize <= 0) {
-				this.wmItemStacks[2] = null;
+			if (this.itemStacks[2].stackSize <= 0) {
+				this.itemStacks[2] = null;
 			}
 
-			if (this.wmItemStacks[2].getItemDamageForDisplay() != 0) {
-				this.wmItemStacks[2].setItemDamage(0);
+			if (this.itemStacks[2].getItemDamageForDisplay() != 0) {
+				this.itemStacks[2].setItemDamage(0);
 			}
 		}
 	}
 
 	public void fixArmourSlot3() {
 		if (this.canSmeltSlot3()) {
-			if (this.wmItemStacks[3].stackSize <= 0) {
-				this.wmItemStacks[3] = null;
+			if (this.itemStacks[3].stackSize <= 0) {
+				this.itemStacks[3] = null;
 			}
 
-			if (this.wmItemStacks[3].getItemDamageForDisplay() != 0) {
-				this.wmItemStacks[3].setItemDamage(0);
+			if (this.itemStacks[3].getItemDamageForDisplay() != 0) {
+				this.itemStacks[3].setItemDamage(0);
 			}
 		}
 	}
 
 	public void fixArmourSlot4() {
 		if (this.canSmeltSlot4()) {
-			if (this.wmItemStacks[4].stackSize <= 0) {
-				this.wmItemStacks[4] = null;
+			if (this.itemStacks[4].stackSize <= 0) {
+				this.itemStacks[4] = null;
 			}
 
-			if (this.wmItemStacks[4].getItemDamageForDisplay() != 0) {
-				this.wmItemStacks[4].setItemDamage(0);
+			if (this.itemStacks[4].getItemDamageForDisplay() != 0) {
+				this.itemStacks[4].setItemDamage(0);
 			}
 		}
 	}

@@ -8,18 +8,22 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class jfm_ContainerDishwasher extends Container {
+public class ContainerDishwasher extends Container {
+	
 	private TileEntityIronBlocksTwo dishwasher;
+	private int BurnTime = 0;
+	private int ItemBurnTime = 0;
+	
 	public int dwSlot1Time = 0;
 	public int dwSlot2Time = 0;
 	public int dwSlot3Time = 0;
 	public int dwSlot4Time = 0;
-	private int BurnTime = 0;
-	private int ItemBurnTime = 0;
-
-	public jfm_ContainerDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) {
+	
+	public ContainerDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) {
+		
 		this.dishwasher = teDishwasher;
 		this.dishwasher.openChest();
+		
 		this.addSlotToContainer(new Slot(teDishwasher, 0, 79, 27));
 		this.addSlotToContainer(new Slot(teDishwasher, 1, 15, 52));
 		this.addSlotToContainer(new Slot(teDishwasher, 2, 113, 27));

@@ -1,14 +1,10 @@
 package mods.jammyfurniture.common.block.iron;
 
-import java.util.List;
-import java.util.Random;
-
-import mods.gollum.core.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.block.JFAMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.util.JFGuiHandler;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,53 +12,35 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFIronBlocksOne extends HBlockContainer {
-	private Class teClass;
-	public Random random;
-	private Icon jfm_blockIcon;
-
-	public JFIronBlocksOne(int id, String registerName, int notsure, Class c) {
-		super(id, registerName, Material.iron);
-		this.teClass = c;
-		this.random = new Random();
-	}
-
+public class JFIronBlocksOne extends JFAMetadataBlock {
+	
 	/**
-	 * Returns the ID of the items to drop on destruction.
+	 * Returns a new instance of a block's tile entity class. Called on placing
+	 * the block.
 	 */
-	public int idDropped(int i, Random random, int j) {
-		return ModJammyFurniture.blockIronBlocksOne.blockID;
+	public JFIronBlocksOne(int id, String registerName) {
+		super(id, registerName, Material.iron, TileEntityIronBlocksOne.class, new int[]{ 0, 4, 8, 12, 13 });
+		this.tileEntityClass = TileEntityIronBlocksOne.class;
 	}
-
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack is) {
-		int meta = world.getBlockMetadata(i, j, k);
-		int l = (MathHelper.floor_double((double) (entityliving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
-
-		if (meta == 0 || meta == 4 || meta == 8) {
-			world.setBlockMetadataWithNotify(i, j, k, meta + l, 0);
-		}
-	}
-
+	
+	/////////////////////////////////
+	// Forme et collition du block //
+	/////////////////////////////////
+	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int i) {
-		int b = par1World.getBlockMetadata(par2, par3, i);
-
-		if (b != 0 && b != 2 && b != 4 && b != 6) {
-			if (b != 1 && b != 3 && b != 5 && b != 7) {
-				if (b == 12) {
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		int metadata = world.getBlockMetadata(x, y, z);
+		
+		if (metadata != 0 && metadata != 2 && metadata != 4 && metadata != 6) {
+			if (metadata != 1 && metadata != 3 && metadata != 5 && metadata != 7) {
+				if (metadata == 12) {
 					this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
 				} else {
 					this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -74,19 +52,20 @@ public class JFIronBlocksOne extends HBlockContainer {
 			this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F);
 		}
 
-		return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, i);
+		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
 
+	
 	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y,
-	 * z
+	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
-		int b = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
-
-		if (b != 0 && b != 2 && b != 4 && b != 6) {
-			if (b != 1 && b != 3 && b != 5 && b != 7) {
-				if (b == 12) {
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
+		int metadata = blockAccess.getBlockMetadata(x, y, z);
+		
+		if (metadata != 0 && metadata != 2 && metadata != 4 && metadata != 6) {
+			if (metadata != 1 && metadata != 3 && metadata != 5 && metadata != 7) {
+				if (metadata == 12) {
 					this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
 				} else {
 					this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -98,53 +77,65 @@ public class JFIronBlocksOne extends HBlockContainer {
 			this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F);
 		}
 	}
-
+	
+	
+	///////////
+	// Event //
+	///////////
+	
+	/**
+	 * Called when the block is placed in the world.
+	 */
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
+		int metadata    = world.getBlockMetadata(x, y, z);
+		int orientation = this.getOrientation(entityliving);
+		
+		if (metadata == 0 || metadata == 4 || metadata == 8) {
+			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
+		}
+	}
+	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
-	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer entityplayer, int par6, float par7, float par8, float par9) {
-		int meta = par1World.getBlockMetadata(par2, par3, par4);
-		int l = (MathHelper.floor_double((double) (entityplayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
-		TileEntityIronBlocksOne teIronOne;
-
-		if (meta != 0 && meta != 1 && meta != 2 && meta != 3) {
-			if (meta != 4 && meta != 5 && meta != 6 && meta != 7) {
-				if (meta != 8 && meta != 9 && meta != 10 && meta != 11) {
-					if (meta == 12) {
-						teIronOne = (TileEntityIronBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
-
-						if (teIronOne != null) {
-							entityplayer.openGui(ModJammyFurniture.instance, 158, par1World, par2, par3, par4);
-							return true;
-						}
-					}
-				} else {
-					teIronOne = (TileEntityIronBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
-
-					if (teIronOne != null) {
-						entityplayer.openGui(ModJammyFurniture.instance, 152, par1World, par2, par3, par4);
-						return true;
-					}
-				}
-			} else {
-				teIronOne = (TileEntityIronBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
-
-				if (teIronOne != null) {
-					entityplayer.openGui(ModJammyFurniture.instance, 157, par1World, par2, par3, par4);
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
+		
+		int metadata    = world.getBlockMetadata(x, y, z);
+		int orientation = this.getOrientation(player);
+		int subBlock    = this.getEnabledMetadata(metadata);
+		TileEntity te   = world.getBlockTileEntity(x, y, z);
+		
+		if (te != null && te instanceof TileEntityIronBlocksOne) {
+			TileEntityIronBlocksOne teIron = (TileEntityIronBlocksOne)te;
+			
+			switch (subBlock) {
+				
+				case 0: // Le frigo
+				case 4: // Le freezer
+					player.openGui(ModJammyFurniture.instance, JFGuiHandler.GUI_FRIDGE, world, x, y, z);
 					return true;
-				}
+					
+				case 8: // Le four a gateau
+					
+					player.openGui(ModJammyFurniture.instance, JFGuiHandler.GUI_COOKER, world, x, y, z);
+					return true;
+					
+				case 12: // La poubelle
+					
+					player.openGui(ModJammyFurniture.instance, JFGuiHandler.GUI_RUBBISHBIN, world, x, y, z);
+					return true;
+					
+				default:
+					break;
 			}
-		} else {
-			teIronOne = (TileEntityIronBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
-
-			if (teIronOne != null) {
-				entityplayer.openGui(ModJammyFurniture.instance, 156, par1World, par2, par3, par4);
-				return true;
-			}
+			
 		}
-
+		
 		return false;
 	}
+	
 
 	/**
 	 * Called on server worlds only when the block has been replaced by a
@@ -152,8 +143,9 @@ public class JFIronBlocksOne extends HBlockContainer {
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
-	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
-		TileEntityIronBlocksOne te = (TileEntityIronBlocksOne) par1World.getBlockTileEntity(par2, par3, par4);
+	@Override
+	public void breakBlock(World world, int x, int y, int z, int oldId, int oldMetadata) {
+		TileEntityIronBlocksOne te = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
 
 		if (te != null) {
 			for (int j1 = 0; j1 < te.getSizeInventory(); ++j1) {
@@ -164,7 +156,7 @@ public class JFIronBlocksOne extends HBlockContainer {
 					float f1 = this.random.nextFloat() * 0.8F + 0.1F;
 					EntityItem entityitem;
 
-					for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; par1World.spawnEntityInWorld(entityitem)) {
+					for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem)) {
 						int k1 = this.random.nextInt(21) + 10;
 
 						if (k1 > itemstack.stackSize) {
@@ -172,7 +164,7 @@ public class JFIronBlocksOne extends HBlockContainer {
 						}
 
 						itemstack.stackSize -= k1;
-						entityitem = new EntityItem(par1World, (double) ((float) par2 + f), (double) ((float) par3 + f1), (double) ((float) par4 + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
+						entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
 						float f3 = 0.05F;
 						entityitem.motionX = (double) ((float) this.random.nextGaussian() * f3);
 						entityitem.motionY = (double) ((float) this.random.nextGaussian() * f3 + 0.2F);
@@ -185,98 +177,24 @@ public class JFIronBlocksOne extends HBlockContainer {
 				}
 			}
 
-			par1World.func_96440_m(par2, par3, par4, par5);
+			world.func_96440_m(x, y, z, oldId);
 		}
 
-		super.breakBlock(par1World, par2, par3, par4, par5, par6);
+		super.breakBlock(world, x, y, z, oldId, oldMetadata);
 	}
-
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
-	public int quantityDropped(Random par1Random) {
-		return 1;
-	}
-
+	
+	
+	///////////////////
+	// Data du block //
+	///////////////////
+	
 	/**
 	 * The type of render function that is called for this block
 	 */
+	@Override
 	public int getRenderType() {
 		return ModJammyFurniture.ironBlocksOneRenderID;
 	}
-
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
-	 */
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-
-	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing
-	 * the block.
-	 */
-	public TileEntity createNewTileEntity(World par1World) {
-		TileEntityIronBlocksOne tileentity = new TileEntityIronBlocksOne();
-		return tileentity;
-	}
-
-	/**
-	 * returns a list of blocks with the same ID, but different meta (eg: wood
-	 * returns 4 blocks)
-	 */
-	public void getSubBlocks(int id, CreativeTabs ctabs, List list) {
-		list.add(new ItemStack(id, 1, 0));
-		list.add(new ItemStack(id, 1, 4));
-		list.add(new ItemStack(id, 1, 8));
-		list.add(new ItemStack(id, 1, 12));
-		list.add(new ItemStack(id, 1, 13));
-	}
-
-	/**
-	 * Determines the damage on the item the block drops. Used in cloth and
-	 * wood.
-	 */
-	public int damageDropped(int par1) {
-		if (par1 == 1 || par1 == 2 || par1 == 3) {
-			par1 = 0;
-		}
-
-		if (par1 == 5 || par1 == 6 || par1 == 7) {
-			par1 = 4;
-		}
-
-		if (par1 == 9 || par1 == 10 || par1 == 11) {
-			par1 = 8;
-		}
-
-		return par1;
-	}
-
-	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.jfm_blockIcon = par1IconRegister.registerIcon("jammyfurniture:jammy_iron");
-	}
-
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture.
-	 * Args: side, metadata
-	 */
-	public Icon getIcon(int side, int metadata) {
-		return this.jfm_blockIcon;
-	}
+	
+	
 }

@@ -29,7 +29,7 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksThree, 1, 0) , new Object[] { "P  ", "PP ", "SS ", 'P', Block.planks, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksThree, 1, 4) , new Object[] { "I  ", "PPB", "PPP", 'I', Item.ingotIron, 'P', Block.planks, 'B', Block.stoneButton });
 		
-		GameRegistry.addRecipe(new ItemStack(itemBathTub       , 1, 0) , new Object[] { "I I", "III", 'I', Block.blockIron });
+//		GameRegistry.addRecipe(new ItemStack(itemBathTub       , 1, 0) , new Object[] { "I I", "III", 'I', Block.blockIron });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 0) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', itemLightBulb });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 4) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', Block.blockSnow });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 8) , new Object[] { "I I", "IFI", "III", 'I', Item.ingotIron, 'F', Block.furnaceIdle });
@@ -38,14 +38,14 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksTwo, 1, 0) , new Object[] { "BBI", "I I", "III", 'I', Item.ingotIron, 'B', Block.stoneButton });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksTwo, 1, 4) , new Object[] { "BBB", "IDI", "III", 'B', Block.stoneButton, 'I', Item.ingotIron, 'D', itemWMDrum });
 		
-		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 0), new Object[] { "CCC", "I C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 4), new Object[] { "CIC", " C ", " C ", 'C', itemCeramicPanel, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 8), new Object[] { " I ", "C C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 0),  new Object[] { "CCC", "I C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 4),  new Object[] { "CIC", " C ", " C ", 'C', itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 8),  new Object[] { " I ", "C C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
 		GameRegistry.addRecipe(new ItemStack(blockCeramicBlocksOne, 1, 12), new Object[] { "CI ", "C C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 0), new Object[] { "  B", " BB", "BBB", 'B', new ItemStack(blockRoofingBlocksOne, 1, 12) });
-		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 4), new Object[] { " B ", " B ", "BBB", 'B', new ItemStack(blockRoofingBlocksOne, 1, 12) });
-		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 8), new Object[] { "B B", "BBB", "BBB", 'B', new ItemStack(blockRoofingBlocksOne, 1, 12) });
-		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 12), new Object[] { "S", "I", 'S', Block.stone, 'I', new ItemStack(Item.dyePowder, 1, 0) });
+		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 0),  new Object[] { "  B", " BB", "BBB", 'B', new ItemStack(blockRoofingBlocksOne, 1, 12) });
+		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 4),  new Object[] { " B ", " B ", "BBB", 'B', new ItemStack(blockRoofingBlocksOne, 1, 12) });
+		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 8),  new Object[] { "B B", "BBB", "BBB", 'B', new ItemStack(blockRoofingBlocksOne, 1, 12) });
+		GameRegistry.addRecipe(new ItemStack(blockRoofingBlocksOne, 6, 12), new Object[] { "S" , "I" , 'S', Block.stone, 'I', new ItemStack(Item.dyePowder, 1, 0) });
 		
 		GameRegistry.addRecipe(new ItemStack(blockMobHeadsOne  , 1, 0) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 0), 'R', Item.redstone, 'S', Item.egg });
 		GameRegistry.addRecipe(new ItemStack(blockMobHeadsOne  , 1, 4) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 12), 'R', Item.redstone, 'S', Item.leather });
@@ -91,13 +91,17 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addSmelting(itemMantlePieceUnf.itemID, new ItemStack(blockMiscBlocksOne, 1, 4), 0.5F);
 		
 		GameRegistry.addRecipe(new ItemStack(blockMiscBlocksOne, 1, 8), new Object[] {
-			"ABC"        , "GDR", "SWS"         , 'W', 
-			Block.wood   , 'S'  , Block.stone   , 'R', 
-			Item.redstone, 'G'  , Item.glowstone, 'A', 
-			new ItemStack(Block.cloth, 1, 14), 'B', 
-			new ItemStack(Block.cloth, 1, 3) , 'C', 
-			new ItemStack(Block.cloth, 1, 1) , 'D',
-			new ItemStack(Block.cloth, 1, 5)
+			"ABC", 
+			"GDR", 
+			"SWS",
+			'W', Block.wood   ,
+			'S', Block.stone   ,
+			'R',  Item.redstone, 
+			'G', Item.glowstone, 
+			'A', new ItemStack(Block.cloth, 1, 14),
+			'B', new ItemStack(Block.cloth, 1, 3) ,
+			'C', new ItemStack(Block.cloth, 1, 1) ,
+			'D', new ItemStack(Block.cloth, 1, 5)
 		});
 		
 		GameRegistry.addRecipe(new ItemStack(blockLightsOn, 1, 0), new Object[] { " S ", "WLW", 'S', Item.silk, 'L', itemLightBulb, 'W', Block.cloth });

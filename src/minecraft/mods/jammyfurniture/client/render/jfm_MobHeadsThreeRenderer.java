@@ -4,7 +4,6 @@ import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelSquidHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelWolfHead;
 import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsThree;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,10 +15,10 @@ public class jfm_MobHeadsThreeRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelWolfHead wolf_head = new jfm_ModelWolfHead();
 	private jfm_ModelHead model_head = new jfm_ModelHead();
 	private jfm_ModelSquidHead squid_head = new jfm_ModelSquidHead();
-	protected static final ResourceLocation textureSte = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_stevehead.png");
-	protected static final ResourceLocation textureWol = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_wolfhead.png");
-	protected static final ResourceLocation textureZom = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_zombiehead.png");
-	protected static final ResourceLocation textureSqu = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_squidhead.png");
+	protected static final ResourceLocation textureSte = new ResourceLocation("jammyfurniture:textures/models/jammy_stevehead.png");
+	protected static final ResourceLocation textureWol = new ResourceLocation("jammyfurniture:textures/models/jammy_wolfhead.png");
+	protected static final ResourceLocation textureZom = new ResourceLocation("jammyfurniture:textures/models/jammy_zombiehead.png");
+	protected static final ResourceLocation textureSqu = new ResourceLocation("jammyfurniture:textures/models/jammy_squidhead.png");
 
 	public void renderAModel(TileEntityMobHeadsThree tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;

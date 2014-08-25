@@ -2,7 +2,6 @@ package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -11,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class jfm_GuiCooker extends GuiContainer {
 	private TileEntityIronBlocksOne cookerInventory;
-	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.GUI_PATH + "jammy_cooker.png");
+	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_cooker.png");
 
 	public jfm_GuiCooker(InventoryPlayer inventoryplayer, TileEntityIronBlocksOne teCooker) {
 		super(new jfm_ContainerCooker(inventoryplayer, teCooker));
@@ -39,14 +38,14 @@ public class jfm_GuiCooker extends GuiContainer {
 		this.drawTexturedModalRect(j1, k, 0, 0, this.xSize, this.ySize);
 		int i11;
 
-		if (this.cookerInventory.isBurning()) {
-			i11 = this.cookerInventory.getBurnTimeRemainingScaled(12);
-			this.drawTexturedModalRect(j1 + 20, k + 36 + 4 - i11, 176, 12 - i11, 14, i11 + 2);
-		}
-
-		i11 = this.cookerInventory.getCookProgressScaled(24);
-		int m = this.cookerInventory.getCookProgressScaled2(24);
-		this.drawTexturedModalRect(j1 + 118, k + 22, 176, 14, i11 + 1, 16);
-		this.drawTexturedModalRect(j1 + 118, k + 50, 176, 14, m + 1, 16);
+//		if (this.cookerInventory.isBurning()) {
+//			i11 = this.cookerInventory.getBurnTimeRemainingScaled(12);
+//			this.drawTexturedModalRect(j1 + 20, k + 36 + 4 - i11, 176, 12 - i11, 14, i11 + 2);
+//		}
+//
+//		i11 = this.cookerInventory.getCookProgressScaled(24);
+//		int m = this.cookerInventory.getCookProgressScaled2(24);
+//		this.drawTexturedModalRect(j1 + 118, k + 22, 176, 14, i11 + 1, 16);
+//		this.drawTexturedModalRect(j1 + 118, k + 50, 176, 14, m + 1, 16);
 	}
 }

@@ -41,8 +41,6 @@ import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
-import mods.jammyfurniture.common.util.jfm_SoundManager;
-import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

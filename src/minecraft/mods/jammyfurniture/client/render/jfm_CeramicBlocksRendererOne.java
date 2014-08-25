@@ -5,7 +5,6 @@ import mods.jammyfurniture.client.model.ceramic.jfm_ModelBathroomSink;
 import mods.jammyfurniture.client.model.ceramic.jfm_ModelKitchenSink;
 import mods.jammyfurniture.client.model.ceramic.jfm_ModelToilet;
 import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -18,10 +17,10 @@ public class jfm_CeramicBlocksRendererOne extends TileEntitySpecialRenderer {
 	private jfm_ModelBathroomSink bathroom_sink = new jfm_ModelBathroomSink();
 	private jfm_ModelKitchenSink kitchen_sink = new jfm_ModelKitchenSink();
 	private jfm_ModelToilet toilet = new jfm_ModelToilet();
-	protected static final ResourceLocation textureCub = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_bathroomcupboard.png");
-	protected static final ResourceLocation textureToilet = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_toilet.png");
-	protected static final ResourceLocation textureKitchenSink = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_kitchensink.png");
-	protected static final ResourceLocation textureSink = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_sink.png");
+	protected static final ResourceLocation textureCub = new ResourceLocation("jammyfurniture:textures/models/jammy_bathroomcupboard.png");
+	protected static final ResourceLocation textureToilet = new ResourceLocation("jammyfurniture:textures/models/jammy_toilet.png");
+	protected static final ResourceLocation textureKitchenSink = new ResourceLocation("jammyfurniture:textures/models/jammy_kitchensink.png");
+	protected static final ResourceLocation textureSink = new ResourceLocation("jammyfurniture:textures/models/jammy_sink.png");
 
 	public void renderAModel(TileEntityCeramicBlocksOne tileentity1, double d, double d1, double d2, float f) {
 		short bc_rot = 0;

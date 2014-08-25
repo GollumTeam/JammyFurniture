@@ -5,7 +5,6 @@ import mods.jammyfurniture.client.model.heads.jfm_ModelCowHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelEnderDragonHead;
 import mods.jammyfurniture.client.model.heads.jfm_ModelHead;
 import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsOne;
-import mods.jammyfurniture.common.util.jfm_ConfigDefault;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -18,10 +17,10 @@ public class jfm_MobHeadsOneRenderer extends TileEntitySpecialRenderer {
 	private jfm_ModelCowHead cow_head = new jfm_ModelCowHead();
 	private jfm_ModelHead model_head = new jfm_ModelHead();
 	private jfm_ModelEnderDragonHead enderdragon_head = new jfm_ModelEnderDragonHead();
-	protected static final ResourceLocation textureChick = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_chickenhead.png");
-	protected static final ResourceLocation textureCow = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_cowhead.png");
-	protected static final ResourceLocation textureCre = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_creeperhead.png");
-	protected static final ResourceLocation textureDrag = new ResourceLocation("jammyfurniture:" + jfm_ConfigDefault.TEXTURE_PATH + "jammy_enderdragonhead.png");
+	protected static final ResourceLocation textureChick = new ResourceLocation("jammyfurniture:textures/models/jammy_chickenhead.png");
+	protected static final ResourceLocation textureCow = new ResourceLocation("jammyfurniture:textures/models/jammy_cowhead.png");
+	protected static final ResourceLocation textureCre = new ResourceLocation("jammyfurniture:textures/models/jammy_creeperhead.png");
+	protected static final ResourceLocation textureDrag = new ResourceLocation("jammyfurniture:textures/models/jammy_enderdragonhead.png");
 
 	public void renderAModel(TileEntityMobHeadsOne tileentity1, double d, double d1, double d2, float f) {
 		short h1_rot = 0;

@@ -1,138 +1,154 @@
 package mods.jammyfurniture.common.util;
 
-import cpw.mods.fml.common.network.IGuiHandler;
+import mods.jammyfurniture.client.gui.GuiDishwasher;
+import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.client.gui.jfm_GuiBathroomCupboard;
 import mods.jammyfurniture.client.gui.jfm_GuiClockMiddle;
 import mods.jammyfurniture.client.gui.jfm_GuiCooker;
 import mods.jammyfurniture.client.gui.jfm_GuiCrafingSide;
-import mods.jammyfurniture.client.gui.jfm_GuiDishwasher;
-import mods.jammyfurniture.client.gui.jfm_GuiFriFre;
+import mods.jammyfurniture.client.gui.GuiFriFre;
 import mods.jammyfurniture.client.gui.jfm_GuiKitchenCupboard;
-import mods.jammyfurniture.client.gui.jfm_GuiRubbishBin;
-import mods.jammyfurniture.client.gui.jfm_GuiWashingMachine;
+import mods.jammyfurniture.client.gui.GuiRubbishBin;
+import mods.jammyfurniture.common.containers.ContainerDishwasher;
+import mods.jammyfurniture.common.containers.ContainerRubbishBin;
 import mods.jammyfurniture.common.containers.jfm_ContainerBathroomCupboard;
 import mods.jammyfurniture.common.containers.jfm_ContainerClockMiddle;
 import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
-import mods.jammyfurniture.common.containers.jfm_ContainerDishwasher;
-import mods.jammyfurniture.common.containers.jfm_ContainerFriFre;
+import mods.jammyfurniture.common.containers.ContainerFriFre;
 import mods.jammyfurniture.common.containers.jfm_ContainerKitchenCupboard;
-import mods.jammyfurniture.common.containers.jfm_ContainerRubbishBin;
 import mods.jammyfurniture.common.containers.jfm_ContainerWashingMachine;
 import mods.jammyfurniture.common.containers.jfm_ContainerWorkbench;
-import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksOne;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.network.IGuiHandler;
 
 public class JFGuiHandler implements IGuiHandler {
+
+	public static final int GUI_COOKER = 152;
+	public static final int GUI_FRIDGE = 156;
+	public static final int GUI_RUBBISHBIN = 158;
+	
+
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if (!world.blockExists(x, y, z)) {
-			return null;
-		} else {
+		
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+		Container container = null;
+		
+		if (world.blockExists(x, y, z) && te != null) {
+			
 			switch (ID) {
-			case 150:
-				TileEntityCeramicBlocksOne bc = (TileEntityCeramicBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerBathroomCupboard(player.inventory, bc);
+				case 150:
+					container = new jfm_ContainerBathroomCupboard(player.inventory, (IInventory)te);
+					break;
+					
+				case 151:
+					container = new jfm_ContainerClockMiddle(player.inventory, (IInventory)te);
+					break;
+	
+				case GUI_COOKER:
+					container = new jfm_ContainerCooker(player.inventory, (TileEntityIronBlocksOne)te);
+					break;
+	
+				case 153:
+					container = new jfm_ContainerKitchenCupboard(player.inventory, (IInventory)te);
+					break;
+	
+				case 154:
+					container = new jfm_ContainerKitchenCupboard(player.inventory, (IInventory)te);
+					break;
+	
+				case 155:
+					container = new jfm_ContainerWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
+					break;
+					
+				case GUI_FRIDGE:
+					container = new ContainerFriFre(player.inventory, (IInventory)te);
+					break;
 
-			case 151:
-				TileEntityWoodBlocksOne wbone = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerClockMiddle(player.inventory, wbone);
-
-			case 152:
-				TileEntityIronBlocksOne cooker = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerCooker(player.inventory, cooker);
-
-			case 153:
-				TileEntityWoodBlocksTwo kc = (TileEntityWoodBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerKitchenCupboard(player.inventory, kc);
-
-			case 154:
-				TileEntityWoodBlocksTwo kcnt = (TileEntityWoodBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerKitchenCupboard(player.inventory, kcnt);
-
-			case 155:
-				TileEntityIronBlocksTwo wm = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerWashingMachine(player.inventory, wm);
-
-			case 156:
-				TileEntityIronBlocksOne fri = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerFriFre(player.inventory, fri);
-
-			case 157:
-				TileEntityIronBlocksOne fre = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerFriFre(player.inventory, fre);
-
-			case 158:
-				TileEntityIronBlocksOne bin = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerRubbishBin(player.inventory, bin);
-
-			case 159:
-				TileEntityIronBlocksTwo dw = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_ContainerDishwasher(player.inventory, dw);
-
-			case 160:
-				return new jfm_ContainerWorkbench(player.inventory, world, x, y, z);
-
-			default:
-				return null;
+				case GUI_RUBBISHBIN:
+					container = new ContainerRubbishBin(player.inventory, (IInventory)te);
+					break;
+	
+				case 159:
+					container =  new ContainerDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
+					break;
+	
+				case 160:
+					container = new jfm_ContainerWorkbench(player.inventory, world, x, y, z);
+					break;
+	
+				default:
+					break;
 			}
 		}
+		
+		return container;
 	}
 
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if (!world.blockExists(x, y, z)) {
-			return null;
-		} else {
-			switch (ID) {
-			case 150:
-				TileEntityCeramicBlocksOne bc = (TileEntityCeramicBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiBathroomCupboard(player.inventory, bc);
 
-			case 151:
-				TileEntityWoodBlocksOne wbone = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiClockMiddle(player.inventory, wbone);
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+		GuiContainer gui = null;
 
-			case 152:
-				TileEntityIronBlocksOne cooker = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiCooker(player.inventory, cooker);
-
-			case 153:
-				TileEntityWoodBlocksTwo kc = (TileEntityWoodBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiKitchenCupboard(player.inventory, kc);
-
-			case 154:
-				TileEntityWoodBlocksTwo kcnt = (TileEntityWoodBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiKitchenCupboard(player.inventory, kcnt);
-
-			case 155:
-				TileEntityIronBlocksTwo wm = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiWashingMachine(player.inventory, wm);
-
-			case 156:
-				TileEntityIronBlocksOne fri = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiFriFre(player.inventory, fri);
-
-			case 157:
-				TileEntityIronBlocksOne fre = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiFriFre(player.inventory, fre);
-
-			case 158:
-				TileEntityIronBlocksOne bin = (TileEntityIronBlocksOne) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiRubbishBin(player.inventory, bin, x, y, z);
-
-			case 159:
-				TileEntityIronBlocksTwo dw = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
-				return new jfm_GuiDishwasher(player.inventory, dw);
-
-			case 160:
-				return new jfm_GuiCrafingSide(player.inventory, world, x, y, z);
-
-			default:
-				return null;
+		try {
+			if (world.blockExists(x, y, z) && te != null) {
+				
+				switch (ID) {
+					case 150:
+						gui = new jfm_GuiBathroomCupboard(player.inventory, (IInventory)te);
+						break;
+						
+					case 151:
+						gui = new jfm_GuiClockMiddle(player.inventory, (IInventory)te);
+						break;
+		
+					case GUI_COOKER:
+						gui = new jfm_GuiCooker(player.inventory, (TileEntityIronBlocksOne)te);
+						break;
+		
+					case 153:
+						gui = new jfm_GuiKitchenCupboard(player.inventory, (IInventory)te);
+						break;
+		
+					case 154:
+						gui = new jfm_GuiKitchenCupboard(player.inventory, (IInventory)te);
+						break;
+		
+					case 155:
+						gui = new GuiWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
+						break;
+						
+					case GUI_FRIDGE:
+						gui = new GuiFriFre(player.inventory, (IInventory)te);
+						break;
+						
+					case GUI_RUBBISHBIN:
+						gui = new GuiRubbishBin(player.inventory, (IInventory)te);
+						break;
+		
+					case 159:
+						gui =  new GuiDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
+						break;
+		
+					case 160:
+						gui = new jfm_GuiCrafingSide(player.inventory, world, x, y, z);
+						break;
+		
+					default:
+						break;
+				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
+		return gui;
 	}
+	
 }
