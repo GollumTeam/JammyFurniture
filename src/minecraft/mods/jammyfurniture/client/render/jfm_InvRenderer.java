@@ -27,9 +27,19 @@ import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class jfm_InvRenderer implements ISimpleBlockRenderingHandler {
+	
+	private static int currentMetadata;
+
+	public static int getCurrentMetadata() {
+		return currentMetadata;
+	}
+	
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
+		
+		this.currentMetadata = metadata;
+		
 		if (block == ModJammyFurniture.blockWoodBlocksOne) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityWoodBlocksOne(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
+			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityWoodBlocksOne(), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
 
 		if (block == ModJammyFurniture.blockWoodBlocksTwo) {
@@ -46,7 +56,6 @@ public class jfm_InvRenderer implements ISimpleBlockRenderingHandler {
 
 		if (block == ModJammyFurniture.blockIronBlocksOne) {
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityIronBlocksOne(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-//			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityIronBlocksOne(), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
 
 		if (block == ModJammyFurniture.blockIronBlocksTwo) {

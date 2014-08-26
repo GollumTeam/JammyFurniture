@@ -4,11 +4,11 @@ import mods.gollum.core.common.creativetab.GollumCreativeTabs;
 import mods.gollum.core.common.mod.GollumMod;
 import mods.gollum.core.common.version.VersionChecker;
 import mods.gollum.core.tools.helper.items.HItem;
+import mods.gollum.core.tools.registry.GCLNetworkRegistry;
+import mods.gollum.core.tools.registry.InventoryRegistry;
 import mods.gollum.core.tools.registry.SoundRegistry;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
-import mods.jammyfurniture.common.block.JFBathBlock;
 import mods.jammyfurniture.common.block.iron.JFIronBlocksOne;
-import mods.jammyfurniture.common.block.iron.JFIronBlocksTwo;
 import mods.jammyfurniture.common.block.wood.JFWoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.JFWoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.JFWoodBlocksTwo;
@@ -45,7 +45,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -154,8 +153,14 @@ public class ModJammyFurniture extends GollumMod {
 	public static int sofaPartCornerRenderID;
 	public static int miscBlocksOneRenderID;
 	public static int lightsRenderID;
-	
 
+	/////////////
+	// GUI IDs //
+	/////////////
+	public static final int GUI_CLOCK_ID = 151;
+	
+	
+	
 	@EventHandler public void handler(FMLPreInitializationEvent event)  { super.handler (event); }
 	@EventHandler public void handler(FMLInitializationEvent event)     { super.handler (event); }
 	@EventHandler public void handler(FMLPostInitializationEvent event) { super.handler (event); }
@@ -268,8 +273,12 @@ public class ModJammyFurniture extends GollumMod {
 		this.initTileEntities ();
 		
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, "EntityMountableBlock", 1, this, 400, 5, false);
-		NetworkRegistry.instance().registerGuiHandler(instance, new JFGuiHandler());
-
+		
+		
+		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
+		
+		InventoryRegistry.register (GUI_CLOCK_ID, 3);
+		
 //		// Ajout des recettes
 //		JFRecipes.initRecipes();
 	}
@@ -286,6 +295,7 @@ public class ModJammyFurniture extends GollumMod {
 		SoundRegistry.register("washingmachine");
 		SoundRegistry.register("radio");
 		SoundRegistry.register("toilet");
+		SoundRegistry.register("clock-tick");
 		
 	}
 	

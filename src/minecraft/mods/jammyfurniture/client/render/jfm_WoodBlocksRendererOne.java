@@ -33,10 +33,10 @@ public class jfm_WoodBlocksRendererOne extends TileEntitySpecialRenderer {
 		short cm_rot = 0;
 		short ct_rot = 0;
 		short bl_rot = 0;
-		int i;
-
+		int i = 0;
+		
 		if (tileentity1 == null) {
-			i = TileEntityWoodBlocksOne.md;
+			i = jfm_InvRenderer.getCurrentMetadata();
 		} else {
 			Block block = tileentity1.getBlockType();
 			i = tileentity1.getBlockMetadata();

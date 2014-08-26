@@ -123,25 +123,29 @@ public class JFWoodBlocksOne extends JFAMetadataBlock {
 		int subBlock    = this.getEnabledMetadata(metadata);
 		
 		ItemStack itemstack = player.inventory.getCurrentItem();
+		TileEntityWoodBlocksOne teWoodBlocks;
 		
 		switch (subBlock) {
 			
 			case 1: // Horloge milieux
 				
-				// Exclu les les block horloge
-				if (
-					itemstack != null && itemstack. == this.) {
-					return false;
-				}
+				// Exclu les les block horloge TODO
+//				if (
+//					itemstack != null && itemstack. == this.) {
+//					return false;
+//				}
 		
-				TileEntityWoodBlocksOne  teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
+				teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
 		
 				if (teWoodBlocks != null) {
 					player.openGui(ModJammyFurniture.instance, 151, world, x, y, z);
 					return true;
 				}
+				break;
 				
-			case 5: // Horloge top
+			case 5:
+				
+				// Clock top
 				if (world.isRemote) {
 					return true;
 				}
@@ -200,38 +204,29 @@ public class JFWoodBlocksOne extends JFAMetadataBlock {
 					player.addChatMessage(EnumChatFormatting.YELLOW + "---------------------------");
 				}
 				
+				//TODO Faire un dong
+				
 				return true;
 				
 			case 9: // Le store en position initial
 				world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, metadata-1, 2); // Les autres stores sont dans le block wood 3
 				return true;
 				
-			
-			
+				
+			case 13:
+					teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
+
+					if (teWoodBlocks != null) {
+						player.openGui(ModJammyFurniture.instance, 160, world, x, y, z);
+						return true;
+					}
+					break;
+					
 			default:
 				break;
 		}
 		
-		
-		if (metadata != 1 && metadata != 2 && metadata != 3 && metadata != 4) {
-			
-			
-
-			if (metadata == 13) {
-				teWoodBlocks = (TileEntityWoodBlocksOne) world
-						.getBlockTileEntity(x, y, z);
-
-				if (teWoodBlocks != null) {
-					player.openGui(ModJammyFurniture.instance, 160,
-							world, x, y, z);
-					return true;
-				}
-			}
-		} else {
-			
-		}
-
-		return true;
+		return false;
 	}
 
 	/**

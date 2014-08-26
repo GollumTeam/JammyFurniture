@@ -1,6 +1,6 @@
 package mods.jammyfurniture.common.tilesentities.iron;
 
-import mods.gollum.core.tileentities.GCLInventoryTileEntity;
+import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.gollum.core.tools.helper.IBlockHelper;
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
