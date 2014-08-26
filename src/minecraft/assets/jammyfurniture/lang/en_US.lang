@@ -25,3 +25,13 @@ AAtile.WoodBlocksThree.0.name=Chair
 AAtile.WoodBlocksThree.4.name=Radio
 
 entity..name=
+
+jammyfurniture.clock.format=12
+jammyfurniture.clock.format.am=am
+jammyfurniture.clock.format.pm=pm
+jammyfurniture.clock.displayTime=The current time is: %02d.%02d %s
+
+jammyfurniture.clock.midday=midday.
+jammyfurniture.clock.sundown=sundown.
+jammyfurniture.clock.morning=morning.
+jammyfurniture.clock.midnight=midnight, I wouldn't go outside if I were you!

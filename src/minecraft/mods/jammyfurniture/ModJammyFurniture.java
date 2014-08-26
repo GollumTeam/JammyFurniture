@@ -291,11 +291,12 @@ public class ModJammyFurniture extends GollumMod {
 	 * Initialisation des sons
 	 */
 	public void initSounds () {
-
+		
+		SoundRegistry.register("clock-tick");
+		SoundRegistry.register("clock-dong");
 		SoundRegistry.register("washingmachine");
 		SoundRegistry.register("radio");
 		SoundRegistry.register("toilet");
-		SoundRegistry.register("clock-tick");
 		
 	}
 	

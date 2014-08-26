@@ -149,52 +149,60 @@ public class JFWoodBlocksOne extends JFAMetadataBlock {
 				if (world.isRemote) {
 					return true;
 				}
-
-				float teWoodBlocks1 = world.getCelestialAngle(1.0F) * 100.0F;
-				int time = Math.round(teWoodBlocks1);
+				
+//				float teWoodBlocks1 = world.getCelestialAngle(1.0F) * 100.0F;
+//				int time = Math.round(teWoodBlocks1);
+				
+				int time = (int) world.getWorldTime();
+				int hour = ((time / 1000)+6) % 24;
+				int min = (time - (time/1000)*1000) * 60 / 1000;
+				boolean am = hour < 13 && hour >= 1;
+				int hour12 = hour % 12;
+				hour12 = (am && hour12 == 0) ? 12 : hour12;
 				
 				// TODO I18N
 				
+				boolean hour12Format = !ModJammyFurniture.i18n.trans("clock.format").equals("24");
+				
+				player.addChatMessage(ModJammyFurniture.i18n.trans("clock.displayTime", (hour12Format) ? hour12 : hour, min, ModJammyFurniture.i18n.trans("clock.format."+((am)? "am" : "pm"))));
+				
 				String message = "";
 				
-				if (time == 0) {
-					message = "midday.";
+				if (hour == 12) { // old 0
+					message = ModJammyFurniture.i18n.trans("clock.midday");
 				}
 
-				if (time >= 90 && time <= 10) {
-					message = "nearly midday.";
+//				if (time >= 90 && time <= 10) {
+//					message = "nearly midday.";
+//				}
+//
+//				if (time >= 11 && time <= 21) {
+//					message = "nearly sundown.";
+//				}
+
+				if (hour == 22) {
+					message = ModJammyFurniture.i18n.trans("clock.sundown");
 				}
 
-				if (time >= 11 && time <= 21) {
-					message = "nearly sundown.";
+//				if (time >= 41 && time <= 49) {
+//					message = "coming up to midnight.";
+//				}
+
+				if (hour == 0) { // old 50
+					message = ModJammyFurniture.i18n.trans("clock.midnight");
 				}
 
-				if (time == 22) {
-					message = "sundown.";
-				}
+//				if (time >= 55 && time <= 69) {
+//					message = "nearly morning.";
+//				}
+//
+//				if (time >= 70 && time <= 89) {
+//					message = ModJammyFurniture.i18n.trans("jammyfurniture.clock.morning");
+//				}
 
-				if (time >= 41 && time <= 49) {
-					message = "coming up to midnight.";
-				}
-
-				if (time == 50) {
-					message = "midnight, I wouldn\'t go outside if I were you!";
-				}
-
-				if (time >= 55 && time <= 69) {
-					message = "nearly morning.";
-				}
-
-				if (time >= 70 && time <= 89) {
-					message = "morning.";
-				}
-
-				if (message != "") {
-					player.addChatMessage("The Time is currently: " + time);
-					player.addChatMessage("It\'s " + message);
-				} else {
-					player.addChatMessage("The Time is currently: " + time);
-				}
+//				if (message != "") {
+//					player.addChatMessage("It\'s " + message);
+//				}
 
 				if (itemstack != null && itemstack.itemID == Item.book.itemID) {
 					player.addChatMessage(EnumChatFormatting.YELLOW + "---------------------------");

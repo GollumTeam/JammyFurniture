@@ -25,3 +25,14 @@ AAtile.WoodBlocksThree.0.name=Chair
 AAtile.WoodBlocksThree.4.name=Radio
 
 entity..name=
+
+jammyfurniture.clock.format=24
+jammyfurniture.clock.format.am=du matin
+jammyfurniture.clock.format.pm=de l'après midi
+jammyfurniture.clock.displayTime=L'heure courante est : %2d heure %2d %s
+
+jammyfurniture.clock.midday=midi.
+jammyfurniture.clock.sundown=coucher.
+jammyfurniture.clock.morning=matin.
+jammyfurniture.clock.midnight=minuit, je n'irai pas à l'extérieur, si j'étais vous!
+
