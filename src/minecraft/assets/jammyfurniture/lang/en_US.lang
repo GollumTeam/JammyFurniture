@@ -27,11 +27,17 @@ AAtile.WoodBlocksThree.4.name=Radio
 entity..name=
 
 jammyfurniture.clock.format=12
+jammyfurniture.clock.paddingH=1
+jammyfurniture.clock.paddingM=2
 jammyfurniture.clock.format.am=am
 jammyfurniture.clock.format.pm=pm
-jammyfurniture.clock.displayTime=The current time is: %02d.%02d %s
+jammyfurniture.clock.displayTime=The current time is: %s.%s %s
+jammyfurniture.clock.morning=It's morning.
+jammyfurniture.clock.midday=It's midday.
+jammyfurniture.clock.afternoon=It's afternoon.
+jammyfurniture.clock.dusk=It's dusk.
+jammyfurniture.clock.midnight=It's midnight, I wouldn't go outside if I were you!
+jammyfurniture.clock.night=It's night.
+jammyfurniture.clock.dawn=It's dawn.
 
-jammyfurniture.clock.midday=midday.
-jammyfurniture.clock.sundown=sundown.
-jammyfurniture.clock.morning=morning.
-jammyfurniture.clock.midnight=midnight, I wouldn't go outside if I were you!
+dawn and dusk
