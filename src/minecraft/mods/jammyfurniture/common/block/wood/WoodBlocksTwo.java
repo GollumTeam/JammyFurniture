@@ -24,7 +24,9 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-
+	
+	
+	// TODO LES COLITIONS SON MAUVAISE
 	@Override
 	protected void getCollisionBoundingBox(int metadata) {
 		switch (metadata) {
