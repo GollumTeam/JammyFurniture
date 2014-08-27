@@ -1,13 +1,15 @@
 package mods.jammyfurniture.client.model.wood;
 
+import mods.jammyfurniture.client.model.JFIModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class jfm_ModelRadio extends ModelBase {
-	ModelRenderer Radio;
-	ModelRenderer Areial;
-	ModelRenderer Handlep3;
+public class ModelRadio extends ModelBase implements JFIModel {
+	
+	ModelRenderer radio;
+	ModelRenderer areial;
+	ModelRenderer handlep3;
 	ModelRenderer handlep2;
 	ModelRenderer handlep1;
 	ModelRenderer speakerpanel;
@@ -15,27 +17,27 @@ public class jfm_ModelRadio extends ModelBase {
 	ModelRenderer button2;
 	ModelRenderer button1;
 
-	public jfm_ModelRadio() {
+	public ModelRadio() {
 		this.textureWidth = 64;
 		this.textureHeight = 64;
-		this.Radio = new ModelRenderer(this, 0, 10);
-		this.Radio.addBox(0.0F, 0.0F, 0.0F, 14, 8, 5);
-		this.Radio.setRotationPoint(-7.0F, 16.0F, -2.5F);
-		this.Radio.setTextureSize(64, 64);
-		this.Radio.mirror = true;
-		this.setRotation(this.Radio, 0.0F, 0.0F, 0.0F);
-		this.Areial = new ModelRenderer(this, 0, 0);
-		this.Areial.addBox(0.0F, 0.0F, 0.0F, 1, 7, 1);
-		this.Areial.setRotationPoint(-6.5F, 9.0F, 1.0F);
-		this.Areial.setTextureSize(64, 64);
-		this.Areial.mirror = true;
-		this.setRotation(this.Areial, 0.0F, 0.0F, 0.0F);
-		this.Handlep3 = new ModelRenderer(this, 19, 4);
-		this.Handlep3.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1);
-		this.Handlep3.setRotationPoint(3.0F, 15.0F, -0.5F);
-		this.Handlep3.setTextureSize(64, 64);
-		this.Handlep3.mirror = true;
-		this.setRotation(this.Handlep3, 0.0F, 0.0F, 0.0F);
+		this.radio = new ModelRenderer(this, 0, 10);
+		this.radio.addBox(0.0F, 0.0F, 0.0F, 14, 8, 5);
+		this.radio.setRotationPoint(-7.0F, 16.0F, -2.5F);
+		this.radio.setTextureSize(64, 64);
+		this.radio.mirror = true;
+		this.setRotation(this.radio, 0.0F, 0.0F, 0.0F);
+		this.areial = new ModelRenderer(this, 0, 0);
+		this.areial.addBox(0.0F, 0.0F, 0.0F, 1, 7, 1);
+		this.areial.setRotationPoint(-6.5F, 9.0F, 1.0F);
+		this.areial.setTextureSize(64, 64);
+		this.areial.mirror = true;
+		this.setRotation(this.areial, 0.0F, 0.0F, 0.0F);
+		this.handlep3 = new ModelRenderer(this, 19, 4);
+		this.handlep3.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1);
+		this.handlep3.setRotationPoint(3.0F, 15.0F, -0.5F);
+		this.handlep3.setTextureSize(64, 64);
+		this.handlep3.mirror = true;
+		this.setRotation(this.handlep3, 0.0F, 0.0F, 0.0F);
 		this.handlep2 = new ModelRenderer(this, 5, 1);
 		this.handlep2.addBox(0.0F, 0.0F, 0.0F, 8, 1, 1);
 		this.handlep2.setRotationPoint(-4.0F, 14.0F, -0.5F);
@@ -80,9 +82,9 @@ public class jfm_ModelRadio extends ModelBase {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		this.Radio.render(f5);
-		this.Areial.render(f5);
-		this.Handlep3.render(f5);
+		this.radio.render(f5);
+		this.areial.render(f5);
+		this.handlep3.render(f5);
 		this.handlep2.render(f5);
 		this.handlep1.render(f5);
 		this.speakerpanel.render(f5);
@@ -92,9 +94,9 @@ public class jfm_ModelRadio extends ModelBase {
 	}
 
 	public void renderModel(float f5) {
-		this.Radio.render(f5);
-		this.Areial.render(f5);
-		this.Handlep3.render(f5);
+		this.radio.render(f5);
+		this.areial.render(f5);
+		this.handlep3.render(f5);
 		this.handlep2.render(f5);
 		this.handlep1.render(f5);
 		this.speakerpanel.render(f5);

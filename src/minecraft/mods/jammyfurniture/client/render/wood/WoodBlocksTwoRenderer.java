@@ -2,22 +2,11 @@ package mods.jammyfurniture.client.render.wood;
 
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.wood.ModelBlinds;
-import mods.jammyfurniture.client.model.wood.ModelClockBase;
-import mods.jammyfurniture.client.model.wood.ModelClockMiddle;
-import mods.jammyfurniture.client.model.wood.ModelClockTop;
-import mods.jammyfurniture.client.model.wood.ModelKitchenSide;
-import mods.jammyfurniture.client.model.wood.ModelTable;
 import mods.jammyfurniture.client.model.wood.ModelBasket;
 import mods.jammyfurniture.client.model.wood.ModelKitchenCupboard;
 import mods.jammyfurniture.client.model.wood.ModelTV;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
-import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	

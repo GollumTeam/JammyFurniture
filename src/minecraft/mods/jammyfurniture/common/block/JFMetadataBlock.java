@@ -58,7 +58,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
-		this.getCollisionBoundingBox(metadata);
+		this.getCollisionBoundingBox(metadata, false);
 		
 		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
@@ -70,11 +70,11 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
 		
 		int metadata = blockAccess.getBlockMetadata(x, y, z);
-		this.getCollisionBoundingBox(metadata);
+		this.getCollisionBoundingBox(metadata, true);
 		
 	}
 	
-	protected void getCollisionBoundingBox(int metadata) {
+	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 

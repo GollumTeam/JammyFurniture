@@ -1,7 +1,5 @@
 package mods.jammyfurniture.client.render.wood;
 
-import org.lwjgl.opengl.GL11;
-
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.wood.ModelBlinds;
@@ -14,6 +12,8 @@ import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 
@@ -64,7 +64,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 			case 15: this.renderModel(this.modelTable      , "table"      , x, y, z, rotation); break;
 		}
 	}
-
+	
 	private void renderModelDial(double x, double y, double z, float rotation) {
 		int numDial = 0;
 		

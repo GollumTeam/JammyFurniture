@@ -15,9 +15,9 @@ import mods.jammyfurniture.common.tilesentities.TileEntitySofaCenter;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import cpw.mods.fml.common.registry.GameRegistry;
 

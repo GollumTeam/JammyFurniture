@@ -5,14 +5,9 @@ import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class WoodBlocksOne extends JFMetadataBlock {
@@ -26,7 +21,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	/////////////////////////////////
 
 	@Override
-	protected void getCollisionBoundingBox(int metadata) {
+	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		switch (metadata) {
 			case 0:  this.setBlockBounds(0.13F, 0.0F, 0.13F, 0.87F, 1.0F, 0.87F); break;
 			case 1:
@@ -101,9 +96,8 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int orientation = this.getOrientation(player);
-		int subBlock    = this.getEnabledMetadata(metadata);
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
 		
 		ItemStack itemStack = player.inventory.getCurrentItem();
 		TileEntity te = world.getBlockTileEntity(x, y, z);

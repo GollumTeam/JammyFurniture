@@ -1,18 +1,17 @@
 package mods.jammyfurniture.common.block.wood;
 
+import java.util.List;
+
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class WoodBlocksTwo extends JFMetadataBlock {
@@ -25,20 +24,18 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	
-	// TODO LES COLITIONS SON MAUVAISE
 	@Override
-	protected void getCollisionBoundingBox(int metadata) {
+	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		switch (metadata) {
 			case 8:  
-			case 10: this.setBlockBounds(0.0F, 0.0F, 0.4F, 1.0F, 1.0F, 0.8F); break;
+			case 10: this.setBlockBounds(0.0F, 0.0F, 0.2F, 1.0F, 0.75F, 0.8F); break;
 			case 9:  
-			case 11: this.setBlockBounds(0.2F, 0.0F, 0.0F, 0.8F, 1.0F, 1.0F); break;
+			case 11: this.setBlockBounds(0.2F, 0.0F, 0.0F, 0.8F, 0.75F, 1.0F); break;
 			case 12: 
 			case 13: 
 			case 14: 
-			case 15: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-			default: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 0.4F, 0.95F);
+			case 15: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 0.4F, 0.95F); break;
+			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
 		}
 	}
 	
