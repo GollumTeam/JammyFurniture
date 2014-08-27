@@ -51,7 +51,6 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 		if (invRender) {
 			rotation = 180;
 		}
-//		ModJammyFurniture.log.debug (""+);
 		
 		switch (subBlock) {
 			default:

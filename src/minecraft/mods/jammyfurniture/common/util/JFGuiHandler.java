@@ -60,12 +60,7 @@ public class JFGuiHandler implements IGuiHandler {
 				case 159:
 					container =  new ContainerDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
 					break;
-	
-//				case 160:
-//					container = new ContainerCraftingSide(player.inventory, world, x, y, z);
-//					container = new ContainerWorkbench(player.inventory, world, x, y, z);
-//					break;
-	
+					
 				default:
 					break;
 			}
@@ -107,12 +102,7 @@ public class JFGuiHandler implements IGuiHandler {
 					case 159:
 						gui =  new GuiDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
 						break;
-		
-//					case 160:
-//						gui = new GuiCraftingSide(player.inventory, world, x, y, z);
-//						gui = new GuiCrafting(player.inventory, world, x, y, z);
-//						break;
-		
+						
 					default:
 						break;
 				}
