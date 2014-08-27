@@ -190,19 +190,6 @@ public class ModJammyFurniture extends GollumMod {
 		/*
 		try {
 			configOld.load();
-			Property LIGHT_BULB_ID = configOld.getItem("light_bulb.id", "item", jfm_ConfigDefault.ITEM_LIGHT_BULB_ID);
-			Property UNFMANTLE_ID = configOld.getItem("mantle_piece_unf.id", "item", jfm_ConfigDefault.ITEM_UNFMANTLE_ID);
-			Property CERAMICUNF_ID = configOld.getItem("ceramic_panel_unf.id", "item", jfm_ConfigDefault.ITEM_CERAMIC_UNF_ID);
-			Property CERAMIC_ID = configOld.getItem("ceramic_panel.id", "item", jfm_ConfigDefault.ITEM_CERAMIC_ID);
-			Property WMDRUM_ID = configOld.getItem("wm_drum.id", "item", jfm_ConfigDefault.ITEM_WMDRUM_ID);
-			Property BLIND_PART_ID = configOld.getItem("blind_part.id", "item", jfm_ConfigDefault.ITEM_BLIND_PART_ID);
-			
-			Property WOOD_ONE_ID = configOld.getBlock("wood_one.id", "block", jfm_ConfigDefault.WOOD_ONE_ID);
-			Property WOOD_TWO_ID = configOld.getBlock("wood_two.id", "block", jfm_ConfigDefault.WOOD_TWO_ID);
-			Property WOOD_THREE_ID = configOld.getBlock("wood_three.id", "block", jfm_ConfigDefault.WOOD_THREE_ID);
-			Property BATH_BLOCK_ID = configOld.getBlock("bath.id", "block", jfm_ConfigDefault.BATH_ID);
-			Property IRON_ONE_ID = configOld.getBlock("iron_one.id", "block", jfm_ConfigDefault.IRON_ONE_ID);
-			Property IRON_TWO_ID = configOld.getBlock("iron_two.id", "block", jfm_ConfigDefault.IRON_TWO_ID);
 			
 			Property CERAMIC_ONE_ID = configOld.getBlock("ceramic_one.id", "block", jfm_ConfigDefault.CERAMIC_ONE_ID);
 			Property ROOFING_ONE_ID = configOld.getBlock("roofing_one.id", "block", jfm_ConfigDefault.ROOFING_ONE_ID);
@@ -326,9 +313,6 @@ public class ModJammyFurniture extends GollumMod {
 		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"ItemWMDrum"         ).setCreativeTab(tabJammyFurniture);
 		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"ItemBlindPart"      ).setCreativeTab(tabJammyFurniture);
 		
-//		itemWoodBlocksOne   = new JFItemWoodBlocksOne  (blockWoodBlocksOne  ).setUnlocalizedName("itemClockBase")      .setCreativeTab(tabJammyFurniture);
-//		itemWoodBlocksTwo   = new JFItemWoodBlocksTwo  (blockWoodBlocksTwo  ).setUnlocalizedName("itemWoodBlocksTwo")  .setCreativeTab(tabJammyFurniture);
-//		itemWoodBlocksThree = new JFItemWoodBlocksThree(blockWoodBlocksThree).setUnlocalizedName("itemWoodBlocksThree").setCreativeTab(tabJammyFurniture);
 //		itemBathTub         = new JFItemBath           (blockBathTub.blockID-256, blockBathTub        ).setUnlocalizedName("itemBath")           .setCreativeTab(tabJammyFurniture);
 //		itemIronBlocksOne   = new JFItemIronBlocksOne  (blockIronBlocksOne  ).setUnlocalizedName("itemIronBlocksOne")  .setCreativeTab(tabJammyFurniture);
 //		itemIronBlocksTwo   = new JFItemIronBlocksTwo  (blockIronBlocksTwo  ).setUnlocalizedName("itemIronBlocksTwo")  .setCreativeTab(tabJammyFurniture);
