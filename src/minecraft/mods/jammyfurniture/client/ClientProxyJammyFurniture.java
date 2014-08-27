@@ -19,8 +19,8 @@ import mods.jammyfurniture.client.render.jfm_SofaCornerRenderer;
 import mods.jammyfurniture.client.render.jfm_SofaLeftRenderer;
 import mods.jammyfurniture.client.render.jfm_SofaRightRenderer;
 import mods.jammyfurniture.client.render.jfm_WoodBlocksRendererThree;
-import mods.jammyfurniture.client.render.jfm_WoodBlocksRendererTwo;
-import mods.jammyfurniture.client.render.wood.WoodBlocksRendererOne;
+import mods.jammyfurniture.client.render.wood.WoodBlocksOneRenderer;
+import mods.jammyfurniture.client.render.wood.WoodBlocksTwoRenderer;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
@@ -38,9 +38,9 @@ import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -88,8 +88,8 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.miscBlocksOneRenderID   , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.lightsRenderID          , new JFInventoryRenderer());
 
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksRendererOne());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new jfm_WoodBlocksRendererTwo());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksOneRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new WoodBlocksTwoRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksThree.class , new jfm_WoodBlocksRendererThree());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBath.class            , new jfm_BathRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityIronBlocksOne.class   , new jfm_IronBlocksRendererOne());

@@ -11,8 +11,15 @@ import mods.jammyfurniture.client.model.wood.ModelTable;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
-public class WoodBlocksRendererOne extends JFTileEntitySpecialRenderer {
-		
+public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
+
+	private final static ModelClockBase   modelClockBase   = new ModelClockBase();
+	private final static ModelClockMiddle modelClockMiddle = new ModelClockMiddle();
+	private final static ModelClockTop    modelClockTop    = new ModelClockTop();
+	private final static ModelBlinds      modelBlinds      = new ModelBlinds();
+	private final static ModelKitchenSide modelKitchenSide = new ModelKitchenSide();
+	private final static ModelTable       modelTable       = new ModelTable();
+	
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
 		float rotation = 0;
@@ -41,13 +48,13 @@ public class WoodBlocksRendererOne extends JFTileEntitySpecialRenderer {
 
 		switch (subBlock) {
 			default:
-			case 0:  this.renderModel(ModelClockBase.class  , "clockbase"  , x, y, z, rotation); break;
-			case 1:  this.renderModel(ModelClockMiddle.class, "clockmiddle", x, y, z, rotation); break;
-			case 5:  this.renderModel(ModelClockTop.class   , "clocktop"   , x, y, z, rotation); break;
-			case 9:  this.renderModel(ModelBlinds.class     , "blinds"     , x, y, z, rotation); break;
-			case 13: this.renderModel(ModelKitchenSide.class, "craftside"  , x, y, z, rotation); break;
-			case 14: this.renderModel(ModelKitchenSide.class, "kitchenside", x, y, z, rotation); break;
-			case 15:this.renderModel(ModelTable.class       , "table"      , x, y, z, rotation);
+			case 0:  this.renderModel(this.modelClockBase  , "clockbase"  , x, y, z, rotation); break;
+			case 1:  this.renderModel(this.modelClockMiddle, "clockmiddle", x, y, z, rotation); break;
+			case 5:  this.renderModel(this.modelClockTop   , "clocktop"   , x, y, z, rotation); break;
+			case 9:  this.renderModel(this.modelBlinds     , "blinds"     , x, y, z, rotation); break;
+			case 13: this.renderModel(this.modelKitchenSide, "craftside"  , x, y, z, rotation); break;
+			case 14: this.renderModel(this.modelKitchenSide, "kitchenside", x, y, z, rotation); break;
+			case 15: this.renderModel(this.modelTable      , "table"      , x, y, z, rotation); break;
 		}
 	}
 }

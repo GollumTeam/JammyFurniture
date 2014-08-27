@@ -106,7 +106,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 		int subBlock    = this.getEnabledMetadata(metadata);
 		
 		ItemStack itemStack = player.inventory.getCurrentItem();
-		TileEntityWoodBlocksOne teWoodBlocks;
+		TileEntity te = world.getBlockTileEntity(x, y, z);
 		
 		switch (subBlock) {
 			
@@ -125,9 +125,8 @@ public class WoodBlocksOne extends JFMetadataBlock {
 					return false;
 				}
 				
-				teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
-				
-				if (teWoodBlocks != null) {
+				if (te != null && te instanceof TileEntityWoodBlocksOne) {
+					TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
 					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CLOCK_ID, world, x, y, z);
 					return true;
 				}
@@ -184,13 +183,13 @@ public class WoodBlocksOne extends JFMetadataBlock {
 				
 				
 			case 13:
-					teWoodBlocks = (TileEntityWoodBlocksOne) world.getBlockTileEntity(x, y, z);
-
-					if (teWoodBlocks != null) {
-						player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CRAFTSIDE_ID, world, x, y, z);
-						return true;
-					}
-					break;
+				
+				if (te != null && te instanceof TileEntityWoodBlocksOne) {
+					TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CRAFTSIDE_ID, world, x, y, z);
+					return true;
+				}
+				break;
 					
 			default:
 				break;
