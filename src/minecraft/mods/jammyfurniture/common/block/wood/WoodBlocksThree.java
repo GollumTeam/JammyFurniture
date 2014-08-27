@@ -29,28 +29,36 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	// TODO collision avec al chaise
 	/**
 	 * Adds all intersecting collision boxes to a list. (Be sure to only add
 	 * boxes to the list if they intersect the mask.) Parameters: World, X, Y,
 	 * Z, mask, list, colliding entity
 	 */
-	public void addCollisionBoxesToList(World par1World, int par2, int par3, int par4, AxisAlignedBB par5AxisAlignedBB, List par6List, Entity par7Entity) {
-		// int l = par1World.getBlockMetadata(par2, par3, par4);
-		// float f = 0.25F;
-		// float f1 = 0.375F;
-		// float f2 = 0.625F;
-		// float f3 = 0.25F;
-		// float f4 = 0.75F;
-		//
-		// switch (getDirectionMeta(l))
-		// {
-		// case 0:
-		// this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
-		// super.addCollisionBoxesToList(par1World, par2, par3, par4,
-		// par5AxisAlignedBB, par6List, par7Entity);
-		//
-		// }
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
+		
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
+
+		if (subBlock == 0) {
+			this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 0.5F, 0.85F);
+			super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
+			if (metadata == 0) {
+				this.setBlockBounds(0.15F, 0.0F, 0.75F, 0.85F, 1.0F, 0.85F);
+				super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
+			} else if (metadata == 1) {
+				this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.25F, 1.0F, 0.85F);
+				super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
+			} else if (metadata == 2) {
+				this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 1.0F, 0.25F);
+				super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
+			} else if (metadata == 3) {
+				this.setBlockBounds(0.75F, 0.0F, 0.15F, 0.85F, 1.0F, 0.85F);
+				super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
+			}
+			return;
+		}
+		
+		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
 	}
 	
 	
@@ -61,7 +69,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			case 0:  
 			case 1:  
 			case 2:  
-			case 3:   if (isSelectBox) this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 1.0F, 0.85F); else this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 0.5F, 0.85F); break;
+			case 3:  if (isSelectBox) this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 1.0F, 0.85F); break;
 			case 4:  
 			case 6:  this.setBlockBounds(0.0F, 0.0F, 0.3F, 1.0F, 0.7F, 0.7F); break;
 			case 5:  
@@ -100,7 +108,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	 * Called upon block activation (right click on the block.)
 	 */
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int hitX, float hitY, float hitZ, float par9) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		int subBlock = this.getEnabledMetadata(metadata);
@@ -110,7 +118,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			case 5:
 			case 6:
 			case 7:
-				world.playSoundAtEntity(entityPlayer, ModJammyFurniture.MODID.toLowerCase()+":radio", 1.0F, 1.0F);
+				world.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":radio", 0.8F, world.rand.nextFloat() * 0.1F + 0.9F);
 				return true;
 			case 8:
 			case 9:
@@ -135,19 +143,19 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		metadata %= 4;
 
 		if (metadata == 0) {
-			entityPlayer.rotationYaw = 180.0F;
+			player.rotationYaw = 180.0F;
 		}
 
 		if (metadata == 1) {
-			entityPlayer.rotationYaw = -90.0F;
+			player.rotationYaw = -90.0F;
 		}
 
 		if (metadata == 2) {
-			entityPlayer.rotationYaw = 0.0F;
+			player.rotationYaw = 0.0F;
 		}
 		
 		if (metadata == 3) {
-			entityPlayer.rotationYaw = 90.0F;
+			player.rotationYaw = 90.0F;
 		}
 
 		float newX = 0.0F;
@@ -178,7 +186,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			newZ = 0.5F;
 		}
 
-		return BlockMountable.onBlockActivated(world, x, y, z, entityPlayer, newX, newY, newZ, 0, 0, 0, 0);
+		return BlockMountable.onBlockActivated(world, x, y, z, player, newX, newY, newZ, 0, 0, 0, 0);
 		
 	}
 	

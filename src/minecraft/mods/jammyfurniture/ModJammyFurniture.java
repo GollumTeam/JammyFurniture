@@ -49,6 +49,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = ModJammyFurniture.MODID, name = ModJammyFurniture.MODNAME, version = ModJammyFurniture.VERSION, acceptedMinecraftVersions = ModJammyFurniture.MINECRAFT_VERSION, dependencies = ModJammyFurniture.DEPENDENCIES)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -264,10 +266,6 @@ public class ModJammyFurniture extends GollumMod {
 		
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, "EntityMountableBlock", 1, this, 400, 5, false);
 		
-		
-		// Initialisation des GUI
-		this.initGui ();
-		
 //		// Ajout des recettes
 //		JFRecipes.initRecipes();
 	}
@@ -347,15 +345,27 @@ public class ModJammyFurniture extends GollumMod {
 	}
 	
 	/**
-	 * Initialisation des GUI
+	 * Initialisation des GUI coté serveur et client
 	 */
-	public void initGui () {
+	@Override
+	public void initGuiCommon () {
+		
+		new JFGuiHandler();
 		
 		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
-
+		
 		InventoryRegistry.register (GUI_CLOCK_ID          , 3);
 		InventoryRegistry.register (GUI_KITCHENCUPBOARD_ID, 3);
-		InventoryRegistry.register (GUI_CRAFTSIDE_ID      , ContainerCraftingSide.class, GuiCraftingSide.class);
+		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID, ContainerCraftingSide.class);
+	}
+	
+	/**
+	 * Initialisation des GUI
+	 */
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void initGuiClient () {
+		InventoryRegistry.registerGui (GUI_CRAFTSIDE_ID, GuiCraftingSide.class);
 	}
 
 	public void loadNames() {

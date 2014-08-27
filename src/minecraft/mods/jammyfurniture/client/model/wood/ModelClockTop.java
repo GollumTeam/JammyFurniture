@@ -88,7 +88,7 @@ public class ModelClockTop extends ModelBase implements JFIModel {
 	
 	public void renderDial (int numDial, float f1) {
 		this.textureWidth = 8;
-		this.textureHeight = 342;
+		this.textureHeight = 378;
 		this.clockDial = new ModelRenderer(this, 0, 6*numDial);
 		this.clockDial.addBox(1.0F, 1.0F, 0.0F, 8, 6, 0);
 		this.clockDial.setRotationPoint(-5.0F, 12.0F, -5.0F);

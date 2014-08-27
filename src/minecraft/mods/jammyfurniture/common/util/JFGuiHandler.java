@@ -21,6 +21,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class JFGuiHandler implements IGuiHandler {
 
@@ -68,7 +70,8 @@ public class JFGuiHandler implements IGuiHandler {
 		
 		return container;
 	}
-
+	
+	@SideOnly(Side.CLIENT)
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 
 		TileEntity te = world.getBlockTileEntity(x, y, z);

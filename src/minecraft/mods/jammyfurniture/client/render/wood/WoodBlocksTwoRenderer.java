@@ -1,11 +1,14 @@
 package mods.jammyfurniture.client.render.wood;
 
+import java.util.Date;
+
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.wood.ModelBasket;
 import mods.jammyfurniture.client.model.wood.ModelKitchenCupboard;
 import mods.jammyfurniture.client.model.wood.ModelTV;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.tileentity.TileEntity;
 
 public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
@@ -14,6 +17,9 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	private final static ModelKitchenCupboard modelKitchenCupboard = new ModelKitchenCupboard();
 	private final static ModelTV              modelTV = new ModelTV();
 	private final static ModelBasket          modelBasket = new ModelBasket();
+	
+	private long lastSwitch = 0;
+	private boolean switchTvTexture = false;
 	
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
@@ -45,19 +51,34 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 			default:
 			case 0:  this.renderModel(this.modelKitchenCupboard, "kitchencupboardnotop", x, y, z, rotation); break;
 			case 4:  this.renderModel(this.modelKitchenCupboard, "kitchencupboard"     , x, y, z, rotation); break;
-			case 8:  this.renderModel(this.modelTV             , "tv"                  , x, y, z, rotation); break;
+			case 8:  
+				
+				String textureTv = "tv";
+				if (((TileEntityWoodBlocksTwo)tileentity).tvIsOn()) {
+					if (this.switchTvTexture) {
+						textureTv = "tv_on1";
+					} else {
+						textureTv = "tv_on2";
+					}
+					if (new Date().getTime() - this.lastSwitch > 50) {
+						this.switchTvTexture = !this.switchTvTexture;
+						this.lastSwitch = new Date().getTime();
+					}
+				}
+				this.renderModel(this.modelTV, textureTv, x, y, z, rotation);
+				break;
 			case 12: 
 			case 13: 
 			case 14: 
 			case 15: 
 				
-				String texture = "basket_red";
+				String textureBasket = "basket_red";
 				
-				if (subBlock == 13) { texture = "basket_blue"; } else
-				if (subBlock == 14) { texture = "basket_green"; } else
-				if (subBlock == 15) { texture = "basket_grey"; }
+				if (subBlock == 13) { textureBasket = "basket_blue"; } else
+				if (subBlock == 14) { textureBasket = "basket_green"; } else
+				if (subBlock == 15) { textureBasket = "basket_grey"; }
 				
-				this.renderModel(this.modelBasket, texture   , x, y, z, rotation);
+				this.renderModel(this.modelBasket, textureBasket   , x, y, z, rotation);
 				break;
 		}
 	}

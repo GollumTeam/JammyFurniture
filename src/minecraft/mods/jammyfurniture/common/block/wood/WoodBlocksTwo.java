@@ -2,6 +2,7 @@ package mods.jammyfurniture.common.block.wood;
 
 import java.util.List;
 
+import mods.gollum.core.ModGollumCoreLib;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
@@ -75,12 +76,32 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 				case 4: 
 					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_KITCHENCUPBOARD_ID, world, x, y, z);
 					return true;
+				case 8:
+					
+					world.addBlockEvent(x, y, z, this.blockID, 1, 0);
+					return true;
 					
 				default: break;
 			}
 		}
 
 		return false;
+	}
+	
+	/**
+	* Called when the block receives a BlockEvent - see World.addBlockEvent. By default, passes it on to the tile
+	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
+	*/
+	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+
+		if (te != null && te instanceof TileEntityWoodBlocksTwo) {
+			TileEntityWoodBlocksTwo teWoodBlocks = (TileEntityWoodBlocksTwo)te;
+			
+			teWoodBlocks.tvTurnOn ();
+		}
+		
+		return true;
 	}
 
 	/**
