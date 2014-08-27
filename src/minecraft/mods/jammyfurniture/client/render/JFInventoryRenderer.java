@@ -19,14 +19,15 @@ import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
-public class jfm_InvRenderer implements ISimpleBlockRenderingHandler {
+public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 	
 	private static int currentMetadata;
 
@@ -39,7 +40,7 @@ public class jfm_InvRenderer implements ISimpleBlockRenderingHandler {
 		this.currentMetadata = metadata;
 		
 		if (block == ModJammyFurniture.blockWoodBlocksOne) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityWoodBlocksOne(), 0.0D, -0.1D, 0.0D, 0.0F);
+			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
 
 		if (block == ModJammyFurniture.blockWoodBlocksTwo) {

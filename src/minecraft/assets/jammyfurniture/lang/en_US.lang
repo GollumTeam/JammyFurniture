@@ -7,9 +7,9 @@ item.CeramicPanel.name=Ceramic Panel
 item.WMDrum.name=Washing Machine Drum
 item.BlindPart.name=Blind Part
 
-AAtile.WoodBlocksOne.0.name=Clock Base
-AAtile.WoodBlocksOne.1.name=Clock Middle
-AAtile.WoodBlocksOne.5.name=Clock Top
+tile.WoodBlocksOne.0.name=Clock Base
+tile.WoodBlocksOne.1.name=Clock Middle
+tile.WoodBlocksOne.5.name=Clock Top
 AAtile.WoodBlocksOne.9.name=Blinds
 AAtile.WoodBlocksOne.13.name=Crafting Side
 AAtile.WoodBlocksOne.14.name=Kitchen Side

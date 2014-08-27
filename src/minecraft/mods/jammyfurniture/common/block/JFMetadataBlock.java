@@ -1,7 +1,5 @@
 package mods.jammyfurniture.common.block;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -9,20 +7,22 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import mods.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
 import mods.jammyfurniture.ModJammyFurniture;
 
-public abstract class JFAMetadataBlock extends HBlockContainerMetadata {
+public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 
 	protected Class tileEntityClass;
-	protected Random random;
+	protected String textureKey;
 	
-	public JFAMetadataBlock(int id, String registerName, Material material, Class tileEntityClass, int[] listSubBlock) {
+	public JFMetadataBlock(int id, String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
 		super(id, registerName, material, listSubBlock);
 		this.tileEntityClass = tileEntityClass;
-		this.random = new Random();		
+		this.textureKey = textureKey;
 	}
 	
 	
@@ -42,10 +42,43 @@ public abstract class JFAMetadataBlock extends HBlockContainerMetadata {
 	// Texture //
 	/////////////
 	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister) {
+	public String getTextureKey() {
+		return this.textureKey;
 	}
 	
+	/////////////////////////////////
+	// Forme et collition du block //
+	/////////////////////////////////
+	
+	/**
+	 * Returns a bounding box from the pool of bounding boxes (this means this
+	 * box can change after the pool has been cleared to be reused)
+	 */
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		
+		int metadata = world.getBlockMetadata(x, y, z);
+		this.getCollisionBoundingBox(metadata);
+		
+		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
+	}
+	
+	/**
+	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
+	 */
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
+		
+		int metadata = blockAccess.getBlockMetadata(x, y, z);
+		this.getCollisionBoundingBox(metadata);
+		
+	}
+	
+	protected void getCollisionBoundingBox(int metadata) {
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+	}
+
+
 	///////////////////
 	// Data du block //
 	///////////////////

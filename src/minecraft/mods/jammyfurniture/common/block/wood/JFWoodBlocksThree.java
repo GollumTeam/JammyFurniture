@@ -3,7 +3,7 @@ package mods.jammyfurniture.common.block.wood;
 import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFAMetadataBlock;
+import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.material.Material;
@@ -16,12 +16,12 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class JFWoodBlocksThree extends JFAMetadataBlock {
+public class JFWoodBlocksThree extends JFMetadataBlock {
 	public static int rotation;
 	private Icon jfm_blockIcon;
 	
 	public JFWoodBlocksThree(int id, String registerName) {
-		super(id, registerName, Material.wood, TileEntityWoodBlocksThree.class, new int[] { 0, 4 });
+		super(id, registerName, Material.wood, "wood", TileEntityWoodBlocksThree.class, new int[] { 0, 4 });
 	}
 	
 	/////////////////////////////////

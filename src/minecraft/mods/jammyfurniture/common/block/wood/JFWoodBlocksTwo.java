@@ -1,7 +1,7 @@
 package mods.jammyfurniture.common.block.wood;
 
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFAMetadataBlock;
+import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,10 +13,10 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class JFWoodBlocksTwo extends JFAMetadataBlock {
+public class JFWoodBlocksTwo extends JFMetadataBlock {
 	
 	public JFWoodBlocksTwo(int id, String registerName) {
-		super(id, registerName, Material.wood, TileEntityWoodBlocksTwo.class, new int[] { 0, 4, 8, 12, 13, 14, 15 });
+		super(id, registerName, Material.wood, "wood", TileEntityWoodBlocksTwo.class, new int[] { 0, 4, 8, 12, 13, 14, 15 });
 	}
 	
 	/////////////////////////////////
@@ -124,43 +124,11 @@ public class JFWoodBlocksTwo extends JFAMetadataBlock {
 	 * ID, old metadata
 	 */
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int par5, int par6) {
-		TileEntityWoodBlocksTwo te = (TileEntityWoodBlocksTwo) world.getBlockTileEntity(x, y, z);
-
-		if (te != null) {
-			for (int i = 0; i < te.getSizeInventory(); ++i) {
-				ItemStack itemstack = te.getStackInSlot(i);
-
-				if (itemstack != null) {
-					float f  = this.random.nextFloat() * 0.8F + 0.1F;
-					float f1 = this.random.nextFloat() * 0.8F + 0.1F;
-					EntityItem entityitem;
-					
-					for (float f2 = this.random.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem)) {
-						int k1 = this.random.nextInt(21) + 10;
-
-						if (k1 > itemstack.stackSize) {
-							k1 = itemstack.stackSize;
-						}
-						
-						itemstack.stackSize -= k1;
-						entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.itemID, k1, itemstack.getItemDamage()));
-						float f3 = 0.05F;
-						entityitem.motionX = (double) ((float) this.random.nextGaussian() * f3);
-						entityitem.motionY = (double) ((float) this.random.nextGaussian() * f3 + 0.2F);
-						entityitem.motionZ = (double) ((float) this.random.nextGaussian() * f3);
-
-						if (itemstack.hasTagCompound()) {
-							entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
-						}
-					}
-				}
-			}
-
-			world.func_96440_m(x, y, z, par5);
-		}
-
-		super.breakBlock(world, x, y, z, par5, par6);
+	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadtaID) {
+		
+		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
+		
+		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadtaID);
 	}
 	
 	///////////////////

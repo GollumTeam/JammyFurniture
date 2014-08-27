@@ -1,21 +1,22 @@
 package mods.jammyfurniture.client.gui;
 
-import mods.jammyfurniture.common.containers.jfm_ContainerWorkbench;
+import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-public class jfm_GuiCrafingSide extends GuiContainer {
+public class GuiCraftingSide extends GuiContainer {
 	protected static final ResourceLocation texture = new ResourceLocation("textures/gui/container/crafting_table.png");
-
-	public jfm_GuiCrafingSide(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5) {
-		super(new jfm_ContainerWorkbench(par1InventoryPlayer, par2World, par3, par4, par5));
+	
+	public GuiCraftingSide(IInventory inventoryPlayer, World wWorld, int x, int y, int z) {
+		super(new ContainerCraftingSide(inventoryPlayer, wWorld, x, y, z));
 	}
-
+	
 	/**
 	 * Draw the foreground layer for the GuiContainer (everything in front of
 	 * the items)

@@ -30,6 +30,7 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 		return "Hidey Hole";
 	}
 	
+	
 	////////////
 	// Update //
 	////////////

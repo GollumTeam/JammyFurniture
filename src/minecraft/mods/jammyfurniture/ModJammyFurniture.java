@@ -7,12 +7,11 @@ import mods.gollum.core.tools.helper.items.HItem;
 import mods.gollum.core.tools.registry.GCLNetworkRegistry;
 import mods.gollum.core.tools.registry.InventoryRegistry;
 import mods.gollum.core.tools.registry.SoundRegistry;
+import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
-import mods.jammyfurniture.common.block.iron.JFIronBlocksOne;
-import mods.jammyfurniture.common.block.wood.JFWoodBlocksOne;
-import mods.jammyfurniture.common.block.wood.JFWoodBlocksThree;
-import mods.jammyfurniture.common.block.wood.JFWoodBlocksTwo;
+import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
 import mods.jammyfurniture.common.config.ConfigJammyFuniture;
+import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
@@ -157,7 +156,8 @@ public class ModJammyFurniture extends GollumMod {
 	/////////////
 	// GUI IDs //
 	/////////////
-	public static final int GUI_CLOCK_ID = 151;
+	public static final int GUI_CLOCK_ID     = 151;
+	public static final int GUI_CRAFTSIDE_ID = 160;
 	
 	
 	
@@ -276,8 +276,9 @@ public class ModJammyFurniture extends GollumMod {
 		
 		
 		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
-		
+
 		InventoryRegistry.register (GUI_CLOCK_ID, 3);
+		InventoryRegistry.register (GUI_CRAFTSIDE_ID, ContainerCraftingSide.class, GuiCraftingSide.class);
 		
 //		// Ajout des recettes
 //		JFRecipes.initRecipes();
@@ -305,7 +306,7 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public void initBlocks () {
 		
-		blockWoodBlocksOne   = new JFWoodBlocksOne  (this.config.blockWoodBlocksOneID  , "WoodBlocksOne"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
+		blockWoodBlocksOne   = new WoodBlocksOne  (this.config.blockWoodBlocksOneID  , "WoodBlocksOne"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 //		blockWoodBlocksTwo   = new JFWoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "WoodBlocksTwo"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 //		blockWoodBlocksThree = new JFWoodBlocksThree(this.config.blockWoodBlocksThreeID, "WoodBlocksThree").setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 //		blockBathTub         = new JFBathBlock      (this.config.blockBathTubID        , "bathBlock"      ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);

@@ -1,21 +1,22 @@
 package mods.jammyfurniture.client.model.wood;
 
+import mods.jammyfurniture.client.model.JFIModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class jfm_ModelKitchenSide extends ModelBase {
-	ModelRenderer Shape1;
+public class ModelKitchenSide extends ModelBase implements JFIModel {
+	ModelRenderer shape1;
 
-	public jfm_ModelKitchenSide() {
+	public ModelKitchenSide() {
 		this.textureWidth = 128;
 		this.textureHeight = 32;
-		this.Shape1 = new ModelRenderer(this, 0, 0);
-		this.Shape1.addBox(0.0F, 0.0F, 0.0F, 16, 2, 16);
-		this.Shape1.setRotationPoint(-8.0F, 8.0F, -8.0F);
-		this.Shape1.setTextureSize(128, 32);
-		this.Shape1.mirror = true;
-		this.setRotation(this.Shape1, 0.0F, 0.0F, 0.0F);
+		this.shape1 = new ModelRenderer(this, 0, 0);
+		this.shape1.addBox(0.0F, 0.0F, 0.0F, 16, 2, 16);
+		this.shape1.setRotationPoint(-8.0F, 8.0F, -8.0F);
+		this.shape1.setTextureSize(128, 32);
+		this.shape1.mirror = true;
+		this.setRotation(this.shape1, 0.0F, 0.0F, 0.0F);
 	}
 
 	/**
@@ -24,11 +25,11 @@ public class jfm_ModelKitchenSide extends ModelBase {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		this.Shape1.render(f5);
+		this.shape1.render(f5);
 	}
 
 	public void renderModel(float f5) {
-		this.Shape1.render(f5);
+		this.shape1.render(f5);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
