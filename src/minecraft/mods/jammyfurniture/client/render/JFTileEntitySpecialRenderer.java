@@ -12,7 +12,6 @@ import org.lwjgl.opengl.GL11;
 
 public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRenderer {
 
-	private static HashMap<String, JFIModel> models = new HashMap<String, JFIModel>();
 	private static HashMap<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
 	
 	@Override
@@ -37,7 +36,7 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		}
 	}
 	
-	private ResourceLocation getTexture (String name) {
+	protected ResourceLocation getTexture (String name) {
 		if (this.textures.containsKey(name)) {
 			return this.textures.get (name);
 		}
@@ -49,15 +48,8 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		return texture;
 	}
 	
-	private JFIModel getModel (Class<? extends JFIModel> modelClass) throws Exception {
-		if (this.models.containsKey(modelClass.getName())) {
-			return this.models.get (modelClass.getName());
-		}
-		
-		return this.models.put (modelClass.getName(), modelClass.newInstance());
-	}
 
-	protected void renderModel(Class<? extends JFIModel> modelClass, String textureName, double x, double y, double z, float rotation) {
+	protected void renderModel(JFIModel model, String textureName, double x, double y, double z, float rotation) {
 		
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
@@ -70,11 +62,7 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 			ModJammyFurniture.log.warning("Error load texture model : "+textureName);
 		}
 		GL11.glPushMatrix();
-		try {
-			this.getModel(modelClass).renderModel(0.0625F);
-//			modelClass.newInstance().renderModel(0.0625F);
-		} catch (Exception e) {
-		}
+		model.renderModel(0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 	}

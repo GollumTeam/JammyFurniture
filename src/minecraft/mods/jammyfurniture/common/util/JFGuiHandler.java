@@ -1,20 +1,16 @@
 package mods.jammyfurniture.common.util;
 
-import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.client.gui.GuiDishwasher;
 import mods.jammyfurniture.client.gui.GuiFriFre;
 import mods.jammyfurniture.client.gui.GuiRubbishBin;
 import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.client.gui.jfm_GuiBathroomCupboard;
 import mods.jammyfurniture.client.gui.jfm_GuiCooker;
-import mods.jammyfurniture.client.gui.jfm_GuiKitchenCupboard;
 import mods.jammyfurniture.common.containers.ContainerDishwasher;
 import mods.jammyfurniture.common.containers.ContainerFriFre;
 import mods.jammyfurniture.common.containers.ContainerRubbishBin;
-import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import mods.jammyfurniture.common.containers.jfm_ContainerBathroomCupboard;
 import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
-import mods.jammyfurniture.common.containers.jfm_ContainerKitchenCupboard;
 import mods.jammyfurniture.common.containers.jfm_ContainerWashingMachine;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
@@ -47,14 +43,6 @@ public class JFGuiHandler implements IGuiHandler {
 	
 				case GUI_COOKER:
 					container = new jfm_ContainerCooker(player.inventory, (TileEntityIronBlocksOne)te);
-					break;
-	
-				case 153:
-					container = new jfm_ContainerKitchenCupboard(player.inventory, (IInventory)te);
-					break;
-	
-				case 154:
-					container = new jfm_ContainerKitchenCupboard(player.inventory, (IInventory)te);
 					break;
 	
 				case 155:
@@ -102,14 +90,6 @@ public class JFGuiHandler implements IGuiHandler {
 		
 					case GUI_COOKER:
 						gui = new jfm_GuiCooker(player.inventory, (TileEntityIronBlocksOne)te);
-						break;
-		
-					case 153:
-						gui = new jfm_GuiKitchenCupboard(player.inventory, (IInventory)te);
-						break;
-		
-					case 154:
-						gui = new jfm_GuiKitchenCupboard(player.inventory, (IInventory)te);
 						break;
 		
 					case 155:

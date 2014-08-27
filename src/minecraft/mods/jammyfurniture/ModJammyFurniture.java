@@ -10,6 +10,7 @@ import mods.gollum.core.tools.registry.SoundRegistry;
 import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
+import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
 import mods.jammyfurniture.common.config.ConfigJammyFuniture;
 import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
@@ -28,9 +29,9 @@ import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
 import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksThree;
-import mods.jammyfurniture.common.tilesentities.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.util.EntityMountableBlock;
 import mods.jammyfurniture.common.util.JFGuiHandler;
 import net.minecraft.block.Block;
@@ -156,8 +157,9 @@ public class ModJammyFurniture extends GollumMod {
 	/////////////
 	// GUI IDs //
 	/////////////
-	public static final int GUI_CLOCK_ID     = 151;
-	public static final int GUI_CRAFTSIDE_ID = 160;
+	public static final int GUI_CLOCK_ID            = 151;
+	public static final int GUI_KITCHENCUPBOARD_ID  = 153;
+	public static final int GUI_CRAFTSIDE_ID        = 160;
 	
 	
 	
@@ -275,10 +277,8 @@ public class ModJammyFurniture extends GollumMod {
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, "EntityMountableBlock", 1, this, 400, 5, false);
 		
 		
-		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
-
-		InventoryRegistry.register (GUI_CLOCK_ID, 3);
-		InventoryRegistry.register (GUI_CRAFTSIDE_ID, ContainerCraftingSide.class, GuiCraftingSide.class);
+		// Initialisation des GUI
+		this.initGui ();
 		
 //		// Ajout des recettes
 //		JFRecipes.initRecipes();
@@ -307,7 +307,7 @@ public class ModJammyFurniture extends GollumMod {
 	public void initBlocks () {
 		
 		blockWoodBlocksOne   = new WoodBlocksOne  (this.config.blockWoodBlocksOneID  , "WoodBlocksOne"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
-//		blockWoodBlocksTwo   = new JFWoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "WoodBlocksTwo"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
+		blockWoodBlocksTwo   = new WoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "WoodBlocksTwo"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 //		blockWoodBlocksThree = new JFWoodBlocksThree(this.config.blockWoodBlocksThreeID, "WoodBlocksThree").setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 //		blockBathTub         = new JFBathBlock      (this.config.blockBathTubID        , "bathBlock"      ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 //		blockIronBlocksOne   = new JFIronBlocksOne  (this.config.blockIronBlocksOneID  , "ironBlockOne"   ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
@@ -359,6 +359,18 @@ public class ModJammyFurniture extends GollumMod {
 		GameRegistry.registerTileEntity(TileEntityMiscOne.class         , "TileEntityMiscOne");
 		GameRegistry.registerTileEntity(TileEntityLightsOn.class        , "TileEntityLightsOn");
 		
+	}
+	
+	/**
+	 * Initialisation des GUI
+	 */
+	public void initGui () {
+		
+		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
+
+		InventoryRegistry.register (GUI_CLOCK_ID          , 3);
+		InventoryRegistry.register (GUI_KITCHENCUPBOARD_ID, 3);
+		InventoryRegistry.register (GUI_CRAFTSIDE_ID      , ContainerCraftingSide.class, GuiCraftingSide.class);
 	}
 
 	public void loadNames() {
