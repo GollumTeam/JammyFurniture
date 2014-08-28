@@ -65,7 +65,7 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 			case 9:
 			case 10:
 			case 11:
-				this.renderModelDial(x, y, z, rotation);
+				this.renderModelBlindsHalfOpen(x, y, z, rotation);
 				break;
 
 			case 12:
@@ -93,17 +93,13 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
-	private void renderModelDial(double x, double y, double z, float rotation) {
+	private void renderModelBlindsHalfOpen(double x, double y, double z, float rotation) {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
 		ResourceLocation texture = this.getTexture("blinds");
-		if (texture != null) {
-			this.bindTexture(texture);
-		} else {
-			ModJammyFurniture.log.warning("Error load texture model : blinds");
-		}
+		if (texture != null) this.bindTexture(texture);
 		GL11.glPushMatrix();
 		this.blinds.shape1.rotateAngleX = 26.0F;
 		this.blinds.shape2.rotateAngleX = 26.0F;

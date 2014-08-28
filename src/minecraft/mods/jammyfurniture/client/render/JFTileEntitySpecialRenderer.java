@@ -42,9 +42,8 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		}
 		
 		ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":textures/models/"+name+".png");
-		if (texture != null) {
-			this.textures.put(name, texture);
-		}
+		this.textures.put(name, texture);
+		
 		return texture;
 	}
 	
@@ -55,12 +54,7 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		ResourceLocation texture = this.getTexture(textureName);
-		if (texture != null) {
-			this.bindTexture(texture);
-		} else {
-			ModJammyFurniture.log.warning("Error load texture model : "+textureName);
-		}
+		this.bindTexture(this.getTexture(textureName));
 		GL11.glPushMatrix();
 		model.renderModel(0.0625F);
 		GL11.glPopMatrix();

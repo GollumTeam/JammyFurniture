@@ -10,6 +10,7 @@ import mods.gollum.core.tools.registry.SoundRegistry;
 import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.BathBlock;
+import mods.jammyfurniture.common.block.iron.IronBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
@@ -163,6 +164,8 @@ public class ModJammyFurniture extends GollumMod {
 	/////////////
 	public static final int GUI_CLOCK_ID            = 151;
 	public static final int GUI_KITCHENCUPBOARD_ID  = 153;
+	public static final int GUI_FRIDGE              = 156;
+	public static final int GUI_RUBBISHBIN          = 158;
 	public static final int GUI_CRAFTSIDE_ID        = 160;
 	
 	
@@ -297,7 +300,7 @@ public class ModJammyFurniture extends GollumMod {
 		blockWoodBlocksTwo   = new WoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "WoodBlocksTwo"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockWoodBlocksThree = new WoodBlocksThree(this.config.blockWoodBlocksThreeID, "WoodBlocksThree").setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockBathTub         = new BathBlock      (this.config.blockBathTubID        , "bathBlock"      ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
-//		blockIronBlocksOne   = new JFIronBlocksOne  (this.config.blockIronBlocksOneID  , "ironBlockOne"   ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
+		blockIronBlocksOne   = new IronBlocksOne  (this.config.blockIronBlocksOneID  , "ironBlockOne"   ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 //		blockIronBlocksTwo   = new JFIronBlocksTwo  (this.config.blockIronBlocksTwoID  , "ironBlocksTwo"  )  .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 		
 	}
@@ -355,9 +358,11 @@ public class ModJammyFurniture extends GollumMod {
 		
 		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
 		
-		InventoryRegistry.register (GUI_CLOCK_ID          , 3);
-		InventoryRegistry.register (GUI_KITCHENCUPBOARD_ID, 3);
-		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID, ContainerCraftingSide.class);
+		InventoryRegistry.registerInventory (GUI_CLOCK_ID          , 3);
+		InventoryRegistry.registerInventory (GUI_KITCHENCUPBOARD_ID, 3);
+		InventoryRegistry.registerInventory (GUI_FRIDGE            , 3);
+		InventoryRegistry.registerInventory (GUI_RUBBISHBIN        , 9);
+		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID      , ContainerCraftingSide.class);
 	}
 	
 	/**

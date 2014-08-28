@@ -1,18 +1,18 @@
-package mods.jammyfurniture.client.render;
+package mods.jammyfurniture.client.render.iron;
 
 import mods.jammyfurniture.client.model.iron.jfm_ModelCoffeeTable;
 import mods.jammyfurniture.client.model.iron.jfm_ModelCooker;
 import mods.jammyfurniture.client.model.iron.jfm_ModelFridge;
 import mods.jammyfurniture.client.model.iron.jfm_ModelRubbishBin;
+import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
+public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
+	
 	private jfm_ModelFridge fridge = new jfm_ModelFridge();
 	private jfm_ModelCooker cooker = new jfm_ModelCooker();
 	private jfm_ModelRubbishBin bin = new jfm_ModelRubbishBin();
@@ -24,89 +24,81 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 	protected static final ResourceLocation textureBin = new ResourceLocation("jammyfurniture:textures/models/jammy_rubbishbin.png");
 	protected static final ResourceLocation textureTable = new ResourceLocation("jammyfurniture:textures/models/jammy_coffeetable.png");
 
-	public void renderAModel(TileEntityIronBlocksOne tileentity1, double d, double d1, double d2, float f) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+		
+		TileEntityIronBlocksOne tileentityIron = (TileEntityIronBlocksOne)tileEntity;
+		
 		short fri_rot = 0;
 		short fre_rot = 0;
 		short c_rot = 0;
 		float var12 = 0.0F;
-		int i;
 
-		if (tileentity1 == null) {
-			i = TileEntityIronBlocksOne.md;
-		} else {
-			Block block = tileentity1.getBlockType();
-			i = tileentity1.getBlockMetadata();
-
-			if (i == 0) {
-				i = tileentity1.getBlockMetadata();
-			}
-
-			if (i == 0) {
+			if (metadata == 0) {
 				fri_rot = 180;
 			}
 
-			if (i == 1) {
+			if (metadata == 1) {
 				fri_rot = 90;
 			}
 
-			if (i == 2) {
+			if (metadata == 2) {
 				fri_rot = 0;
 			}
 
-			if (i == 3) {
+			if (metadata == 3) {
 				fri_rot = 270;
 			}
 
-			if (i == 4) {
+			if (metadata == 4) {
 				fre_rot = 180;
 			}
 
-			if (i == 5) {
+			if (metadata == 5) {
 				fre_rot = 90;
 			}
 
-			if (i == 6) {
+			if (metadata == 6) {
 				fre_rot = 0;
 			}
 
-			if (i == 7) {
+			if (metadata == 7) {
 				fre_rot = 270;
 			}
 
-			if (i == 8) {
+			if (metadata == 8) {
 				c_rot = 0;
 			}
 
-			if (i == 9) {
+			if (metadata == 9) {
 				c_rot = 270;
 			}
 
-			if (i == 10) {
+			if (metadata == 10) {
 				c_rot = 180;
 			}
 
-			if (i == 11) {
+			if (metadata == 11) {
 				c_rot = 90;
 			}
 
-			var12 = tileentity1.prevLidAngle + (tileentity1.lidAngle - tileentity1.prevLidAngle) * f;
+			var12 = tileentityIron.prevLidAngle + (tileentityIron.lidAngle - tileentityIron.prevLidAngle) * f;
 			var12 = 1.0F - var12;
 			var12 = 1.0F - var12 * var12 * var12;
-		}
+		
 
-		switch (i) {
+		switch (metadata) {
 		case 0:
 		case 1:
 		case 2:
 		case 3:
 			GL11.glPushMatrix();
-			GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F, (float) d2 + 0.5F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-			if (tileentity1 == null) {
+			if (tileEntity == null) {
 				GL11.glRotatef(0.0F, 0.0F, 1.0F, 0.0F);
 			}
 
-			if (tileentity1 != null) {
+			if (tileEntity != null) {
 				GL11.glRotatef((float) fri_rot, 0.0F, 1.0F, 0.0F);
 			}
 
@@ -124,13 +116,13 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 		case 6:
 		case 7:
 			GL11.glPushMatrix();
-			GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F, (float) d2 + 0.5F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-			if (tileentity1 == null) {
+			if (tileEntity == null) {
 				GL11.glRotatef(0.0F, 0.0F, 1.0F, 0.0F);
 			}
 
-			if (tileentity1 != null) {
+			if (tileEntity != null) {
 				GL11.glRotatef((float) fre_rot, 0.0F, 1.0F, 0.0F);
 			}
 
@@ -148,13 +140,13 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 		case 10:
 		case 11:
 			GL11.glPushMatrix();
-			GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F, (float) d2 + 0.5F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-			if (tileentity1 == null) {
+			if (tileEntity == null) {
 				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 			}
 
-			if (tileentity1 != null) {
+			if (tileEntity != null) {
 				GL11.glRotatef((float) c_rot, 0.0F, 1.0F, 0.0F);
 			}
 
@@ -168,7 +160,7 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 
 		case 12:
 			GL11.glPushMatrix();
-			GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F, (float) d2 + 0.5F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 			GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
 			this.bindTexture(textureBin);
 			GL11.glPushMatrix();
@@ -179,7 +171,7 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 
 		case 13:
 			GL11.glPushMatrix();
-			GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F, (float) d2 + 0.5F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 			GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
 			this.bindTexture(textureTable);
 			GL11.glPushMatrix();
@@ -190,13 +182,13 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 
 		default:
 			GL11.glPushMatrix();
-			GL11.glTranslatef((float) d + 0.5F, (float) d1 + 1.5F, (float) d2 + 0.5F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 
-			if (tileentity1 == null) {
+			if (tileEntity == null) {
 				GL11.glRotatef(0.0F, 0.0F, 1.0F, 0.0F);
 			}
 
-			if (tileentity1 != null) {
+			if (tileEntity != null) {
 				GL11.glRotatef((float) fri_rot, 0.0F, 1.0F, 0.0F);
 			}
 
@@ -206,14 +198,6 @@ public class jfm_IronBlocksRendererOne extends TileEntitySpecialRenderer {
 			this.fridge.renderModelFridge(0.0625F);
 			GL11.glPopMatrix();
 			GL11.glPopMatrix();
-		}
-	}
-
-	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
-		if (tileentity.worldObj == null) {
-			this.renderAModel((TileEntityIronBlocksOne) null, d, d1, d2, f);
-		} else {
-			this.renderAModel((TileEntityIronBlocksOne) tileentity, d, d1, d2, f);
 		}
 	}
 }

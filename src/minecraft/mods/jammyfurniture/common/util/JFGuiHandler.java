@@ -1,14 +1,10 @@
 package mods.jammyfurniture.common.util;
 
 import mods.jammyfurniture.client.gui.GuiDishwasher;
-import mods.jammyfurniture.client.gui.GuiFriFre;
-import mods.jammyfurniture.client.gui.GuiRubbishBin;
 import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.client.gui.jfm_GuiBathroomCupboard;
 import mods.jammyfurniture.client.gui.jfm_GuiCooker;
 import mods.jammyfurniture.common.containers.ContainerDishwasher;
-import mods.jammyfurniture.common.containers.ContainerFriFre;
-import mods.jammyfurniture.common.containers.ContainerRubbishBin;
 import mods.jammyfurniture.common.containers.jfm_ContainerBathroomCupboard;
 import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
 import mods.jammyfurniture.common.containers.jfm_ContainerWashingMachine;
@@ -27,8 +23,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class JFGuiHandler implements IGuiHandler {
 
 	public static final int GUI_COOKER = 152;
-	public static final int GUI_FRIDGE = 156;
-	public static final int GUI_RUBBISHBIN = 158;
 	
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		
@@ -50,14 +44,14 @@ public class JFGuiHandler implements IGuiHandler {
 				case 155:
 					container = new jfm_ContainerWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
 					break;
-					
-				case GUI_FRIDGE:
-					container = new ContainerFriFre(player.inventory, (IInventory)te);
-					break;
-
-				case GUI_RUBBISHBIN:
-					container = new ContainerRubbishBin(player.inventory, (IInventory)te);
-					break;
+//					
+//				case GUI_FRIDGE:
+//					container = new ContainerFriFre(player.inventory, (IInventory)te);
+//					break;
+//
+//				case GUI_RUBBISHBIN:
+//					container = new ContainerRubbishBin(player.inventory, (IInventory)te);
+//					break;
 	
 				case 159:
 					container =  new ContainerDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
@@ -94,13 +88,13 @@ public class JFGuiHandler implements IGuiHandler {
 						gui = new GuiWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
 						break;
 						
-					case GUI_FRIDGE:
-						gui = new GuiFriFre(player.inventory, (IInventory)te);
-						break;
-						
-					case GUI_RUBBISHBIN:
-						gui = new GuiRubbishBin(player.inventory, (IInventory)te);
-						break;
+//					case GUI_FRIDGE:
+//						gui = new GuiFriFre(player.inventory, (IInventory)te);
+//						break;
+//						
+//					case GUI_RUBBISHBIN:
+//						gui = new GuiRubbishBin(player.inventory, (IInventory)te);
+//						break;
 		
 					case 159:
 						gui =  new GuiDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);

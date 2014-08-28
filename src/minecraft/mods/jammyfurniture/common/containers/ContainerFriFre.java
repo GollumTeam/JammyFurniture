@@ -6,6 +6,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+// TODO a supprimer
 public class ContainerFriFre extends GCLContainer {
 	
 	public ContainerFriFre(IInventory inventoryPlayer, IInventory inventoryBlock) {

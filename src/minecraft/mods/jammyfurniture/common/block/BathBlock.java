@@ -22,7 +22,6 @@ public class BathBlock extends HBlockContainer {
 	
 	public BathBlock(int par1, String registerName) {
 		super(par1, registerName, Material.iron);
-		this.setBounds();
 		
 		this.setItemBlockClass(JFItemBath.class);
 	}
@@ -45,10 +44,6 @@ public class BathBlock extends HBlockContainer {
 	 */
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-		this.setBounds();
-	}
-	
-	private void setBounds() {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8F, 1.0F);
 	}
 	
@@ -76,7 +71,7 @@ public class BathBlock extends HBlockContainer {
 		int x2 = x + footBlockToHeadBlockMap[direction][0];
 		int z2 = z + footBlockToHeadBlockMap[direction][1];
 		
-		boolean isHead = this.isBlockHeadOfBed(metadata);
+		boolean isHead = this.isBlockHead(metadata);
 		
 		if (isHead) {
 			x2 = x - footBlockToHeadBlockMap[direction][0];
@@ -160,7 +155,7 @@ public class BathBlock extends HBlockContainer {
 	 */
 	@Override
 	public int idDropped(int metadata, Random random, int j) {
-		return this.isBlockHeadOfBed(metadata) ? super.idDropped(metadata, random, j): 0;
+		return this.isBlockHead(metadata) ? super.idDropped(metadata, random, j): 0;
 	}
 	
 	
@@ -191,11 +186,11 @@ public class BathBlock extends HBlockContainer {
 		return false;
 	}
 
-	public static boolean isBlockHeadOfBed(int metadata) {
+	public static boolean isBlockHead(int metadata) {
 		return (metadata & 7) != metadata;
 	}
 
-	public static int getDirection(int par0) {
-		return par0 & 3;
+	public static int getDirection(int metadata) {
+		return metadata & 3;
 	}
 }

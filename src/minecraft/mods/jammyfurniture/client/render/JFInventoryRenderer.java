@@ -41,15 +41,13 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 			block == ModJammyFurniture.blockWoodBlocksOne || 
 			block == ModJammyFurniture.blockWoodBlocksTwo || 
 			block == ModJammyFurniture.blockWoodBlocksThree || 
-			block == ModJammyFurniture.blockBathTub
+			block == ModJammyFurniture.blockBathTub || 
+			block == ModJammyFurniture.blockIronBlocksOne
 		) {
 			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
-
-		if (block == ModJammyFurniture.blockIronBlocksOne) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityIronBlocksOne(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
+		
+		
 		if (block == ModJammyFurniture.blockIronBlocksTwo) {
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityIronBlocksTwo(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
 		}

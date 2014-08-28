@@ -82,12 +82,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		ResourceLocation texture = this.getTexture("clocktop-dial");
-		if (texture != null) {
-			this.bindTexture(texture);
-		} else {
-			ModJammyFurniture.log.warning("Error load texture model : clocktop-dial");
-		}
+		this.bindTexture(this.getTexture("clocktop-dial"));
 		GL11.glPushMatrix();
 		this.modelClockTop.renderDial(numDial, 0.0625F);
 		GL11.glPopMatrix();

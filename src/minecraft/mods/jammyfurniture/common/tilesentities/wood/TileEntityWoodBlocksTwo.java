@@ -1,17 +1,13 @@
 package mods.jammyfurniture.common.tilesentities.wood;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
+import java.util.Date;
 
 import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.jammyfurniture.ModJammyFurniture;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.packet.Packet250CustomPayload;
-import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	
-	private int tvOn = 0;
+	private long tvOn = 0;
 	
 	public TileEntityWoodBlocksTwo() {
 		super(9);
@@ -39,8 +35,8 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	 * inside its implementation.
 	 */
 	public void updateEntity() {
-		if (this.tvIsOn ()) {
-			this.tvOn--;
+		if (this.tvIsOn () && (new Date().getTime() - this.tvOn) > 6500) { // 6 seconde
+			this.tvOn = 0;
 		}
 	}
 	
@@ -49,7 +45,7 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	////////////
 	
 	public void tvTurnOn () {
-		this.tvOn = 133;
+		this.tvOn = new Date().getTime();
 		if (!this.worldObj.isRemote) {
 			this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, ModJammyFurniture.MODID.toLowerCase()+":radio", 0.8F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
 		}

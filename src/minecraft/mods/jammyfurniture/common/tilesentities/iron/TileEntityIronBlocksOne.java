@@ -22,30 +22,21 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	private static final int INV_SIZE_COOKER     = 5;
 	private static final int INV_SIZE_RUBBISHBIN = 27;
 	
-	public static int md = 0;
-	
-	private int ticksSinceSync;
-	
-	public static int metadata;
-	
+//	private int ticksSinceSync;
+//	
+//	
 	public int currentItemBurnTime = 0;
 	public int cookerBurnTime = 0;
 	public int cookerCookTime = 0;
 	public int cookerCookTime2 = 0;
 	
-	long lastClearance = System.currentTimeMillis();
-	public float lidAngle;
-	public float prevLidAngle;
+	// Ouverture des porte	
+//	long lastClearance = System.currentTimeMillis();
 	
-	public static boolean debug = false;
+//	public static boolean debug = false;
 
 	public TileEntityIronBlocksOne() {
 		super (Math.max(INV_SIZE_FRIDGE, Math.max(INV_SIZE_COOKER, INV_SIZE_RUBBISHBIN)));
-	}
-
-	public TileEntityIronBlocksOne(int meta) {
-		super (Math.max(INV_SIZE_FRIDGE, Math.max(INV_SIZE_COOKER, INV_SIZE_RUBBISHBIN)));
-		md = meta;
 	}
 	
 	///////////////
@@ -68,7 +59,9 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		}
 		return super.getSizeInventory();
 	}
-
+	
+	
+	// TODO a tradurie
 	/**
 	 * Returns the name of the inventory.
 	 */
@@ -101,6 +94,8 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	 */
 	public void updateEntity() {
 		
+		super.updateEntity();
+		
 //		if (debug) {
 //			System.out.println("World Obj = " + this.worldObj);
 //			System.out.println("X: " + this.xCoord);
@@ -112,47 +107,6 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 
 //		int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
 //
-//		if (meta <= 7) {
-//			if (++this.ticksSinceSync % 20 * 4 == 0) {
-//				;
-//			}
-//
-//			this.prevLidAngle = this.lidAngle;
-//			float flag = 0.1F;
-//			double flag1;
-//
-//			if (this.numUsingPlayers > 0 && this.lidAngle == 0.0F) {
-//				double var8 = (double) this.xCoord + 0.5D;
-//				flag1 = (double) this.zCoord + 0.5D;
-//				this.worldObj.playSoundEffect(var8, (double) this.yCoord + 0.5D, flag1, "random.chestopen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
-//			}
-//
-//			if (this.numUsingPlayers == 0 && this.lidAngle > 0.0F || this.numUsingPlayers > 0 && this.lidAngle < 1.0F) {
-//				float var11 = this.lidAngle;
-//
-//				if (this.numUsingPlayers > 0) {
-//					this.lidAngle += flag;
-//				} else {
-//					this.lidAngle -= flag;
-//				}
-//
-//				if (this.lidAngle > 1.0F) {
-//					this.lidAngle = 1.0F;
-//				}
-//
-//				float var3 = 0.5F;
-//
-//				if (this.lidAngle < var3 && var11 >= var3) {
-//					flag1 = (double) this.xCoord + 0.5D;
-//					double var6 = (double) this.zCoord + 0.5D;
-//					this.worldObj.playSoundEffect(flag1, (double) this.yCoord + 0.5D, var6, "random.chestclosed", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
-//				}
-//
-//				if (this.lidAngle < 0.0F) {
-//					this.lidAngle = 0.0F;
-//				}
-//			}
-//		}
 //
 //		if (meta != 8 && meta != 9 && meta != 10 && meta != 11) {
 //			if (meta == 12 && System.currentTimeMillis() - this.lastClearance >= 300000L) {
@@ -245,9 +199,9 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		this.readItems(nbtTagCompound, "CookerItems", true); // Compatibility
 		this.readItems(nbtTagCompound, "BinItems"   , true); // Compatibility
 		
-		this.cookerBurnTime = nbtTagCompound.getShort("BurnTime");
-		this.cookerCookTime = nbtTagCompound.getShort("CookTime");
-		this.cookerCookTime2 = nbtTagCompound.getShort("CookTime2");
+//		this.cookerBurnTime = nbtTagCompound.getShort("BurnTime");
+//		this.cookerCookTime = nbtTagCompound.getShort("CookTime");
+//		this.cookerCookTime2 = nbtTagCompound.getShort("CookTime2");
 		
 //		this.currentItemBurnTime = getItemBurnTime(this.inventory[1]); // TODO
 	}
@@ -259,9 +213,9 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		super.writeToNBT(nbtTagCompound);
 		
 		if (this.getSubBlock() == 8) {
-			nbtTagCompound.setShort("BurnTime", (short) this.cookerBurnTime);
-			nbtTagCompound.setShort("CookTime", (short) this.cookerCookTime);
-			nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime2);
+//			nbtTagCompound.setShort("BurnTime", (short) this.cookerBurnTime);
+//			nbtTagCompound.setShort("CookTime", (short) this.cookerCookTime);
+//			nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime2);
 		}
 	}
 	

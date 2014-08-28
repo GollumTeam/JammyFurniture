@@ -35,79 +35,36 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 		
 		if (invRender) {
 			
-			renderInINv(x, y, z);
+			renderInInventory(x, y, z);
 			
 		} else {
-			switch (metadata) {
-				case 0:
-				case 1:
-				case 2:
-				case 3:
-//					GL11.glPushMatrix();
-//					GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-//					GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
-//					GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-//					ResourceLocation texture = this.getTexture("bath");
-//					if (texture != null) {
-//						this.bindTexture(texture);
-//					} else {
-//						ModJammyFurniture.log.warning("Error load texture model : clocktop-dial");
-//					}
-//					GL11.glPushMatrix();
-//					this.modelBath.renderModelLeft(0.0625F);
-//					GL11.glPopMatrix();
-//					GL11.glPopMatrix();
-//					break;
-	
-				case 4:
-				case 5:
-				case 6:
-				case 7:
-				default:
-					GL11.glPushMatrix();
-					GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-					GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
-					GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-					ResourceLocation texture = this.getTexture("bath");
-					if (texture != null) {
-						this.bindTexture(texture);
-					} else {
-						ModJammyFurniture.log.warning("Error load texture model : clocktop-dial");
-					}
-					GL11.glPushMatrix();
-					this.modelBath.renderModelLeft(0.0625F);
-					GL11.glPopMatrix();
-					GL11.glPopMatrix();
-					break;
-	
-				case 8:
-				case 9:
-				case 10:
-				case 11:
-//					GL11.glPushMatrix();
-//					GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-//					GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
-//					GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-//					ResourceLocation texture = this.getTexture("bath");
-//					if (texture != null) {
-//						this.bindTexture(texture);
-//					} else {
-//						ModJammyFurniture.log.warning("Error load texture model : clocktop-dial");
-//					}
-//					GL11.glPushMatrix();
-//					this.modelBath.renderModelRight(0.0625F);
-//					GL11.glPopMatrix();
-//					GL11.glPopMatrix();
+			
+			if (metadata > 7) {
+				renderModel(x, y, z, rotation, false);
+			} else {
+				renderModel(x, y, z, rotation, true);
 			}
 		}
 	}
 
-	private void renderInINv(double x, double y, double z) {
-		ResourceLocation texture = this.getTexture("bath");
-		if (texture != null) {
-			ModJammyFurniture.log.warning("Error load texture model : clocktop-dial");
-			return;
+	private void renderModel(double x, double y, double z, float rotation, boolean left) {
+		GL11.glPushMatrix();
+		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
+		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
+		this.bindTexture(this.getTexture("bath"));
+		GL11.glPushMatrix();
+		if (left) {
+			this.modelBath.renderModelLeft(0.0625F);
+		} else {
+			this.modelBath.renderModelRight(0.0625F);
 		}
+		GL11.glPopMatrix();
+		GL11.glPopMatrix();
+	}
+
+	private void renderInInventory(double x, double y, double z) {
+		ResourceLocation texture = this.getTexture("bath");
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);

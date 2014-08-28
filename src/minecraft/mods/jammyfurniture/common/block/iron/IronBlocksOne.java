@@ -15,13 +15,13 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class JFIronBlocksOne extends JFMetadataBlock {
+public class IronBlocksOne extends JFMetadataBlock {
 	
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing
 	 * the block.
 	 */
-	public JFIronBlocksOne(int id, String registerName) {
+	public IronBlocksOne(int id, String registerName) {
 		super(id, registerName, Material.iron, "iron", TileEntityIronBlocksOne.class, new int[]{ 0, 4, 8, 12, 13 });
 		this.tileEntityClass = TileEntityIronBlocksOne.class;
 	}
@@ -29,55 +29,22 @@ public class JFIronBlocksOne extends JFMetadataBlock {
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-	
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this
-	 * box can change after the pool has been cleared to be reused)
-	 */
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		int metadata = world.getBlockMetadata(x, y, z);
-		
-		if (metadata != 0 && metadata != 2 && metadata != 4 && metadata != 6) {
-			if (metadata != 1 && metadata != 3 && metadata != 5 && metadata != 7) {
-				if (metadata == 12) {
-					this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
-				} else {
-					this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-				}
-			} else {
-				this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F);
-			}
-		} else {
-			this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F);
-		}
 
-		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
-	}
-
-	
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-		int metadata = blockAccess.getBlockMetadata(x, y, z);
-		
-		if (metadata != 0 && metadata != 2 && metadata != 4 && metadata != 6) {
-			if (metadata != 1 && metadata != 3 && metadata != 5 && metadata != 7) {
-				if (metadata == 12) {
-					this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
-				} else {
-					this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-				}
-			} else {
-				this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F);
-			}
-		} else {
-			this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F);
+	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+		switch (metadata) {
+			case 0:  
+			case 2:  
+			case 4:  
+			case 6:  this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F); break;
+			case 1:  
+			case 3:  
+			case 5:  
+			case 7:  this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F); break;
+			case 12: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
+			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		}
 	}
-	
 	
 	///////////
 	// Event //
@@ -114,7 +81,7 @@ public class JFIronBlocksOne extends JFMetadataBlock {
 				
 				case 0: // Le frigo
 				case 4: // Le freezer
-					player.openGui(ModJammyFurniture.instance, JFGuiHandler.GUI_FRIDGE, world, x, y, z);
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_FRIDGE, world, x, y, z);
 					return true;
 					
 				case 8: // Le four a gateau
@@ -124,7 +91,7 @@ public class JFIronBlocksOne extends JFMetadataBlock {
 					
 				case 12: // La poubelle
 					
-					player.openGui(ModJammyFurniture.instance, JFGuiHandler.GUI_RUBBISHBIN, world, x, y, z);
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_RUBBISHBIN, world, x, y, z);
 					return true;
 					
 				default:
