@@ -37,20 +37,13 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 		this.currentMetadata = metadata;
 		
 		// TODO unifier
-		if (block == ModJammyFurniture.blockWoodBlocksOne) {
+		if (
+			block == ModJammyFurniture.blockWoodBlocksOne || 
+			block == ModJammyFurniture.blockWoodBlocksTwo || 
+			block == ModJammyFurniture.blockWoodBlocksThree || 
+			block == ModJammyFurniture.blockBathTub
+		) {
 			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockWoodBlocksTwo) {
-			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockWoodBlocksThree) {
-			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockBathTub) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityBath(), 0.0D, 0.0D, -0.5D, 0.0F);
 		}
 
 		if (block == ModJammyFurniture.blockIronBlocksOne) {

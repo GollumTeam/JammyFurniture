@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiDishwasher extends GuiContainer {
 	private TileEntityIronBlocksTwo dwInv;
-	protected static final ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":gui/jammy_dishwasher.png");
+	protected ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":gui/jammy_dishwasher.png");
 
 	public GuiDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) { 
 		super(new ContainerDishwasher(inventoryplayer, teDishwasher));

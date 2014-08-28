@@ -9,8 +9,9 @@ import mods.gollum.core.tools.registry.InventoryRegistry;
 import mods.gollum.core.tools.registry.SoundRegistry;
 import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
-import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
+import mods.jammyfurniture.common.block.BathBlock;
 import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
+import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
 import mods.jammyfurniture.common.config.ConfigJammyFuniture;
 import mods.jammyfurniture.common.containers.ContainerCraftingSide;
@@ -295,7 +296,7 @@ public class ModJammyFurniture extends GollumMod {
 		blockWoodBlocksOne   = new WoodBlocksOne  (this.config.blockWoodBlocksOneID  , "WoodBlocksOne"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockWoodBlocksTwo   = new WoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "WoodBlocksTwo"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
 		blockWoodBlocksThree = new WoodBlocksThree(this.config.blockWoodBlocksThreeID, "WoodBlocksThree").setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
-//		blockBathTub         = new JFBathBlock      (this.config.blockBathTubID        , "bathBlock"      ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
+		blockBathTub         = new BathBlock      (this.config.blockBathTubID        , "bathBlock"      ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 //		blockIronBlocksOne   = new JFIronBlocksOne  (this.config.blockIronBlocksOneID  , "ironBlockOne"   ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 //		blockIronBlocksTwo   = new JFIronBlocksTwo  (this.config.blockIronBlocksTwoID  , "ironBlocksTwo"  )  .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
 		

@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiWashingMachine extends GuiContainer {
 	private TileEntityIronBlocksTwo wmInv;
-	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_washingmachine.png");
+	protected ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_washingmachine.png");
 
 	public GuiWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
 		super(new jfm_ContainerWashingMachine(inventoryplayer, teWashingMachine));

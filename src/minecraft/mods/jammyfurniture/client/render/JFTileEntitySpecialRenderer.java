@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRenderer {
 
-	private static HashMap<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
+	private HashMap<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {

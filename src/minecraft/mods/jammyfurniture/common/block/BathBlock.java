@@ -16,11 +16,11 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFBathBlock extends HBlockContainer {
+public class BathBlock extends HBlockContainer {
 	
 	public static final int[][] footBlockToHeadBlockMap = new int[][] { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
 	
-	public JFBathBlock(int par1, String registerName) {
+	public BathBlock(int par1, String registerName) {
 		super(par1, registerName, Material.iron);
 		this.setBounds();
 		
@@ -56,14 +56,9 @@ public class JFBathBlock extends HBlockContainer {
 	// Texture //
 	/////////////
 
-	@SideOnly(Side.CLIENT)
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
 	@Override
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon(ModJammyFurniture.MODID.toLowerCase()+":jammy_ceramic");
+	public String getTextureKey () {
+		return "ceramic";
 	}
 	
 	///////////

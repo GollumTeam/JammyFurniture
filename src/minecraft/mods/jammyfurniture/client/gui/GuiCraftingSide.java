@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GuiCraftingSide extends GuiContainer {
-	protected static final ResourceLocation texture = new ResourceLocation("textures/gui/container/crafting_table.png");
+	protected ResourceLocation texture = new ResourceLocation("textures/gui/container/crafting_table.png");
 	
 	public GuiCraftingSide(IInventory inventoryPlayer, World wWorld, int x, int y, int z) {
 		super(new ContainerCraftingSide(inventoryPlayer, wWorld, x, y, z));

@@ -133,7 +133,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 					return true;
 				}
 				
-				int time = (int) world.getWorldTime();
+				int time = (int) world.getWorldTime() % 24000;
 				int hour = ((time / 1000)+6) % 24;
 				int min = (time - (time/1000)*1000) * 60 / 1000;
 				boolean am = hour < 13 && hour >= 1;

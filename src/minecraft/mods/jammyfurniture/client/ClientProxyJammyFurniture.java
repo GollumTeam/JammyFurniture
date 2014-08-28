@@ -3,7 +3,7 @@ package mods.jammyfurniture.client;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.render.JFInventoryRenderer;
 import mods.jammyfurniture.client.render.jfm_ArmChairRenderer;
-import mods.jammyfurniture.client.render.jfm_BathRenderer;
+import mods.jammyfurniture.client.render.BathRenderer;
 import mods.jammyfurniture.client.render.jfm_CeramicBlocksRendererOne;
 import mods.jammyfurniture.client.render.jfm_IronBlocksRendererOne;
 import mods.jammyfurniture.client.render.jfm_IronBlocksRendererTwo;
@@ -91,7 +91,7 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksOneRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new WoodBlocksTwoRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksThree.class , new WoodBlocksThreeRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBath.class            , new jfm_BathRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBath.class            , new BathRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityIronBlocksOne.class   , new jfm_IronBlocksRendererOne());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityIronBlocksTwo.class   , new jfm_IronBlocksRendererTwo());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCeramicBlocksOne.class, new jfm_CeramicBlocksRendererOne());
