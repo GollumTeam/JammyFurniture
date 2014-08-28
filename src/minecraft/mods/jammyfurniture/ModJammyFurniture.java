@@ -7,6 +7,7 @@ import mods.gollum.core.tools.helper.items.HItem;
 import mods.gollum.core.tools.registry.GCLNetworkRegistry;
 import mods.gollum.core.tools.registry.InventoryRegistry;
 import mods.gollum.core.tools.registry.SoundRegistry;
+import mods.jammyfurniture.client.gui.GuiCooker;
 import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.BathBlock;
@@ -15,6 +16,7 @@ import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
 import mods.jammyfurniture.common.config.ConfigJammyFuniture;
+import mods.jammyfurniture.common.containers.ContainerCooker;
 import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
@@ -163,9 +165,10 @@ public class ModJammyFurniture extends GollumMod {
 	// GUI IDs //
 	/////////////
 	public static final int GUI_CLOCK_ID            = 151;
+	public static final int GUI_COOKER_ID           = 152;
 	public static final int GUI_KITCHENCUPBOARD_ID  = 153;
-	public static final int GUI_FRIDGE              = 156;
-	public static final int GUI_RUBBISHBIN          = 158;
+	public static final int GUI_FRIDGE_ID           = 156;
+	public static final int GUI_RUBBISHBIN_ID       = 158;
 	public static final int GUI_CRAFTSIDE_ID        = 160;
 	
 	
@@ -360,8 +363,9 @@ public class ModJammyFurniture extends GollumMod {
 		
 		InventoryRegistry.registerInventory (GUI_CLOCK_ID          , 3);
 		InventoryRegistry.registerInventory (GUI_KITCHENCUPBOARD_ID, 3);
-		InventoryRegistry.registerInventory (GUI_FRIDGE            , 3);
-		InventoryRegistry.registerInventory (GUI_RUBBISHBIN        , 9);
+		InventoryRegistry.registerInventory (GUI_FRIDGE_ID         , 3);
+		InventoryRegistry.registerInventory (GUI_RUBBISHBIN_ID     , 9);
+		InventoryRegistry.registerContainer (GUI_COOKER_ID         , ContainerCooker.class);
 		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID      , ContainerCraftingSide.class);
 	}
 	
@@ -371,6 +375,7 @@ public class ModJammyFurniture extends GollumMod {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void initGuiClient () {
+		InventoryRegistry.registerGui (GUI_COOKER_ID   , GuiCooker.class);
 		InventoryRegistry.registerGui (GUI_CRAFTSIDE_ID, GuiCraftingSide.class);
 	}
 

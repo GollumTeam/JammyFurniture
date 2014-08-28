@@ -1,5 +1,6 @@
 package mods.jammyfurniture.common.containers;
 
+import mods.gollum.core.common.container.GCLContainer;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -9,30 +10,32 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
-public class jfm_ContainerCooker extends Container {
+public class ContainerCooker extends Container {
 	private TileEntityIronBlocksOne tileEntity;
 	private int CookTime = 0;
 	private int CookTime2 = 0;
 	private int BurnTime = 0;
 	private int ItemBurnTime = 0;
 
-	public jfm_ContainerCooker(InventoryPlayer inventoryplayer, TileEntityIronBlocksOne teCooker) {
-		this.tileEntity = teCooker;
-		this.addSlotToContainer(new Slot(teCooker, 0, 77, 20));
-		this.addSlotToContainer(new Slot(teCooker, 1, 20, 44));
-		this.addSlotToContainer(new SlotFurnace(inventoryplayer.player, teCooker, 2, 143, 22));
-		this.addSlotToContainer(new Slot(teCooker, 3, 77, 49));
-		this.addSlotToContainer(new SlotFurnace(inventoryplayer.player, teCooker, 4, 143, 49));
+	public ContainerCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker) {
+		
+		this.tileEntity = tileEntityCooker;
+		
+		this.addSlotToContainer(new Slot(tileEntityCooker, 0, 77, 20));
+		this.addSlotToContainer(new Slot(tileEntityCooker, 1, 20, 44));
+		this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tileEntityCooker, 2, 143, 22));
+		this.addSlotToContainer(new Slot(tileEntityCooker, 3, 77, 49));
+		this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tileEntityCooker, 4, 143, 49));
 		int j;
 
 		for (j = 0; j < 3; ++j) {
 			for (int k = 0; k < 9; ++k) {
-				this.addSlotToContainer(new Slot(inventoryplayer, k + j * 9 + 9, 8 + k * 18, 84 + j * 18));
+				this.addSlotToContainer(new Slot(inventoryPlayer, k + j * 9 + 9, 8 + k * GCLContainer.SIZE_ITEM, 84 + j * GCLContainer.SIZE_ITEM));
 			}
 		}
 
 		for (j = 0; j < 9; ++j) {
-			this.addSlotToContainer(new Slot(inventoryplayer, j, 8 + j * 18, 142));
+			this.addSlotToContainer(new Slot(inventoryPlayer, j, 8 + j * GCLContainer.SIZE_ITEM, 142));
 		}
 	}
 	

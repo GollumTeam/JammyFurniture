@@ -35,6 +35,7 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	 * inside its implementation.
 	 */
 	public void updateEntity() {
+		super.updateEntity ();
 		if (this.tvIsOn () && (new Date().getTime() - this.tvOn) > 6500) { // 6 seconde
 			this.tvOn = 0;
 		}

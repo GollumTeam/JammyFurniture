@@ -1,20 +1,22 @@
 package mods.jammyfurniture.client.gui;
 
-import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.containers.ContainerCooker;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-public class jfm_GuiCooker extends GuiContainer {
-	private TileEntityIronBlocksOne cookerInventory;
-	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_cooker.png");
+public class GuiCooker extends GuiContainer {
+	private TileEntityIronBlocksOne tileEntityCooker;
+	protected static final ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":gui/jammy_cooker.png");
 
-	public jfm_GuiCooker(InventoryPlayer inventoryplayer, TileEntityIronBlocksOne teCooker) {
-		super(new jfm_ContainerCooker(inventoryplayer, teCooker));
-		this.cookerInventory = teCooker;
+	public GuiCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker) {
+		super(new ContainerCooker(inventoryPlayer, tileEntityCooker));
+		this.tileEntityCooker = (TileEntityIronBlocksOne) tileEntityCooker;
 	}
 
 	/**
@@ -38,13 +40,13 @@ public class jfm_GuiCooker extends GuiContainer {
 		this.drawTexturedModalRect(j1, k, 0, 0, this.xSize, this.ySize);
 		int i11;
 
-//		if (this.cookerInventory.isBurning()) {
-//			i11 = this.cookerInventory.getBurnTimeRemainingScaled(12);
+//		if (this.tileEntityCooker.isBurning()) {
+//			i11 = this.tileEntityCooker.getBurnTimeRemainingScaled(12);
 //			this.drawTexturedModalRect(j1 + 20, k + 36 + 4 - i11, 176, 12 - i11, 14, i11 + 2);
 //		}
 //
-//		i11 = this.cookerInventory.getCookProgressScaled(24);
-//		int m = this.cookerInventory.getCookProgressScaled2(24);
+//		i11 = this.tileEntityCooker.getCookProgressScaled(24);
+//		int m = this.tileEntityCooker.getCookProgressScaled2(24);
 //		this.drawTexturedModalRect(j1 + 118, k + 22, 176, 14, i11 + 1, 16);
 //		this.drawTexturedModalRect(j1 + 118, k + 50, 176, 14, m + 1, 16);
 	}

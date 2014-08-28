@@ -1,10 +1,11 @@
 package mods.jammyfurniture.client.model.iron;
 
+import mods.jammyfurniture.client.model.JFIModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class jfm_ModelCoffeeTable extends ModelBase {
+public class ModelCoffeeTable extends ModelBase implements JFIModel {
 	ModelRenderer TableLeg1;
 	ModelRenderer TableLeg2;
 	ModelRenderer TableLeg3;
@@ -15,7 +16,7 @@ public class jfm_ModelCoffeeTable extends ModelBase {
 	ModelRenderer TableSideBack;
 	ModelRenderer TableSideFront;
 
-	public jfm_ModelCoffeeTable() {
+	public ModelCoffeeTable() {
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 		this.TableLeg1 = new ModelRenderer(this, 1, 0);

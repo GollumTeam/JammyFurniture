@@ -3,16 +3,11 @@ package mods.jammyfurniture.common.block.iron;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.util.JFGuiHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class IronBlocksOne extends JFMetadataBlock {
@@ -62,6 +57,20 @@ public class IronBlocksOne extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+
+	/**
+	 * Called on server worlds only when the block has been replaced by a
+	 * different block ID, or the same block with a different metadata value,
+	 * but before the new metadata value is set. Args: World, x, y, z, old block
+	 * ID, old metadata
+	 */
+	@Override
+	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadata) {
+		
+		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
+		
+		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
+	}
 	
 	/**
 	 * Called upon block activation (right click on the block.)
@@ -81,17 +90,17 @@ public class IronBlocksOne extends JFMetadataBlock {
 				
 				case 0: // Le frigo
 				case 4: // Le freezer
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_FRIDGE, world, x, y, z);
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_FRIDGE_ID, world, x, y, z);
 					return true;
 					
 				case 8: // Le four a gateau
 					
-					player.openGui(ModJammyFurniture.instance, JFGuiHandler.GUI_COOKER, world, x, y, z);
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_COOKER_ID, world, x, y, z);
 					return true;
 					
 				case 12: // La poubelle
 					
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_RUBBISHBIN, world, x, y, z);
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_RUBBISHBIN_ID, world, x, y, z);
 					return true;
 					
 				default:
@@ -101,21 +110,6 @@ public class IronBlocksOne extends JFMetadataBlock {
 		}
 		
 		return false;
-	}
-	
-
-	/**
-	 * Called on server worlds only when the block has been replaced by a
-	 * different block ID, or the same block with a different metadata value,
-	 * but before the new metadata value is set. Args: World, x, y, z, old block
-	 * ID, old metadata
-	 */
-	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadata) {
-		
-		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
-		
-		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
 	}
 	
 	

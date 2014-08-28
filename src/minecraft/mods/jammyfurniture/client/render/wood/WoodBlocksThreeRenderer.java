@@ -12,8 +12,8 @@ import org.lwjgl.opengl.GL11;
 
 public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 	
-	private final static ModelChair chair = new ModelChair();
-	private final static ModelRadio radio = new ModelRadio();
+	private final static ModelChair  chair = new ModelChair();
+	private final static ModelRadio  radio = new ModelRadio();
 	private final static ModelBlinds blinds = new ModelBlinds();
 	
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {

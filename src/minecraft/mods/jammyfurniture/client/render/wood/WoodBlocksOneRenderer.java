@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
-
+	
 	private final static ModelClockBase   modelClockBase   = new ModelClockBase();
 	private final static ModelClockMiddle modelClockMiddle = new ModelClockMiddle();
 	private final static ModelClockTop    modelClockTop    = new ModelClockTop();

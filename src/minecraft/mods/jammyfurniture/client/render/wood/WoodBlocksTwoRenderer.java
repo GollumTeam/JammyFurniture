@@ -2,11 +2,17 @@ package mods.jammyfurniture.client.render.wood;
 
 import java.util.Date;
 
+import org.lwjgl.opengl.GL11;
+
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.wood.ModelBasket;
 import mods.jammyfurniture.client.model.wood.ModelKitchenCupboard;
 import mods.jammyfurniture.client.model.wood.ModelTV;
+import mods.jammyfurniture.client.model.wood.jfm_ModelCupboardBottom;
+import mods.jammyfurniture.client.model.wood.jfm_ModelCupboardTop;
+import mods.jammyfurniture.client.model.wood.jfm_ModelStandBase;
+import mods.jammyfurniture.client.model.wood.jfm_ModelStandTop;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.tileentity.TileEntity;
@@ -51,8 +57,7 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 			default:
 			case 0:  this.renderModel(this.modelKitchenCupboard, "kitchencupboardnotop", x, y, z, rotation); break;
 			case 4:  this.renderModel(this.modelKitchenCupboard, "kitchencupboard"     , x, y, z, rotation); break;
-			case 8:  
-				
+			case 8:
 				String textureTv = "tv";
 				if (((TileEntityWoodBlocksTwo)tileentity).tvIsOn()) {
 					if (this.switchTvTexture) {

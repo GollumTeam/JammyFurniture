@@ -3,10 +3,10 @@ package mods.jammyfurniture.common.util;
 import mods.jammyfurniture.client.gui.GuiDishwasher;
 import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.client.gui.jfm_GuiBathroomCupboard;
-import mods.jammyfurniture.client.gui.jfm_GuiCooker;
+import mods.jammyfurniture.client.gui.GuiCooker;
 import mods.jammyfurniture.common.containers.ContainerDishwasher;
 import mods.jammyfurniture.common.containers.jfm_ContainerBathroomCupboard;
-import mods.jammyfurniture.common.containers.jfm_ContainerCooker;
+import mods.jammyfurniture.common.containers.ContainerCooker;
 import mods.jammyfurniture.common.containers.jfm_ContainerWashingMachine;
 import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
@@ -22,7 +22,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class JFGuiHandler implements IGuiHandler {
 
-	public static final int GUI_COOKER = 152;
 	
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		
@@ -37,10 +36,10 @@ public class JFGuiHandler implements IGuiHandler {
 					break;
 					
 	
-				case GUI_COOKER:
-					container = new jfm_ContainerCooker(player.inventory, (TileEntityIronBlocksOne)te);
-					break;
-	
+//				case GUI_COOKER:
+//					container = new ContainerCooker(player.inventory, (TileEntityIronBlocksOne)te);
+//					break;
+//	
 				case 155:
 					container = new jfm_ContainerWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
 					break;
@@ -80,10 +79,10 @@ public class JFGuiHandler implements IGuiHandler {
 						break;
 						
 		
-					case GUI_COOKER:
-						gui = new jfm_GuiCooker(player.inventory, (TileEntityIronBlocksOne)te);
-						break;
-		
+//					case GUI_COOKER:
+//						gui = new GuiCooker(player.inventory, (TileEntityIronBlocksOne)te);
+//						break;
+//		
 					case 155:
 						gui = new GuiWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
 						break;
