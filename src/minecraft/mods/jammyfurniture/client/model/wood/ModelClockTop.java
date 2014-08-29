@@ -26,6 +26,12 @@ public class ModelClockTop extends ModelBase implements JFIModel {
 		this.middleTop.mirror = true;
 		this.setRotation(this.middleTop, 0.0F, 0.0F, 0.0F);
 		
+		this.clockDial = new ModelRenderer(this, 0, 0);
+		this.clockDial.addBox(1.0F, 1.0F, 0.0F, 8, 6, 0);
+		this.clockDial.setRotationPoint(-5.0F, 12.0F, -5.0F);
+		this.clockDial.mirror = true;
+		this.setRotation(this.clockDial, 0.0F, 0.0F, 0.0F);
+		
 		this.clockFace = new ModelRenderer(this, 0, 34);
 		this.clockFace.addBox(0.0F, 0.0F, 0.0F, 10, 9, 10);
 		this.clockFace.setRotationPoint(-5.0F, 12.0F, -5.0F);
@@ -89,6 +95,7 @@ public class ModelClockTop extends ModelBase implements JFIModel {
 	public void renderDial (int numDial, float f1) {
 		this.textureWidth = 8;
 		this.textureHeight = 378;
+		this.clockDial = null;
 		this.clockDial = new ModelRenderer(this, 0, 6*numDial);
 		this.clockDial.addBox(1.0F, 1.0F, 0.0F, 8, 6, 0);
 		this.clockDial.setRotationPoint(-5.0F, 12.0F, -5.0F);

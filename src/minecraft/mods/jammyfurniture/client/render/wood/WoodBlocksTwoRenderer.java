@@ -65,9 +65,9 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 					} else {
 						textureTv = "tv_on2";
 					}
-					if (new Date().getTime() - this.lastSwitch > 50) {
+					if (System.currentTimeMillis() - this.lastSwitch > 50) {
 						this.switchTvTexture = !this.switchTvTexture;
-						this.lastSwitch = new Date().getTime();
+						this.lastSwitch = System.currentTimeMillis();
 					}
 				}
 				this.renderModel(this.modelTV, textureTv, x, y, z, rotation);

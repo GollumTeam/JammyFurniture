@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiCooker extends GuiContainer {
 	private TileEntityIronBlocksOne tileEntityCooker;
-	protected static final ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":gui/jammy_cooker.png");
+	protected static final ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":gui/cooker.png");
 
 	public GuiCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker) {
 		super(new ContainerCooker(inventoryPlayer, tileEntityCooker));

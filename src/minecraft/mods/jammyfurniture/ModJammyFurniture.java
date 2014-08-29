@@ -291,6 +291,8 @@ public class ModJammyFurniture extends GollumMod {
 		SoundRegistry.register("washingmachine");
 		SoundRegistry.register("radio");
 		SoundRegistry.register("toilet");
+		SoundRegistry.register("trashopen");
+		SoundRegistry.register("trashclosed");
 		
 	}
 	

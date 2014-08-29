@@ -3,6 +3,7 @@ package mods.jammyfurniture.common.block.iron;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,10 +52,14 @@ public class IronBlocksOne extends JFMetadataBlock {
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
 		int metadata    = world.getBlockMetadata(x, y, z);
+		int subBlock    = this.getEnabledMetadata(metadata);
 		int orientation = this.getOrientation(entityliving);
 		
 		if (metadata == 0 || metadata == 4 || metadata == 8) {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
+		}
+		if (subBlock == 12) {
+			world.addBlockEvent(x, y, z, this.blockID, 1, orientation);
 		}
 	}
 
@@ -70,6 +75,22 @@ public class IronBlocksOne extends JFMetadataBlock {
 		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
 		
 		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
+	}
+	
+	/**
+	* Called when the block receives a BlockEvent - see World.addBlockEvent. By default, passes it on to the tile
+	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
+	*/
+	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+
+		if (te != null && te instanceof TileEntityIronBlocksOne) {
+			TileEntityIronBlocksOne teIronBlocks = (TileEntityIronBlocksOne)te;
+			
+			teIronBlocks.rubishBinOrientation = (short) parameter;
+		}
+		
+		return true;
 	}
 	
 	/**

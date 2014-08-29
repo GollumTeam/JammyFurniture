@@ -118,7 +118,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			case 5:
 			case 6:
 			case 7:
-				world.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":radio", 0.8F, world.rand.nextFloat() * 0.1F + 0.9F);
+				world.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":radio", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
 				return true;
 			case 8:
 			case 9:

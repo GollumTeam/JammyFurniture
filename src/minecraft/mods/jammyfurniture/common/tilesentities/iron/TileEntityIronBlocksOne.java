@@ -22,6 +22,8 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	private static final int INV_SIZE_COOKER     = 5;
 	private static final int INV_SIZE_RUBBISHBIN = 27;
 	
+	private static final int INDEX_SLOT_BURN = 1;
+	
 //	private int ticksSinceSync;
 //	
 //	
@@ -30,8 +32,10 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	public int cookerCookTime = 0;
 	public int cookerCookTime2 = 0;
 	
-	// Ouverture des porte	
-//	long lastClearance = System.currentTimeMillis();
+	// Date du dernier effacement de la corbeille
+	long lastClearance = System.currentTimeMillis();
+	// Orientation de la poubelle
+	public short rubishBinOrientation = 0;
 	
 //	public static boolean debug = false;
 
@@ -79,9 +83,32 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		return "ERROR";
 	}
 	
-//	public static boolean isItemFuel(ItemStack par0ItemStack) {
-//		return getItemBurnTime(par0ItemStack) > 0;
-//	}
+	protected void playSoundClosedInventory() {
+		String oldSound = this.soundClosedInventory;
+		float oldVolume = this.volumeSoundOpenClosedInventory;
+		if (this.getSubBlock() == 12) {
+			this.soundClosedInventory = ModJammyFurniture.MODID.toLowerCase()+":trashclosed";
+		}
+		
+		super.playSoundClosedInventory();
+		
+		this.soundClosedInventory = oldSound;
+		this.volumeSoundOpenClosedInventory = oldVolume;
+	}
+	
+	protected void playSoundOpenInventory() {
+		String oldSound = this.soundOpenInventory;
+		float oldVolume = this.volumeSoundOpenClosedInventory;
+		if (this.getSubBlock() == 12) {
+			this.soundOpenInventory = ModJammyFurniture.MODID.toLowerCase()+":trashopen";
+			this.volumeSoundOpenClosedInventory = 1.0F;
+		}
+		
+		super.playSoundOpenInventory();
+		
+		this.soundOpenInventory = oldSound;
+		this.volumeSoundOpenClosedInventory = oldVolume;
+	}
 	
 	////////////
 	// Update //
@@ -96,6 +123,19 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		
 		super.updateEntity();
 		
+		int metadata = this.getBlockMetadata();
+		int subBlock = this.getSubBlock();
+		
+		if (subBlock == 12) { // La poubelle
+			
+			if (System.currentTimeMillis() - this.lastClearance >= 60000L) {
+				this.removeAllItems();
+				this.lastClearance = System.currentTimeMillis();
+			}
+			
+			return;
+		}
+		
 //		if (debug) {
 //			System.out.println("World Obj = " + this.worldObj);
 //			System.out.println("X: " + this.xCoord);
@@ -105,23 +145,15 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 //			System.out.println("Bin - Time Left " + (int) Math.floor((double) ((300000L - (System.currentTimeMillis() - this.lastClearance)) / 1000L)) / 60 + ":" + (300000L - (System.currentTimeMillis() - this.lastClearance)) / 1000L % 60L);
 //		}
 
-//		int meta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
-//
-//
-//		if (meta != 8 && meta != 9 && meta != 10 && meta != 11) {
-//			if (meta == 12 && System.currentTimeMillis() - this.lastClearance >= 300000L) {
-//				this.removeItems(this);
-//				this.lastClearance = System.currentTimeMillis();
-//			}
-//		} else {
+		if (subBlock == 8) {
 //			boolean var9 = this.cookerBurnTime > 0;
-//			boolean var10 = false;
-//
-//			if (this.cookerBurnTime > 0) {
-//				--this.cookerBurnTime;
-//			}
-//
-//			if (!this.worldObj.isRemote) {
+			boolean inventoryChange = false;
+			
+			if (this.cookerBurnTime > 0) {
+				--this.cookerBurnTime;
+			}
+
+			if (!this.worldObj.isRemote) {
 //				if (this.cookerBurnTime == 0 && this.canSmelt()) {
 //					this.currentItemBurnTime = this.cookerBurnTime = getItemBurnTime(this.cookerItemStacks[1]);
 //
@@ -177,12 +209,12 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 //				} else {
 //					this.cookerCookTime2 = 0;
 //				}
-//			}
+			}
 //
-//			if (var10) {
-//				this.onInventoryChanged();
-//			}
-//		}
+			if (inventoryChange) {
+				this.onInventoryChanged();
+			}
+		}
 	}
 	
 	////////////////
@@ -202,6 +234,8 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 //		this.cookerBurnTime = nbtTagCompound.getShort("BurnTime");
 //		this.cookerCookTime = nbtTagCompound.getShort("CookTime");
 //		this.cookerCookTime2 = nbtTagCompound.getShort("CookTime2");
+
+		this.rubishBinOrientation = nbtTagCompound.getShort("BurnTime");
 		
 //		this.currentItemBurnTime = getItemBurnTime(this.inventory[1]); // TODO
 	}
@@ -212,17 +246,28 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	public void writeToNBT(NBTTagCompound nbtTagCompound) {
 		super.writeToNBT(nbtTagCompound);
 		
-		if (this.getSubBlock() == 8) {
-//			nbtTagCompound.setShort("BurnTime", (short) this.cookerBurnTime);
-//			nbtTagCompound.setShort("CookTime", (short) this.cookerCookTime);
-//			nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime2);
-		}
+//		nbtTagCompound.setShort("BurnTime", (short) this.cookerBurnTime);
+//		nbtTagCompound.setShort("CookTime", (short) this.cookerCookTime);
+//		nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime2);
+		
+		nbtTagCompound.setShort("BurnTime", this.rubishBinOrientation);
 	}
 	
 	////////////
 	// Others //
 	////////////
 	
+	public void removeAllItems () {
+		for (int i = 0; i < this.getSizeInventory(); ++i) {
+			this.setInventorySlotContents(i, (ItemStack) null);
+		}
+	}
+
+	
+//	public static boolean isItemFuel(ItemStack par0ItemStack) {
+//		return getItemBurnTime(par0ItemStack) > 0;
+//	}
+//	
 //	public void onTileEntityPowered(int par1, int par2) {
 //		if (par1 == 1) {
 //			this.numUsingPlayers = par2;
@@ -328,7 +373,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 //	}
 	
 	private int getSubBlock() {
-		int metadata = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
+		int metadata =  this.getBlockMetadata();
 		return((IBlockMetadataHelper)ModJammyFurniture.blockIronBlocksOne).getEnabledMetadata(metadata);
 	}
 	

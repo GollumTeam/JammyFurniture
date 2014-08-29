@@ -47,7 +47,17 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 		if (invRender) {
 			rotation = 180;
 		}
-
+		
+		if (subBlock == 12) {
+			switch (tileentityIron.rubishBinOrientation) {
+				default:
+				case 0: rotation = 270;   break;
+				case 1: rotation = 180;  break;
+				case 2: rotation = 90; break;
+				case 3: rotation = 0; break;
+			}
+		}
+		
 		float doorProgess = tileentityIron.getPreviousDoorOpenProgress() + (tileentityIron.getDoorOpenProgress() - tileentityIron.getPreviousDoorOpenProgress()) * f;
 		
 		switch (subBlock) {
@@ -61,8 +71,8 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 				this.modelFridge.setFreezer();
 				this.renderModel(this.modelFridge, "freezer", x, y, z, (invRender) ? 0 : rotation, doorProgess);
 				break;
-			case 8:  this.renderModel(this.modelCooker     , "cooker"     , x, y, z, rotation); break;
-			case 12: this.renderModel(this.modelRubbishBin , "rubbishbin" , x, y, z, rotation); break;
+			case 8:  this.renderModel(this.modelCooker     , "cooker"     , x, y, z, rotation, doorProgess); break;
+			case 12: this.renderModel(this.modelRubbishBin , "rubbishbin" , x, y, z, rotation, doorProgess); break;
 			case 13: this.renderModel(this.modelCoffeetable, "coffeetable", x, y, z, rotation); break;
 		}
 	}

@@ -36,7 +36,7 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	 */
 	public void updateEntity() {
 		super.updateEntity ();
-		if (this.tvIsOn () && (new Date().getTime() - this.tvOn) > 6500) { // 6 seconde
+		if (this.tvIsOn () && (System.currentTimeMillis() - this.tvOn) > 6500) { // 6 seconde
 			this.tvOn = 0;
 		}
 	}
@@ -46,9 +46,9 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	////////////
 	
 	public void tvTurnOn () {
-		this.tvOn = new Date().getTime();
+		this.tvOn = System.currentTimeMillis();
 		if (!this.worldObj.isRemote) {
-			this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, ModJammyFurniture.MODID.toLowerCase()+":radio", 0.8F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+			this.worldObj.playSoundEffect(this.xCoord, this.yCoord, this.zCoord, ModJammyFurniture.MODID.toLowerCase()+":radio", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
 		}
 	}
 	

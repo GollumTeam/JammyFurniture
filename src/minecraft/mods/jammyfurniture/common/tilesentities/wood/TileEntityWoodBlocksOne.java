@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagList;
 
 public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 
-	private int soundHitClock = 0;
+	private long soundHitClock = System.currentTimeMillis();
 	private boolean soundDongClock = false;
 	
 	public TileEntityWoodBlocksOne() {
@@ -71,9 +71,9 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 						soundDongClock = false;
 					}
 					
-					if (this.soundHitClock == 42) { // gestion du tic tac
-						this.worldObj.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":clock-tick", 0.15F, this.worldObj.rand.nextFloat() * 0.1F + 0.8F);
-						this.soundHitClock = 0;
+					if (System.currentTimeMillis() - this.soundHitClock >= 2000) { // gestion du tic tac
+						this.worldObj.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":clock-tick", 0.25F, this.worldObj.rand.nextFloat() * 0.1F + 0.8F);
+						this.soundHitClock = System.currentTimeMillis();
 						
 					} else {
 						this.soundHitClock++;

@@ -100,23 +100,26 @@ public class ModelFridge extends ModelBase implements JFIModelDoor {
 		this.p2.setTextureSize(64, 64);
 		this.p2.mirror = true;
 		this.setRotation(this.p2, 0.0F, 0.0F, 0.0F);
+		
 		this.door = new ModelRenderer(this, 24, 8);
 		this.door.addBox(0.0F, 0.0F, 0.0F, 14, 16, 1);
 		this.door.setRotationPoint(-7.0F, 8.0F, 5.0F);
 		this.door.setTextureSize(64, 64);
 		this.door.mirror = true;
 		this.setRotation(this.door, 0.0F, 0.0F, 0.0F);
+		
 		this.handle = new ModelRenderer(this, 24, 4);
-		this.handle.addBox(0.0F, 0.0F, 0.0F, 3, 1, 1);
-		this.handle.setRotationPoint(3.9F, 22.9F, 5.5F);
+		this.handle.addBox(11.0F, 15.0F, 1.0F, 3, 1, 1);
+		this.handle.setRotationPoint(-7.0F, 8.0F, 5.0F);
 		this.handle.setTextureSize(64, 64);
 		this.handle.mirror = true;
 		this.setRotation(this.handle, 0.0F, 0.0F, 0.0F);
+		
 		this.handle2 = new ModelRenderer(this, 24, 4);
-		this.handle2.addBox(0.0F, 0.0F, 0.0F, 3, 1, 1);
-		this.handle2.setRotationPoint(3.9F, 8.1F, 5.5F);
+		this.handle2.addBox(11.0F, 0.0F, 1.0F, 3, 1, 1);
+		this.handle2.setRotationPoint(-7.0F, 8.0F, 5.0F);
 		this.handle2.setTextureSize(64, 64);
-		this.handle.mirror = true;
+		this.handle2.mirror = true;
 		this.setRotation(this.handle2, 0.0F, 0.0F, 0.0F);
 	}
 
@@ -191,6 +194,9 @@ public class ModelFridge extends ModelBase implements JFIModelDoor {
 
 	@Override
 	public void setDoorProgess(float doorProgess) {
-		this.door.rotateAngleY = -(doorProgess * (float) Math.PI / 2.0F);
+		float rotation = -(doorProgess * (float) Math.PI / 2.0F);
+		this.door.rotateAngleY    = rotation;
+		this.handle.rotateAngleY  = rotation;
+		this.handle2.rotateAngleY = rotation;
 	}
 }

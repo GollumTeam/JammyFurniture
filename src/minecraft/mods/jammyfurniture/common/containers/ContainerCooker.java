@@ -12,14 +12,16 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerCooker extends Container {
 	private TileEntityIronBlocksOne tileEntity;
-	private int CookTime = 0;
-	private int CookTime2 = 0;
-	private int BurnTime = 0;
-	private int ItemBurnTime = 0;
+//	private int CookTime = 0;
+//	private int CookTime2 = 0;
+//	private int BurnTime = 0;
+//	private int ItemBurnTime = 0;
 
 	public ContainerCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker) {
 		
 		this.tileEntity = tileEntityCooker;
+		
+		tileEntityCooker.openChest();
 		
 		this.addSlotToContainer(new Slot(tileEntityCooker, 0, 77, 20));
 		this.addSlotToContainer(new Slot(tileEntityCooker, 1, 20, 44));
@@ -39,24 +41,35 @@ public class ContainerCooker extends Container {
 		}
 	}
 	
+	/**
+	 * Called when the container is closed.
+	 */
+	@Override
+	public void onContainerClosed(EntityPlayer par1EntityPlayer) {
+		
+		super.onContainerClosed(par1EntityPlayer);
+		this.tileEntity.closeChest();
+		
+	}
+	
 	
 	// TODO a revoir
 	public void updateProgressBar(int par1, int par2) {
-		if (par1 == 0) {
-			this.tileEntity.cookerCookTime = par2;
-		}
-
-		if (par1 == 1) {
-			this.tileEntity.cookerCookTime2 = par2;
-		}
-
-		if (par1 == 2) {
-			this.tileEntity.cookerBurnTime = par2;
-		}
-
-		if (par1 == 3) {
-			this.tileEntity.currentItemBurnTime = par2;
-		}
+//		if (par1 == 0) {
+//			this.tileEntity.cookerCookTime = par2;
+//		}
+//
+//		if (par1 == 1) {
+//			this.tileEntity.cookerCookTime2 = par2;
+//		}
+//
+//		if (par1 == 2) {
+//			this.tileEntity.cookerBurnTime = par2;
+//		}
+//
+//		if (par1 == 3) {
+//			this.tileEntity.currentItemBurnTime = par2;
+//		}
 	}
 
 	/**
@@ -65,41 +78,67 @@ public class ContainerCooker extends Container {
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 
-		for (int i = 0; i < this.crafters.size(); ++i) {
-			ICrafting icrafting = (ICrafting) this.crafters.get(i);
+//		for (int i = 0; i < this.crafters.size(); ++i) {
+//			ICrafting icrafting = (ICrafting) this.crafters.get(i);
+//
+//			if (this.CookTime != this.tileEntity.cookerCookTime) {
+//				icrafting.sendProgressBarUpdate(this, 0, this.tileEntity.cookerCookTime);
+//			}
+//
+//			if (this.CookTime2 != this.tileEntity.cookerCookTime2) {
+//				icrafting.sendProgressBarUpdate(this, 1, this.tileEntity.cookerCookTime2);
+//			}
+//
+//			if (this.BurnTime != this.tileEntity.cookerBurnTime) {
+//				icrafting.sendProgressBarUpdate(this, 2, this.tileEntity.cookerBurnTime);
+//			}
+//
+//			if (this.ItemBurnTime != this.tileEntity.currentItemBurnTime) {
+//				icrafting.sendProgressBarUpdate(this, 3, this.tileEntity.currentItemBurnTime);
+//			}
+//		}
 
-			if (this.CookTime != this.tileEntity.cookerCookTime) {
-				icrafting.sendProgressBarUpdate(this, 0, this.tileEntity.cookerCookTime);
-			}
-
-			if (this.CookTime2 != this.tileEntity.cookerCookTime2) {
-				icrafting.sendProgressBarUpdate(this, 1, this.tileEntity.cookerCookTime2);
-			}
-
-			if (this.BurnTime != this.tileEntity.cookerBurnTime) {
-				icrafting.sendProgressBarUpdate(this, 2, this.tileEntity.cookerBurnTime);
-			}
-
-			if (this.ItemBurnTime != this.tileEntity.currentItemBurnTime) {
-				icrafting.sendProgressBarUpdate(this, 3, this.tileEntity.currentItemBurnTime);
-			}
-		}
-
-		this.CookTime = this.tileEntity.cookerCookTime;
-		this.CookTime2 = this.tileEntity.cookerCookTime2;
-		this.BurnTime = this.tileEntity.cookerBurnTime;
-		this.ItemBurnTime = this.tileEntity.currentItemBurnTime;
+//		this.CookTime = this.tileEntity.cookerCookTime;
+//		this.CookTime2 = this.tileEntity.cookerCookTime2;
+//		this.BurnTime = this.tileEntity.cookerBurnTime;
+//		this.ItemBurnTime = this.tileEntity.currentItemBurnTime;
 	}
 
 	public boolean canInteractWith(EntityPlayer entityplayer) {
 		return this.tileEntity.isUseableByPlayer(entityplayer);
 	}
-
+	
+	
+	// TODO Filtrer les block
 	/**
 	 * Called when a player shift-clicks on a slot. You must override this or
 	 * you will crash when someone does that.
 	 */
-	public ItemStack transferStackInSlot(EntityPlayer pl, int i) {
-		return null;
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotId) {
+		
+		ItemStack itemStack = null;
+		Slot slot = (Slot) this.inventorySlots.get(slotId);
+
+		if (slot != null && slot.getHasStack()) {
+			ItemStack itemstack1 = slot.getStack();
+			itemStack = itemstack1.copy();
+
+			if (slotId < this.tileEntity.getSizeInventory()) {
+				if (!this.mergeItemStack(itemstack1, this.tileEntity.getSizeInventory(), this.inventorySlots.size(), true)) {
+					return null;
+				}
+			} else if (!this.mergeItemStack(itemstack1, 0, this.tileEntity.getSizeInventory(), false)) {
+				return null;
+			}
+
+			if (itemstack1.stackSize == 0) {
+				slot.putStack((ItemStack) null);
+			} else {
+				slot.onSlotChanged();
+			}
+		}
+		
+		return itemStack;
 	}
 }
