@@ -4,16 +4,18 @@ import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.gollum.core.tools.helper.IBlockHelper;
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.recipes.jfm_CookerRecipes;
+import mods.jammyfurniture.common.crafting.CookerRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.src.ModLoader;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	
@@ -22,7 +24,14 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	private static final int INV_SIZE_COOKER     = 5;
 	private static final int INV_SIZE_RUBBISHBIN = 27;
 	
-	private static final int INDEX_SLOT_BURN = 1;
+	private static final int INDEX_SLOT_BURN    = 1;
+	private static final int INDEX_SLOT_BEFORE1 = 0;
+	private static final int INDEX_SLOT_BEFORE2 = 3;
+	private static final int INDEX_SLOT_AFTER1  = 2;
+	private static final int INDEX_SLOT_AFTER4  = 2;
+
+	private static final int COOKING_SPEED1  = 200;
+	private static final int COOKING_SPEED2  = 200;
 	
 //	private int ticksSinceSync;
 //	
@@ -136,39 +145,43 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 			return;
 		}
 		
-//		if (debug) {
-//			System.out.println("World Obj = " + this.worldObj);
-//			System.out.println("X: " + this.xCoord);
-//			System.out.println("Y: " + this.yCoord);
-//			System.out.println("Z: " + this.zCoord);
-//			System.out.println("Meta: " + this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
-//			System.out.println("Bin - Time Left " + (int) Math.floor((double) ((300000L - (System.currentTimeMillis() - this.lastClearance)) / 1000L)) / 60 + ":" + (300000L - (System.currentTimeMillis() - this.lastClearance)) / 1000L % 60L);
-//		}
+		boolean debug = false;
+		
+		if (debug) {
+			System.out.println("World Obj = " + this.worldObj);
+			System.out.println("X: " + this.xCoord);
+			System.out.println("Y: " + this.yCoord);
+			System.out.println("Z: " + this.zCoord);
+			System.out.println("Meta: " + this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
+			System.out.println("Biurn");
+		}
 
-		if (subBlock == 8) {
-//			boolean var9 = this.cookerBurnTime > 0;
+		if (subBlock == 8) { // Le cooker
+			
 			boolean inventoryChange = false;
 			
-			if (this.cookerBurnTime > 0) {
+			if (this.isBurning ()) {
 				--this.cookerBurnTime;
 			}
 
 			if (!this.worldObj.isRemote) {
-//				if (this.cookerBurnTime == 0 && this.canSmelt()) {
-//					this.currentItemBurnTime = this.cookerBurnTime = getItemBurnTime(this.cookerItemStacks[1]);
-//
-//					if (this.cookerBurnTime > 0) {
-//						var10 = true;
-//
-//						if (this.cookerItemStacks[1] != null) {
-//							--this.cookerItemStacks[1].stackSize;
-//
-//							if (this.cookerItemStacks[1].stackSize == 0) {
-//								this.cookerItemStacks[1] = this.cookerItemStacks[1].getItem().getContainerItemStack(this.cookerItemStacks[1]);
-//							}
-//						}
-//					}
-//				}
+				
+				if (this.cookerBurnTime == 0 && this.canSmelt()) {
+					this.currentItemBurnTime = this.cookerBurnTime = this.getItemBurnTime(this.inventory[INDEX_SLOT_BURN]);
+					
+					if (this.cookerBurnTime > 0) {
+						inventoryChange = true;
+						
+						// On peux brulé l'élément donc on enleve 
+						if (this.inventory[INDEX_SLOT_BURN] != null) {
+							
+							--this.inventory[INDEX_SLOT_BURN].stackSize;
+							if (this.inventory[INDEX_SLOT_BURN].stackSize == 0) {
+								this.inventory[INDEX_SLOT_BURN] = this.inventory[INDEX_SLOT_BURN].getItem().getContainerItemStack(this.inventory[INDEX_SLOT_BURN]);
+							}
+						}
+					}
+				}
 //
 //				if (this.cookerBurnTime == 0 && this.canSmelt2()) {
 //					this.currentItemBurnTime = this.cookerBurnTime = getItemBurnTime(this.cookerItemStacks[1]);
@@ -186,17 +199,18 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 //					}
 //				}
 //
-//				if (this.isBurning() && this.canSmelt()) {
-//					++this.cookerCookTime;
-//
-//					if (this.cookerCookTime == 200) {
-//						this.cookerCookTime = 0;
-//						this.smeltItem();
-//						var10 = true;
-//					}
-//				} else {
-//					this.cookerCookTime = 0;
-//				}
+				if (this.isBurning() && this.canSmelt()) {
+					++this.cookerCookTime;
+
+					if (this.cookerCookTime == COOKING_SPEED1) {
+						this.cookerCookTime = 0;
+						this.smeltItem();
+						inventoryChange = true;
+					}
+				} else {
+					// Ca ne brule plus donc l'élement courant ne cuit plus
+					this.cookerCookTime = 0;
+				}
 //
 //				if (this.isBurning() && this.canSmelt2()) {
 //					++this.cookerCookTime2;
@@ -231,13 +245,15 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		this.readItems(nbtTagCompound, "CookerItems", true); // Compatibility
 		this.readItems(nbtTagCompound, "BinItems"   , true); // Compatibility
 		
-//		this.cookerBurnTime = nbtTagCompound.getShort("BurnTime");
-//		this.cookerCookTime = nbtTagCompound.getShort("CookTime");
-//		this.cookerCookTime2 = nbtTagCompound.getShort("CookTime2");
-
-		this.rubishBinOrientation = nbtTagCompound.getShort("BurnTime");
+		this.cookerBurnTime = nbtTagCompound.getShort("BurnTime");
+		this.cookerCookTime = nbtTagCompound.getShort("CookTime");
+		this.cookerCookTime2 = nbtTagCompound.getShort("CookTime2");
 		
-//		this.currentItemBurnTime = getItemBurnTime(this.inventory[1]); // TODO
+		if (nbtTagCompound.hasKey("rubishBinOrientation")) {
+			this.rubishBinOrientation = nbtTagCompound.getShort("rubishBinOrientation");
+		}
+		
+		this.currentItemBurnTime = getItemBurnTime(this.inventory[INDEX_SLOT_BURN]); // TODO
 	}
 
 	/**
@@ -246,23 +262,103 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	public void writeToNBT(NBTTagCompound nbtTagCompound) {
 		super.writeToNBT(nbtTagCompound);
 		
-//		nbtTagCompound.setShort("BurnTime", (short) this.cookerBurnTime);
-//		nbtTagCompound.setShort("CookTime", (short) this.cookerCookTime);
-//		nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime2);
+		nbtTagCompound.setShort("BurnTime", (short) this.cookerBurnTime);
+		nbtTagCompound.setShort("CookTime", (short) this.cookerCookTime);
+		nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime2);
 		
-		nbtTagCompound.setShort("BurnTime", this.rubishBinOrientation);
+		nbtTagCompound.setShort("rubishBinOrientation", this.rubishBinOrientation);
 	}
 	
 	////////////
 	// Others //
 	////////////
 	
+	/**
+	 * Vide tous les Item de l'inventaire
+	 */
 	public void removeAllItems () {
 		for (int i = 0; i < this.getSizeInventory(); ++i) {
 			this.setInventorySlotContents(i, (ItemStack) null);
 		}
 	}
+	
+	/** 
+	 * Test si le four peux cuire l'element déposé
+	 */
+	private boolean canSmelt() {
+		if (this.inventory[INDEX_SLOT_BEFORE1] == null) {
+			return false;
+		}
+		
+		ItemStack itemCooked = CookerRecipes.smelting().getSmeltingResult(this.inventory[INDEX_SLOT_BEFORE1].getItem().itemID);
+		
+		if (itemCooked == null) {
+			return false;
+		}
+		if (this.inventory[INDEX_SLOT_AFTER1] == null) {
+			return true;
+		}
+		if (!this.inventory[INDEX_SLOT_AFTER1].isItemEqual(itemCooked)) {
+			return false;
+		}
+		
+		int total = inventory[INDEX_SLOT_AFTER1].stackSize + itemCooked.stackSize;
+		
+		return (total <= getInventoryStackLimit() && total <= itemCooked.getMaxStackSize());
+	}
+	
+	/**
+	 * Renvoie le temps qu'un élément peux brulé. Tous les éléments de Furnace
+	 */
+	private static int getItemBurnTime(ItemStack itemStack) {
+		return TileEntityFurnace.getItemBurnTime(itemStack);
+	}
 
+	public boolean isBurning() {
+		return this.cookerBurnTime > 0;
+	}
+	
+	public void smeltItem() {
+		
+		if (this.canSmelt()) {
+			ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(this.inventory[INDEX_SLOT_BEFORE1]);
+			
+			// Insert l'élément cuit dans le slot 2
+			if (this.inventory[INDEX_SLOT_AFTER1] == null) {
+				this.inventory[INDEX_SLOT_AFTER1] = itemStack.copy();
+			} else if (this.inventory[INDEX_SLOT_AFTER1].isItemEqual(itemStack)) {
+				inventory[INDEX_SLOT_AFTER1].stackSize += itemStack.stackSize;
+			}
+
+			--this.inventory[INDEX_SLOT_BEFORE1].stackSize;
+
+			if (this.inventory[INDEX_SLOT_BEFORE1].stackSize <= 0) {
+				this.inventory[INDEX_SLOT_BEFORE1] = null;
+			}
+		}
+	}
+	
+	//////////////////////
+	// Data for display //
+	//////////////////////
+	
+	public int getBurnTimeRemainingScaled(int maxSize) {
+		if (this.currentItemBurnTime == 0) {
+			this.currentItemBurnTime = 200;
+		}
+		
+		return this.cookerBurnTime * maxSize / this.currentItemBurnTime;
+	}
+	
+	public int getCookProgressScaled(int par1) {
+		return this.cookerCookTime * par1 / 200;
+	}
+	
+//	public int getCookProgressScaled2(int par1) {
+//		return this.cookerCookTime2 * par1 / 200;
+//	}
+	
+	
 	
 //	public static boolean isItemFuel(ItemStack par0ItemStack) {
 //		return getItemBurnTime(par0ItemStack) > 0;
@@ -273,27 +369,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 //			this.numUsingPlayers = par2;
 //		}
 //	}
-//
-//	public int getCookProgressScaled(int par1) {
-//		return this.cookerCookTime * par1 / 200;
-//	}
-//
-//	public int getCookProgressScaled2(int par1) {
-//		return this.cookerCookTime2 * par1 / 200;
-//	}
-//
-//	public int getBurnTimeRemainingScaled(int par1) {
-//		if (this.currentItemBurnTime == 0) {
-//			this.currentItemBurnTime = 200;
-//		}
-//
-//		return this.cookerBurnTime * par1 / this.currentItemBurnTime;
-//	}
-//
-//	public boolean isBurning() {
-//		return this.cookerBurnTime > 0;
-//	}
-//
+	
 //	public void removeItems(TileEntityIronBlocksOne te) {
 ////		if (te != null && te.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord) == 12) {
 ////			for (int i = 0; i < te.getSizeInventory(); ++i) {
@@ -306,15 +382,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 ////		}
 //	}
 //
-//	private boolean canSmelt() {
-////		if (this.cookerItemStacks[0] == null) {
-//			return false;
-////		} else {
-////			ItemStack itemstack = jfm_CookerRecipes.smelting().getSmeltingResult(this.cookerItemStacks[0].getItem().itemID);
-////			return itemstack == null ? false : (this.cookerItemStacks[2] == null ? true : (!this.cookerItemStacks[2].isItemEqual(itemstack) ? false : (this.cookerItemStacks[2].stackSize < this.getInventoryStackLimit()
-////					&& this.cookerItemStacks[2].stackSize < this.cookerItemStacks[2].getMaxStackSize() ? true : this.cookerItemStacks[2].stackSize < itemstack.getMaxStackSize())));
-////		}
-//	}
+	
 //
 //	private boolean canSmelt2() {
 ////		if (this.cookerItemStacks[3] == null) {
@@ -326,23 +394,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 ////		}
 //	}
 //
-//	public void smeltItem() {
-////		if (this.canSmelt()) {
-////			ItemStack itemstack = jfm_CookerRecipes.smelting().getSmeltingResult(this.cookerItemStacks[0].getItem().itemID);
-////
-////			if (this.cookerItemStacks[2] == null) {
-////				this.cookerItemStacks[2] = itemstack.copy();
-////			} else if (this.cookerItemStacks[2].itemID == itemstack.itemID) {
-////				this.cookerItemStacks[2].stackSize += itemstack.stackSize;
-////			}
-////
-////			--this.cookerItemStacks[0].stackSize;
-////
-////			if (this.cookerItemStacks[0].stackSize <= 0) {
-////				this.cookerItemStacks[0] = null;
-////			}
-////		}
-//	}
+	
 //
 //	public void smeltItem2() {
 ////		if (this.canSmelt2()) {
@@ -359,16 +411,6 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 ////			if (this.cookerItemStacks[3].stackSize <= 0) {
 ////				this.cookerItemStacks[3] = null;
 ////			}
-////		}
-//	}
-//
-//	private static int getItemBurnTime(ItemStack par1ItemStack) {
-////		if (par1ItemStack == null) {
-//			return 0;
-////		} else {
-////			int i = par1ItemStack.getItem().itemID;
-////			return i < 256 && Block.blocksList[i].blockMaterial == Material.wood ? 300 : (i == Item.stick.itemID ? 100 : (i == Item.coal.itemID ? 1600 : (i == Item.bucketLava.itemID ? 20000 : (i == Block.sapling.blockID ? 100 : (i == Item.blazeRod.itemID ? 2400 : ModLoader.addAllFuel(
-////					par1ItemStack.itemID, par1ItemStack.getItemDamage()))))));
 ////		}
 //	}
 	

@@ -20,6 +20,12 @@ import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+
+/**
+ * TODO voié a disparaitre
+ * 
+ * @depracated
+ */
 public class JFGuiHandler implements IGuiHandler {
 
 	

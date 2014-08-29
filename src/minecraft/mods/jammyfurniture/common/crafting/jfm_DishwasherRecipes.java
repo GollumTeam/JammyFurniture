@@ -1,4 +1,4 @@
-package mods.jammyfurniture.client.recipes;
+package mods.jammyfurniture.common.crafting;
 
 import java.util.Arrays;
 import java.util.HashMap;

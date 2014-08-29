@@ -1,8 +1,8 @@
 package mods.jammyfurniture.common.tilesentities;
 
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.recipes.jfm_DishwasherRecipes;
-import mods.jammyfurniture.client.recipes.jfm_WashingMachineRecipes;
+import mods.jammyfurniture.common.crafting.jfm_DishwasherRecipes;
+import mods.jammyfurniture.common.crafting.jfm_WashingMachineRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

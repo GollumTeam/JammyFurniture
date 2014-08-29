@@ -35,19 +35,18 @@ public class GuiCooker extends GuiContainer {
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.renderEngine.bindTexture(texture);
-		int j1 = (this.width - this.xSize) / 2;
-		int k = (this.height - this.ySize) / 2;
-		this.drawTexturedModalRect(j1, k, 0, 0, this.xSize, this.ySize);
-		int i11;
+		int posX = (this.width - this.xSize) / 2;
+		int posY = (this.height - this.ySize) / 2;
+		this.drawTexturedModalRect(posX, posY, 0, 0, this.xSize, this.ySize);
+		
+		if (this.tileEntityCooker.isBurning()) {
+			int burnProgress = this.tileEntityCooker.getBurnTimeRemainingScaled(12);
+			this.drawTexturedModalRect(posX + 20, posY + 36 + 4 - burnProgress, 176, 12 - burnProgress, 14, burnProgress + 2);
+		}
 
-//		if (this.tileEntityCooker.isBurning()) {
-//			i11 = this.tileEntityCooker.getBurnTimeRemainingScaled(12);
-//			this.drawTexturedModalRect(j1 + 20, k + 36 + 4 - i11, 176, 12 - i11, 14, i11 + 2);
-//		}
-//
-//		i11 = this.tileEntityCooker.getCookProgressScaled(24);
+		int progress1 = this.tileEntityCooker.getCookProgressScaled(24);
 //		int m = this.tileEntityCooker.getCookProgressScaled2(24);
-//		this.drawTexturedModalRect(j1 + 118, k + 22, 176, 14, i11 + 1, 16);
-//		this.drawTexturedModalRect(j1 + 118, k + 50, 176, 14, m + 1, 16);
+		this.drawTexturedModalRect(posX + 118, posY + 22, 176, 14, progress1 + 1, 16);
+//		this.drawTexturedModalRect(posX + 118, posY + 50, 176, 14, m + 1, 16);
 	}
 }
