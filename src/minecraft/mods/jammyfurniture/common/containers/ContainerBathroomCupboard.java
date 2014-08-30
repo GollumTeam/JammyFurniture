@@ -6,11 +6,11 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class jfm_ContainerBathroomCupboard extends Container {
+public class ContainerBathroomCupboard extends Container {
 	private IInventory bathroomCupboardInv;
 	private int numRows;
 
-	public jfm_ContainerBathroomCupboard(IInventory par1IInventory, IInventory par2IInventory) {
+	public ContainerBathroomCupboard(IInventory par1IInventory, IInventory par2IInventory) {
 		this.bathroomCupboardInv = par2IInventory;
 		this.numRows = par2IInventory.getSizeInventory() / 4;
 		par2IInventory.openChest();

@@ -1,38 +1,25 @@
 package mods.jammyfurniture.common.crafting;
 
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+
 
 public class CookerRecipes {
 	
-	private CookerRecipes() {
-	}
-
-	private static CookerRecipes smeltingBase = new CookerRecipes();
-
-	/**
-	 * Used to call methods addSmelting and getSmeltingResult.
-	 */
-	public static CookerRecipes smelting()
-	{
-		return smeltingBase;
+	private static CookerRecipes smelting = new CookerRecipes();
+	
+	public static CookerRecipes smelting () {
+		return smelting;
 	}
 	
-	
-	// TODO a faire hérité :)
-	public ItemStack getSmeltingResult(int itemId) {
-		
-		
-		return null;
-//		return (ItemStack) this.smeltingList.get(Integer.valueOf(par1));
-	}
-
-//
 	public ItemStack getSmeltingResult(ItemStack item) {
-//		if (item == null) {
+		ItemStack rtn = FurnaceRecipes.smelting().getSmeltingResult(item);
+		
+		if (rtn == null || !(rtn.getItem() instanceof ItemFood)) {
 			return null;
-//		} else {
-//			ItemStack ret = (ItemStack) this.metaSmeltingList.get(Arrays.asList(new Integer[] { Integer.valueOf(item.itemID), Integer.valueOf(item.getItemDamage()) }));
-//			return ret != null ? ret : (ItemStack) this.smeltingList.get(Integer.valueOf(item.itemID));
-//		}
+		}
+		
+		return rtn;
 	}
 }

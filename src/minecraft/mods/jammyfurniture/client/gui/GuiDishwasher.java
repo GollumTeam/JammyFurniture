@@ -2,7 +2,7 @@ package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.containers.ContainerDishwasher;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;

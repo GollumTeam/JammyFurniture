@@ -5,11 +5,11 @@ import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.client.gui.jfm_GuiBathroomCupboard;
 import mods.jammyfurniture.client.gui.GuiCooker;
 import mods.jammyfurniture.common.containers.ContainerDishwasher;
-import mods.jammyfurniture.common.containers.jfm_ContainerBathroomCupboard;
+import mods.jammyfurniture.common.containers.ContainerBathroomCupboard;
 import mods.jammyfurniture.common.containers.ContainerCooker;
-import mods.jammyfurniture.common.containers.jfm_ContainerWashingMachine;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.containers.ContainerWashingMachine;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -38,18 +38,18 @@ public class JFGuiHandler implements IGuiHandler {
 			
 			switch (ID) {
 				case 150:
-					container = new jfm_ContainerBathroomCupboard(player.inventory, (IInventory)te);
+					container = new ContainerBathroomCupboard(player.inventory, (IInventory)te);
 					break;
 					
 	
 //				case GUI_COOKER:
 //					container = new ContainerCooker(player.inventory, (TileEntityIronBlocksOne)te);
 //					break;
-//	
-				case 155:
-					container = new jfm_ContainerWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
-					break;
-//					
+////	
+//				case 155:
+//					container = new ContainerWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
+//					break;
+////					
 //				case GUI_FRIDGE:
 //					container = new ContainerFriFre(player.inventory, (IInventory)te);
 //					break;
@@ -57,11 +57,11 @@ public class JFGuiHandler implements IGuiHandler {
 //				case GUI_RUBBISHBIN:
 //					container = new ContainerRubbishBin(player.inventory, (IInventory)te);
 //					break;
-	
-				case 159:
-					container =  new ContainerDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
-					break;
-					
+//	
+//				case 159:
+//					container =  new ContainerDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
+//					break;
+//					
 				default:
 					break;
 			}
@@ -88,10 +88,10 @@ public class JFGuiHandler implements IGuiHandler {
 //					case GUI_COOKER:
 //						gui = new GuiCooker(player.inventory, (TileEntityIronBlocksOne)te);
 //						break;
-//		
-					case 155:
-						gui = new GuiWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
-						break;
+////		
+//					case 155:
+//						gui = new GuiWashingMachine(player.inventory, (TileEntityIronBlocksTwo)te);
+//						break;
 						
 //					case GUI_FRIDGE:
 //						gui = new GuiFriFre(player.inventory, (IInventory)te);
@@ -100,11 +100,11 @@ public class JFGuiHandler implements IGuiHandler {
 //					case GUI_RUBBISHBIN:
 //						gui = new GuiRubbishBin(player.inventory, (IInventory)te);
 //						break;
-		
-					case 159:
-						gui =  new GuiDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
-						break;
-						
+//		
+//					case 159:
+//						gui =  new GuiDishwasher(player.inventory, (TileEntityIronBlocksTwo)te);
+//						break;
+//						
 					default:
 						break;
 				}

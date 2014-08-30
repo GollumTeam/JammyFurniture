@@ -1,6 +1,6 @@
 package mods.jammyfurniture.client.gui;
 
-import mods.jammyfurniture.common.containers.jfm_ContainerBathroomCupboard;
+import mods.jammyfurniture.common.containers.ContainerBathroomCupboard;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
@@ -15,7 +15,7 @@ public class jfm_GuiBathroomCupboard extends GuiContainer {
 	protected static final ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_bathroomcupboard.png");
 
 	public jfm_GuiBathroomCupboard(IInventory par1IInventory, IInventory par2IInventory) {
-		super(new jfm_ContainerBathroomCupboard(par1IInventory, par2IInventory));
+		super(new ContainerBathroomCupboard(par1IInventory, par2IInventory));
 		this.upperChestInventory = par1IInventory;
 		this.lowerChestInventory = par2IInventory;
 		this.allowUserInput = false;

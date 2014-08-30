@@ -5,7 +5,9 @@ import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.containers.ContainerWashingMachine;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,33 +25,18 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class JFIronBlocksTwo extends JFMetadataBlock {
+public class IronBlocksTwo extends JFMetadataBlock {
 	
-	public JFIronBlocksTwo(int id, String registerName) {
+	public IronBlocksTwo(int id, String registerName) {
 		super(id, registerName, Material.iron, "iron", TileEntityIronBlocksTwo.class, new int[]{ 0, 4 });
 	}
 	
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-	
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this
-	 * box can change after the pool has been cleared to be reused)
-	 */
+
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
-		world.getBlockMetadata(x, y, z);
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
-	}
-	
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-		blockAccess.getBlockMetadata(x, y, z);
+	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 	
@@ -74,29 +61,28 @@ public class JFIronBlocksTwo extends JFMetadataBlock {
 	 * Called upon block activation (right click on the block.)
 	 */
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		int meta = world.getBlockMetadata(x, y, z);
+		int metadata    = world.getBlockMetadata(x, y, z);
 		int orientation = this.getOrientation(player);
-		TileEntityIronBlocksTwo teIronTwo;
-
-		if (meta != 0 && meta != 1 && meta != 2 && meta != 3) {
-			if (meta == 4 || meta == 5 || meta == 6 || meta == 7) {
-				teIronTwo = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
-
-				if (teIronTwo != null) {
-					player.openGui(ModJammyFurniture.instance, 155, world, x, y, z);
-					return true;
-				}
-			}
-		} else {
-			teIronTwo = (TileEntityIronBlocksTwo) world.getBlockTileEntity(x, y, z);
+		int subBlock    = this.getEnabledMetadata(metadata);
+		TileEntity te   = world.getBlockTileEntity(x, y, z);
+		
+		if (te != null && te instanceof TileEntityIronBlocksTwo) {
+			TileEntityIronBlocksTwo teIron = (TileEntityIronBlocksTwo)te;
+			switch (subBlock) {
 			
-			if (teIronTwo != null) {
-				player.openGui(ModJammyFurniture.instance, 159, world, x, y, z);
-				return true;
+				case 0: // Le WashingMachine
+					
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_WASHINGMACHINE_ID, world, x, y, z);
+					return true;
+					
+				case 4: // Le Dishwasher
+					
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_DISHWASHER_ID, world, x, y, z);
+					return true;
+				
 			}
 		}
-		
-		return true;
+		return false;
 	}
 	
 	/**

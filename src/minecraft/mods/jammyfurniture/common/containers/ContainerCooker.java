@@ -1,6 +1,8 @@
 package mods.jammyfurniture.common.containers;
 
 import mods.gollum.core.common.container.GCLContainer;
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.crafting.CookerRecipes;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,7 +10,10 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 public class ContainerCooker extends Container {
 	private TileEntityIronBlocksOne tileEntity;
@@ -53,14 +58,13 @@ public class ContainerCooker extends Container {
 	}
 	
 	
-	// TODO a rendre gnérique
 	public void updateProgressBar(int progressID, int value) {
 		if (progressID == 0) {
-			this.tileEntity.cookerCookTime = value;
+			this.tileEntity.cookerCookTime0 = value;
 		}
 
 		if (progressID == 1) {
-			this.tileEntity.cookerCookTime2 = value;
+			this.tileEntity.cookerCookTime1 = value;
 		}
 
 		if (progressID == 2) {
@@ -72,7 +76,6 @@ public class ContainerCooker extends Container {
 		}
 	}
 	
-	// TODO a rendre gnérique
 	/**
 	 * Envoie un event quand il y a un chagement coté server
 	 * Looks for changes made in the container, sends them to every listener.
@@ -83,12 +86,12 @@ public class ContainerCooker extends Container {
 		for (int i = 0; i < this.crafters.size(); ++i) {
 			ICrafting icrafting = (ICrafting) this.crafters.get(i);
 
-			if (this.CookTime != this.tileEntity.cookerCookTime) {
-				icrafting.sendProgressBarUpdate(this, 0, this.tileEntity.cookerCookTime);
+			if (this.CookTime != this.tileEntity.cookerCookTime0) {
+				icrafting.sendProgressBarUpdate(this, 0, this.tileEntity.cookerCookTime0);
 			}
 
-			if (this.CookTime2 != this.tileEntity.cookerCookTime2) {
-				icrafting.sendProgressBarUpdate(this, 1, this.tileEntity.cookerCookTime2);
+			if (this.CookTime2 != this.tileEntity.cookerCookTime1) {
+				icrafting.sendProgressBarUpdate(this, 1, this.tileEntity.cookerCookTime1);
 			}
 
 			if (this.BurnTime != this.tileEntity.cookerBurnTime) {
@@ -100,8 +103,8 @@ public class ContainerCooker extends Container {
 			}
 		}
 
-		this.CookTime = this.tileEntity.cookerCookTime;
-		this.CookTime2 = this.tileEntity.cookerCookTime2;
+		this.CookTime = this.tileEntity.cookerCookTime0;
+		this.CookTime2 = this.tileEntity.cookerCookTime1;
 		this.BurnTime = this.tileEntity.cookerBurnTime;
 		this.ItemBurnTime = this.tileEntity.currentItemBurnTime;
 	}
@@ -130,8 +133,26 @@ public class ContainerCooker extends Container {
 				if (!this.mergeItemStack(itemstack1, this.tileEntity.getSizeInventory(), this.inventorySlots.size(), true)) {
 					return null;
 				}
-			} else if (!this.mergeItemStack(itemstack1, 0, this.tileEntity.getSizeInventory(), false)) {
-				return null;
+			} else {
+				
+				if (this.tileEntity.isItemFuel(itemstack1)) {
+					
+					if (!this.mergeItemStack(itemstack1, TileEntityIronBlocksOne.INDEX_SLOT_BURN, TileEntityIronBlocksOne.INDEX_SLOT_BURN+1, false)) {
+						return null;
+					}
+					
+				} else {
+					
+					if (CookerRecipes.smelting().getSmeltingResult(itemstack1) == null) {
+						return null;
+					}
+					
+					if (!this.mergeItemStack(itemstack1, TileEntityIronBlocksOne.INDEX_SLOT_BEFORE0, TileEntityIronBlocksOne.INDEX_SLOT_BEFORE0+1, false)) {
+						if (!this.mergeItemStack(itemstack1, TileEntityIronBlocksOne.INDEX_SLOT_BEFORE1, TileEntityIronBlocksOne.INDEX_SLOT_BEFORE1+1, false)) {
+							return null;
+						}
+					}
+				}
 			}
 
 			if (itemstack1.stackSize == 0) {

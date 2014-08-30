@@ -2,7 +2,7 @@ package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.client.model.iron.jfm_ModelDishwasher;
 import mods.jammyfurniture.client.model.iron.jfm_ModelWashingMachine;
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

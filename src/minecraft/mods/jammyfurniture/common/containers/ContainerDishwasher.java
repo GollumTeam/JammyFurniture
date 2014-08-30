@@ -1,6 +1,6 @@
 package mods.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

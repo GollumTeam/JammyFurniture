@@ -1,6 +1,6 @@
 package mods.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.tilesentities.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -8,7 +8,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class jfm_ContainerWashingMachine extends Container {
+public class ContainerWashingMachine extends Container {
 	private TileEntityIronBlocksTwo washingMachine;
 	public int wmSlot1Time = 0;
 	public int wmSlot2Time = 0;
@@ -17,7 +17,7 @@ public class jfm_ContainerWashingMachine extends Container {
 	private int BurnTime = 0;
 	private int ItemBurnTime = 0;
 
-	public jfm_ContainerWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
+	public ContainerWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
 		this.washingMachine = teWashingMachine;
 		teWashingMachine.openChest();
 		this.addSlotToContainer(new Slot(teWashingMachine, 0, 79, 22));
@@ -47,20 +47,20 @@ public class jfm_ContainerWashingMachine extends Container {
 		for (int i = 0; i < this.crafters.size(); ++i) {
 			ICrafting icrafting = (ICrafting) this.crafters.get(i);
 
-			if (this.wmSlot1Time != this.washingMachine.slot1Time) {
-				icrafting.sendProgressBarUpdate(this, 0, this.washingMachine.slot1Time);
+			if (this.wmSlot1Time != this.washingMachine.slot0Time) {
+				icrafting.sendProgressBarUpdate(this, 0, this.washingMachine.slot0Time);
 			}
 
-			if (this.wmSlot2Time != this.washingMachine.slot2Time) {
-				icrafting.sendProgressBarUpdate(this, 1, this.washingMachine.slot2Time);
+			if (this.wmSlot2Time != this.washingMachine.slot1Time) {
+				icrafting.sendProgressBarUpdate(this, 1, this.washingMachine.slot1Time);
 			}
 
-			if (this.wmSlot3Time != this.washingMachine.slot3Time) {
-				icrafting.sendProgressBarUpdate(this, 2, this.washingMachine.slot3Time);
+			if (this.wmSlot3Time != this.washingMachine.slot2Time) {
+				icrafting.sendProgressBarUpdate(this, 2, this.washingMachine.slot2Time);
 			}
 
-			if (this.wmSlot4Time != this.washingMachine.slot4Time) {
-				icrafting.sendProgressBarUpdate(this, 3, this.washingMachine.slot4Time);
+			if (this.wmSlot4Time != this.washingMachine.slot3Time) {
+				icrafting.sendProgressBarUpdate(this, 3, this.washingMachine.slot3Time);
 			}
 
 			if (this.BurnTime != this.washingMachine.burnTime) {
@@ -72,29 +72,29 @@ public class jfm_ContainerWashingMachine extends Container {
 			}
 		}
 
-		this.wmSlot1Time = this.washingMachine.slot1Time;
-		this.wmSlot2Time = this.washingMachine.slot2Time;
-		this.wmSlot3Time = this.washingMachine.slot3Time;
-		this.wmSlot4Time = this.washingMachine.slot4Time;
+		this.wmSlot1Time = this.washingMachine.slot0Time;
+		this.wmSlot2Time = this.washingMachine.slot1Time;
+		this.wmSlot3Time = this.washingMachine.slot2Time;
+		this.wmSlot4Time = this.washingMachine.slot3Time;
 		this.BurnTime = this.washingMachine.burnTime;
 		this.ItemBurnTime = this.washingMachine.currentItemBurnTime;
 	}
 
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			this.washingMachine.slot1Time = j;
+			this.washingMachine.slot0Time = j;
 		}
 
 		if (i == 1) {
-			this.washingMachine.slot2Time = j;
+			this.washingMachine.slot1Time = j;
 		}
 
 		if (i == 2) {
-			this.washingMachine.slot3Time = j;
+			this.washingMachine.slot2Time = j;
 		}
 
 		if (i == 3) {
-			this.washingMachine.slot4Time = j;
+			this.washingMachine.slot3Time = j;
 		}
 
 		if (i == 4) {
