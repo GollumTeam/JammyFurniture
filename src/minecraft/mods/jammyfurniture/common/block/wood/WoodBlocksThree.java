@@ -61,8 +61,6 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
 	}
 	
-	
-	// TODO LES COLITIONS SON MAUVAISE
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		switch (metadata) {

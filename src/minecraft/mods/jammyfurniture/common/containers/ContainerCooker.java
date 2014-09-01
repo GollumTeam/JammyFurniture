@@ -57,7 +57,6 @@ public class ContainerCooker extends Container {
 		
 	}
 	
-	
 	public void updateProgressBar(int progressID, int value) {
 		if (progressID == 0) {
 			this.tileEntity.cookerCookTime0 = value;
@@ -108,13 +107,11 @@ public class ContainerCooker extends Container {
 		this.BurnTime = this.tileEntity.cookerBurnTime;
 		this.ItemBurnTime = this.tileEntity.currentItemBurnTime;
 	}
-
+	
 	public boolean canInteractWith(EntityPlayer entityplayer) {
 		return this.tileEntity.isUseableByPlayer(entityplayer);
 	}
 	
-	
-	// TODO Filtrer les block
 	/**
 	 * Called when a player shift-clicks on a slot. You must override this or
 	 * you will crash when someone does that.
@@ -124,11 +121,11 @@ public class ContainerCooker extends Container {
 		
 		ItemStack itemStack = null;
 		Slot slot = (Slot) this.inventorySlots.get(slotId);
-
+		
 		if (slot != null && slot.getHasStack()) {
 			ItemStack itemstack1 = slot.getStack();
 			itemStack = itemstack1.copy();
-
+			
 			if (slotId < this.tileEntity.getSizeInventory()) {
 				if (!this.mergeItemStack(itemstack1, this.tileEntity.getSizeInventory(), this.inventorySlots.size(), true)) {
 					return null;
@@ -154,7 +151,7 @@ public class ContainerCooker extends Container {
 					}
 				}
 			}
-
+			
 			if (itemstack1.stackSize == 0) {
 				slot.putStack((ItemStack) null);
 			} else {

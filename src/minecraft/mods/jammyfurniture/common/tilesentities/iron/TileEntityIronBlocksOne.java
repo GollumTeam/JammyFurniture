@@ -6,6 +6,9 @@ import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.crafting.CookerRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
@@ -191,7 +194,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 				if (this.isBurning() && this.canSmelt(1)) {
 					++this.cookerCookTime1;
 					
-					if (this.cookerCookTime1 == COOKING_SPEED1) {
+					if (this.cookerCookTime1 >= COOKING_SPEED1) {
 						this.cookerCookTime1 = 0;
 						this.smeltItem(1);
 						inventoryChange = true;
@@ -230,6 +233,8 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		this.rubishBinOrientation = nbtTagCompound.getShort("rubishBinOrientation");
 		
 		this.currentItemBurnTime = getItemBurnTime(this.inventory[INDEX_SLOT_BURN]);
+		
+		ModJammyFurniture.log.debug("rubishBinOrientation "+rubishBinOrientation);
 	}
 
 	/**
@@ -244,6 +249,19 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		nbtTagCompound.setShort("CookTime2", (short) this.cookerCookTime1);
 		
 		nbtTagCompound.setShort("rubishBinOrientation", this.rubishBinOrientation);
+	}
+	
+	@Override
+	public Packet getDescriptionPacket() {
+		 NBTTagCompound nbttagcompound = new NBTTagCompound();
+		this.writeToNBT(nbttagcompound);
+		return new Packet132TileEntityData(this.xCoord, this.yCoord, this.zCoord, 0, nbttagcompound);
+	 }
+	
+	@Override
+	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
+		 this.readFromNBT(pkt.data);
+		 this.worldObj.markBlockRangeForRenderUpdate(this.xCoord, this.yCoord, this.zCoord, this.xCoord, this.yCoord, this.zCoord);
 	}
 	
 	////////////

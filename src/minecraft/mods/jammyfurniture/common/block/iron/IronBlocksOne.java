@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class IronBlocksOne extends JFMetadataBlock {
 	
@@ -25,7 +26,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-
+	
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		switch (metadata) {
@@ -146,5 +147,15 @@ public class IronBlocksOne extends JFMetadataBlock {
 		return ModJammyFurniture.ironBlocksOneRenderID;
 	}
 	
-	
+	@Override
+	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
+		return true;
+	}
+
+	@Override
+	public ForgeDirection[] getValidRotations(World world, int x, int y, int z){
+		return new ForgeDirection[] {ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.EAST};
+	}
 }

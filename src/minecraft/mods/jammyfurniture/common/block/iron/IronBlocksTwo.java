@@ -70,14 +70,14 @@ public class IronBlocksTwo extends JFMetadataBlock {
 			TileEntityIronBlocksTwo teIron = (TileEntityIronBlocksTwo)te;
 			switch (subBlock) {
 			
-				case 0: // Le WashingMachine
-					
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_WASHINGMACHINE_ID, world, x, y, z);
-					return true;
-					
-				case 4: // Le Dishwasher
+				case 0: // Le Dishwasher
 					
 					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_DISHWASHER_ID, world, x, y, z);
+					return true;
+					
+				case 4: // Le WashingMachine
+
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_WASHINGMACHINE_ID, world, x, y, z);
 					return true;
 				
 			}

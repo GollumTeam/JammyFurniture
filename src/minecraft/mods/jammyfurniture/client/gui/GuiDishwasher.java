@@ -38,25 +38,24 @@ public class GuiDishwasher extends GuiContainer {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		
 		this.mc.renderEngine.bindTexture(texture);
-		int j1 = (this.width - this.xSize) / 2;
-		int k = (this.height - this.ySize) / 2;
+		int x = (this.width - this.xSize) / 2;
+		int y = (this.height - this.ySize) / 2;
 		
-		this.drawTexturedModalRect(j1, k, 0, 0, this.xSize, this.ySize);
-		int m1;
-
-		if (this.dwInv.dwIsBurning()) {
-			m1 = this.dwInv.dwGetBurnTimeRemainingScaled(12);
-			this.drawTexturedModalRect(j1 + 16, k + 48 - m1, 176, 12 - m1, 14, m1 + 2);
+		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
+		
+		if (this.dwInv.isBurning()) {
+			int burnProgress  = this.dwInv.getBurnTimeRemainingScaled(12);
+			this.drawTexturedModalRect(x + 16, y + 48 - burnProgress, 176, 12 - burnProgress, 14, burnProgress + 2);
 		}
-
-		m1 = this.dwInv.dwGetProgressSlot1(24);
-		int m2 = this.dwInv.dwGetProgressSlot2(24);
-		int m3 = this.dwInv.dwGetProgressSlot3(24);
-		int m4 = this.dwInv.dwGetProgressSlot4(24);
 		
-		this.drawTexturedModalRect(j1 + 65 - m1, k + 27, 201 - m1, 31, 25, 16);
-		this.drawTexturedModalRect(j1 + 145, k + 27, 176, 14, 1 + m2, 16);
-		this.drawTexturedModalRect(j1 + 65 - m3, k + 58, 201 - m3, 31, 25, 16);
-		this.drawTexturedModalRect(j1 + 145, k + 58, 176, 14, m4 + 1, 16);
+		int progress0 = this.dwInv.getProgressSlot0(24);
+		int progress1 = this.dwInv.getProgressSlot1(24);
+		int progress2 = this.dwInv.getProgressSlot2(24);
+		int progress3 = this.dwInv.getProgressSlot3(24);
+		
+		this.drawTexturedModalRect(x + 65 - progress0, y + 27, 201 - progress0, 31, 25           , 16);
+		this.drawTexturedModalRect(x + 145           , y + 27, 176            , 14, 1 + progress1, 16);
+		this.drawTexturedModalRect(x + 65 - progress2, y + 58, 201 - progress2, 31, 25           , 16);
+		this.drawTexturedModalRect(x + 145           , y + 58, 176            , 14, 1 + progress3, 16);
 	}
 }

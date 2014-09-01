@@ -23,10 +23,10 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
 		TileEntityIronBlocksOne tileentityIron = (TileEntityIronBlocksOne)tileEntity;
-
+		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockIronBlocksOne).getEnabledMetadata(metadata);
-
+		
 		switch (metadata) {
 			default:
 				rotation = 0; break;

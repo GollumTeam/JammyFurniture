@@ -295,7 +295,7 @@ public class ModJammyFurniture extends GollumMod {
 		
 		SoundRegistry.register("clock-tick");
 		SoundRegistry.register("clock-dong");
-		SoundRegistry.register("washingmachine");
+		SoundRegistry.register("machine");
 		SoundRegistry.register("radio");
 		SoundRegistry.register("toilet");
 		SoundRegistry.register("trashopen");
