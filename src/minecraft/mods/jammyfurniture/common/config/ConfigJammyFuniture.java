@@ -5,7 +5,7 @@ import mods.gollum.core.common.config.ConfigProp;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public class ConfigJammyFuniture extends Config {
+public class ConfigJammyFuniture extends Config<ConfigJammyFuniture> {
 	
 	////////////////
 	// Blocks IDs //

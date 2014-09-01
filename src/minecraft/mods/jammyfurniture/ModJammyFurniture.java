@@ -189,7 +189,7 @@ public class ModJammyFurniture extends GollumMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		// Charge la configuration
-		this.config = new ConfigJammyFuniture();
+		this.config = new ConfigJammyFuniture().loadConfig();
 		
 		// Test la version du mod
 		new VersionChecker();
@@ -327,10 +327,6 @@ public class ModJammyFurniture extends GollumMod {
 		itemCeramicPanel    = new HItem(this.config.itemCeramicPanelID   ,"ItemCeramicPanel"   ).setCreativeTab(tabJammyFurniture);
 		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"ItemWMDrum"         ).setCreativeTab(tabJammyFurniture);
 		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"ItemBlindPart"      ).setCreativeTab(tabJammyFurniture);
-		
-//		itemBathTub         = new JFItemBath           (blockBathTub.blockID-256, blockBathTub        ).setUnlocalizedName("itemBath")           .setCreativeTab(tabJammyFurniture);
-//		itemIronBlocksOne   = new JFItemIronBlocksOne  (blockIronBlocksOne  ).setUnlocalizedName("itemIronBlocksOne")  .setCreativeTab(tabJammyFurniture);
-//		itemIronBlocksTwo   = new JFItemIronBlocksTwo  (blockIronBlocksTwo  ).setUnlocalizedName("itemIronBlocksTwo")  .setCreativeTab(tabJammyFurniture);
 	}
 	
 	/**

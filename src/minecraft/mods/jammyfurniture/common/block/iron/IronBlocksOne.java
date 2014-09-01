@@ -146,16 +146,4 @@ public class IronBlocksOne extends JFMetadataBlock {
 	public int getRenderType() {
 		return ModJammyFurniture.ironBlocksOneRenderID;
 	}
-	
-	@Override
-	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
-		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = this.getEnabledMetadata(metadata);
-		return true;
-	}
-
-	@Override
-	public ForgeDirection[] getValidRotations(World world, int x, int y, int z){
-		return new ForgeDirection[] {ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.EAST};
-	}
 }
