@@ -155,36 +155,8 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		if (metadata == 3) {
 			player.rotationYaw = 90.0F;
 		}
-
-		float newX = 0.0F;
-		float newY = 0.0F;
-		float newZ = 0.0F;
-
-		if (metadata == 0) {
-			newX = 0.5F;
-			newY = 0.4F;
-			newZ = 0.5F;
-		}
-
-		if (metadata == 1) {
-			newX = 0.5F;
-			newY = 0.4F;
-			newZ = 0.5F;
-		}
-
-		if (metadata == 2) {
-			newX = 0.5F;
-			newY = 0.4F;
-			newZ = 0.5F;
-		}
-
-		if (metadata == 3) {
-			newX = 0.5F;
-			newY = 0.4F;
-			newZ = 0.5F;
-		}
-
-		return BlockMountable.onBlockActivated(world, x, y, z, player, newX, newY, newZ, 0, 0, 0, 0);
+		
+		return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
 		
 	}
 	

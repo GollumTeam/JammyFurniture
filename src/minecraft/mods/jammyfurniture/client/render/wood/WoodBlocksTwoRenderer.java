@@ -20,9 +20,9 @@ import net.minecraft.tileentity.TileEntity;
 public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	
 	
-	private final static ModelKitchenCupboard modelKitchenCupboard = new ModelKitchenCupboard();
-	private final static ModelTV              modelTV = new ModelTV();
-	private final static ModelBasket          modelBasket = new ModelBasket();
+	private ModelKitchenCupboard modelKitchenCupboard = new ModelKitchenCupboard();
+	private ModelTV              modelTV = new ModelTV();
+	private ModelBasket          modelBasket = new ModelBasket();
 	
 	private long lastSwitch = 0;
 	private boolean switchTvTexture = false;

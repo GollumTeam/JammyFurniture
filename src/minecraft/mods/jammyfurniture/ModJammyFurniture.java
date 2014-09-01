@@ -4,7 +4,6 @@ import mods.gollum.core.common.creativetab.GollumCreativeTabs;
 import mods.gollum.core.common.mod.GollumMod;
 import mods.gollum.core.common.version.VersionChecker;
 import mods.gollum.core.tools.helper.items.HItem;
-import mods.gollum.core.tools.registry.GCLNetworkRegistry;
 import mods.gollum.core.tools.registry.InventoryRegistry;
 import mods.gollum.core.tools.registry.SoundRegistry;
 import mods.jammyfurniture.client.gui.GuiCooker;
@@ -13,8 +12,10 @@ import mods.jammyfurniture.client.gui.GuiDishwasher;
 import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.BathBlock;
+import mods.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
 import mods.jammyfurniture.common.block.iron.IronBlocksOne;
 import mods.jammyfurniture.common.block.iron.IronBlocksTwo;
+import mods.jammyfurniture.common.block.roofing.RoofingBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
@@ -43,7 +44,6 @@ import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.util.EntityMountableBlock;
-import mods.jammyfurniture.common.util.JFGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -169,14 +169,15 @@ public class ModJammyFurniture extends GollumMod {
 	/////////////
 	// GUI IDs //
 	/////////////
-	public static final int GUI_CLOCK_ID            = 151;
-	public static final int GUI_COOKER_ID           = 152;
-	public static final int GUI_KITCHENCUPBOARD_ID  = 153;
-	public static final int GUI_WASHINGMACHINE_ID   = 155;
-	public static final int GUI_FRIDGE_ID           = 156;
-	public static final int GUI_RUBBISHBIN_ID       = 158;
-	public static final int GUI_DISHWASHER_ID       = 159;
-	public static final int GUI_CRAFTSIDE_ID        = 160;
+	public static final int GUI_BARHROOMCUPBOARD_ID = 0;
+	public static final int GUI_CLOCK_ID            = 1;
+	public static final int GUI_COOKER_ID           = 2;
+	public static final int GUI_KITCHENCUPBOARD_ID  = 3;
+	public static final int GUI_WASHINGMACHINE_ID   = 4;
+	public static final int GUI_FRIDGE_ID           = 5;
+	public static final int GUI_RUBBISHBIN_ID       = 6;
+	public static final int GUI_DISHWASHER_ID       = 7;
+	public static final int GUI_CRAFTSIDE_ID        = 8;
 	
 	
 	
@@ -208,24 +209,6 @@ public class ModJammyFurniture extends GollumMod {
 		try {
 			configOld.load();
 			
-			Property CERAMIC_ONE_ID = configOld.getBlock("ceramic_one.id", "block", jfm_ConfigDefault.CERAMIC_ONE_ID);
-			Property ROOFING_ONE_ID = configOld.getBlock("roofing_one.id", "block", jfm_ConfigDefault.ROOFING_ONE_ID);
-			Property MOB_HEADS_ONE = configOld.getBlock("mob_heads_one.id", "block", jfm_ConfigDefault.MOB_HEADS_ONE);
-			Property MOB_HEADS_TWO = configOld.getBlock("mob_heads_two.id", "block", jfm_ConfigDefault.MOB_HEADS_TWO);
-			Property MOB_HEADS_THREE = configOld.getBlock("mob_heads_three.id", "block", jfm_ConfigDefault.MOB_HEADS_THREE);
-			Property MOB_HEADS_FOUR = configOld.getBlock("mob_heads_four.id", "block", jfm_ConfigDefault.MOB_HEADS_FOUR);
-			Property ARM_CHAIR_ID = configOld.getBlock("arm_chair.id", "block", jfm_ConfigDefault.ARM_CHAIR_ID);
-			
-			Property SOFA_LEFT_ID = configOld.getBlock("sofa_left.id", "block", jfm_ConfigDefault.SOFA_LEFT_ID);
-			Property SOFA_RIGHT_ID = configOld.getBlock("sofa_right.id", "block", jfm_ConfigDefault.SOFA_RIGHT_ID);
-			Property SOFA_CENTER_ID = configOld.getBlock("sofa_center.id", "block", jfm_ConfigDefault.SOFA_CENTER_ID);
-			Property SOFA_CORNER_ID = configOld.getBlock("sofa_corner.id", "block", jfm_ConfigDefault.SOFA_CORNER_ID);
-			Property MISC_ONE_ID = configOld.getBlock("misc_one.id", "block", jfm_ConfigDefault.MISC_ONE_ID);
-			Property LIGHTS_ON_ID = configOld.getBlock("lights_on.id", "block", jfm_ConfigDefault.LIGHTS_ON_ID);
-			Property LIGHTS_OFF_ID = configOld.getBlock("lights_off.id", "block", jfm_ConfigDefault.LIGHTS_OFF_ID);
-			
-			blockCeramicBlocksOne = (new jfm_CeramicBlocksOne(Integer.parseInt(CERAMIC_ONE_ID.getString()), 0, TileEntityCeramicBlocksOne.class)).setHardness(3.0F).setResistance(1.0F).setUnlocalizedName("ceramicBlockOne").setCreativeTab(tabJammyFurniture);
-			blockRoofingBlocksOne = (new jfm_RoofingBlocksOne(Integer.parseInt(ROOFING_ONE_ID.getString()), 0, TileEntityRoofingBlocksOne.class)).setHardness(1.2F).setUnlocalizedName("roofingBlocksOne").setCreativeTab(tabJammyFurniture);
 			blockMobHeadsOne = (new jfm_MobHeadsOne(Integer.parseInt(MOB_HEADS_ONE.getString()), 0, TileEntityMobHeadsOne.class)).setHardness(0.8F).setUnlocalizedName("MobHeadsOne").setCreativeTab(tabJammyFurniture);
 			blockMobHeadsTwo = (new jfm_MobHeadsTwo(Integer.parseInt(MOB_HEADS_TWO.getString()), 0, TileEntityMobHeadsTwo.class)).setHardness(0.8F).setUnlocalizedName("MobHeadsTwo").setCreativeTab(tabJammyFurniture);
 			blockMobHeadsThree = (new jfm_MobHeadsThree(Integer.parseInt(MOB_HEADS_THREE.getString()), 0, TileEntityMobHeadsThree.class)).setHardness(0.8F).setUnlocalizedName("MobHeadsThree").setCreativeTab(tabJammyFurniture);
@@ -239,26 +222,6 @@ public class ModJammyFurniture extends GollumMod {
 			blockMiscBlocksOne = (new jfm_BlockMiscOne(Integer.parseInt(MISC_ONE_ID.getString()), 0, TileEntityMiscOne.class)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("miscOne").setCreativeTab(tabJammyFurniture);
 			blockLightsOn = (new jfm_BlockLightsOn(Integer.parseInt(LIGHTS_ON_ID.getString()), 0, TileEntityLightsOn.class, true)).setHardness(0.3F).setUnlocalizedName("lightsOn").setCreativeTab(tabJammyFurniture);
 			blockLightsOff = (new jfm_BlockLightsOn(Integer.parseInt(LIGHTS_OFF_ID.getString()), 0, TileEntityLightsOn.class, false)).setHardness(0.3F).setUnlocalizedName("lightsOff");
-			
-			
-			
-			itemCeramicBlocksOne = (new JFItemCeramicBlocksOne(Integer.parseInt(CERAMIC_ONE_ID.getString()) - 256, blockCeramicBlocksOne)).setUnlocalizedName("itemCeramicBlocksOne").setCreativeTab(tabJammyFurniture);
-			itemRoofingBlocksOne = (new JFItemRoofingBlocksOne(Integer.parseInt(ROOFING_ONE_ID.getString()) - 256, blockRoofingBlocksOne)).setUnlocalizedName("itemRoofingBlocksOne").setCreativeTab(tabJammyFurniture);
-			itemMobHeadsOne = (new JFItemMobHeadsOne(Integer.parseInt(MOB_HEADS_ONE.getString()) - 256, blockMobHeadsOne)).setUnlocalizedName("itemMobHeadsOne").setCreativeTab(tabJammyFurniture);
-			itemMobHeadsTwo = (new JFItemMobHeadsTwo(Integer.parseInt(MOB_HEADS_TWO.getString()) - 256, blockMobHeadsTwo)).setUnlocalizedName("itemMobHeadsTwo").setCreativeTab(tabJammyFurniture);
-			itemMobHeadsThree = (new JFItemMobHeadsThree(Integer.parseInt(MOB_HEADS_THREE.getString()) - 256, blockMobHeadsThree)).setUnlocalizedName("itemMobHeadsThree").setCreativeTab(tabJammyFurniture);
-			itemMobHeadsFour = (new JFItemMobHeadsFour(Integer.parseInt(MOB_HEADS_FOUR.getString()) - 256, blcokMobHeadsFour)).setUnlocalizedName("itemMobHeadsFour").setCreativeTab(tabJammyFurniture);
-			itemArmChair = (new JFItemArmChair(Integer.parseInt(ARM_CHAIR_ID.getString()) - 256, blockArmChair)).setUnlocalizedName("itemArmChair").setCreativeTab(tabJammyFurniture);
-			
-			
-			itemSofaPartLeft = (new jfm_ItemSofaLeft(Integer.parseInt(SOFA_LEFT_ID.getString()) - 256, blockSofaPartLeft)).setUnlocalizedName("itemSofaLeft").setCreativeTab(tabJammyFurniture);
-			itemSofaPartRight = (new jfm_ItemSofaRight(Integer.parseInt(SOFA_RIGHT_ID.getString()) - 256, blockSofaPartRight)).setUnlocalizedName("itemSofaRight").setCreativeTab(tabJammyFurniture);
-			itemSofaPartCenter = (new jfm_ItemSofaCenter(Integer.parseInt(SOFA_CENTER_ID.getString()) - 256, blockSofaPartCenter)).setUnlocalizedName("itemSofaCenter").setCreativeTab(tabJammyFurniture);
-			itemSofaPartCorner = (new jfm_ItemSofaCorner(Integer.parseInt(SOFA_CORNER_ID.getString()) - 256, blockSofaPartCorner)).setUnlocalizedName("itemSofaCorner").setCreativeTab(tabJammyFurniture);
-			itemMiscBlocksOne = (new jfm_ItemMiscOne(Integer.parseInt(MISC_ONE_ID.getString()) - 256, blockMiscBlocksOne)).setUnlocalizedName("itemMiscOne").setCreativeTab(tabJammyFurniture);
-			itemLightsOn = (new jfm_ItemLightsOn(Integer.parseInt(LIGHTS_ON_ID.getString()) - 256, blockLightsOn)).setUnlocalizedName("itemLightsOn").setCreativeTab(tabJammyFurniture);
-			itemLightsOn = (new jfm_ItemLightsOn(Integer.parseInt(LIGHTS_OFF_ID.getString()) - 256, blockLightsOff)).setUnlocalizedName("itemLightsOff");
-			
 			
 		} finally {
 			configOld.save();
@@ -308,12 +271,14 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public void initBlocks () {
 		
-		blockWoodBlocksOne   = new WoodBlocksOne  (this.config.blockWoodBlocksOneID  , "WoodBlocksOne"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
-		blockWoodBlocksTwo   = new WoodBlocksTwo  (this.config.blockWoodBlocksTwoID  , "WoodBlocksTwo"  ).setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
-		blockWoodBlocksThree = new WoodBlocksThree(this.config.blockWoodBlocksThreeID, "WoodBlocksThree").setHardness(2.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture);
-		blockBathTub         = new BathBlock      (this.config.blockBathTubID        , "bathBlock"      ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
-		blockIronBlocksOne   = new IronBlocksOne  (this.config.blockIronBlocksOneID  , "ironBlockOne"   ).setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
-		blockIronBlocksTwo   = new IronBlocksTwo  (this.config.blockIronBlocksTwoID  , "ironBlocksTwo"  )  .setHardness(3.0F).setResistance(1.0F).setCreativeTab(tabJammyFurniture).setStepSound(Block.soundWoodFootstep);
+		blockWoodBlocksOne    = new WoodBlocksOne   (this.config.blockWoodBlocksOneID   , "WoodBlocksOne"   ).setCreativeTab(tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+		blockWoodBlocksTwo    = new WoodBlocksTwo   (this.config.blockWoodBlocksTwoID   , "WoodBlocksTwo"   ).setCreativeTab(tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+		blockWoodBlocksThree  = new WoodBlocksThree (this.config.blockWoodBlocksThreeID , "WoodBlocksThree" ).setCreativeTab(tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+		blockBathTub          = new BathBlock       (this.config.blockBathTubID         , "bathBlock"       ).setCreativeTab(tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		blockIronBlocksOne    = new IronBlocksOne   (this.config.blockIronBlocksOneID   , "ironBlockOne"    ).setCreativeTab(tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		blockIronBlocksTwo    = new IronBlocksTwo   (this.config.blockIronBlocksTwoID   , "ironBlocksTwo"   ).setCreativeTab(tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		blockCeramicBlocksOne = new CeramicBlocksOne(this.config.blockCeramicBlocksOneID, "ceramicBlocksOne").setCreativeTab(tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
+		blockRoofingBlocksOne = new RoofingBlocksOne(this.config.blockRoofingBlocksOneID, "roofingBlocksOne").setCreativeTab(tabJammyFurniture).setHardness(1.2F);
 		
 	}
 	
@@ -361,19 +326,15 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	@Override
 	public void initGuiCommon () {
-		
-		new JFGuiHandler();
-		
-		GCLNetworkRegistry.instance().registerGuiHandler(new JFGuiHandler());
-		
-		InventoryRegistry.registerInventory (GUI_CLOCK_ID          , 3);
-		InventoryRegistry.registerInventory (GUI_KITCHENCUPBOARD_ID, 3);
-		InventoryRegistry.registerInventory (GUI_FRIDGE_ID         , 3);
-		InventoryRegistry.registerInventory (GUI_RUBBISHBIN_ID     , 9);
-		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID      , ContainerCraftingSide.class);
-		InventoryRegistry.registerContainer (GUI_COOKER_ID         , ContainerCooker.class);
-		InventoryRegistry.registerContainer (GUI_WASHINGMACHINE_ID , ContainerWashingMachine.class);
-		InventoryRegistry.registerContainer (GUI_DISHWASHER_ID     , ContainerDishwasher.class);
+		InventoryRegistry.registerInventory (GUI_CLOCK_ID           , 3);
+		InventoryRegistry.registerInventory (GUI_KITCHENCUPBOARD_ID , 3);
+		InventoryRegistry.registerInventory (GUI_FRIDGE_ID          , 3);
+		InventoryRegistry.registerInventory (GUI_RUBBISHBIN_ID      , 9);
+		InventoryRegistry.registerInventory (GUI_BARHROOMCUPBOARD_ID, 4);
+		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID       , ContainerCraftingSide.class);
+		InventoryRegistry.registerContainer (GUI_COOKER_ID          , ContainerCooker.class);
+		InventoryRegistry.registerContainer (GUI_WASHINGMACHINE_ID  , ContainerWashingMachine.class);
+		InventoryRegistry.registerContainer (GUI_DISHWASHER_ID      , ContainerDishwasher.class);
 	}
 	
 	/**

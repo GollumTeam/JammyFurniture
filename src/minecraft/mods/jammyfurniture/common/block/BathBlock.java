@@ -112,35 +112,7 @@ public class BathBlock extends HBlockContainer {
 				player.rotationYaw = 90.0F;
 			}
 			
-			float playerX = 0.0F;
-			float playerY = 0.0F;
-			float playerZ = 0.0F;
-			
-			if (metadata == 0) {
-				playerX = 0.5F;
-				playerY = 0.4F;
-				playerZ = 0.5F;
-			}
-			
-			if (metadata == 1) {
-				playerX = 0.5F;
-				playerY = 0.4F;
-				playerZ = 0.5F;
-			}
-			
-			if (metadata == 2) {
-				playerX = 0.5F;
-				playerY = 0.4F;
-				playerZ = 0.5F;
-			}
-			
-			if (metadata == 3) {
-				playerX = 0.5F;
-				playerY = 0.4F;
-				playerZ = 0.5F;
-			}
-			
-			return BlockMountable.onBlockActivated(world, x, y, z, player, playerX, playerY, playerZ, 0, 0, 0, 0);
+			return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
 		}
 	}
 	

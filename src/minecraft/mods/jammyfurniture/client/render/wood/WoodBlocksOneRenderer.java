@@ -17,12 +17,12 @@ import org.lwjgl.opengl.GL11;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	
-	private final static ModelClockBase   modelClockBase   = new ModelClockBase();
-	private final static ModelClockMiddle modelClockMiddle = new ModelClockMiddle();
-	private final static ModelClockTop    modelClockTop    = new ModelClockTop();
-	private final static ModelBlinds      modelBlinds      = new ModelBlinds();
-	private final static ModelKitchenSide modelKitchenSide = new ModelKitchenSide();
-	private final static ModelTable       modelTable       = new ModelTable();
+	private ModelClockBase   modelClockBase   = new ModelClockBase();
+	private ModelClockMiddle modelClockMiddle = new ModelClockMiddle();
+	private ModelClockTop    modelClockTop    = new ModelClockTop();
+	private ModelBlinds      modelBlinds      = new ModelBlinds();
+	private ModelKitchenSide modelKitchenSide = new ModelKitchenSide();
+	private ModelTable       modelTable       = new ModelTable();
 	
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		

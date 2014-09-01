@@ -81,7 +81,7 @@ public class DishwasherRecipes {
 		ItemStack rtn = null;
 		
 		if (this.smeltingList.containsKey(item)) {
-			rtn = this.smeltingList.get (item).itemStack;
+			rtn = this.smeltingList.get (item).itemStack.copy();
 		}
 
 		if (item instanceof ItemSword) {

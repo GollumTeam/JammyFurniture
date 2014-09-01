@@ -15,10 +15,10 @@ import org.lwjgl.opengl.GL11;
 
 public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	
-	private final static ModelFridge      modelFridge      = new ModelFridge();
-	private final static ModelCooker      modelCooker      = new ModelCooker();
-	private final static ModelRubbishBin  modelRubbishBin  = new ModelRubbishBin();
-	private final static ModelCoffeeTable modelCoffeetable = new ModelCoffeeTable();
+	private ModelFridge      modelFridge      = new ModelFridge();
+	private ModelCooker      modelCooker      = new ModelCooker();
+	private ModelRubbishBin  modelRubbishBin  = new ModelRubbishBin();
+	private ModelCoffeeTable modelCoffeetable = new ModelCoffeeTable();
 	
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
