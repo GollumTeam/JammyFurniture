@@ -120,32 +120,36 @@ public class CeramicBlocksOne extends JFMetadataBlock {
 						return true;
 					}
 					
-					// TODO faire en sorte que l'eau coule
-					// Comme avec al télé
-					
-					ItemStack itemStack = player.inventory.getCurrentItem();
-					ItemStack newItemStack = CeramicBlocksOneRecipes.smelting().getSmeltingResult(itemStack);
-					
-					if (newItemStack != null) {
+					if (teCeramic.waterIsOn ()) {
 						
-						--itemStack.stackSize;
+						ItemStack itemStack = player.inventory.getCurrentItem();
+						ItemStack newItemStack = CeramicBlocksOneRecipes.smelting().getSmeltingResult(itemStack);
 						
-						if (itemStack.stackSize <= 0) {
-							player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
-						}
-						
-						if (player.inventory.addItemStackToInventory(newItemStack.copy())) {
-							if (player instanceof EntityPlayerMP) {
-								((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+						if (newItemStack != null) {
+							
+							--itemStack.stackSize;
+							
+							if (itemStack.stackSize <= 0) {
+								player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
 							}
-						} else {
-							ModJammyFurniture.log.debug("Spawn new entity");
-							world.spawnEntityInWorld(new EntityItem(world, (double) x + 0.5D, (double) y + 1.5D, (double) z + 0.5D, newItemStack));
+							
+							if (player.inventory.addItemStackToInventory(newItemStack.copy())) {
+								if (player instanceof EntityPlayerMP) {
+									((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+								}
+							} else {
+								ModJammyFurniture.log.debug("Spawn new entity");
+								world.spawnEntityInWorld(new EntityItem(world, (double) x + 0.5D, (double) y + 1.5D, (double) z + 0.5D, newItemStack));
+							}
+							
+							
+							return true;
 						}
-						
 					}
 					
-				return true;
+					world.addBlockEvent(x, y, z, this.blockID, 1, 0);
+					
+					return true;
 					
 				case 12: // Les toilettes
 					
@@ -187,7 +191,13 @@ public class CeramicBlocksOne extends JFMetadataBlock {
 	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
-		// TODO pour l eau
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+
+		if (te != null && te instanceof TileEntityCeramicBlocksOne) {
+			TileEntityCeramicBlocksOne teCeramicBlocks = (TileEntityCeramicBlocksOne)te;
+			
+			teCeramicBlocks.toggleWater();
+		}
 		return true;
 	}
 	

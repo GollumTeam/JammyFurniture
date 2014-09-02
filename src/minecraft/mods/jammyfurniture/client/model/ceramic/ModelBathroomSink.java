@@ -16,6 +16,8 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 	ModelRenderer tapEnd1;
 	ModelRenderer tapBase2;
 	ModelRenderer tapEnd2;
+	ModelRenderer water1;
+	ModelRenderer water2;
 
 	public ModelBathroomSink() {
 		this.textureWidth = 64;
@@ -62,8 +64,8 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 		this.tapBase1.setTextureSize(64, 64);
 		this.tapBase1.mirror = true;
 		this.setRotation(this.tapBase1, 0.0F, 0.0F, 0.0F);
-		this.tapEnd1 = new ModelRenderer(this, 1, 47);
-		this.tapEnd1.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1);
+		this.tapEnd1 = new ModelRenderer(this, 1, 50);
+		this.tapEnd1.addBox(-1.0F, 0.0F, 0.0F, 2, 1, 1);
 		this.tapEnd1.setRotationPoint(3.0F, 8.0F, 2.0F);
 		this.tapEnd1.setTextureSize(64, 64);
 		this.tapEnd1.mirror = true;
@@ -74,12 +76,28 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 		this.tapBase2.setTextureSize(64, 64);
 		this.tapBase2.mirror = true;
 		this.setRotation(this.tapBase2, 0.0F, 0.0F, 0.0F);
-		this.tapEnd2 = new ModelRenderer(this, 6, 47);
-		this.tapEnd2.addBox(0.0F, 0.0F, 0.0F, 1, 1, 1);
+		this.tapEnd2 = new ModelRenderer(this, 1, 47);
+		this.tapEnd2.addBox(-1.0F, 0.0F, 0.0F, 2, 1, 1);
 		this.tapEnd2.setRotationPoint(3.0F, 8.0F, -3.0F);
 		this.tapEnd2.setTextureSize(64, 64);
 		this.tapEnd2.mirror = true;
 		this.setRotation(this.tapEnd2, 0.0F, 0.0F, 0.0F);
+		
+		
+		this.water1 = new ModelRenderer(this, 12, 43);
+		this.water1.addBox(-1.0F, 1.0F, 0.0F, 1, 4, 1);
+		this.water1.setRotationPoint(3.0F, 8.0F, -3.0F);
+		this.water1.setTextureSize(64, 64);
+		this.water1.mirror = true;
+		this.setRotation(this.water1, 0.0F, 0.0F, 0.0F);
+		
+
+		this.water2 = new ModelRenderer(this, 12, 43);
+		this.water2.addBox(-1.0F, 1.0F, 5.0F, 1, 4, 1);
+		this.water2.setRotationPoint(3.0F, 8.0F, -3.0F);
+		this.water2.setTextureSize(64, 64);
+		this.water2.mirror = true;
+		this.setRotation(this.water2, 0.0F, 0.0F, 0.0F);
 	}
 
 	/**
@@ -98,6 +116,8 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 		this.tapEnd1.render(f5);
 		this.tapBase2.render(f5);
 		this.tapEnd2.render(f5);
+		this.water1.render(f5);
+		this.water2.render(f5);
 	}
 
 	public void renderModel(float f5) {
@@ -111,6 +131,8 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 		this.tapEnd1.render(f5);
 		this.tapBase2.render(f5);
 		this.tapEnd2.render(f5);
+		this.water1.render(f5);
+		this.water2.render(f5);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {

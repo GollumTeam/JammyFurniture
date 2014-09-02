@@ -220,6 +220,7 @@ public class ModJammyFurniture extends GollumMod {
 		SoundRegistry.register("toilet");
 		SoundRegistry.register("trashopen");
 		SoundRegistry.register("trashclosed");
+		SoundRegistry.register("sink_water");
 		
 	}
 	

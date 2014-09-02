@@ -20,6 +20,8 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 	ModelRenderer tapOut2;
 	ModelRenderer pipeDown;
 	ModelRenderer pipeAcross;
+	ModelRenderer water1;
+	ModelRenderer water2;
 
 	public ModelKitchenSink() {
 		this.textureWidth = 128;
