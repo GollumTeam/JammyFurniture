@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.util.BlockMountable;
 
 public class BlockSofa extends JFMetadataBlock {
 	
@@ -35,7 +34,6 @@ public class BlockSofa extends JFMetadataBlock {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.7F, 1.0F);
 		}
 	}
-	
 	
 	///////////
 	// Event //

@@ -1,7 +1,6 @@
 package mods.jammyfurniture.common;
 
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
@@ -9,6 +8,7 @@ import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;

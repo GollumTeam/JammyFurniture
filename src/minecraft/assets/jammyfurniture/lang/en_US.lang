@@ -7,24 +7,87 @@ item.CeramicPanel.name=Ceramic Panel
 item.WMDrum.name=Washing Machine Drum
 item.BlindPart.name=Blind Part
 
+tile.BathBlock.name=Bath
+tile.LightsOn.0.name=Light
+tile.LightsOn.4.name=Outdoor Lamp
+tile.LightsOn.8.name=Table Lamp
+
 tile.WoodBlocksOne.0.name=Clock Base
 tile.WoodBlocksOne.1.name=Clock Middle
 tile.WoodBlocksOne.5.name=Clock Top
-AAtile.WoodBlocksOne.9.name=Blinds
-AAtile.WoodBlocksOne.13.name=Crafting Side
-AAtile.WoodBlocksOne.14.name=Kitchen Side
-AAtile.WoodBlocksOne.15.name=Table
-AAtile.WoodBlocksTwo.0.name=Kitchen Cupboard
-AAtile.WoodBlocksTwo.4.name=Kitchen Cupboard (Shelf)
-AAtile.WoodBlocksTwo.8.name=Television
-AAtile.WoodBlocksTwo.12.name=Basket
-AAtile.WoodBlocksTwo.13.name=Basket
-AAtile.WoodBlocksTwo.14.name=Basket
-AAtile.WoodBlocksTwo.15.name=Basket
-AAtile.WoodBlocksThree.0.name=Chair
-AAtile.WoodBlocksThree.4.name=Radio
+tile.WoodBlocksOne.9.name=Blinds
+tile.WoodBlocksOne.13.name=Crafting Side
+tile.WoodBlocksOne.14.name=Kitchen Side
+tile.WoodBlocksOne.15.name=Table
+tile.WoodBlocksTwo.0.name=Kitchen Cupboard
+tile.WoodBlocksTwo.4.name=Kitchen Cupboard (Shelf)
+tile.WoodBlocksTwo.8.name=Television
+tile.WoodBlocksTwo.12.name=Basket
+tile.WoodBlocksTwo.13.name=Basket
+tile.WoodBlocksTwo.14.name=Basket
+tile.WoodBlocksTwo.15.name=Basket
+tile.WoodBlocksThree.0.name=Chair
+tile.WoodBlocksThree.4.name=Radio
 
-entity..name=
+tile.IronBlocksOne.0.name=Fridge
+tile.IronBlocksOne.4.name=Freezer
+tile.IronBlocksOne.8.name=Cooker
+tile.IronBlocksOne.12.name=Rubbish Bin
+tile.IronBlocksOne.13.name=Coffee Table
+tile.IronBlocksTwo.0.name=Dishwasher
+tile.IronBlocksTwo.4.name=Washing Machine
+
+tile.CeramicBlocksOne.4.name=Bathroom Sink
+tile.CeramicBlocksOne.8.name=Kitchen Sink
+tile.CeramicBlocksOne.12.name=Toilet
+
+tile.RoofingBlocksOne.0.name=Roofing
+tile.RoofingBlocksOne.4.name=Roofing
+tile.RoofingBlocksOne.8.name=Roofing
+tile.RoofingBlocksOne.12.name=Roofing
+
+tile.MobHeadsOne.0.name=Chicken Head
+tile.MobHeadsOne.4.name=Cow Head
+tile.MobHeadsOne.8.name=Creeper Head
+tile.MobHeadsOne.12.name=Enderdragon Head
+tile.MobHeadsTwo.0.name=Pig Head
+tile.MobHeadsTwo.4.name=Sheep Head
+tile.MobHeadsTwo.8.name=Skeleton Head
+tile.MobHeadsTwo.12.name=Spider Head
+tile.MobHeadsThree.0.name=Steve Head
+tile.MobHeadsThree.4.name=Wolf Head
+tile.MobHeadsThree.8.name=Zombie Head
+tile.MobHeadsThree.12.name=Squid Head
+tile.MobHeadsFour.0.name=Enderman Head
+tile.MobHeadsFour.4.name=Slime Head
+tile.MobHeadsFour.8.name=Blaze Head
+tile.MobHeadsFour.12.name=Zombie Pig Head
+
+tile.ArmChair.0.name=Arm Chair
+tile.ArmChair.4.name=Arm Chair
+tile.ArmChair.8.name=Arm Chair
+tile.ArmChair.12.name=Arm Chair
+tile.SofaPartLeft.0.name=Sofa Part (Left)
+tile.SofaPartLeft.4.name=Sofa Part (Left)
+tile.SofaPartLeft.8.name=Sofa Part (Left)
+tile.SofaPartLeft.12.name=Sofa Part (Left)
+tile.SofaPartRight.0.name=Sofa Part (Right)
+tile.SofaPartRight.4.name=Sofa Part (Right)
+tile.SofaPartRight.8.name=Sofa Part (Right)
+tile.SofaPartRight.12.name=Sofa Part (Right)
+tile.SofaPartCenter.0.name=Sofa Part (Center)
+tile.SofaPartCenter.4.name=Sofa Part (Center)
+tile.SofaPartCenter.8.name=Sofa Part (Center)
+tile.SofaPartCenter.12.name=Sofa Part (Center)
+tile.SofaPartCorner.0.name=Sofa Part (Corner)
+tile.SofaPartCorner.4.name=Sofa Part (Corner)
+tile.SofaPartCorner.8.name=Sofa Part (Corner)
+tile.SofaPartCorner.12.name=Sofa Part (Corner)
+
+tile.MiscBlocksOne.0.name=Chimney
+tile.MiscBlocksOne.4.name=Mantle Piece
+tile.MiscBlocksOne.8.name=Christmas Tree
+
 
 jammyfurniture.clock.format=12
 jammyfurniture.clock.paddingH=1

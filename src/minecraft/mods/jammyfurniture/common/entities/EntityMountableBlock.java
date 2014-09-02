@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.util;
+package mods.jammyfurniture.common.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -6,10 +6,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityMountableBlock extends Entity {
-	protected int orgBlockPosX;
-	protected int orgBlockPosY;
-	protected int orgBlockPosZ;
-	protected int orgBlockID;
+	public int orgBlockPosX;
+	public int orgBlockPosY;
+	public int orgBlockPosZ;
+	public int orgBlockID;
 
 	public EntityMountableBlock(World world) {
 		super(world);

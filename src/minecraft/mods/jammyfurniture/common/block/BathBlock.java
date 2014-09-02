@@ -6,7 +6,6 @@ import mods.gollum.core.tools.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.item.JFItemBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;

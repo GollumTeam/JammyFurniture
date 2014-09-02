@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.block.BlockMountable;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
-import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

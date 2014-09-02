@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.block.BlockMountable;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
-import mods.jammyfurniture.common.util.BlockMountable;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -110,7 +110,7 @@ public class CeramicBlocksOne extends JFMetadataBlock {
 				
 				case 0: // Armoire a salle de bain
 					
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_BARHROOMCUPBOARD_ID, world, x, y, z); // TODO
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_BARHROOMCUPBOARD_ID, world, x, y, z);
 					return true;
 					
 				case 4: // Lavabo mural

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class JFRecipes extends ModJammyFurniture {
 	
-	public static void initRecipes() {
+	public void initRecipes() {
 		
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksOne, 1, 0), new Object[] { " W ", "WWW", "WWW", 'W', Block.planks });
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksOne, 1, 4), new Object[] { " WW", "IWW", " WW", 'W', Block.planks, 'I', Item.ingotIron });
@@ -29,7 +29,7 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksThree, 1, 0) , new Object[] { "P  ", "PP ", "SS ", 'P', Block.planks, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksThree, 1, 4) , new Object[] { "I  ", "PPB", "PPP", 'I', Item.ingotIron, 'P', Block.planks, 'B', Block.stoneButton });
 		
-//		GameRegistry.addRecipe(new ItemStack(itemBathTub       , 1, 0) , new Object[] { "I I", "III", 'I', Block.blockIron });
+		GameRegistry.addRecipe(new ItemStack(blockBathTub      , 1, 0) , new Object[] { "I I", "III", 'I', Block.blockIron });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 0) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', itemLightBulb });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 4) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', Block.blockSnow });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 8) , new Object[] { "I I", "IFI", "III", 'I', Item.ingotIron, 'F', Block.furnaceIdle });

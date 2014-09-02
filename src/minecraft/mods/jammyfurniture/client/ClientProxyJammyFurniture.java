@@ -3,8 +3,8 @@ package mods.jammyfurniture.client;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.render.BathRenderer;
 import mods.jammyfurniture.client.render.JFInventoryRenderer;
+import mods.jammyfurniture.client.render.LightsRenderer;
 import mods.jammyfurniture.client.render.SofaRenderer;
-import mods.jammyfurniture.client.render.jfm_LightsRenderer;
 import mods.jammyfurniture.client.render.ceramic.CeramicBlocksRendererOne;
 import mods.jammyfurniture.client.render.head.MobHeadsFourRenderer;
 import mods.jammyfurniture.client.render.head.MobHeadsOneRenderer;
@@ -19,7 +19,6 @@ import mods.jammyfurniture.client.render.wood.WoodBlocksThreeRenderer;
 import mods.jammyfurniture.client.render.wood.WoodBlocksTwoRenderer;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
@@ -27,6 +26,8 @@ import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
+import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
@@ -73,12 +74,8 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsThreeRenderID   , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsFourRenderID    , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaRenderID            , new JFInventoryRenderer());
-//		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaPartLeftRenderID    , new JFInventoryRenderer());
-//		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaPartRightRenderID   , new JFInventoryRenderer());
-//		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaPartCenterRenderID  , new JFInventoryRenderer());
-//		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaPartCornerRenderID  , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.miscBlocksOneRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.lightsRenderID          , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(ModJammyFurniture.lightsRenderID        , new JFInventoryRenderer());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksOneRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new WoodBlocksTwoRenderer());
@@ -97,7 +94,8 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySofaRight.class       , new SofaRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySofaCenter.class      , new SofaRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySofaCorner.class      , new SofaRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMiscBlockOne.class         , new MiscBlocksOneRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLightsOn.class        , new jfm_LightsRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMiscBlockOne.class    , new MiscBlocksOneRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLightsOn.class        , new LightsRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLightsOff.class       , new LightsRenderer());
 	}
 }

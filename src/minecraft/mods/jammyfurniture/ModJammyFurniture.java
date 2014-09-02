@@ -12,6 +12,7 @@ import mods.jammyfurniture.client.gui.GuiDishwasher;
 import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.BathBlock;
+import mods.jammyfurniture.common.block.BlockLights;
 import mods.jammyfurniture.common.block.BlockSofa;
 import mods.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
 import mods.jammyfurniture.common.block.head.MobHeadsFour;
@@ -30,8 +31,9 @@ import mods.jammyfurniture.common.containers.ContainerCooker;
 import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import mods.jammyfurniture.common.containers.ContainerDishwasher;
 import mods.jammyfurniture.common.containers.ContainerWashingMachine;
+import mods.jammyfurniture.common.entities.EntityMountableBlock;
+import mods.jammyfurniture.common.recipes.JFRecipes;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
@@ -39,6 +41,8 @@ import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
+import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
@@ -49,10 +53,8 @@ import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
-import mods.jammyfurniture.common.util.EntityMountableBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -63,7 +65,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -128,8 +129,6 @@ public class ModJammyFurniture extends GollumMod {
 	public static Item itemWMDrum;
 	public static Item itemBlindPart;
 	
-	public static Item itemBathTub; // TODO
-	
 	/////////////////
 	// Renders IDs //
 	/////////////////
@@ -185,21 +184,6 @@ public class ModJammyFurniture extends GollumMod {
 		this.initItems ();
 		
 		this.tabJammyFurniture.setIcon(this.blockArmChair);
-		
-		// TODO va disparaitre
-		
-//		configOld = new jfm_Config(new File("config", "JammyFurnitureMod.conf"));
-		/*
-		try {
-			configOld.load();
-			
-			blockLightsOn = (new jfm_BlockLightsOn(Integer.parseInt(LIGHTS_ON_ID.getString()), 0, TileEntityLightsOn.class, true)).setHardness(0.3F).setUnlocalizedName("lightsOn").setCreativeTab(tabJammyFurniture);
-			blockLightsOff = (new jfm_BlockLightsOn(Integer.parseInt(LIGHTS_OFF_ID.getString()), 0, TileEntityLightsOn.class, false)).setHardness(0.3F).setUnlocalizedName("lightsOff");
-			
-		} finally {
-			configOld.save();
-		}
-		*/
 	}
 
 	/** 2 **/
@@ -216,8 +200,8 @@ public class ModJammyFurniture extends GollumMod {
 		
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, "EntityMountableBlock", 1, this, 400, 5, false);
 		
-//		// Ajout des recettes
-//		JFRecipes.initRecipes();
+		// Ajout des recettes
+		new JFRecipes().initRecipes();
 	}
 	
 	/** 3 **/
@@ -245,6 +229,9 @@ public class ModJammyFurniture extends GollumMod {
 	public void initBlocks () {
 		
 		blockBathTub          = new BathBlock       (this.config.blockBathTubID         , "BathBlock"       ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		blockLightsOn         = new BlockLights     (this.config.blockLightsOnID        , "LightsOn" ,true  ).setCreativeTab(this.tabJammyFurniture).setHardness(0.3F);
+		blockLightsOff        = new BlockLights     (this.config.blockLightsOffID       , "LightsOff",false )                                       .setHardness(0.3F);
+		
 		
 		blockWoodBlocksOne    = new WoodBlocksOne   (this.config.blockWoodBlocksOneID   , "WoodBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		blockWoodBlocksTwo    = new WoodBlocksTwo   (this.config.blockWoodBlocksTwoID   , "WoodBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
@@ -308,6 +295,7 @@ public class ModJammyFurniture extends GollumMod {
 		GameRegistry.registerTileEntity(TileEntitySofaCorner.class      , "TileEntitySofaCorner");
 		GameRegistry.registerTileEntity(TileEntityMiscBlockOne.class    , "TileEntityMiscOne");
 		GameRegistry.registerTileEntity(TileEntityLightsOn.class        , "TileEntityLightsOn");
+		GameRegistry.registerTileEntity(TileEntityLightsOff.class       , "TileEntityLightsOff");
 		
 	}
 	
@@ -337,67 +325,5 @@ public class ModJammyFurniture extends GollumMod {
 		InventoryRegistry.registerGui (GUI_COOKER_ID        , GuiCooker.class);
 		InventoryRegistry.registerGui (GUI_WASHINGMACHINE_ID, GuiWashingMachine.class);
 		InventoryRegistry.registerGui (GUI_DISHWASHER_ID    , GuiDishwasher.class);
-	}
-
-	public void loadNames() {
-		
-//		LanguageRegistry.addName(itemBathTub, "Bath");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksOne, 1, 0), "Fridge");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksOne, 1, 4), "Freezer");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksOne, 1, 8), "Cooker");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksOne, 1, 12), "Rubbish Bin");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksOne, 1, 13), "Coffee Table");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksTwo, 1, 0), "Dishwasher");
-		LanguageRegistry.addName(new ItemStack(blockIronBlocksTwo, 1, 4), "Washing Machine");
-		LanguageRegistry.addName(new ItemStack(blockCeramicBlocksOne, 1, 0), "Bathroom Cupboard");
-		LanguageRegistry.addName(new ItemStack(blockCeramicBlocksOne, 1, 4), "Bathroom Sink");
-		LanguageRegistry.addName(new ItemStack(blockCeramicBlocksOne, 1, 8), "Kitchen Sink");
-		LanguageRegistry.addName(new ItemStack(blockCeramicBlocksOne, 1, 12), "Toilet");
-		LanguageRegistry.addName(new ItemStack(blockRoofingBlocksOne, 1, 0), "Roofing");
-		LanguageRegistry.addName(new ItemStack(blockRoofingBlocksOne, 1, 4), "Roofing");
-		LanguageRegistry.addName(new ItemStack(blockRoofingBlocksOne, 1, 8), "Roofing");
-		LanguageRegistry.addName(new ItemStack(blockRoofingBlocksOne, 1, 12), "Roofing");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsOne, 1, 0), "Chicken Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsOne, 1, 4), "Cow Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsOne, 1, 8), "Creeper Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsOne, 1, 12), "Enderdragon Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsTwo, 1, 0), "Pig Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsTwo, 1, 4), "Sheep Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsTwo, 1, 8), "Skeleton Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsTwo, 1, 12), "Spider Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsThree, 1, 0), "Steve Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsThree, 1, 4), "Wolf Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsThree, 1, 8), "Zombie Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsThree, 1, 12), "Squid Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsFour, 1, 0), "Enderman Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsFour, 1, 4), "Slime Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsFour, 1, 8), "Blaze Head");
-		LanguageRegistry.addName(new ItemStack(blockMobHeadsFour, 1, 12), "Zombie Pig Head");
-		LanguageRegistry.addName(new ItemStack(blockArmChair, 1, 0), "Arm Chair");
-		LanguageRegistry.addName(new ItemStack(blockArmChair, 1, 4), "Arm Chair");
-		LanguageRegistry.addName(new ItemStack(blockArmChair, 1, 8), "Arm Chair");
-		LanguageRegistry.addName(new ItemStack(blockArmChair, 1, 12), "Arm Chair");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartLeft, 1, 0), "Sofa Part (Left)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartLeft, 1, 4), "Sofa Part (Left)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartLeft, 1, 8), "Sofa Part (Left)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartLeft, 1, 12), "Sofa Part (Left)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartRight, 1, 0), "Sofa Part (Right)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartRight, 1, 4), "Sofa Part (Right)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartRight, 1, 8), "Sofa Part (Right)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartRight, 1, 12), "Sofa Part (Right)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCenter, 1, 0), "Sofa Part (Center)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCenter, 1, 4), "Sofa Part (Center)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCenter, 1, 8), "Sofa Part (Center)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCenter, 1, 12), "Sofa Part (Center)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCorner, 1, 0), "Sofa Part (Corner)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCorner, 1, 4), "Sofa Part (Corner)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCorner, 1, 8), "Sofa Part (Corner)");
-		LanguageRegistry.addName(new ItemStack(blockSofaPartCorner, 1, 12), "Sofa Part (Corner)");
-		LanguageRegistry.addName(new ItemStack(blockMiscBlocksOne, 1, 0), "Chimney");
-		LanguageRegistry.addName(new ItemStack(blockMiscBlocksOne, 1, 4), "Mantle Piece");
-		LanguageRegistry.addName(new ItemStack(blockMiscBlocksOne, 1, 8), "Christmas Tree");
-		LanguageRegistry.addName(new ItemStack(blockLightsOn, 1, 0), "Light");
-		LanguageRegistry.addName(new ItemStack(blockLightsOn, 1, 4), "Outdoor Lamp");
-		LanguageRegistry.addName(new ItemStack(blockLightsOn, 1, 8), "Table Lamp");
 	}
 }

@@ -2,7 +2,6 @@ package mods.jammyfurniture.client.render;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
@@ -10,6 +9,7 @@ import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
@@ -35,11 +35,6 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
 		
 		this.currentMetadata = metadata;
-
-		if (block == ModJammyFurniture.blockLightsOn) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityLightsOn(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-			return;
-		}
 		
 		TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
 		

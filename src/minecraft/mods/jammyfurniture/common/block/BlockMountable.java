@@ -1,7 +1,9 @@
-package mods.jammyfurniture.common.util;
+package mods.jammyfurniture.common.block;
 
 import java.util.Iterator;
 import java.util.List;
+
+import mods.jammyfurniture.common.entities.EntityMountableBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
