@@ -7,7 +7,7 @@ import mods.jammyfurniture.client.model.ceramic.ModelBathroomSink;
 import mods.jammyfurniture.client.model.ceramic.ModelKitchenSink;
 import mods.jammyfurniture.client.model.ceramic.ModelToilet;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
+import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

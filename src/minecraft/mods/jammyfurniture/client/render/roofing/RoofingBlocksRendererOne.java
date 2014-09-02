@@ -7,7 +7,7 @@ import mods.jammyfurniture.client.model.roofing.ModelRoofingBlock;
 import mods.jammyfurniture.client.model.roofing.ModelRoofingCorner;
 import mods.jammyfurniture.client.model.roofing.ModelRoofingInverted;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
+import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;

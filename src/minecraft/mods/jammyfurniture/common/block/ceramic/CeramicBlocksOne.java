@@ -6,7 +6,7 @@ import java.util.Random;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
-import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
+import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import mods.jammyfurniture.common.util.BlockMountable;

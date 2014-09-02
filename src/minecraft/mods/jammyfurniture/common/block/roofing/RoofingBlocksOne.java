@@ -5,7 +5,7 @@ import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
+import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

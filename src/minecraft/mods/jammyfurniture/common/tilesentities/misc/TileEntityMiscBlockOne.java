@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.tilesentities;
+package mods.jammyfurniture.common.tilesentities.misc;
 
 import net.minecraft.tileentity.TileEntity;
 

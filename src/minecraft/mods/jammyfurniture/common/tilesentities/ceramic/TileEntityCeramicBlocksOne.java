@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.tilesentities;
+package mods.jammyfurniture.common.tilesentities.ceramic;
 
 import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
