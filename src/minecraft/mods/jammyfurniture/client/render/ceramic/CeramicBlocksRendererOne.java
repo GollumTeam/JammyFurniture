@@ -50,7 +50,11 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 			case 13:
 				rotation = 270; break;
 		}
-
+		
+		if (invRender) {
+			rotation = 180;
+		}
+		
 		float doorProgess = tileentityCeramic.getPreviousDoorOpenProgress() + (tileentityCeramic.getDoorOpenProgress() - tileentityCeramic.getPreviousDoorOpenProgress()) * f;
 		
 		switch (subBlock) {

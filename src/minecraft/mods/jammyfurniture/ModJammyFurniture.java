@@ -12,6 +12,7 @@ import mods.jammyfurniture.client.gui.GuiDishwasher;
 import mods.jammyfurniture.client.gui.GuiWashingMachine;
 import mods.jammyfurniture.common.CommonProxyJammyFurniture;
 import mods.jammyfurniture.common.block.BathBlock;
+import mods.jammyfurniture.common.block.BlockSofa;
 import mods.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
 import mods.jammyfurniture.common.block.head.MobHeadsFour;
 import mods.jammyfurniture.common.block.head.MobHeadsOne;
@@ -19,8 +20,8 @@ import mods.jammyfurniture.common.block.head.MobHeadsThree;
 import mods.jammyfurniture.common.block.head.MobHeadsTwo;
 import mods.jammyfurniture.common.block.iron.IronBlocksOne;
 import mods.jammyfurniture.common.block.iron.IronBlocksTwo;
+import mods.jammyfurniture.common.block.misc.MiscBlocksOne;
 import mods.jammyfurniture.common.block.roofing.RoofingBlocksOne;
-import mods.jammyfurniture.common.block.sofa.BlockArmChair;
 import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
@@ -33,7 +34,7 @@ import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
-import mods.jammyfurniture.common.tilesentities.TileEntityMiscOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityMiscBlockOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCenter;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
@@ -127,26 +128,7 @@ public class ModJammyFurniture extends GollumMod {
 	public static Item itemWMDrum;
 	public static Item itemBlindPart;
 	
-//	public static Item itemWoodBlocksOne;
-//	public static Item itemWoodBlocksTwo;
-//	public static Item itemWoodBlocksThree;
-	public static Item itemBathTub;
-//	public static Item itemIronBlocksOne;
-//	public static Item itemIronBlocksTwo;
-//	public static Item itemCeramicBlocksOne;
-//	public static Item itemRoofingBlocksOne;
-//	public static Item itemMobHeadsOne;
-//	public static Item itemMobHeadsTwo;
-//	public static Item itemMobHeadsThree;
-//	public static Item itemMobHeadsFour;
-//	public static Item itemArmChair;
-//	public static Item itemSofaPartLeft;
-//	public static Item itemSofaPartRight;
-//	public static Item itemSofaPartCenter;
-//	public static Item itemSofaPartCorner;
-//	public static Item itemMiscBlocksOne;
-//	public static Item itemLightsOn;
-//	public static Item itemLightsOff;
+	public static Item itemBathTub; // TODO
 	
 	/////////////////
 	// Renders IDs //
@@ -163,11 +145,7 @@ public class ModJammyFurniture extends GollumMod {
 	public static int mobHeadsTwoRenderID;
 	public static int mobHeadsThreeRenderID;
 	public static int mobHeadsFourRenderID;
-	public static int armChairRenderID;
-	public static int sofaPartLeftRenderID;
-	public static int sofaPartRightRenderID;
-	public static int sofaPartCenterRenderID;
-	public static int sofaPartCornerRenderID;
+	public static int sofaRenderID;
 	public static int miscBlocksOneRenderID;
 	public static int lightsRenderID;
 
@@ -215,12 +193,6 @@ public class ModJammyFurniture extends GollumMod {
 		try {
 			configOld.load();
 			
-			
-			blockSofaPartLeft = (new jfm_BlockSofaLeft(Integer.parseInt(SOFA_LEFT_ID.getString()), 0, TileEntitySofaLeft.class)).setHardness(1.2F).setUnlocalizedName("sofaLeft").setCreativeTab(tabJammyFurniture);
-			blockSofaPartRight = (new jfm_BlockSofaRight(Integer.parseInt(SOFA_RIGHT_ID.getString()), 0, TileEntitySofaRight.class)).setHardness(1.2F).setUnlocalizedName("sofaRight").setCreativeTab(tabJammyFurniture);
-			blockSofaPartCenter = (new jfm_BlockSofaCenter(Integer.parseInt(SOFA_CENTER_ID.getString()), 0, TileEntitySofaCenter.class)).setHardness(1.2F).setUnlocalizedName("sofaCenter").setCreativeTab(tabJammyFurniture);
-			blockSofaPartCorner = (new jfm_BlockSofaCorner(Integer.parseInt(SOFA_CORNER_ID.getString()), 0, TileEntitySofaCorner.class)).setHardness(1.2F).setUnlocalizedName("sofaCorner").setCreativeTab(tabJammyFurniture);
-			blockMiscBlocksOne = (new jfm_BlockMiscOne(Integer.parseInt(MISC_ONE_ID.getString()), 0, TileEntityMiscOne.class)).setHardness(2.0F).setResistance(10.0F).setUnlocalizedName("miscOne").setCreativeTab(tabJammyFurniture);
 			blockLightsOn = (new jfm_BlockLightsOn(Integer.parseInt(LIGHTS_ON_ID.getString()), 0, TileEntityLightsOn.class, true)).setHardness(0.3F).setUnlocalizedName("lightsOn").setCreativeTab(tabJammyFurniture);
 			blockLightsOff = (new jfm_BlockLightsOn(Integer.parseInt(LIGHTS_OFF_ID.getString()), 0, TileEntityLightsOn.class, false)).setHardness(0.3F).setUnlocalizedName("lightsOff");
 			
@@ -272,19 +244,31 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public void initBlocks () {
 		
+		blockBathTub          = new BathBlock       (this.config.blockBathTubID         , "BathBlock"       ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		
 		blockWoodBlocksOne    = new WoodBlocksOne   (this.config.blockWoodBlocksOneID   , "WoodBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		blockWoodBlocksTwo    = new WoodBlocksTwo   (this.config.blockWoodBlocksTwoID   , "WoodBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		blockWoodBlocksThree  = new WoodBlocksThree (this.config.blockWoodBlocksThreeID , "WoodBlocksThree" ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		blockBathTub          = new BathBlock       (this.config.blockBathTubID         , "BathBlock"       ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		
 		blockIronBlocksOne    = new IronBlocksOne   (this.config.blockIronBlocksOneID   , "IronBlockOne"    ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
 		blockIronBlocksTwo    = new IronBlocksTwo   (this.config.blockIronBlocksTwoID   , "IronBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		
 		blockCeramicBlocksOne = new CeramicBlocksOne(this.config.blockCeramicBlocksOneID, "CeramicBlocksOne").setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
+		
 		blockRoofingBlocksOne = new RoofingBlocksOne(this.config.blockRoofingBlocksOneID, "RoofingBlocksOne").setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
+		
+		blockMiscBlocksOne    = new MiscBlocksOne   (this.config.blockMiscBlocksOneID   , "MiscOne"         ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(10.0F);
+		
 		blockMobHeadsOne      = new MobHeadsOne     (this.config.blockMobHeadsOneID     , "MobHeadsOne"     ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
 		blockMobHeadsTwo      = new MobHeadsTwo     (this.config.blockMobHeadsTwoID     , "MobHeadsTwo"     ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
 		blockMobHeadsThree    = new MobHeadsThree   (this.config.blockMobHeadsThreeID   , "MobHeadsThree"   ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
 		blockMobHeadsFour     = new MobHeadsFour    (this.config.blockMobHeadsFourID    , "MobHeadsFour"    ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
-		blockArmChair         = new BlockArmChair   (this.config.blockArmChairID        , "ArmChair"        ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
+		
+		blockArmChair         = new BlockSofa(this.config.blockArmChairID      , "ArmChair"  , TileEntityArmChair.class  ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
+		blockSofaPartLeft     = new BlockSofa(this.config.blockSofaPartLeftID  , "SofaLeft"  , TileEntitySofaLeft.class  ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
+		blockSofaPartRight    = new BlockSofa(this.config.blockSofaPartRightID , "SofaRight" , TileEntitySofaRight.class ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
+		blockSofaPartCenter   = new BlockSofa(this.config.blockSofaPartCenterID, "SofaCenter", TileEntitySofaCenter.class).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
+		blockSofaPartCorner   = new BlockSofa(this.config.blockSofaPartCornerID, "SofaCorner", TileEntitySofaCorner.class).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
 		
 	}
 	
@@ -322,7 +306,7 @@ public class ModJammyFurniture extends GollumMod {
 		GameRegistry.registerTileEntity(TileEntitySofaRight.class       , "TileEntitySofaRight");
 		GameRegistry.registerTileEntity(TileEntitySofaCenter.class      , "TileEntitySofaCenter");
 		GameRegistry.registerTileEntity(TileEntitySofaCorner.class      , "TileEntitySofaCorner");
-		GameRegistry.registerTileEntity(TileEntityMiscOne.class         , "TileEntityMiscOne");
+		GameRegistry.registerTileEntity(TileEntityMiscBlockOne.class    , "TileEntityMiscOne");
 		GameRegistry.registerTileEntity(TileEntityLightsOn.class        , "TileEntityLightsOn");
 		
 	}

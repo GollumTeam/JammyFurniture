@@ -2,8 +2,8 @@ package mods.jammyfurniture.common.tilesentities;
 
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityArmChair extends TileEntity {
+public class TileEntityMiscBlockOne extends TileEntity {
 	
-	public TileEntityArmChair() {
+	public TileEntityMiscBlockOne() {
 	}
 }

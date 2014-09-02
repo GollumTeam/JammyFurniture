@@ -5,7 +5,7 @@ import mods.jammyfurniture.common.tilesentities.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
-import mods.jammyfurniture.common.tilesentities.TileEntityMiscOne;
+import mods.jammyfurniture.common.tilesentities.TileEntityMiscBlockOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCenter;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
@@ -35,52 +35,14 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
 		
 		this.currentMetadata = metadata;
-		
-		// TODO unifier
-		if (
-			block == ModJammyFurniture.blockWoodBlocksOne    || 
-			block == ModJammyFurniture.blockWoodBlocksTwo    || 
-			block == ModJammyFurniture.blockWoodBlocksThree  || 
-			block == ModJammyFurniture.blockBathTub          || 
-			block == ModJammyFurniture.blockIronBlocksOne    ||
-			block == ModJammyFurniture.blockIronBlocksTwo    ||
-			block == ModJammyFurniture.blockCeramicBlocksOne ||
-			block == ModJammyFurniture.blockRoofingBlocksOne ||
-			block == ModJammyFurniture.blockMobHeadsOne      ||
-			block == ModJammyFurniture.blockMobHeadsTwo      ||
-			block == ModJammyFurniture.blockMobHeadsThree    ||
-			block == ModJammyFurniture.blockMobHeadsFour 
-		) {
-			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-		
-		if (block == ModJammyFurniture.blockArmChair) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityArmChair(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockSofaPartLeft) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntitySofaLeft(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockSofaPartRight) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntitySofaRight(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockSofaPartCenter) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntitySofaCenter(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockSofaPartCorner) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntitySofaCorner(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockMiscBlocksOne) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityMiscOne(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
 
 		if (block == ModJammyFurniture.blockLightsOn) {
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityLightsOn(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
+			return;
 		}
+		
+		TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
+		
 	}
 
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
