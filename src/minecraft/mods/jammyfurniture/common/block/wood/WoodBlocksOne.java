@@ -19,7 +19,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-
+	
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		switch (metadata) {

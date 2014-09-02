@@ -1,21 +1,22 @@
-package mods.jammyfurniture.client.model.roofing;
+package mods.jammyfurniture.client.model.heads;
 
+import mods.jammyfurniture.client.model.JFIModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class jfm_ModelRoofingBlock extends ModelBase {
-	ModelRenderer RoofingBlock;
+public class ModelHead extends ModelBase implements JFIModel {
+	ModelRenderer shape1;
 
-	public jfm_ModelRoofingBlock() {
-		this.textureWidth = 128;
-		this.textureHeight = 64;
-		this.RoofingBlock = new ModelRenderer(this, 0, 0);
-		this.RoofingBlock.addBox(0.0F, 0.0F, 0.0F, 16, 16, 16);
-		this.RoofingBlock.setRotationPoint(-8.0F, 8.0F, -8.0F);
-		this.RoofingBlock.setTextureSize(128, 64);
-		this.RoofingBlock.mirror = true;
-		this.setRotation(this.RoofingBlock, 0.0F, 0.0F, 0.0F);
+	public ModelHead() {
+		this.textureWidth = 64;
+		this.textureHeight = 32;
+		this.shape1 = new ModelRenderer(this, 0, 0);
+		this.shape1.addBox(0.0F, 0.0F, 0.0F, 8, 8, 8);
+		this.shape1.setRotationPoint(-4.0F, 12.0F, 0.0F);
+		this.shape1.setTextureSize(64, 32);
+		this.shape1.mirror = true;
+		this.setRotation(this.shape1, 0.0F, 0.0F, 0.0F);
 	}
 
 	/**
@@ -24,11 +25,11 @@ public class jfm_ModelRoofingBlock extends ModelBase {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		this.RoofingBlock.render(f5);
+		this.shape1.render(f5);
 	}
 
-	public void renderModel(float f5) {
-		this.RoofingBlock.render(f5);
+	public void renderModel(float f1) {
+		this.shape1.render(f1);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {

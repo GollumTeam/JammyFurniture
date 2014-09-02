@@ -59,10 +59,10 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addRecipe(new ItemStack(blockMobHeadsThree, 1, 4) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 0), 'R', Item.redstone, 'S', Item.bone });
 		GameRegistry.addRecipe(new ItemStack(blockMobHeadsThree, 1, 8) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 13), 'R', Item.redstone, 'S', Item.rottenFlesh });
 		GameRegistry.addRecipe(new ItemStack(blockMobHeadsThree, 1, 12), new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 15), 'R', Item.redstone, 'S', new ItemStack(Item.dyePowder, 1, 0) });
-		GameRegistry.addRecipe(new ItemStack(blcokMobHeadsFour , 1, 0) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 15), 'R', Item.redstone, 'S', Item.enderPearl });
-		GameRegistry.addRecipe(new ItemStack(blcokMobHeadsFour , 1, 4) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 5), 'R', Item.redstone, 'S', Item.slimeBall });
-		GameRegistry.addRecipe(new ItemStack(blcokMobHeadsFour , 1, 8) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 1), 'R', Item.redstone, 'S', Item.blazeRod });
-		GameRegistry.addRecipe(new ItemStack(blcokMobHeadsFour , 1, 12), new Object[] { "WAA", "WSA", "WRW", 'W', new ItemStack(Block.cloth, 1, 6), 'A', new ItemStack(Block.cloth, 1, 13), 'R', Item.redstone, 'S', Item.eyeOfEnder });
+		GameRegistry.addRecipe(new ItemStack(blockMobHeadsFour , 1, 0) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 15), 'R', Item.redstone, 'S', Item.enderPearl });
+		GameRegistry.addRecipe(new ItemStack(blockMobHeadsFour , 1, 4) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 5), 'R', Item.redstone, 'S', Item.slimeBall });
+		GameRegistry.addRecipe(new ItemStack(blockMobHeadsFour , 1, 8) , new Object[] { "WWW", "WSW", "WRW", 'W', new ItemStack(Block.cloth, 1, 1), 'R', Item.redstone, 'S', Item.blazeRod });
+		GameRegistry.addRecipe(new ItemStack(blockMobHeadsFour , 1, 12), new Object[] { "WAA", "WSA", "WRW", 'W', new ItemStack(Block.cloth, 1, 6), 'A', new ItemStack(Block.cloth, 1, 13), 'R', Item.redstone, 'S', Item.eyeOfEnder });
 		
 		GameRegistry.addRecipe(new ItemStack(blockArmChair, 1, 0) , new Object[] { "P P", "PWP", "S S", 'P', Block.planks, 'S', Item.stick, 'W', new ItemStack(Block.cloth, 1, 14) });
 		GameRegistry.addRecipe(new ItemStack(blockArmChair, 1, 4) , new Object[] { "P P", "PWP", "S S", 'P', Block.planks, 'S', Item.stick, 'W', new ItemStack(Block.cloth, 1, 3)  });

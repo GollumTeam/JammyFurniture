@@ -100,6 +100,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		float oldVolume = this.volumeSoundOpenClosedInventory;
 		if (this.getSubBlock() == 12) {
 			this.soundClosedInventory = ModJammyFurniture.MODID.toLowerCase()+":trashclosed";
+			this.volumeSoundOpenClosedInventory = 1.5F;
 		}
 		
 		super.playSoundClosedInventory();
@@ -113,7 +114,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		float oldVolume = this.volumeSoundOpenClosedInventory;
 		if (this.getSubBlock() == 12) {
 			this.soundOpenInventory = ModJammyFurniture.MODID.toLowerCase()+":trashopen";
-			this.volumeSoundOpenClosedInventory = 1.0F;
+			this.volumeSoundOpenClosedInventory = 1.5F;
 		}
 		
 		super.playSoundOpenInventory();

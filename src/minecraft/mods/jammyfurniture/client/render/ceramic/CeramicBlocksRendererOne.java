@@ -25,7 +25,7 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	private ModelToilet           modelToilet           = new ModelToilet();
 	
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
-
+		
 		TileEntityCeramicBlocksOne tileentityCeramic = (TileEntityCeramicBlocksOne)tileEntity;
 		
 		float rotation = 0;

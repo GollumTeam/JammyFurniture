@@ -22,7 +22,7 @@ public class ConfigJammyFuniture extends Config<ConfigJammyFuniture> {
 	@ConfigProp(group = "Blocks Ids") public int blockMobHeadsOneID = 1209;
 	@ConfigProp(group = "Blocks Ids") public int blockMobHeadsTwoID = 1210;
 	@ConfigProp(group = "Blocks Ids") public int blockMobHeadsThreeID = 1211;
-	@ConfigProp(group = "Blocks Ids") public int blcokMobHeadsFourID = 1212;
+	@ConfigProp(group = "Blocks Ids") public int blockMobHeadsFourID = 1212;
 	@ConfigProp(group = "Blocks Ids") public int blockArmChairID = 1213;
 	@ConfigProp(group = "Blocks Ids") public int blockSofaPartLeftID = 1214;
 	@ConfigProp(group = "Blocks Ids") public int blockSofaPartRightID = 1215;

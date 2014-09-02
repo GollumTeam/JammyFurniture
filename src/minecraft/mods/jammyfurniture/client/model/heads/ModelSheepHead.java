@@ -1,13 +1,14 @@
 package mods.jammyfurniture.client.model.heads;
 
+import mods.jammyfurniture.client.model.JFIModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class jfm_ModelSheepHead extends ModelBase {
+public class ModelSheepHead extends ModelBase implements JFIModel {
 	ModelRenderer head;
 
-	public jfm_ModelSheepHead() {
+	public ModelSheepHead() {
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.head = new ModelRenderer(this, 0, 0);

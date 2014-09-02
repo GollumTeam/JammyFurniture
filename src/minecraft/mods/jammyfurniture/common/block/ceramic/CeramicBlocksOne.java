@@ -27,98 +27,35 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class CeramicBlocksOne extends JFMetadataBlock {
-	public Random random = new Random();
-	Icon ceramic;
-
+	
 	public CeramicBlocksOne(int id, String registerName) {
 		super(id, registerName, Material.glass, "ceramic", TileEntityCeramicBlocksOne.class, new int[]{ 0, 4, 8, 12 });
 	}
 	
-	// TODO
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this
-	 * box can change after the pool has been cleared to be reused)
-	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int i) {
-		int b = par1World.getBlockMetadata(par2, par3, i);
-
-		if (b == 0) {
-			this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F);
-		} else if (b == 1) {
-			this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F);
-		} else if (b == 2) {
-			this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F);
-		} else if (b == 3) {
-			this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F);
-		} else if (b == 4) {
-			this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F);
-		} else if (b == 5) {
-			this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F);
-		} else if (b == 6) {
-			this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F);
-		} else if (b == 7) {
-			this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F);
-		} else if (b != 8 && b != 9 && b != 10 && b != 11) {
-			if (b == 12) {
-				this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F);
-			} else if (b == 13) {
-				this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F, 1.0F, 0.85F);
-			} else if (b == 14) {
-				this.setBlockBounds(0.15F, 0.0F, 0.0F, 0.85F, 1.0F, 0.95F);
-			} else if (b == 15) {
-				this.setBlockBounds(0.0F, 0.0F, 0.15F, 0.95F, 1.0F, 0.85F);
-			} else {
-				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-			}
-		} else {
-			this.setBlockBounds(0.0F, 0.4F, 0.0F, 1.0F, 1.0F, 1.0F);
-		}
-
-		return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, i);
-	}
-
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
-		int b = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
-
-		if (b == 0) {
-			this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F);
-		} else if (b == 1) {
-			this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F);
-		} else if (b == 2) {
-			this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F);
-		} else if (b == 3) {
-			this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F);
-		} else if (b == 4) {
-			this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F);
-		} else if (b == 5) {
-			this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F);
-		} else if (b == 6) {
-			this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F);
-		} else if (b == 7) {
-			this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F);
-		} else if (b != 8 && b != 9 && b != 10 && b != 11) {
-			if (b == 12) {
-				this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F);
-			} else if (b == 13) {
-				this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F, 1.0F, 0.85F);
-			} else if (b == 14) {
-				this.setBlockBounds(0.15F, 0.0F, 0.0F, 0.85F, 1.0F, 0.95F);
-			} else if (b == 15) {
-				this.setBlockBounds(0.0F, 0.0F, 0.15F, 0.95F, 1.0F, 0.85F);
-			} else {
-				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-			}
-		} else {
-			this.setBlockBounds(0.0F, 0.4F, 0.0F, 1.0F, 1.0F, 1.0F);
+	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+		switch (metadata) {
+			case 0:  this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F); break;
+			case 1:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F); break;
+			case 2:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F); break;
+			case 3:  this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
+			case 4:  this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F); break;
+			case 5:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F); break;
+			case 6:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F); break;
+			case 7:  this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
+			case 8:  
+			case 9:  
+			case 10: 
+			case 11: this.setBlockBounds(0.0F , 0.4F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
+			case 12: this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F ); break;
+			case 13: this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F , 1.0F, 0.85F); break;
+			case 14: this.setBlockBounds(0.15F, 0.0F, 0.0F , 0.85F, 1.0F, 0.95F); break;
+			case 15: this.setBlockBounds(0.0F , 0.0F, 0.15F, 0.95F, 1.0F, 0.85F); break;
+			default: this.setBlockBounds(0.0F , 0.0F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
 		}
 	}
 	
@@ -250,7 +187,7 @@ public class CeramicBlocksOne extends JFMetadataBlock {
 	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
-		
+		// TODO pour l eau
 		return true;
 	}
 	

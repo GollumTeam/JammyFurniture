@@ -6,15 +6,15 @@ import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntityLightsOn;
 import mods.jammyfurniture.common.tilesentities.TileEntityMiscOne;
-import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsFour;
-import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsOne;
-import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsThree;
-import mods.jammyfurniture.common.tilesentities.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.tilesentities.TileEntityRoofingBlocksOne;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCenter;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.TileEntitySofaRight;
+import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
+import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
+import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
+import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.block.Block;
@@ -38,37 +38,22 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 		
 		// TODO unifier
 		if (
-			block == ModJammyFurniture.blockWoodBlocksOne   || 
-			block == ModJammyFurniture.blockWoodBlocksTwo   || 
-			block == ModJammyFurniture.blockWoodBlocksThree || 
-			block == ModJammyFurniture.blockBathTub         || 
-			block == ModJammyFurniture.blockIronBlocksOne   ||
-			block == ModJammyFurniture.blockIronBlocksTwo   ||
-			block == ModJammyFurniture.blockCeramicBlocksOne
+			block == ModJammyFurniture.blockWoodBlocksOne    || 
+			block == ModJammyFurniture.blockWoodBlocksTwo    || 
+			block == ModJammyFurniture.blockWoodBlocksThree  || 
+			block == ModJammyFurniture.blockBathTub          || 
+			block == ModJammyFurniture.blockIronBlocksOne    ||
+			block == ModJammyFurniture.blockIronBlocksTwo    ||
+			block == ModJammyFurniture.blockCeramicBlocksOne ||
+			block == ModJammyFurniture.blockRoofingBlocksOne ||
+			block == ModJammyFurniture.blockMobHeadsOne      ||
+			block == ModJammyFurniture.blockMobHeadsTwo      ||
+			block == ModJammyFurniture.blockMobHeadsThree    ||
+			block == ModJammyFurniture.blockMobHeadsFour 
 		) {
 			TileEntityRenderer.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
-
-		if (block == ModJammyFurniture.blockRoofingBlocksOne) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityRoofingBlocksOne(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockMobHeadsOne) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityMobHeadsOne(metadata), 0.0D, 0.4D, 0.2D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockMobHeadsTwo) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityMobHeadsTwo(metadata), 0.0D, 0.4D, 0.2D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blockMobHeadsThree) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityMobHeadsThree(metadata), 0.0D, 0.4D, 0.2D, 0.0F);
-		}
-
-		if (block == ModJammyFurniture.blcokMobHeadsFour) {
-			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityMobHeadsFour(metadata), 0.0D, 0.4D, 0.2D, 0.0F);
-		}
-
+		
 		if (block == ModJammyFurniture.blockArmChair) {
 			TileEntityRenderer.instance.renderTileEntityAt(new TileEntityArmChair(metadata), 0.0D, -0.1D, 0.0D, 0.0F);
 		}
