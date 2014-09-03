@@ -1,6 +1,5 @@
 package mods.jammyfurniture.client.model.iron;
 
-import mods.jammyfurniture.client.model.JFIModel;
 import mods.jammyfurniture.client.model.JFIModelDoor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

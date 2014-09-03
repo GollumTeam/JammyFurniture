@@ -1,10 +1,10 @@
 package mods.jammyfurniture.common.recipes;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import mods.jammyfurniture.ModJammyFurniture;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class JFRecipes extends ModJammyFurniture {
 	
@@ -28,6 +28,10 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksTwo  , 1, 15), new Object[] { "PWP", "PPP", 'P', Block.planks, 'W', new ItemStack(Block.cloth, 1, 7) });
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksThree, 1, 0) , new Object[] { "P  ", "PP ", "SS ", 'P', Block.planks, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksThree, 1, 4) , new Object[] { "I  ", "PPB", "PPP", 'I', Item.ingotIron, 'P', Block.planks, 'B', Block.stoneButton });
+		
+		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksFour, 1, 0) , new Object[] { "WWW", "WPW", "SPS", 'W', Block.wood, 'P', Block.planks, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(blockWoodBlocksFour, 1, 8) , new Object[] { "SSS", "BSB", " S ", 'S', Item.stick, 'B', Item.slimeBall });
+		
 		
 		GameRegistry.addRecipe(new ItemStack(blockBathTub      , 1, 0) , new Object[] { "I I", "III", 'I', Block.blockIron });
 		GameRegistry.addRecipe(new ItemStack(blockIronBlocksOne, 1, 0) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', itemLightBulb });
@@ -111,7 +115,8 @@ public class JFRecipes extends ModJammyFurniture {
 		GameRegistry.addRecipe(new ItemStack(itemLightBulb      , 1), new Object[] { " G ", "GTG", " G ", 'G', Block.thinGlass, 'T', Block.torchWood });
 		GameRegistry.addRecipe(new ItemStack(itemMantlePieceUnf , 1), new Object[] { "CCC", "C C", "C C", 'C', Item.clay });
 		GameRegistry.addRecipe(new ItemStack(itemCeramicPanelUnf, 1), new Object[] { "CCC", "CCC", 'C', Item.clay });
-		GameRegistry.addRecipe(new ItemStack(itemWMDrum         , 1), new Object[] { " I ", "I I", " I ", 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(itemWMDrum         , 1), new Object[] { " I ", "IFI", " I ", 'I', Item.ingotIron, 'F', Block.plantRed });
+		GameRegistry.addRecipe(new ItemStack(itemWMDrum         , 1), new Object[] { " I ", "IFI", " I ", 'I', Item.ingotIron, 'F', Block.plantYellow });
 		GameRegistry.addRecipe(new ItemStack(itemBlindPart      , 6), new Object[] { "WWW", 'W', Block.woodSingleSlab });
 		
 		GameRegistry.addSmelting(itemCeramicPanelUnf.itemID, new ItemStack(itemCeramicPanel, 1, 0), 0.5F);

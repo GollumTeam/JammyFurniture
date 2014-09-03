@@ -2,8 +2,6 @@ package mods.jammyfurniture.client.render.head;
 
 import java.util.List;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
-import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.JFIModel;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;

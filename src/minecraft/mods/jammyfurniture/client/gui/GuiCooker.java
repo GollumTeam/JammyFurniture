@@ -1,12 +1,10 @@
 package mods.jammyfurniture.client.gui;
 
-import mods.gollum.core.common.container.GCLContainer;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.containers.ContainerCooker;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 

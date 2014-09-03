@@ -3,15 +3,11 @@ package mods.jammyfurniture.client.render.head;
 import java.util.ArrayList;
 import java.util.List;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
-import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.JFIModel;
 import mods.jammyfurniture.client.model.heads.ModelChickenHead;
 import mods.jammyfurniture.client.model.heads.ModelCowHead;
 import mods.jammyfurniture.client.model.heads.ModelEnderDragonHead;
 import mods.jammyfurniture.client.model.heads.ModelHead;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 public class MobHeadsOneRenderer extends JFMobHeadsRenderer {
 	private ModelChickenHead     modelChickenHead     = new ModelChickenHead();

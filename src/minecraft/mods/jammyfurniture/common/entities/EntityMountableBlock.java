@@ -1,6 +1,5 @@
 package mods.jammyfurniture.common.entities;
 
-import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.IBlockUnmountEvent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;

@@ -3,14 +3,12 @@ package mods.jammyfurniture.common.block.iron;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 
 public class IronBlocksOne extends JFMetadataBlock {
 	

@@ -4,11 +4,6 @@ import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 
 public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	

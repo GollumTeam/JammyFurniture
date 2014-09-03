@@ -1,18 +1,10 @@
 package mods.jammyfurniture.client.render.wood;
 
-import java.util.Date;
-
-import org.lwjgl.opengl.GL11;
-
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.wood.ModelBasket;
 import mods.jammyfurniture.client.model.wood.ModelKitchenCupboard;
 import mods.jammyfurniture.client.model.wood.ModelTV;
-import mods.jammyfurniture.client.model.wood.ModelCupboardBottom;
-import mods.jammyfurniture.client.model.wood.ModelCupboardTop;
-import mods.jammyfurniture.client.model.wood.ModelStandBase;
-import mods.jammyfurniture.client.model.wood.ModelStandTop;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.tileentity.TileEntity;

@@ -5,7 +5,6 @@ import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.lights.ModelLight;
 import mods.jammyfurniture.client.model.lights.ModelOutsideLamp;
 import mods.jammyfurniture.client.model.lights.ModelTableLamp;
-import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import net.minecraft.tileentity.TileEntity;
 

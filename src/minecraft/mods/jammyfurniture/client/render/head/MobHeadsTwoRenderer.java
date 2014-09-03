@@ -7,7 +7,6 @@ import mods.jammyfurniture.client.model.JFIModel;
 import mods.jammyfurniture.client.model.heads.ModelHead;
 import mods.jammyfurniture.client.model.heads.ModelPigHead;
 import mods.jammyfurniture.client.model.heads.ModelSheepHead;
-import net.minecraft.util.ResourceLocation;
 
 public class MobHeadsTwoRenderer extends JFMobHeadsRenderer {
 	

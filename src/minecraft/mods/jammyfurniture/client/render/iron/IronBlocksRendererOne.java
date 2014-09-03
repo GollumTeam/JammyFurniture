@@ -9,9 +9,6 @@ import mods.jammyfurniture.client.model.iron.ModelRubbishBin;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

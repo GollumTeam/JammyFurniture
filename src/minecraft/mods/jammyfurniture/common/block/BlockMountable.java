@@ -4,8 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import mods.jammyfurniture.common.entities.EntityMountableBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;

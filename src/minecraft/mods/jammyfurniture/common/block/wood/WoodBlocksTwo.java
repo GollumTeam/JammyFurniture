@@ -1,18 +1,13 @@
 package mods.jammyfurniture.common.block.wood;
 
-import java.util.List;
-
-import mods.gollum.core.ModGollumCoreLib;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class WoodBlocksTwo extends JFMetadataBlock {

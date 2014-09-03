@@ -1,31 +1,19 @@
 package mods.jammyfurniture.common.block.ceramic;
 
-import java.util.List;
-import java.util.Random;
-
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.BlockMountable;
 import mods.jammyfurniture.common.block.IBlockUnmountEvent;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEvent {

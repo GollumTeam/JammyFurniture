@@ -1,11 +1,6 @@
 package mods.jammyfurniture.client.render;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
-import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.ModelBath;
-import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 

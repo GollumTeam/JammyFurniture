@@ -2,7 +2,6 @@ package mods.jammyfurniture.client.gui;
 
 import mods.jammyfurniture.common.containers.ContainerCraftingSide;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;

@@ -8,13 +8,7 @@ import mods.jammyfurniture.client.model.ceramic.ModelKitchenSink;
 import mods.jammyfurniture.client.model.ceramic.ModelToilet;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

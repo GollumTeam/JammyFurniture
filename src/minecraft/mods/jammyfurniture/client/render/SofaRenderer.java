@@ -8,14 +8,11 @@ import mods.jammyfurniture.client.model.sofa.ModelSofaCenter;
 import mods.jammyfurniture.client.model.sofa.ModelSofaCorner;
 import mods.jammyfurniture.client.model.sofa.ModelSofaLeft;
 import mods.jammyfurniture.client.model.sofa.ModelSofaRight;
-import mods.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	

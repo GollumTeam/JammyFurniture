@@ -1,7 +1,5 @@
 package mods.jammyfurniture.common.tilesentities.wood;
 
-import java.util.Date;
-
 import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.jammyfurniture.ModJammyFurniture;
 

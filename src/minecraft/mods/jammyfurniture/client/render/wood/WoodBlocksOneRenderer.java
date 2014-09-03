@@ -11,7 +11,6 @@ import mods.jammyfurniture.client.model.wood.ModelTable;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 

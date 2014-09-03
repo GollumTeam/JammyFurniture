@@ -3,7 +3,6 @@ package mods.jammyfurniture.common.tilesentities.iron;
 import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.crafting.CookerRecipes;
 import mods.jammyfurniture.common.crafting.DishwasherRecipes;
 import mods.jammyfurniture.common.crafting.WashingMachineRecipes;
 import net.minecraft.item.ItemStack;

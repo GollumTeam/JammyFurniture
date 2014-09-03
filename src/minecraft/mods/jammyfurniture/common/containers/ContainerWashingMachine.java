@@ -1,6 +1,5 @@
 package mods.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.crafting.CookerRecipes;
 import mods.jammyfurniture.common.crafting.WashingMachineRecipes;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.entity.player.EntityPlayer;

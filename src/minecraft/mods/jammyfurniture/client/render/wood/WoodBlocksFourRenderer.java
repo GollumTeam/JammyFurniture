@@ -1,7 +1,5 @@
 package mods.jammyfurniture.client.render.wood;
 
-import org.lwjgl.opengl.GL11;
-
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.wood.ModelBlinds;
 import mods.jammyfurniture.client.model.wood.ModelCupboardBottom;
@@ -13,6 +11,8 @@ import mods.jammyfurniture.common.block.wood.WoodBlocksFour;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
 
 public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 
@@ -45,6 +45,7 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 		
 		if (invRender) {
 			this.renderInInventory(subBlock, x, y, z);
+			return;
 		}
 		
 		float doorProgess = tileEntityWood.getPreviousDoorOpenProgress() + (tileEntityWood.getDoorOpenProgress() - tileEntityWood.getPreviousDoorOpenProgress()) * f;

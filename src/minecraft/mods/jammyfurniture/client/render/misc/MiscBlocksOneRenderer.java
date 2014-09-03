@@ -6,13 +6,7 @@ import mods.jammyfurniture.client.model.misc.ModelChimney;
 import mods.jammyfurniture.client.model.misc.ModelChristmasTree;
 import mods.jammyfurniture.client.model.misc.ModelMantlePiece;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	

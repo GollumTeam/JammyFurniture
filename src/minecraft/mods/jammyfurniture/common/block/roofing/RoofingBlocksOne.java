@@ -1,7 +1,6 @@
 package mods.jammyfurniture.common.block.roofing;
 
 import java.util.List;
-import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
@@ -9,11 +8,8 @@ import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksO
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class RoofingBlocksOne extends JFMetadataBlock {

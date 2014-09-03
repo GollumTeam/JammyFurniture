@@ -1,26 +1,9 @@
 package mods.jammyfurniture.common.block.head;
 
-import java.util.List;
-import java.util.Random;
-
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
-import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class MobHeadsThree extends JFMobHeads {
 	

@@ -1,6 +1,5 @@
 package mods.jammyfurniture.common.crafting;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

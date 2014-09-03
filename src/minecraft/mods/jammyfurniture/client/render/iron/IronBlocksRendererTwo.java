@@ -5,14 +5,8 @@ import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.iron.ModelDishwasher;
 import mods.jammyfurniture.client.model.iron.ModelWashingMachine;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class IronBlocksRendererTwo extends JFTileEntitySpecialRenderer {
 	

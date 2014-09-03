@@ -18,7 +18,7 @@ tile.WoodBlocksOne.5.name=Clock Top
 tile.WoodBlocksOne.9.name=Blinds
 tile.WoodBlocksOne.13.name=Crafting Side
 tile.WoodBlocksOne.14.name=Kitchen Side
-tile.WoodBlocksOne.15.name=Table
+tile.WoodBlocksOne.15.name=Coffee Table
 tile.WoodBlocksTwo.0.name=Kitchen Cupboard
 tile.WoodBlocksTwo.4.name=Kitchen Cupboard (Shelf)
 tile.WoodBlocksTwo.8.name=Television
@@ -39,6 +39,7 @@ tile.IronBlocksOne.13.name=Coffee Table
 tile.IronBlocksTwo.0.name=Dishwasher
 tile.IronBlocksTwo.4.name=Washing Machine
 
+tile.CeramicBlocksOne.0.name=Bathroom Cupboard
 tile.CeramicBlocksOne.4.name=Bathroom Sink
 tile.CeramicBlocksOne.8.name=Kitchen Sink
 tile.CeramicBlocksOne.12.name=Toilet
