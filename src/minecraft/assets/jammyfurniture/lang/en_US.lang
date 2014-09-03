@@ -28,6 +28,8 @@ tile.WoodBlocksTwo.14.name=Basket
 tile.WoodBlocksTwo.15.name=Basket
 tile.WoodBlocksThree.0.name=Chair
 tile.WoodBlocksThree.4.name=Radio
+tile.WoodBlocksFour.0.name=Wardrobe
+tile.WoodBlocksFour.8.name=Coat Stand
 
 tile.IronBlocksOne.0.name=Fridge
 tile.IronBlocksOne.4.name=Freezer
@@ -45,6 +47,10 @@ tile.RoofingBlocksOne.0.name=Roofing
 tile.RoofingBlocksOne.4.name=Roofing
 tile.RoofingBlocksOne.8.name=Roofing
 tile.RoofingBlocksOne.12.name=Roofing
+
+tile.MiscBlocksOne.0.name=Chimney
+tile.MiscBlocksOne.4.name=Mantle Piece
+tile.MiscBlocksOne.8.name=Christmas Tree
 
 tile.MobHeadsOne.0.name=Chicken Head
 tile.MobHeadsOne.4.name=Cow Head
@@ -67,27 +73,32 @@ tile.ArmChair.0.name=Arm Chair
 tile.ArmChair.4.name=Arm Chair
 tile.ArmChair.8.name=Arm Chair
 tile.ArmChair.12.name=Arm Chair
-tile.SofaPartLeft.0.name=Sofa Part (Left)
-tile.SofaPartLeft.4.name=Sofa Part (Left)
-tile.SofaPartLeft.8.name=Sofa Part (Left)
-tile.SofaPartLeft.12.name=Sofa Part (Left)
-tile.SofaPartRight.0.name=Sofa Part (Right)
-tile.SofaPartRight.4.name=Sofa Part (Right)
-tile.SofaPartRight.8.name=Sofa Part (Right)
-tile.SofaPartRight.12.name=Sofa Part (Right)
-tile.SofaPartCenter.0.name=Sofa Part (Center)
-tile.SofaPartCenter.4.name=Sofa Part (Center)
-tile.SofaPartCenter.8.name=Sofa Part (Center)
-tile.SofaPartCenter.12.name=Sofa Part (Center)
-tile.SofaPartCorner.0.name=Sofa Part (Corner)
-tile.SofaPartCorner.4.name=Sofa Part (Corner)
-tile.SofaPartCorner.8.name=Sofa Part (Corner)
-tile.SofaPartCorner.12.name=Sofa Part (Corner)
+tile.SofaLeft.0.name=Sofa Part (Left)
+tile.SofaLeft.4.name=Sofa Part (Left)
+tile.SofaLeft.8.name=Sofa Part (Left)
+tile.SofaLeft.12.name=Sofa Part (Left)
+tile.SofaRight.0.name=Sofa Part (Right)
+tile.SofaRight.4.name=Sofa Part (Right)
+tile.SofaRight.8.name=Sofa Part (Right)
+tile.SofaRight.12.name=Sofa Part (Right)
+tile.SofaCenter.0.name=Sofa Part (Center)
+tile.SofaCenter.4.name=Sofa Part (Center)
+tile.SofaCenter.8.name=Sofa Part (Center)
+tile.SofaCenter.12.name=Sofa Part (Center)
+tile.SofaCorner.0.name=Sofa Part (Corner)
+tile.SofaCorner.4.name=Sofa Part (Corner)
+tile.SofaCorner.8.name=Sofa Part (Corner)
+tile.SofaCorner.12.name=Sofa Part (Corner)
 
-tile.MiscBlocksOne.0.name=Chimney
-tile.MiscBlocksOne.4.name=Mantle Piece
-tile.MiscBlocksOne.8.name=Christmas Tree
-
+jammyfurniture.Fridge=Fridge
+jammyfurniture.Freezer=Freezer
+jammyfurniture.Cooker=Cooker
+jammyfurniture.Rubbish Bin=Rubbish Bin
+jammyfurniture.Cupboard=Cupboard
+jammyfurniture.Dishwasher=Dishwasher
+jammyfurniture.Washing Machine=Washing Machine
+jammyfurniture.Hidey Hole=Hidey Hole
+jammyfurniture.Wardrobe=Wardrobe
 
 jammyfurniture.clock.format=12
 jammyfurniture.clock.paddingH=1
@@ -102,5 +113,3 @@ jammyfurniture.clock.dusk=It's dusk.
 jammyfurniture.clock.midnight=It's midnight, I wouldn't go outside if I were you!
 jammyfurniture.clock.night=It's night.
 jammyfurniture.clock.dawn=It's dawn.
-
-dawn and dusk

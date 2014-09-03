@@ -23,6 +23,7 @@ import mods.jammyfurniture.common.block.iron.IronBlocksOne;
 import mods.jammyfurniture.common.block.iron.IronBlocksTwo;
 import mods.jammyfurniture.common.block.misc.MiscBlocksOne;
 import mods.jammyfurniture.common.block.roofing.RoofingBlocksOne;
+import mods.jammyfurniture.common.block.wood.WoodBlocksFour;
 import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
 import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
 import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
@@ -50,6 +51,7 @@ import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
+import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
@@ -101,6 +103,7 @@ public class ModJammyFurniture extends GollumMod {
 	public static Block blockWoodBlocksOne;
 	public static Block blockWoodBlocksTwo;
 	public static Block blockWoodBlocksThree;
+	public static Block blockWoodBlocksFour;
 	public static Block blockBathTub;
 	public static Block blockIronBlocksOne;
 	public static Block blockIronBlocksTwo;
@@ -135,6 +138,7 @@ public class ModJammyFurniture extends GollumMod {
 	public static int woodBlocksOneRenderID;
 	public static int woodBlocksTwoRenderID;
 	public static int woodBlocksThreeRenderID;
+	public static int woodBlocksFourRenderID;
 	public static int bathTubRenderID;
 	public static int ironBlocksOneRenderID;
 	public static int ironBlocksTwoRenderID;
@@ -160,6 +164,7 @@ public class ModJammyFurniture extends GollumMod {
 	public static final int GUI_RUBBISHBIN_ID       = 6;
 	public static final int GUI_DISHWASHER_ID       = 7;
 	public static final int GUI_CRAFTSIDE_ID        = 8;
+	public static final int GUI_WARDROBE_ID         = 9;
 	
 	
 	
@@ -237,15 +242,16 @@ public class ModJammyFurniture extends GollumMod {
 		blockWoodBlocksOne    = new WoodBlocksOne   (this.config.blockWoodBlocksOneID   , "WoodBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		blockWoodBlocksTwo    = new WoodBlocksTwo   (this.config.blockWoodBlocksTwoID   , "WoodBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		blockWoodBlocksThree  = new WoodBlocksThree (this.config.blockWoodBlocksThreeID , "WoodBlocksThree" ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+		blockWoodBlocksFour   = new WoodBlocksFour  (this.config.blockWoodBlocksFourID  , "WoodBlocksFour"  ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		
-		blockIronBlocksOne    = new IronBlocksOne   (this.config.blockIronBlocksOneID   , "IronBlockOne"    ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
+		blockIronBlocksOne    = new IronBlocksOne   (this.config.blockIronBlocksOneID   , "IronBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
 		blockIronBlocksTwo    = new IronBlocksTwo   (this.config.blockIronBlocksTwoID   , "IronBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
 		
 		blockCeramicBlocksOne = new CeramicBlocksOne(this.config.blockCeramicBlocksOneID, "CeramicBlocksOne").setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
 		
 		blockRoofingBlocksOne = new RoofingBlocksOne(this.config.blockRoofingBlocksOneID, "RoofingBlocksOne").setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
 		
-		blockMiscBlocksOne    = new MiscBlocksOne   (this.config.blockMiscBlocksOneID   , "MiscOne"         ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(10.0F);
+		blockMiscBlocksOne    = new MiscBlocksOne   (this.config.blockMiscBlocksOneID   , "MiscBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(10.0F);
 		
 		blockMobHeadsOne      = new MobHeadsOne     (this.config.blockMobHeadsOneID     , "MobHeadsOne"     ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
 		blockMobHeadsTwo      = new MobHeadsTwo     (this.config.blockMobHeadsTwoID     , "MobHeadsTwo"     ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
@@ -264,12 +270,12 @@ public class ModJammyFurniture extends GollumMod {
 	 * Initialisation des items
 	 */
 	public void initItems () {
-		itemLightBulb       = new HItem(this.config.itemLightBulbID      ,"ItemLightBulb"      ).setCreativeTab(this.tabJammyFurniture);
-		itemMantlePieceUnf  = new HItem(this.config.itemMantlePieceUnfID ,"ItemMantlePieceUnf" ).setCreativeTab(this.tabJammyFurniture);
-		itemCeramicPanelUnf = new HItem(this.config.itemCeramicPanelUnfID,"ItemCeramicPanelUnf").setCreativeTab(this.tabJammyFurniture);
-		itemCeramicPanel    = new HItem(this.config.itemCeramicPanelID   ,"ItemCeramicPanel"   ).setCreativeTab(this.tabJammyFurniture);
-		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"ItemWMDrum"         ).setCreativeTab(this.tabJammyFurniture);
-		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"ItemBlindPart"      ).setCreativeTab(this.tabJammyFurniture);
+		itemLightBulb       = new HItem(this.config.itemLightBulbID      ,"LightBulb"      ).setCreativeTab(this.tabJammyFurniture);
+		itemMantlePieceUnf  = new HItem(this.config.itemMantlePieceUnfID ,"MantlePieceUnf" ).setCreativeTab(this.tabJammyFurniture);
+		itemCeramicPanelUnf = new HItem(this.config.itemCeramicPanelUnfID,"CeramicPanelUnf").setCreativeTab(this.tabJammyFurniture);
+		itemCeramicPanel    = new HItem(this.config.itemCeramicPanelID   ,"CeramicPanel"   ).setCreativeTab(this.tabJammyFurniture);
+		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"WMDrum"         ).setCreativeTab(this.tabJammyFurniture);
+		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"BlindPart"      ).setCreativeTab(this.tabJammyFurniture);
 	}
 	
 	/**
@@ -280,6 +286,7 @@ public class ModJammyFurniture extends GollumMod {
 		GameRegistry.registerTileEntity(TileEntityWoodBlocksOne.class   , "TileEntityWoodBlocks");
 		GameRegistry.registerTileEntity(TileEntityWoodBlocksTwo.class   , "TileEntityWoodBlocksTwo");
 		GameRegistry.registerTileEntity(TileEntityWoodBlocksThree.class , "TileEntityWoodBlocksThree");
+		GameRegistry.registerTileEntity(TileEntityWoodBlocksFour.class  , "TileEntityWoodBlocksFour");
 		GameRegistry.registerTileEntity(TileEntityBath.class            , "TileEntityBath");
 		GameRegistry.registerTileEntity(TileEntityIronBlocksOne.class   , "TileEntityIronBlocksOne");
 		GameRegistry.registerTileEntity(TileEntityIronBlocksTwo.class   , "TileEntityIronBlocksTwo");
@@ -310,6 +317,7 @@ public class ModJammyFurniture extends GollumMod {
 		InventoryRegistry.registerInventory (GUI_FRIDGE_ID          , 3);
 		InventoryRegistry.registerInventory (GUI_RUBBISHBIN_ID      , 9);
 		InventoryRegistry.registerInventory (GUI_BARHROOMCUPBOARD_ID, 4);
+		InventoryRegistry.registerInventory (GUI_WARDROBE_ID        , 4);
 		InventoryRegistry.registerContainer (GUI_CRAFTSIDE_ID       , ContainerCraftingSide.class);
 		InventoryRegistry.registerContainer (GUI_COOKER_ID          , ContainerCooker.class);
 		InventoryRegistry.registerContainer (GUI_WASHINGMACHINE_ID  , ContainerWashingMachine.class);

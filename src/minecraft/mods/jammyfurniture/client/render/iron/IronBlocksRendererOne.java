@@ -22,7 +22,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
-		TileEntityIronBlocksOne tileentityIron = (TileEntityIronBlocksOne)tileEntity;
+		TileEntityIronBlocksOne tileEntityIron = (TileEntityIronBlocksOne)tileEntity;
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockIronBlocksOne).getEnabledMetadata(metadata);
@@ -49,7 +49,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 		}
 		
 		if (subBlock == 12) {
-			switch (tileentityIron.rubishBinOrientation) {
+			switch (tileEntityIron.rubishBinOrientation) {
 				default:
 				case 0: rotation = 270;   break;
 				case 1: rotation = 180;  break;
@@ -58,7 +58,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 			}
 		}
 		
-		float doorProgess = tileentityIron.getPreviousDoorOpenProgress() + (tileentityIron.getDoorOpenProgress() - tileentityIron.getPreviousDoorOpenProgress()) * f;
+		float doorProgess = tileEntityIron.getPreviousDoorOpenProgress() + (tileEntityIron.getDoorOpenProgress() - tileEntityIron.getPreviousDoorOpenProgress()) * f;
 		
 		switch (subBlock) {
 		default:

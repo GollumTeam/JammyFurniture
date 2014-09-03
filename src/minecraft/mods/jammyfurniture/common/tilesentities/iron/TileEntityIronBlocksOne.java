@@ -77,7 +77,6 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		;
 	}
 	
-	// TODO a tradurie
 	/**
 	 * Returns the name of the inventory.
 	 */
@@ -85,10 +84,10 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	public String getInvName() {
 		
 		switch (this.getSubBlock()) {
-			case 0:  return "Fridge";
-			case 4:  return "Freezer";
-			case 8:  return "Cooker";
-			case 12: return "Rubbish Bin";
+			case 0:  return ModJammyFurniture.i18n.trans("Fridge");
+			case 4:  return ModJammyFurniture.i18n.trans("Freezer");
+			case 8:  return ModJammyFurniture.i18n.trans("Cooker");
+			case 12: return ModJammyFurniture.i18n.trans("Rubbish Bin");
 			default: break;
 		}
 		

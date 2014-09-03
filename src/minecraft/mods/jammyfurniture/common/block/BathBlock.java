@@ -4,7 +4,7 @@ import java.util.Random;
 
 import mods.gollum.core.tools.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.item.JFItemBath;
+import mods.jammyfurniture.common.item.ItemBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -22,7 +22,7 @@ public class BathBlock extends HBlockContainer {
 	public BathBlock(int par1, String registerName) {
 		super(par1, registerName, Material.iron);
 		
-		this.setItemBlockClass(JFItemBath.class);
+		this.setItemBlockClass(ItemBath.class);
 	}
 	
 	/**

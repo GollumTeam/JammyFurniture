@@ -89,7 +89,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * @param entity
 	 * @return
 	 */
-	protected int getOrientation(Entity entity) {
+	public int getOrientation(Entity entity) {
 		return (MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
 	}
 	

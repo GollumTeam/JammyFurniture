@@ -75,7 +75,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 			titleEntity.updateContainingBlockInfo();
 		}
 	}
-
+	
 	/**
 	 * Called on server worlds only when the block has been replaced by a
 	 * different block ID, or the same block with a different metadata value,

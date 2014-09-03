@@ -16,21 +16,21 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 	private HashMap<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f) {
+	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
 
 		try {
 			
 			int metadata;
 			boolean invRender = false;
 		
-			if (tileentity.worldObj == null) {
+			if (tileEntity.worldObj == null) {
 				metadata = JFInventoryRenderer.getCurrentMetadata();
 				invRender = true;
 			} else {
-				metadata = tileentity.getBlockMetadata();
+				metadata = tileEntity.getBlockMetadata();
 			}
 			
-			this.renderTileEntityAt(tileentity, x,  y, z, f, metadata, invRender);
+			this.renderTileEntityAt(tileEntity, x,  y, z, f, metadata, invRender);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,6 +67,6 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		this.renderModel(model, textureName, x, y, z, rotation);
 	}
 	
-	protected abstract void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender);
+	protected abstract void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender);
 	
 }

@@ -16,12 +16,11 @@ public class TileEntityCeramicBlocksOne extends GCLInventoryTileEntity {
 	// Inventory //
 	///////////////
 	
-	// TODO traduire
 	/**
 	 * Returns the name of the inventory.
 	 */
 	public String getInvName() {
-		return "Cupboard";
+		return ModJammyFurniture.i18n.trans("Cupboard");
 	}
 	
 	////////////

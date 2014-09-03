@@ -14,6 +14,7 @@ public class ConfigJammyFuniture extends Config<ConfigJammyFuniture> {
 	@ConfigProp(group = "Blocks Ids") public int blockWoodBlocksOneID = 1200;
 	@ConfigProp(group = "Blocks Ids") public int blockWoodBlocksTwoID = 1201;
 	@ConfigProp(group = "Blocks Ids") public int blockWoodBlocksThreeID = 1203;
+	@ConfigProp(group = "Blocks Ids") public int blockWoodBlocksFourID = 1221;
 	@ConfigProp(group = "Blocks Ids") public int blockBathTubID = 1204;
 	@ConfigProp(group = "Blocks Ids") public int blockIronBlocksOneID = 1205;
 	@ConfigProp(group = "Blocks Ids") public int blockIronBlocksTwoID = 1206;

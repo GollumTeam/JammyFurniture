@@ -5,6 +5,7 @@ import java.util.Random;
 
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.block.BlockMountable;
+import mods.jammyfurniture.common.block.IBlockUnmountEvent;
 import mods.jammyfurniture.common.block.JFMetadataBlock;
 import mods.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
 import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
@@ -12,6 +13,7 @@ import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +28,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class CeramicBlocksOne extends JFMetadataBlock {
+public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEvent {
 	
 	public CeramicBlocksOne(int id, String registerName) {
 		super(id, registerName, Material.glass, "ceramic", TileEntityCeramicBlocksOne.class, new int[]{ 0, 4, 8, 12 });
@@ -147,14 +149,11 @@ public class CeramicBlocksOne extends JFMetadataBlock {
 						}
 					}
 					
-					world.addBlockEvent(x, y, z, this.blockID, 1, 0);
+					world.addBlockEvent(x, y, z, this.blockID, 2, 0);
 					
 					return true;
 					
 				case 12: // Les toilettes
-					
-					// TODO le son des toilette que quand on se releve
-					world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
 					
 					if (world.isRemote) {
 						return true;
@@ -191,14 +190,22 @@ public class CeramicBlocksOne extends JFMetadataBlock {
 	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
-		TileEntity te = world.getBlockTileEntity(x, y, z);
-
-		if (te != null && te instanceof TileEntityCeramicBlocksOne) {
-			TileEntityCeramicBlocksOne teCeramicBlocks = (TileEntityCeramicBlocksOne)te;
-			
-			teCeramicBlocks.toggleWater();
+		if (eventID == 2) {
+			TileEntity te = world.getBlockTileEntity(x, y, z);
+	
+			if (te != null && te instanceof TileEntityCeramicBlocksOne) {
+				TileEntityCeramicBlocksOne teCeramicBlocks = (TileEntityCeramicBlocksOne)te;
+				
+				teCeramicBlocks.toggleWater();
+			}
+			return true;
 		}
-		return true;
+		return super.onBlockEventReceived(world, x, y, z, eventID, parameter);
+	}
+	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
+		world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
 	}
 	
 	///////////////////

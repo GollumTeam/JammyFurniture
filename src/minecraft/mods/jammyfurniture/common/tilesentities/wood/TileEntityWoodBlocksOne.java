@@ -27,7 +27,7 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	 * Returns the name of the inventory.
 	 */
 	public String getInvName() {
-		return "Hidey Hole";
+		return ModJammyFurniture.i18n.trans("Hidey Hole");
 	}
 	
 	

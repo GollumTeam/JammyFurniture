@@ -10,24 +10,24 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class BlockMountable extends Block {
-	public BlockMountable(int x, Material material) {
-		super(x, material);
-	}
+public class BlockMountable/* extends Block*/ {
+//	public BlockMountable(int x, Material material) {
+//		super(x, material);
+//	}
+//
+//	public BlockMountable(int x, int y, Material material) {
+//		super(x, material);
+//	}
+//
+//	/**
+//	 * Called upon block activation (right click on the block.)
+//	 */
+//	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+//		return onBlockActivated(world, x, y, z, player, 0.5F, 1.0F, 0.5F, 0, 0, 0, 0);
+//	}
 
-	public BlockMountable(int x, int y, Material material) {
-		super(x, material);
-	}
-
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
-	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int par6, float par7, float par8, float par9) {
-		return onBlockActivated(world, i, j, k, entityplayer, 0.5F, 1.0F, 0.5F, 0, 0, 0, 0);
-	}
-
-	public static boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, float y) {
-		return onBlockActivated(world, i, j, k, entityplayer, 0.5F, y, 0.5F, 0, 0, 0, 0);
+	public static boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, float f) {
+		return onBlockActivated(world, x, y, z, player, 0.5F, f, 0.5F, 0, 0, 0, 0);
 	}
 
 	public static boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, float hitX, float hitY, float hitZ, int north, int south, int east, int west) {
@@ -38,22 +38,22 @@ public class BlockMountable extends Block {
 			
 			do {
 				if (!i.hasNext()) {
-					float mountingX = (float) x + hitX;
-					float mountingY = (float) y + hitY;
-					float mountingZ = (float) z + hitZ;
+					double mountingX = (double) x + hitX;
+					double mountingY = (double) y + hitY;
+					double mountingZ = (double) z + hitZ;
 
 					if (north != south) {
 						int netadata = world.getBlockMetadata(x, y, z);
 
 						if (netadata == east) {
-							mountingX = (float) (x + 1) - hitZ;
-							mountingZ = (float) z + hitX;
+							mountingX = (double) (x + 1) - hitZ;
+							mountingZ = (double) z + hitX;
 						} else if (netadata == south) {
-							mountingX = (float) (x + 1) - hitX;
-							mountingZ = (float) (z + 1) - hitZ;
+							mountingX = (double) (x + 1) - hitX;
+							mountingZ = (double) (z + 1) - hitZ;
 						} else if (netadata == west) {
-							mountingX = (float) x + hitZ;
-							mountingZ = (float) (z + 1) - hitX;
+							mountingX = (double) x + hitZ;
+							mountingZ = (double) (z + 1) - hitX;
 						}
 					}
 

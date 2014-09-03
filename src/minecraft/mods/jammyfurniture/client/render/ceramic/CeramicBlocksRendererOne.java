@@ -29,7 +29,7 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 		TileEntityCeramicBlocksOne tileentityCeramic = (TileEntityCeramicBlocksOne)tileEntity;
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockIronBlocksOne).getEnabledMetadata(metadata);
+		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockCeramicBlocksOne).getEnabledMetadata(metadata);
 		
 		switch (metadata) {
 			default:
@@ -60,9 +60,12 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 		switch (subBlock) {
 			default:
 			case 0:  this.renderModel(this.modelBathroomCupboard, "bathroomcupboard", x, y, z, rotation, doorProgess); break;
-//			case 4:  this.renderModel(this.modelBathroomSink    , "sink"            , x, y, z, (invRender) ? 270 : rotation); break;
-			case 4:  this.renderModel(new ModelBathroomSink()    , "sink"            , x, y, z, (invRender) ? 270 : rotation); break;
-			case 8:  this.renderModel(this.modelKitchenSink     , "kitchensink"     , x, y, z, rotation); break;
+			case 4:  
+				this.modelBathroomSink.setDisplayWater (tileentityCeramic.waterIsOn());
+				this.renderModel(this.modelBathroomSink    , "sink"            , x, y, z, (invRender) ? 270 : rotation); break;
+			case 8:  
+				this.modelKitchenSink.setDisplayWater (tileentityCeramic.waterIsOn());
+				this.renderModel(this.modelKitchenSink     , "kitchensink"     , x, y, z, rotation); break;
 			case 12: this.renderModel(this.modelToilet          , "toilet"          , x, y, z, rotation); break;
 		}
 		

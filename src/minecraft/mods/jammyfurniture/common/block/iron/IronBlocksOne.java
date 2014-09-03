@@ -60,7 +60,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 		if (subBlock == 12) {
-			world.addBlockEvent(x, y, z, this.blockID, 1, orientation);
+			world.addBlockEvent(x, y, z, this.blockID, 2, orientation);
 		}
 	}
 
@@ -83,15 +83,18 @@ public class IronBlocksOne extends JFMetadataBlock {
 	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
-		TileEntity te = world.getBlockTileEntity(x, y, z);
-
-		if (te != null && te instanceof TileEntityIronBlocksOne) {
-			TileEntityIronBlocksOne teIronBlocks = (TileEntityIronBlocksOne)te;
+		if (eventID == 2) {
+			TileEntity te = world.getBlockTileEntity(x, y, z);
+	
+			if (te != null && te instanceof TileEntityIronBlocksOne) {
+				TileEntityIronBlocksOne teIronBlocks = (TileEntityIronBlocksOne)te;
+				
+				teIronBlocks.rubishBinOrientation = (short) parameter;
+			}
 			
-			teIronBlocks.rubishBinOrientation = (short) parameter;
+			return true;
 		}
-		
-		return true;
+		return super.onBlockEventReceived(world, x, y, z, eventID, parameter);
 	}
 	
 	/**

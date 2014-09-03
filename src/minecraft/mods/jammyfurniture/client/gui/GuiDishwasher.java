@@ -6,15 +6,19 @@ import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
 public class GuiDishwasher extends GuiContainer {
+
+	private InventoryPlayer inventoryPlayer;
 	private TileEntityIronBlocksTwo dwInv;
 	protected ResourceLocation texture = new ResourceLocation(ModJammyFurniture.MODID.toLowerCase()+":gui/jammy_dishwasher.png");
 
-	public GuiDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) { 
-		super(new ContainerDishwasher(inventoryplayer, teDishwasher));
+	public GuiDishwasher(InventoryPlayer inventoryPlayer, TileEntityIronBlocksTwo teDishwasher) { 
+		super(new ContainerDishwasher(inventoryPlayer, teDishwasher));
+		this.inventoryPlayer  = inventoryPlayer;
 		this.dwInv = teDishwasher;
 	}
 
@@ -24,8 +28,8 @@ public class GuiDishwasher extends GuiContainer {
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 		
-		this.fontRenderer.drawString("Dishwasher", 8, 6, 4210752);
-		this.fontRenderer.drawString("Inventory", 8, this.ySize - 96 + 2, 4210752);
+		this.fontRenderer.drawString(this.dwInv.getInvName(), 8, 6, 4210752);
+		this.fontRenderer.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInvName()), 8, this.ySize - 96 + 2, 4210752);
 		
 	}
 

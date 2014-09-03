@@ -62,7 +62,7 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 	}
-
+	
 	private void renderInInventory(double x, double y, double z) {
 		ResourceLocation texture = this.getTexture("bath");
 		GL11.glPushMatrix();

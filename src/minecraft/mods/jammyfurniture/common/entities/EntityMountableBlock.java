@@ -1,5 +1,8 @@
 package mods.jammyfurniture.common.entities;
 
+import mods.jammyfurniture.ModJammyFurniture;
+import mods.jammyfurniture.common.block.IBlockUnmountEvent;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,7 +13,8 @@ public class EntityMountableBlock extends Entity {
 	public int orgBlockPosY;
 	public int orgBlockPosZ;
 	public int orgBlockID;
-
+	public EntityPlayer player;
+	
 	public EntityMountableBlock(World world) {
 		super(world);
 		this.noClip = true;
@@ -19,26 +23,27 @@ public class EntityMountableBlock extends Entity {
 		this.height = 0.0F;
 	}
 
-	public EntityMountableBlock(World world, double d, double d1, double d2) {
+	public EntityMountableBlock(World world, double x, double y, double z) {
 		super(world);
 		this.noClip = true;
 		this.preventEntitySpawning = true;
 		this.width = 0.0F;
 		this.height = 0.0F;
-		this.setPosition(d, d1, d2);
+		this.setPosition(x, y, z);
 	}
-
-	public EntityMountableBlock(World world, EntityPlayer entityplayer, int i, int j, int k, float mountingX, float mountingY, float mountingZ) {
+	
+	public EntityMountableBlock(World world, EntityPlayer player, int x, int y, int z, double mountingX, double mountingY, double mountingZ) {
 		super(world);
+		this.player = player;
 		this.noClip = true;
 		this.preventEntitySpawning = true;
 		this.width = 0.0F;
 		this.height = 0.0F;
-		this.orgBlockPosX = i;
-		this.orgBlockPosY = j;
-		this.orgBlockPosZ = k;
-		this.orgBlockID = world.getBlockId(i, j, k);
-		this.setPosition((double) mountingX, (double) mountingY, (double) mountingZ);
+		this.orgBlockPosX = x;
+		this.orgBlockPosY = y;
+		this.orgBlockPosZ = z;
+		this.orgBlockID = world.getBlockId(x, y, z);
+		this.setPosition(mountingX, mountingY, mountingZ);
 	}
 
 	public boolean interact(EntityPlayer entityplayer) {
@@ -58,15 +63,23 @@ public class EntityMountableBlock extends Entity {
 	 */
 	public void onEntityUpdate() {
 		this.worldObj.theProfiler.startSection("entityBaseTick");
-
+		
 		if (this.riddenByEntity != null && !this.riddenByEntity.isDead) {
 			if (this.worldObj.getBlockId(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ) != this.orgBlockID) {
 				this.interact((EntityPlayer) this.riddenByEntity);
 			}
 		} else {
 			this.setDead();
+			int id = this.worldObj.getBlockId(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ);
+			
+			if (id != 0) {
+				Block block = Block.blocksList[id];
+				if (block instanceof IBlockUnmountEvent) {
+					((IBlockUnmountEvent)block).onBlockPlacedBy(this.worldObj, this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ, this, this.player);
+				}
+			}
 		}
-
+		
 		++this.ticksExisted;
 		this.worldObj.theProfiler.endSection();
 	}

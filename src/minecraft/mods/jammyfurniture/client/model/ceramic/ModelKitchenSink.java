@@ -20,8 +20,8 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 	ModelRenderer tapOut2;
 	ModelRenderer pipeDown;
 	ModelRenderer pipeAcross;
+	ModelRenderer water0;
 	ModelRenderer water1;
-	ModelRenderer water2;
 
 	public ModelKitchenSink() {
 		this.textureWidth = 128;
@@ -110,6 +110,22 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 		this.pipeAcross.setTextureSize(128, 32);
 		this.pipeAcross.mirror = true;
 		this.setRotation(this.pipeAcross, 0.0F, 0.0F, 0.0F);
+		
+		
+		this.water0 = new ModelRenderer(this, 120, 0);
+		this.water0.addBox(0.0F, 0.0F, 0.0F, 1, 7, 1);
+		this.water0.setRotationPoint(-4.0F, 6.0F, 2.0F);
+		this.water0.setTextureSize(64, 64);
+		this.water0.mirror = true;
+		this.setRotation(this.water0, 0.0F, 0.0F, 0.0F);
+		
+
+		this.water1 = new ModelRenderer(this,  120, 9);
+		this.water1.addBox(7.0F, 0.0F, 0.0F, 1, 7, 1);
+		this.water1.setRotationPoint(-4.0F, 6.0F, 2.0F);
+		this.water1.setTextureSize(64, 64);
+		this.water1.mirror = true;
+		this.setRotation(this.water1, 0.0F, 0.0F, 0.0F);
 	}
 
 	/**
@@ -132,6 +148,8 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 		this.tapOut2.render(f5);
 		this.pipeDown.render(f5);
 		this.pipeAcross.render(f5);
+		this.water0.render(f5);
+		this.water1.render(f5);
 	}
 
 	public void renderModel(float f5) {
@@ -149,6 +167,8 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 		this.tapOut2.render(f5);
 		this.pipeDown.render(f5);
 		this.pipeAcross.render(f5);
+		this.water0.render(f5);
+		this.water1.render(f5);
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -165,5 +185,10 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 	 */
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
+	}
+	
+	public void setDisplayWater (boolean display) {
+		this.water0.showModel = display;
+		this.water1.showModel = display;
 	}
 }

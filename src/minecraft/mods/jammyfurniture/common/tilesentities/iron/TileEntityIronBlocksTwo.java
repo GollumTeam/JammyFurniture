@@ -41,15 +41,14 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	// Inventory //
 	///////////////
 	
-	// TODO Traduire
 	/**
 	 * Returns the name of the inventory.
 	 */
 	public String getInvName() {
 
 		switch (this.getSubBlock()) {
-			case 0:  return "Dishwasher";
-			case 4:  return "Washing Machine";
+			case 0:  return ModJammyFurniture.i18n.trans("Dishwasher");
+			case 4:  return ModJammyFurniture.i18n.trans("Washing Machine");
 			default: break;
 		}
 		
@@ -213,8 +212,6 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 		this.slot3Time = nbtTagCompound.getShort("slot3Time");
 		
 		this.currentItemBurnTime = getItemBurnTime(this.inventory[INDEX_SLOT_BURN]);
-		
-		ModJammyFurniture.log.debug("inventory ["+this.inventory[0]+", "+this.inventory[2]+", "+this.inventory[3]+", "+this.inventory[4]+"]");
 	}
 
 	/**
@@ -382,7 +379,6 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 		int time = this.getSmeltTime (3);
 		return (time == 0) ? 0 : this.slot3Time * par1 / time;
 	}
-	
 	
 	////////////
 	// Others //

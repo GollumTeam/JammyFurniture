@@ -1,28 +1,96 @@
 itemGroup.JammyFurniture=Jammy Furniture
 
-item.LightBulb.name=Light Bulb
-item.MantlePieceUnf.name=Mantle Piece(Unf)
-item.CeramicPanelUnf.name=Ceramic Panel(Unf)
-item.CeramicPanel.name=Ceramic Panel
-item.WMDrum.name=Washing Machine Drum
-item.BlindPart.name=Blind Part
+item.LightBulb.name=Ampoule
+item.MantlePieceUnf.name=Décoration de Cheminée (non cuite)
+item.CeramicPanelUnf.name=Plaque en céramique (brut)
+item.CeramicPanel.name=Plaque en céramique
+item.WMDrum.name=Lessive
+item.BlindPart.name=Lamelle de stores
+
+tile.BathBlock.name=Bainoire
+tile.LightsOn.0.name=Luminaire
+tile.LightsOn.4.name=Lampe d'extérieur
+tile.LightsOn.8.name=Lampe de chevet
 
 tile.WoodBlocksOne.0.name=Pied d'horloge
 tile.WoodBlocksOne.1.name=Centre d'horloge
 tile.WoodBlocksOne.5.name=Horloge
-tile.WoodBlocksOne.9.name=Blinds
-tile.WoodBlocksOne.13.name=Crafting Side
+tile.WoodBlocksOne.9.name=Stores
+tile.WoodBlocksOne.13.name=Plaque de'établi
 tile.WoodBlocksOne.14.name=Kitchen Side
-tile.WoodBlocksOne.15.name=Table
-tile.WoodBlocksTwo.0.name=Kitchen Cupboard
-tile.WoodBlocksTwo.4.name=Kitchen Cupboard (Shelf)
-tile.WoodBlocksTwo.8.name=Television
-tile.WoodBlocksTwo.12.name=Basket
-tile.WoodBlocksTwo.13.name=Basket
-tile.WoodBlocksTwo.14.name=Basket
-tile.WoodBlocksTwo.15.name=Basket
-tile.WoodBlocksThree.0.name=Chair
+tile.WoodBlocksOne.15.name=Plaque de travail
+tile.WoodBlocksTwo.0.name=Placard de cuisine
+tile.WoodBlocksTwo.4.name=Placard de cuisine (Étagère)
+tile.WoodBlocksTwo.8.name=Télevision
+tile.WoodBlocksTwo.12.name=Panier à chat
+tile.WoodBlocksTwo.13.name=Panier à chat
+tile.WoodBlocksTwo.14.name=Panier à chat
+tile.WoodBlocksTwo.15.name=Panier à chat
+tile.WoodBlocksThree.0.name=Chaise
 tile.WoodBlocksThree.4.name=Radio
+tile.WoodBlocksFour.0.name=Armoire
+tile.WoodBlocksFour.8.name=Porte-Manteau
+
+tile.CeramicBlocksOne.4.name=Lavabo
+tile.CeramicBlocksOne.8.name=Évier
+tile.CeramicBlocksOne.12.name=Toilette
+
+tile.RoofingBlocksOne.0.name=Toiture
+tile.RoofingBlocksOne.4.name=Toiture
+tile.RoofingBlocksOne.8.name=Toiture
+tile.RoofingBlocksOne.12.name=Toiture
+
+tile.MiscBlocksOne.0.name=Cheminée
+tile.MiscBlocksOne.4.name=Décoration de Cheminée
+tile.MiscBlocksOne.8.name=Arbre de Noël
+
+tile.MobHeadsOne.0.name=Tête de poulet
+tile.MobHeadsOne.4.name=Tête de vache
+tile.MobHeadsOne.8.name=Tête de Creeper
+tile.MobHeadsOne.12.name=Tête de l'Enderdragon
+tile.MobHeadsTwo.0.name=Tête de cochon
+tile.MobHeadsTwo.4.name=Tête de mouton
+tile.MobHeadsTwo.8.name=Tête de squelette
+tile.MobHeadsTwo.12.name=Tête d'araignée
+tile.MobHeadsThree.0.name=Tête de Steve
+tile.MobHeadsThree.4.name=Tête de loup
+tile.MobHeadsThree.8.name=Tête de zombi
+tile.MobHeadsThree.12.name=Tête de calmar
+tile.MobHeadsFour.0.name=Tête d'Enderman
+tile.MobHeadsFour.4.name=Tête de Slime
+tile.MobHeadsFour.8.name=Tête de Blaze
+tile.MobHeadsFour.12.name=Tête de cochon zombi
+
+tile.ArmChair.0.name=Fauteuil
+tile.ArmChair.4.name=Fauteuil
+tile.ArmChair.8.name=Fauteuil
+tile.ArmChair.12.name=Fauteuil
+tile.SofaLeft.0.name=Canapé (Gauche)
+tile.SofaLeft.4.name=Canapé (Gauche)
+tile.SofaLeft.8.name=Canapé (Gauche)
+tile.SofaLeft.12.name=Canapé (Gauche)
+tile.SofaRight.0.name=Canapé (Right)
+tile.SofaRight.4.name=Canapé (Droit)
+tile.SofaRight.8.name=Canapé (Droit)
+tile.SofaRight.12.name=Canapé (Droit)
+tile.SofaCenter.0.name=Canapé (Centre)
+tile.SofaCenter.4.name=Canapé (Centre)
+tile.SofaCenter.8.name=Canapé (Centre)
+tile.SofaCenter.12.name=Canapé (Centre)
+tile.SofaCorner.0.name=Canapé (Coin)
+tile.SofaCorner.4.name=Canapé (Coin)
+tile.SofaCorner.8.name=Canapé (Coin)
+tile.SofaCorner.12.name=Canapé (Coin)
+
+jammyfurniture.Fridge=Frigo
+jammyfurniture.Freezer=Congélateur
+jammyfurniture.Cooker=Cuisinière
+jammyfurniture.Rubbish Bin=Poubelle
+jammyfurniture.Cupboard=Placard
+jammyfurniture.Dishwasher=Lave-vaisselle
+jammyfurniture.Washing Machine=Machine à laver
+jammyfurniture.Hidey Hole=Cachette
+jammyfurniture.Wardrobe=Armoire
 
 
 jammyfurniture.clock.format=24

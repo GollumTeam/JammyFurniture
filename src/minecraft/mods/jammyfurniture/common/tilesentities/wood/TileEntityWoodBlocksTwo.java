@@ -17,12 +17,11 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	// Inventory //
 	///////////////
 	
-	// TODO Trad 
 	/**
 	 * Returns the name of the inventory.
 	 */
 	public String getInvName() {
-		return "Cupboard";
+		return ModJammyFurniture.i18n.trans("Cupboard");
 	}
 	
 	////////////

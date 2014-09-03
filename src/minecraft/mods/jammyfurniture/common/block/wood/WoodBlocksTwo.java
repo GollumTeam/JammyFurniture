@@ -78,7 +78,7 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 					return true;
 				case 8:
 					
-					world.addBlockEvent(x, y, z, this.blockID, 1, 0);
+					world.addBlockEvent(x, y, z, this.blockID, 2, 0);
 					return true;
 					
 				default: break;
@@ -93,15 +93,19 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
-		TileEntity te = world.getBlockTileEntity(x, y, z);
-
-		if (te != null && te instanceof TileEntityWoodBlocksTwo) {
-			TileEntityWoodBlocksTwo teWoodBlocks = (TileEntityWoodBlocksTwo)te;
-			
-			teWoodBlocks.tvTurnOn ();
-		}
 		
-		return true;
+		if (eventID == 2) {
+			TileEntity te = world.getBlockTileEntity(x, y, z);
+			
+			if (te != null && te instanceof TileEntityWoodBlocksTwo) {
+				TileEntityWoodBlocksTwo teWoodBlocks = (TileEntityWoodBlocksTwo)te;
+				
+				teWoodBlocks.tvTurnOn ();
+			}
+			
+			return true;
+		}
+		return super.onBlockEventReceived(world, x, y, z, eventID, parameter);
 	}
 
 	/**

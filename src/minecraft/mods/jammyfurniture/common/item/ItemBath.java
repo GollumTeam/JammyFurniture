@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class JFItemBath extends ItemBlock {
+public class ItemBath extends ItemBlock {
 	
 	private Block block;
 	
-	public JFItemBath(int id, Block block) {
+	public ItemBath(int id, Block block) {
 		super(id);
 		this.block = block;
 	}
