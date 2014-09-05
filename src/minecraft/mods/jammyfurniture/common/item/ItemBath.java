@@ -21,6 +21,7 @@ public class ItemBath extends ItemBlock {
 	 * clicking, he will have one of those. Return True if something happen and
 	 * false if it don't. This is for ITEMS, not BLOCKS
 	 */
+	 @Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		
 		if (side != 1) {
