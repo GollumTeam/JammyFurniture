@@ -203,7 +203,7 @@ public class ModJammyFurniture extends GollumMod {
 		// Initialisation les TileEntities
 		this.initTileEntities ();
 		
-		EntityRegistry.registerModEntity(EntityMountableBlock.class, "EntityMountableBlock", 1, this, 400, 5, false);
+		EntityRegistry.registerModEntity(EntityMountableBlock.class, this.MODID+":EntityMountableBlock", 1, this, 400, 5, false);
 		
 		// Ajout des recettes
 		new JFRecipes().initRecipes();
