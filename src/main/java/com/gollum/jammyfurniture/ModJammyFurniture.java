@@ -1,13 +1,10 @@
 package com.gollum.jammyfurniture;
 
-import net.minecraft.item.Item;
-
 import com.gollum.core.ModGollumCoreLib;
 import com.gollum.core.common.i18n.I18n;
 import com.gollum.core.common.log.Logger;
 import com.gollum.core.common.mod.GollumMod;
 import com.gollum.core.common.version.VersionChecker;
-import com.gollum.core.tools.helper.items.HItem;
 import com.gollum.core.tools.registry.InventoryRegistry;
 import com.gollum.core.tools.registry.SoundRegistry;
 import com.gollum.jammyfurniture.client.gui.GuiCooker;
@@ -42,9 +39,12 @@ import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksF
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
-import com.gollum.jammyfurniture.inits.ModRecipes;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 import com.gollum.jammyfurniture.inits.ModCreativeTab;
+import com.gollum.jammyfurniture.inits.ModItems;
+import com.gollum.jammyfurniture.inits.ModRecipes;
+import com.gollum.jammyfurniture.inits.ModSounds;
+import com.gollum.jammyfurniture.inits.ModTileEntities;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -96,19 +96,10 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public static ConfigJammyFuniture config;
 	
-	/////////////////////
-	// Liste des items //
-	/////////////////////
-	public static Item itemLightBulb;
-	public static Item itemMantlePieceUnf;
-	public static Item itemCeramicPanelUnf;
-	public static Item itemCeramicPanel;
-	public static Item itemWMDrum;
-	public static Item itemBlindPart;
-	
 	/////////////////
 	// Renders IDs //
 	/////////////////
+	
 	public static int woodBlocksOneRenderID;
 	public static int woodBlocksTwoRenderID;
 	public static int woodBlocksThreeRenderID;
@@ -129,6 +120,7 @@ public class ModJammyFurniture extends GollumMod {
 	/////////////
 	// GUI IDs //
 	/////////////
+	
 	public static final int GUI_BARHROOMCUPBOARD_ID = 0;
 	public static final int GUI_CLOCK_ID            = 1;
 	public static final int GUI_COOKER_ID           = 2;
@@ -153,8 +145,8 @@ public class ModJammyFurniture extends GollumMod {
 		// Initialisation des blocks
 		ModBlocks.init ();
 		
-		// Initialisation des blocks
-//		this.initItems ();
+		// Initialisation des items
+		ModItems.init ();
 		
 		// Test la version du mod
 		new VersionChecker();
@@ -167,77 +159,23 @@ public class ModJammyFurniture extends GollumMod {
 		proxy.registerRenderers();
 		
 		// Initialisation des sons
-		this.initSounds ();
+		ModSounds.init ();
 		
 		// Initialisation les TileEntities
-		this.initTileEntities ();
+		ModTileEntities.init ();
 		
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, this.MODID+":EntityMountableBlock", 1, this, 400, 5, false);
 		
 		// Ajout des recettes
-//		new ModRecipes().initRecipes();
+		ModRecipes.init ();
+		
+		// Set de l'icon du tab creative
+		ModCreativeTab.init();
 		
 	}
 	
 	/** 3 **/
 	public void postInit(FMLPostInitializationEvent event) {
-	}
-	
-	/**
-	 * Initialisation des sons
-	 */
-	public void initSounds () {
-		
-		SoundRegistry.register("clock-tick");
-		SoundRegistry.register("clock-dong");
-		SoundRegistry.register("machine");
-		SoundRegistry.register("radio");
-		SoundRegistry.register("toilet");
-		SoundRegistry.register("trashopen");
-		SoundRegistry.register("trashclosed");
-		SoundRegistry.register("sink_water");
-		
-	}
-	
-	/**
-	 * Initialisation des items
-	 */
-	public void initItems () {
-		itemLightBulb       = new HItem(this.config.itemLightBulbID      ,"LightBulb"      ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
-		itemMantlePieceUnf  = new HItem(this.config.itemMantlePieceUnfID ,"MantlePieceUnf" ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
-		itemCeramicPanelUnf = new HItem(this.config.itemCeramicPanelUnfID,"CeramicPanelUnf").setCreativeTab(ModCreativeTab.tabJammyFurniture);
-		itemCeramicPanel    = new HItem(this.config.itemCeramicPanelID   ,"CeramicPanel"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
-		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"WMDrum"         ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
-		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"BlindPart"      ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
-	}
-	
-	/**
-	 * // Nom des TileEntities
-	 */
-	private void initTileEntities () {
-		
-		GameRegistry.registerTileEntity(TileEntityWoodBlocksOne.class   , "TileEntityWoodBlocks");
-		GameRegistry.registerTileEntity(TileEntityWoodBlocksTwo.class   , "TileEntityWoodBlocksTwo");
-		GameRegistry.registerTileEntity(TileEntityWoodBlocksThree.class , "TileEntityWoodBlocksThree");
-		GameRegistry.registerTileEntity(TileEntityWoodBlocksFour.class  , "TileEntityWoodBlocksFour");
-		GameRegistry.registerTileEntity(TileEntityBath.class            , "TileEntityBath");
-		GameRegistry.registerTileEntity(TileEntityIronBlocksOne.class   , "TileEntityIronBlocksOne");
-		GameRegistry.registerTileEntity(TileEntityIronBlocksTwo.class   , "TileEntityIronBlocksTwo");
-		GameRegistry.registerTileEntity(TileEntityCeramicBlocksOne.class, "TileEntityCeramicBlocksOne");
-		GameRegistry.registerTileEntity(TileEntityRoofingBlocksOne.class, "TileEntityRoofingBlocksOne");
-		GameRegistry.registerTileEntity(TileEntityMobHeadsOne.class     , "TileEntityMobHeadsOne");
-		GameRegistry.registerTileEntity(TileEntityMobHeadsTwo.class     , "TileEntityMobHeadsTwo");
-		GameRegistry.registerTileEntity(TileEntityMobHeadsThree.class   , "TileEntityMobHeadsThree");
-		GameRegistry.registerTileEntity(TileEntityMobHeadsFour.class    , "TileEntityMobHeadsFour");
-		GameRegistry.registerTileEntity(TileEntityArmChair.class        , "TileEntityArmChair");
-		GameRegistry.registerTileEntity(TileEntitySofaLeft.class        , "TileEntitySofaLeft");
-		GameRegistry.registerTileEntity(TileEntitySofaRight.class       , "TileEntitySofaRight");
-		GameRegistry.registerTileEntity(TileEntitySofaCenter.class      , "TileEntitySofaCenter");
-		GameRegistry.registerTileEntity(TileEntitySofaCorner.class      , "TileEntitySofaCorner");
-		GameRegistry.registerTileEntity(TileEntityMiscBlockOne.class    , "TileEntityMiscOne");
-		GameRegistry.registerTileEntity(TileEntityLightsOn.class        , "TileEntityLightsOn");
-		GameRegistry.registerTileEntity(TileEntityLightsOff.class       , "TileEntityLightsOff");
-		
 	}
 	
 	/**

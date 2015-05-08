@@ -9,12 +9,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModRecipes extends ModJammyFurniture {
 	
-	public void initRecipes() {
+	public static void init() {
 		
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 0), new Object[] { " W ", "WWW", "WWW", 'W', Block.planks });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 4), new Object[] { " WW", "IWW", " WW", 'W', Block.planks, 'I', Item.ingotIron });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 5), new Object[] { " W ", "WCW", "WWW", 'W', Block.planks, 'C', Item.pocketSundial });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 9), new Object[] { "BBB", "BBB", 'B', itemBlindPart });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 9), new Object[] { "BBB", "BBB", 'B', ModItems.itemBlindPart });
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 2, 13), new Object[] { Block.workbench });
 		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 2, 14), new Object[] { Block.woodSingleSlab });
@@ -35,18 +35,18 @@ public class ModRecipes extends ModJammyFurniture {
 		
 		
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockBathTub      , 1, 0) , new Object[] { "I I", "III", 'I', Block.blockIron });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksOne, 1, 0) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', itemLightBulb });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksOne, 1, 0) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', ModItems.itemLightBulb });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksOne, 1, 4) , new Object[] { "III", "ISI", "III", 'I', Item.ingotIron, 'S', Block.blockSnow });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksOne, 1, 8) , new Object[] { "I I", "IFI", "III", 'I', Item.ingotIron, 'F', Block.furnaceIdle });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksOne, 1, 12), new Object[] { " I ", "IBI", "III", 'B', Item.bucketLava, 'I', Item.ingotIron });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksOne, 1, 13), new Object[] { "IGI", "I I", 'G', Block.thinGlass, 'I', Item.ingotIron });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksTwo, 1, 0) , new Object[] { "BBI", "I I", "III", 'I', Item.ingotIron, 'B', Block.stoneButton });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksTwo, 1, 4) , new Object[] { "BBB", "IDI", "III", 'B', Block.stoneButton, 'I', Item.ingotIron, 'D', itemWMDrum });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockIronBlocksTwo, 1, 4) , new Object[] { "BBB", "IDI", "III", 'B', Block.stoneButton, 'I', Item.ingotIron, 'D', ModItems.itemWMDrum });
 		
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 0),  new Object[] { "CCC", "I C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 4),  new Object[] { "CIC", " C ", " C ", 'C', itemCeramicPanel, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 8),  new Object[] { " I ", "C C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 12), new Object[] { "CI ", "C C", "CCC", 'C', itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 0),  new Object[] { "CCC", "I C", "CCC", 'C', ModItems.itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 4),  new Object[] { "CIC", " C ", " C ", 'C', ModItems.itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 8),  new Object[] { " I ", "C C", "CCC", 'C', ModItems.itemCeramicPanel, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCeramicBlocksOne, 1, 12), new Object[] { "CI ", "C C", "CCC", 'C', ModItems.itemCeramicPanel, 'I', Item.ingotIron });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockRoofingBlocksOne, 6, 0),  new Object[] { "  B", " BB", "BBB", 'B', new ItemStack(ModBlocks.blockRoofingBlocksOne, 1, 12) });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockRoofingBlocksOne, 6, 4),  new Object[] { " B ", " B ", "BBB", 'B', new ItemStack(ModBlocks.blockRoofingBlocksOne, 1, 12) });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockRoofingBlocksOne, 6, 8),  new Object[] { "B B", "BBB", "BBB", 'B', new ItemStack(ModBlocks.blockRoofingBlocksOne, 1, 12) });
@@ -93,7 +93,7 @@ public class ModRecipes extends ModJammyFurniture {
 		
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockMiscBlocksOne, 1, 0), new Object[] { "CBC", "BBB", "BBB", 'B', Block.brick, 'C', Item.clay });
 		
-		GameRegistry.addSmelting(itemMantlePieceUnf.itemID, new ItemStack(ModBlocks.blockMiscBlocksOne, 1, 4), 0.5F);
+		GameRegistry.addSmelting(ModItems.itemMantlePieceUnf.itemID, new ItemStack(ModBlocks.blockMiscBlocksOne, 1, 4), 0.5F);
 		
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockMiscBlocksOne, 1, 8), new Object[] {
 			"ABC", 
@@ -109,17 +109,17 @@ public class ModRecipes extends ModJammyFurniture {
 			'D', new ItemStack(Block.cloth, 1, 5)
 		});
 		
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockLightsOn, 1, 0), new Object[] { " S ", "WLW", 'S', Item.silk, 'L', itemLightBulb, 'W', Block.cloth });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockLightsOn, 1, 4), new Object[] { " I ", "GLG", " II", 'G', Block.thinGlass, 'L', itemLightBulb, 'I', Item.ingotIron });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockLightsOn, 1, 8), new Object[] { "WBW", "WSW", "SSS", 'S', Item.stick, 'B', itemLightBulb, 'W', Block.cloth });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockLightsOn, 1, 0), new Object[] { " S ", "WLW", 'S', Item.silk, 'L', ModItems.itemLightBulb, 'W', Block.cloth });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockLightsOn, 1, 4), new Object[] { " I ", "GLG", " II", 'G', Block.thinGlass, 'L', ModItems.itemLightBulb, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockLightsOn, 1, 8), new Object[] { "WBW", "WSW", "SSS", 'S', Item.stick, 'B', ModItems.itemLightBulb, 'W', Block.cloth });
 		
-		GameRegistry.addRecipe(new ItemStack(itemLightBulb      , 1), new Object[] { " G ", "GTG", " G ", 'G', Block.thinGlass, 'T', Block.torchWood });
-		GameRegistry.addRecipe(new ItemStack(itemMantlePieceUnf , 1), new Object[] { "CCC", "C C", "C C", 'C', Item.clay });
-		GameRegistry.addRecipe(new ItemStack(itemCeramicPanelUnf, 1), new Object[] { "CCC", "CCC", 'C', Item.clay });
-		GameRegistry.addRecipe(new ItemStack(itemWMDrum         , 1), new Object[] { " I ", "IFI", " I ", 'I', Item.ingotIron, 'F', Block.plantRed });
-		GameRegistry.addRecipe(new ItemStack(itemWMDrum         , 1), new Object[] { " I ", "IFI", " I ", 'I', Item.ingotIron, 'F', Block.plantYellow });
-		GameRegistry.addRecipe(new ItemStack(itemBlindPart      , 6), new Object[] { "WWW", 'W', Block.woodSingleSlab });
+		GameRegistry.addRecipe(new ItemStack(ModItems.itemLightBulb      , 1), new Object[] { " G ", "GTG", " G ", 'G', Block.thinGlass, 'T', Block.torchWood });
+		GameRegistry.addRecipe(new ItemStack(ModItems.itemMantlePieceUnf , 1), new Object[] { "CCC", "C C", "C C", 'C', Item.clay });
+		GameRegistry.addRecipe(new ItemStack(ModItems.itemCeramicPanelUnf, 1), new Object[] { "CCC", "CCC", 'C', Item.clay });
+		GameRegistry.addRecipe(new ItemStack(ModItems.itemWMDrum         , 1), new Object[] { " I ", "IFI", " I ", 'I', Item.ingotIron, 'F', Block.plantRed });
+		GameRegistry.addRecipe(new ItemStack(ModItems.itemWMDrum         , 1), new Object[] { " I ", "IFI", " I ", 'I', Item.ingotIron, 'F', Block.plantYellow });
+		GameRegistry.addRecipe(new ItemStack(ModItems.itemBlindPart      , 6), new Object[] { "WWW", 'W', Block.woodSingleSlab });
 		
-		GameRegistry.addSmelting(itemCeramicPanelUnf.itemID, new ItemStack(itemCeramicPanel, 1, 0), 0.5F);
+		GameRegistry.addSmelting(ModItems.itemCeramicPanelUnf.itemID, new ItemStack(ModItems.itemCeramicPanel, 1, 0), 0.5F);
 	}
 }
