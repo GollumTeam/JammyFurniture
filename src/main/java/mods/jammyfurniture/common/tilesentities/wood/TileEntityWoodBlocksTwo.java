@@ -1,7 +1,8 @@
 package mods.jammyfurniture.common.tilesentities.wood;
 
-import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.jammyfurniture.ModJammyFurniture;
+
+import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 
 public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	

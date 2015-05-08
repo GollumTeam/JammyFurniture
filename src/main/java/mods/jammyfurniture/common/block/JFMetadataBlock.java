@@ -1,6 +1,5 @@
 package mods.jammyfurniture.common.block;
 
-import mods.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
@@ -8,6 +7,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import com.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
 
 public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 

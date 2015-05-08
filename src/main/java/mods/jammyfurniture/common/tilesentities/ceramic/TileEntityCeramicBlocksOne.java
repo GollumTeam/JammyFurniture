@@ -1,7 +1,8 @@
 package mods.jammyfurniture.common.tilesentities.ceramic;
 
-import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import mods.jammyfurniture.ModJammyFurniture;
+
+import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 
 public class TileEntityCeramicBlocksOne extends GCLInventoryTileEntity {
 

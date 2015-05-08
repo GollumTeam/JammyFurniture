@@ -1,6 +1,5 @@
 package mods.jammyfurniture.client.render.iron;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.iron.ModelCoffeeTable;
 import mods.jammyfurniture.client.model.iron.ModelCooker;
@@ -9,6 +8,8 @@ import mods.jammyfurniture.client.model.iron.ModelRubbishBin;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.tileentity.TileEntity;
+
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

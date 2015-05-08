@@ -1,6 +1,5 @@
 package mods.jammyfurniture.client.render.wood;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.wood.ModelBlinds;
 import mods.jammyfurniture.client.model.wood.ModelClockBase;
@@ -13,6 +12,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
+
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	

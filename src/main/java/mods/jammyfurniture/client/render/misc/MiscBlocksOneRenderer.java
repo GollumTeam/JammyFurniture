@@ -1,12 +1,13 @@
 package mods.jammyfurniture.client.render.misc;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.misc.ModelChimney;
 import mods.jammyfurniture.client.model.misc.ModelChristmasTree;
 import mods.jammyfurniture.client.model.misc.ModelMantlePiece;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	

@@ -2,7 +2,6 @@ package mods.jammyfurniture.common.block;
 
 import java.util.Random;
 
-import mods.gollum.core.tools.helper.blocks.HBlockContainer;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.item.ItemBath;
 import mods.jammyfurniture.common.tilesentities.TileEntityBath;
@@ -11,6 +10,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import com.gollum.core.tools.helper.blocks.HBlockContainer;
 
 public class BathBlock extends HBlockContainer {
 	

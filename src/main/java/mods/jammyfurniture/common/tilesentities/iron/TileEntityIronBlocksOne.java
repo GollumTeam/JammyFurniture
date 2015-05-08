@@ -1,7 +1,5 @@
 package mods.jammyfurniture.common.tilesentities.iron;
 
-import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.common.crafting.CookerRecipes;
 import net.minecraft.item.ItemStack;
@@ -10,6 +8,9 @@ import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.tileentity.TileEntityFurnace;
+
+import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	

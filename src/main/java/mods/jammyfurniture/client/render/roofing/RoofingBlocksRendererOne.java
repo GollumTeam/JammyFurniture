@@ -1,6 +1,5 @@
 package mods.jammyfurniture.client.render.roofing;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.roofing.ModelRoofing;
 import mods.jammyfurniture.client.model.roofing.ModelRoofingBlock;
@@ -8,6 +7,8 @@ import mods.jammyfurniture.client.model.roofing.ModelRoofingCorner;
 import mods.jammyfurniture.client.model.roofing.ModelRoofingInverted;
 import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class RoofingBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

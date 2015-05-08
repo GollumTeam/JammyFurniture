@@ -1,11 +1,5 @@
 package mods.jammyfurniture;
 
-import mods.gollum.core.common.creativetab.GollumCreativeTabs;
-import mods.gollum.core.common.mod.GollumMod;
-import mods.gollum.core.common.version.VersionChecker;
-import mods.gollum.core.tools.helper.items.HItem;
-import mods.gollum.core.tools.registry.InventoryRegistry;
-import mods.gollum.core.tools.registry.SoundRegistry;
 import mods.jammyfurniture.client.gui.GuiCooker;
 import mods.jammyfurniture.client.gui.GuiCraftingSide;
 import mods.jammyfurniture.client.gui.GuiDishwasher;
@@ -57,6 +51,17 @@ import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+
+import com.gollum.core.ModGollumCoreLib;
+import com.gollum.core.common.creativetab.GollumCreativeTabs;
+import com.gollum.core.common.i18n.I18n;
+import com.gollum.core.common.log.Logger;
+import com.gollum.core.common.mod.GollumMod;
+import com.gollum.core.common.version.VersionChecker;
+import com.gollum.core.tools.helper.items.HItem;
+import com.gollum.core.tools.registry.InventoryRegistry;
+import com.gollum.core.tools.registry.SoundRegistry;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -70,7 +75,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = ModJammyFurniture.MODID, name = ModJammyFurniture.MODNAME, version = ModJammyFurniture.VERSION, acceptedMinecraftVersions = ModJammyFurniture.MINECRAFT_VERSION, dependencies = ModJammyFurniture.DEPENDENCIES)
+@Mod(
+	modid = ModJammyFurniture.MODID,
+	name = ModJammyFurniture.MODNAME,
+	version = ModJammyFurniture.VERSION,
+	acceptedMinecraftVersions = ModJammyFurniture.MINECRAFT_VERSION,
+	dependencies = ModJammyFurniture.DEPENDENCIES
+)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class ModJammyFurniture extends GollumMod {
 
@@ -78,13 +89,23 @@ public class ModJammyFurniture extends GollumMod {
 	public final static String MODNAME = "Jammy Furniture";
 	public final static String VERSION = "5.0.0 [Build Smeagol]";
 	public final static String MINECRAFT_VERSION = "1.6.4";
-	public final static String DEPENDENCIES = "required-after:GollumCoreLib";
+	public final static String DEPENDENCIES = "required-after:"+ModGollumCoreLib.MODID;
 	
 	@Instance(ModJammyFurniture.MODID)
 	public static ModJammyFurniture instance;
 	
 	@SidedProxy(clientSide = "mods.jammyfurniture.client.ClientProxyJammyFurniture", serverSide = "mods.jammyfurniture.common.CommonProxyJammyFurniture")
 	public static CommonProxyJammyFurniture proxy;
+	
+	/**
+	 * Gestion des logs
+	 */
+	public static Logger log;
+	
+	/**
+	 * Gestion de l'i18n
+	 */
+	public static I18n i18n;
 	
 	/**
 	 * La configuration
@@ -175,9 +196,6 @@ public class ModJammyFurniture extends GollumMod {
 	/** 1 */
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
-		
-		// Charge la configuration
-		this.config = new ConfigJammyFuniture().loadConfig();
 		
 		// Test la version du mod
 		new VersionChecker();

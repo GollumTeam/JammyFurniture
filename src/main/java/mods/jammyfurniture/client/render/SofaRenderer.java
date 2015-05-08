@@ -1,6 +1,5 @@
 package mods.jammyfurniture.client.render;
 
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import mods.jammyfurniture.client.model.JFIModel;
 import mods.jammyfurniture.client.model.sofa.ModelArmChair;
@@ -13,6 +12,8 @@ import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
 import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
 import net.minecraft.tileentity.TileEntity;
+
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	

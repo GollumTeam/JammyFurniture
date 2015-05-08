@@ -1,9 +1,9 @@
 package mods.jammyfurniture.common.config;
 
-import mods.gollum.core.common.config.Config;
-import mods.gollum.core.common.config.ConfigProp;
+import com.gollum.core.common.config.Config;
+import com.gollum.core.common.config.ConfigProp;
 
-public class ConfigJammyFuniture extends Config<ConfigJammyFuniture> {
+public class ConfigJammyFuniture extends Config {
 	
 	////////////////
 	// Blocks IDs //

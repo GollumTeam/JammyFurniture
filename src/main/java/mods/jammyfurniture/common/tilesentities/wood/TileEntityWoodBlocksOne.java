@@ -1,9 +1,10 @@
 package mods.jammyfurniture.common.tilesentities.wood;
 
-import mods.gollum.core.common.tileentities.GCLInventoryTileEntity;
-import mods.gollum.core.tools.helper.IBlockMetadataHelper;
 import mods.jammyfurniture.ModJammyFurniture;
 import net.minecraft.block.Block;
+
+import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
+import com.gollum.core.tools.helper.IBlockMetadataHelper;
 
 public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	
