@@ -3,6 +3,8 @@
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="vendors"/>
 	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="GollumCoreLib/src/main/java"/>
+	<classpathentry kind="src" path="GollumCoreLib/src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="jars/libraries/org/ow2/asm/asm-debug-all/4.1/asm-debug-all-4.1.jar" sourcepath="jars/libraries/org/ow2/asm/asm-debug-all/4.1/asm-debug-all-4.1-sources.jar"/>
 	<classpathentry kind="lib" path="jars/libraries/net/minecraft/launchwrapper/1.8/launchwrapper-1.8.jar"/>
