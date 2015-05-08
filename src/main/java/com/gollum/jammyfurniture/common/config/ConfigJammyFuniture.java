@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.config;
+package com.gollum.jammyfurniture.common.config;
 
 import com.gollum.core.common.config.Config;
 import com.gollum.core.common.config.ConfigProp;

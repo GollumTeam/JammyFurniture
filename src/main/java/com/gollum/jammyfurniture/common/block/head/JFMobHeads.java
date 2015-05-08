@@ -1,6 +1,7 @@
-package mods.jammyfurniture.common.block.head;
+package com.gollum.jammyfurniture.common.block.head;
 
-import mods.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

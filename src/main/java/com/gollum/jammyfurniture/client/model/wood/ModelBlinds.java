@@ -1,6 +1,7 @@
-package mods.jammyfurniture.client.model.wood;
+package com.gollum.jammyfurniture.client.model.wood;
 
-import mods.jammyfurniture.client.model.JFIModel;
+import com.gollum.jammyfurniture.client.model.JFIModel;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

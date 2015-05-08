@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.block;
+package com.gollum.jammyfurniture.common.block;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

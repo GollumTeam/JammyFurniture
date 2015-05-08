@@ -1,15 +1,15 @@
-package mods.jammyfurniture.client.render.iron;
+package com.gollum.jammyfurniture.client.render.iron;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.iron.ModelCoffeeTable;
-import mods.jammyfurniture.client.model.iron.ModelCooker;
-import mods.jammyfurniture.client.model.iron.ModelFridge;
-import mods.jammyfurniture.client.model.iron.ModelRubbishBin;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.iron.ModelCoffeeTable;
+import com.gollum.jammyfurniture.client.model.iron.ModelCooker;
+import com.gollum.jammyfurniture.client.model.iron.ModelFridge;
+import com.gollum.jammyfurniture.client.model.iron.ModelRubbishBin;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
 public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

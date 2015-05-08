@@ -1,8 +1,9 @@
-package mods.jammyfurniture.common.block.iron;
+package com.gollum.jammyfurniture.common.block.iron;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

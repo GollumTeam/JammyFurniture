@@ -1,10 +1,11 @@
-package mods.jammyfurniture.client.render;
+package com.gollum.jammyfurniture.client.render;
 
-import mods.jammyfurniture.client.model.ModelBath;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import com.gollum.jammyfurniture.client.model.ModelBath;
 
 public class BathRenderer extends JFTileEntitySpecialRenderer {
 	

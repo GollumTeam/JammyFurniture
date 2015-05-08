@@ -1,6 +1,7 @@
-package mods.jammyfurniture.common.recipes;
+package com.gollum.jammyfurniture.common.recipes;
 
-import mods.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

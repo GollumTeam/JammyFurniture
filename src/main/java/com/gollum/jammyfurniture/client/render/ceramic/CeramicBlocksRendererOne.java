@@ -1,15 +1,15 @@
-package mods.jammyfurniture.client.render.ceramic;
+package com.gollum.jammyfurniture.client.render.ceramic;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.ceramic.ModelBathroomCupboard;
-import mods.jammyfurniture.client.model.ceramic.ModelBathroomSink;
-import mods.jammyfurniture.client.model.ceramic.ModelKitchenSink;
-import mods.jammyfurniture.client.model.ceramic.ModelToilet;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.ceramic.ModelBathroomCupboard;
+import com.gollum.jammyfurniture.client.model.ceramic.ModelBathroomSink;
+import com.gollum.jammyfurniture.client.model.ceramic.ModelKitchenSink;
+import com.gollum.jammyfurniture.client.model.ceramic.ModelToilet;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
 public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

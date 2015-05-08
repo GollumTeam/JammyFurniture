@@ -1,6 +1,7 @@
-package mods.jammyfurniture.common.block;
+package com.gollum.jammyfurniture.common.block;
 
-import mods.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;

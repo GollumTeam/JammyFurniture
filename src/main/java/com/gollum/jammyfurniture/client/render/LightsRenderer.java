@@ -1,13 +1,13 @@
-package mods.jammyfurniture.client.render;
+package com.gollum.jammyfurniture.client.render;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.lights.ModelLight;
-import mods.jammyfurniture.client.model.lights.ModelOutsideLamp;
-import mods.jammyfurniture.client.model.lights.ModelTableLamp;
-import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.lights.ModelLight;
+import com.gollum.jammyfurniture.client.model.lights.ModelOutsideLamp;
+import com.gollum.jammyfurniture.client.model.lights.ModelTableLamp;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 
 public class LightsRenderer extends JFTileEntitySpecialRenderer {
 	

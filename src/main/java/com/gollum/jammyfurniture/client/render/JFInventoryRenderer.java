@@ -1,4 +1,4 @@
-package mods.jammyfurniture.client.render;
+package com.gollum.jammyfurniture.client.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

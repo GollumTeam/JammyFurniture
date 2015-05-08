@@ -1,14 +1,15 @@
-package mods.jammyfurniture.client.render.wood;
+package com.gollum.jammyfurniture.client.render.wood;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.wood.ModelBlinds;
-import mods.jammyfurniture.client.model.wood.ModelChair;
-import mods.jammyfurniture.client.model.wood.ModelRadio;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
+import com.gollum.jammyfurniture.client.model.wood.ModelChair;
+import com.gollum.jammyfurniture.client.model.wood.ModelRadio;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 
 public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 	

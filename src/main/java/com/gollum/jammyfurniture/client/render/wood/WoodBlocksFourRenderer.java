@@ -1,18 +1,19 @@
-package mods.jammyfurniture.client.render.wood;
+package com.gollum.jammyfurniture.client.render.wood;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.wood.ModelBlinds;
-import mods.jammyfurniture.client.model.wood.ModelCupboardBottom;
-import mods.jammyfurniture.client.model.wood.ModelCupboardTop;
-import mods.jammyfurniture.client.model.wood.ModelStandBase;
-import mods.jammyfurniture.client.model.wood.ModelStandTop;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.block.wood.WoodBlocksFour;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
+import com.gollum.jammyfurniture.client.model.wood.ModelCupboardBottom;
+import com.gollum.jammyfurniture.client.model.wood.ModelCupboardTop;
+import com.gollum.jammyfurniture.client.model.wood.ModelStandBase;
+import com.gollum.jammyfurniture.client.model.wood.ModelStandTop;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
 public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 

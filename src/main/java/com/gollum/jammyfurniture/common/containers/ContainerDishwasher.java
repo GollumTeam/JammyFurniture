@@ -1,7 +1,8 @@
-package mods.jammyfurniture.common.containers;
+package com.gollum.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.crafting.DishwasherRecipes;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import com.gollum.jammyfurniture.common.crafting.DishwasherRecipes;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

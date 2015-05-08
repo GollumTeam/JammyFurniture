@@ -1,10 +1,11 @@
-package mods.jammyfurniture.common.block.roofing;
+package com.gollum.jammyfurniture.common.block.roofing;
 
 import java.util.List;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

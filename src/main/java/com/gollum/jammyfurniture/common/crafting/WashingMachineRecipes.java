@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.crafting;
+package com.gollum.jammyfurniture.common.crafting;
 
 import java.util.HashMap;
 import java.util.Map;

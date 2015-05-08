@@ -1,14 +1,14 @@
-package mods.jammyfurniture.client.render.wood;
+package com.gollum.jammyfurniture.client.render.wood;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.wood.ModelBasket;
-import mods.jammyfurniture.client.model.wood.ModelKitchenCupboard;
-import mods.jammyfurniture.client.model.wood.ModelTV;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.wood.ModelBasket;
+import com.gollum.jammyfurniture.client.model.wood.ModelKitchenCupboard;
+import com.gollum.jammyfurniture.client.model.wood.ModelTV;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 
 public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	

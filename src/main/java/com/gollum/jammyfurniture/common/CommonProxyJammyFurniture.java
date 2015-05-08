@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common;
+package com.gollum.jammyfurniture.common;
 
 
 public class CommonProxyJammyFurniture {

@@ -1,12 +1,12 @@
-package mods.jammyfurniture.client.render.head;
+package com.gollum.jammyfurniture.client.render.head;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mods.jammyfurniture.client.model.JFIModel;
-import mods.jammyfurniture.client.model.heads.ModelHead;
-import mods.jammyfurniture.client.model.heads.ModelSquidHead;
-import mods.jammyfurniture.client.model.heads.ModelWolfHead;
+import com.gollum.jammyfurniture.client.model.JFIModel;
+import com.gollum.jammyfurniture.client.model.heads.ModelHead;
+import com.gollum.jammyfurniture.client.model.heads.ModelSquidHead;
+import com.gollum.jammyfurniture.client.model.heads.ModelWolfHead;
 
 public class MobHeadsThreeRenderer extends JFMobHeadsRenderer {
 	

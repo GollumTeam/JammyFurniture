@@ -1,9 +1,10 @@
-package mods.jammyfurniture.common.block;
+package com.gollum.jammyfurniture.common.block;
 
 import java.util.Iterator;
 import java.util.List;
 
-import mods.jammyfurniture.common.entities.EntityMountableBlock;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;

@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.crafting;
+package com.gollum.jammyfurniture.common.crafting;
 
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;

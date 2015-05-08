@@ -1,11 +1,12 @@
-package mods.jammyfurniture.common.block.ceramic;
+package com.gollum.jammyfurniture.common.block.ceramic;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.BlockMountable;
-import mods.jammyfurniture.common.block.IBlockUnmountEvent;
-import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
-import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.BlockMountable;
+import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
+import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

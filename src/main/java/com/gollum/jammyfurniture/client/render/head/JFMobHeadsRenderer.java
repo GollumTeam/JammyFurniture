@@ -1,9 +1,10 @@
-package mods.jammyfurniture.client.render.head;
+package com.gollum.jammyfurniture.client.render.head;
 
 import java.util.List;
 
-import mods.jammyfurniture.client.model.JFIModel;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.client.model.JFIModel;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+
 import net.minecraft.tileentity.TileEntity;
 
 public abstract class JFMobHeadsRenderer extends JFTileEntitySpecialRenderer {

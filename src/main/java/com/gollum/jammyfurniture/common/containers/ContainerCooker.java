@@ -1,7 +1,5 @@
-package mods.jammyfurniture.common.containers;
+package com.gollum.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.common.crafting.CookerRecipes;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -11,6 +9,8 @@ import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
 import com.gollum.core.common.container.GCLContainer;
+import com.gollum.jammyfurniture.common.crafting.CookerRecipes;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
 public class ContainerCooker extends Container {
 	private TileEntityIronBlocksOne tileEntity;

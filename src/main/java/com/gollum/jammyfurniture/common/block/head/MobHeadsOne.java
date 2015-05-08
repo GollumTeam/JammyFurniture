@@ -1,7 +1,8 @@
-package mods.jammyfurniture.common.block.head;
+package com.gollum.jammyfurniture.common.block.head;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

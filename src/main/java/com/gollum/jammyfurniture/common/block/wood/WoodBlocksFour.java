@@ -1,11 +1,12 @@
-package mods.jammyfurniture.common.block.wood;
+package com.gollum.jammyfurniture.common.block.wood;
 
 import java.util.Random;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.item.ItemWoodBlocksFour;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

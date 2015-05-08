@@ -1,4 +1,4 @@
-package mods.jammyfurniture.common.tilesentities.light;
+package com.gollum.jammyfurniture.common.tilesentities.light;
 
 import net.minecraft.tileentity.TileEntity;
 

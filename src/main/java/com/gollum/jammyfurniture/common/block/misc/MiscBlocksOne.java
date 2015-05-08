@@ -1,10 +1,11 @@
-package mods.jammyfurniture.common.block.misc;
+package com.gollum.jammyfurniture.common.block.misc;
 
 import java.util.Random;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.block.JFMetadataBlock;
-import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;

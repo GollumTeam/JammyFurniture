@@ -1,54 +1,5 @@
-package mods.jammyfurniture;
+package com.gollum.jammyfurniture;
 
-import mods.jammyfurniture.client.gui.GuiCooker;
-import mods.jammyfurniture.client.gui.GuiCraftingSide;
-import mods.jammyfurniture.client.gui.GuiDishwasher;
-import mods.jammyfurniture.client.gui.GuiWashingMachine;
-import mods.jammyfurniture.common.CommonProxyJammyFurniture;
-import mods.jammyfurniture.common.block.BathBlock;
-import mods.jammyfurniture.common.block.BlockLights;
-import mods.jammyfurniture.common.block.BlockSofa;
-import mods.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
-import mods.jammyfurniture.common.block.head.MobHeadsFour;
-import mods.jammyfurniture.common.block.head.MobHeadsOne;
-import mods.jammyfurniture.common.block.head.MobHeadsThree;
-import mods.jammyfurniture.common.block.head.MobHeadsTwo;
-import mods.jammyfurniture.common.block.iron.IronBlocksOne;
-import mods.jammyfurniture.common.block.iron.IronBlocksTwo;
-import mods.jammyfurniture.common.block.misc.MiscBlocksOne;
-import mods.jammyfurniture.common.block.roofing.RoofingBlocksOne;
-import mods.jammyfurniture.common.block.wood.WoodBlocksFour;
-import mods.jammyfurniture.common.block.wood.WoodBlocksOne;
-import mods.jammyfurniture.common.block.wood.WoodBlocksThree;
-import mods.jammyfurniture.common.block.wood.WoodBlocksTwo;
-import mods.jammyfurniture.common.config.ConfigJammyFuniture;
-import mods.jammyfurniture.common.containers.ContainerCooker;
-import mods.jammyfurniture.common.containers.ContainerCraftingSide;
-import mods.jammyfurniture.common.containers.ContainerDishwasher;
-import mods.jammyfurniture.common.containers.ContainerWashingMachine;
-import mods.jammyfurniture.common.entities.EntityMountableBlock;
-import mods.jammyfurniture.common.recipes.JFRecipes;
-import mods.jammyfurniture.common.tilesentities.TileEntityBath;
-import mods.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
-import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
-import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
-import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
-import mods.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
-import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
-import mods.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
-import mods.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
-import mods.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
-import mods.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
-import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
-import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
-import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
-import mods.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
-import mods.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
@@ -61,6 +12,55 @@ import com.gollum.core.common.version.VersionChecker;
 import com.gollum.core.tools.helper.items.HItem;
 import com.gollum.core.tools.registry.InventoryRegistry;
 import com.gollum.core.tools.registry.SoundRegistry;
+import com.gollum.jammyfurniture.client.gui.GuiCooker;
+import com.gollum.jammyfurniture.client.gui.GuiCraftingSide;
+import com.gollum.jammyfurniture.client.gui.GuiDishwasher;
+import com.gollum.jammyfurniture.client.gui.GuiWashingMachine;
+import com.gollum.jammyfurniture.common.CommonProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.block.BathBlock;
+import com.gollum.jammyfurniture.common.block.BlockLights;
+import com.gollum.jammyfurniture.common.block.BlockSofa;
+import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
+import com.gollum.jammyfurniture.common.block.head.MobHeadsFour;
+import com.gollum.jammyfurniture.common.block.head.MobHeadsOne;
+import com.gollum.jammyfurniture.common.block.head.MobHeadsThree;
+import com.gollum.jammyfurniture.common.block.head.MobHeadsTwo;
+import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne;
+import com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo;
+import com.gollum.jammyfurniture.common.block.misc.MiscBlocksOne;
+import com.gollum.jammyfurniture.common.block.roofing.RoofingBlocksOne;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
+import com.gollum.jammyfurniture.common.config.ConfigJammyFuniture;
+import com.gollum.jammyfurniture.common.containers.ContainerCooker;
+import com.gollum.jammyfurniture.common.containers.ContainerCraftingSide;
+import com.gollum.jammyfurniture.common.containers.ContainerDishwasher;
+import com.gollum.jammyfurniture.common.containers.ContainerWashingMachine;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
+import com.gollum.jammyfurniture.common.recipes.JFRecipes;
+import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
+import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
+import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
+import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
+import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
+import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
+import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
+import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
+import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
+import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
+import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -94,7 +94,7 @@ public class ModJammyFurniture extends GollumMod {
 	@Instance(ModJammyFurniture.MODID)
 	public static ModJammyFurniture instance;
 	
-	@SidedProxy(clientSide = "mods.jammyfurniture.client.ClientProxyJammyFurniture", serverSide = "mods.jammyfurniture.common.CommonProxyJammyFurniture")
+	@SidedProxy(clientSide = "com.gollum.jammyfurniture.client.ClientProxyJammyFurniture", serverSide = "com.gollum.jammyfurniture.common.CommonProxyJammyFurniture")
 	public static CommonProxyJammyFurniture proxy;
 	
 	/**
@@ -197,16 +197,14 @@ public class ModJammyFurniture extends GollumMod {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		
-		// Test la version du mod
-		new VersionChecker();
-		
 		// Initialisation des blocks
 		this.initBlocks ();
 		
 		// Initialisation des blocks
 		this.initItems ();
 		
-		this.tabJammyFurniture.setIcon(this.blockArmChair);
+		// Test la version du mod
+		new VersionChecker();
 	}
 
 	/** 2 **/
@@ -225,6 +223,8 @@ public class ModJammyFurniture extends GollumMod {
 		
 		// Ajout des recettes
 		new JFRecipes().initRecipes();
+		
+		this.tabJammyFurniture.setIcon(this.blockArmChair);
 	}
 	
 	/** 3 **/

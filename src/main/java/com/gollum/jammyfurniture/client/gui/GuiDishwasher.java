@@ -1,14 +1,15 @@
-package mods.jammyfurniture.client.gui;
+package com.gollum.jammyfurniture.client.gui;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.containers.ContainerDishwasher;
-import mods.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.containers.ContainerDishwasher;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 public class GuiDishwasher extends GuiContainer {
 

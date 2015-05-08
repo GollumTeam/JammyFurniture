@@ -1,6 +1,7 @@
-package mods.jammyfurniture.common.containers;
+package com.gollum.jammyfurniture.common.containers;
 
-import mods.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ContainerWorkbench;

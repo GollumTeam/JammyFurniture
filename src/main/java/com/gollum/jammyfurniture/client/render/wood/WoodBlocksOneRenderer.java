@@ -1,19 +1,19 @@
-package mods.jammyfurniture.client.render.wood;
+package com.gollum.jammyfurniture.client.render.wood;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.wood.ModelBlinds;
-import mods.jammyfurniture.client.model.wood.ModelClockBase;
-import mods.jammyfurniture.client.model.wood.ModelClockMiddle;
-import mods.jammyfurniture.client.model.wood.ModelClockTop;
-import mods.jammyfurniture.client.model.wood.ModelKitchenSide;
-import mods.jammyfurniture.client.model.wood.ModelTable;
-import mods.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
+import com.gollum.jammyfurniture.client.model.wood.ModelClockBase;
+import com.gollum.jammyfurniture.client.model.wood.ModelClockMiddle;
+import com.gollum.jammyfurniture.client.model.wood.ModelClockTop;
+import com.gollum.jammyfurniture.client.model.wood.ModelKitchenSide;
+import com.gollum.jammyfurniture.client.model.wood.ModelTable;
+import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	

@@ -1,8 +1,5 @@
-package mods.jammyfurniture.common.tilesentities.iron;
+package com.gollum.jammyfurniture.common.tilesentities.iron;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.common.crafting.DishwasherRecipes;
-import mods.jammyfurniture.common.crafting.WashingMachineRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.INetworkManager;
@@ -12,6 +9,9 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.crafting.DishwasherRecipes;
+import com.gollum.jammyfurniture.common.crafting.WashingMachineRecipes;
 
 public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	

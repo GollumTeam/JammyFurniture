@@ -1,6 +1,7 @@
-package mods.jammyfurniture.common.entities;
+package com.gollum.jammyfurniture.common.entities;
 
-import mods.jammyfurniture.common.block.IBlockUnmountEvent;
+import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

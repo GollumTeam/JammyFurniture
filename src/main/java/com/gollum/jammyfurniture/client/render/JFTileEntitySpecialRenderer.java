@@ -1,15 +1,16 @@
-package mods.jammyfurniture.client.render;
+package com.gollum.jammyfurniture.client.render;
 
 import java.util.HashMap;
 
-import mods.jammyfurniture.ModJammyFurniture;
-import mods.jammyfurniture.client.model.JFIModel;
-import mods.jammyfurniture.client.model.JFIModelDoor;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.model.JFIModel;
+import com.gollum.jammyfurniture.client.model.JFIModelDoor;
 
 public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRenderer {
 

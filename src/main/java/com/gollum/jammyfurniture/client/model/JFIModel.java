@@ -1,4 +1,4 @@
-package mods.jammyfurniture.client.model;
+package com.gollum.jammyfurniture.client.model;
 
 public interface JFIModel {
 
