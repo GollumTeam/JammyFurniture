@@ -3,12 +3,12 @@ package com.gollum.jammyfurniture.client.render.roofing;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.roofing.ModelRoofing;
 import com.gollum.jammyfurniture.client.model.roofing.ModelRoofingBlock;
 import com.gollum.jammyfurniture.client.model.roofing.ModelRoofingCorner;
 import com.gollum.jammyfurniture.client.model.roofing.ModelRoofingInverted;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class RoofingBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	
@@ -20,7 +20,7 @@ public class RoofingBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockRoofingBlocksOne).getEnabledMetadata(metadata);
+		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockRoofingBlocksOne).getEnabledMetadata(metadata);
 		
 		
 		switch (metadata) {

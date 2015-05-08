@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.gollum.core.tools.helper.items.HItemBlockMetadata;
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class ItemWoodBlocksFour extends HItemBlockMetadata {
 	
@@ -22,7 +22,7 @@ public class ItemWoodBlocksFour extends HItemBlockMetadata {
 	 */
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		
-		int orientation = ((WoodBlocksFour)ModJammyFurniture.blockWoodBlocksFour).getOrientation(player);
+		int orientation = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getOrientation(player);
 		
 		if (side != 1) {
 			return false;

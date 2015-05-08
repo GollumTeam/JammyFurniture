@@ -3,11 +3,11 @@ package com.gollum.jammyfurniture.client.render.misc;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.misc.ModelChimney;
 import com.gollum.jammyfurniture.client.model.misc.ModelChristmasTree;
 import com.gollum.jammyfurniture.client.model.misc.ModelMantlePiece;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -18,7 +18,7 @@ public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockIronBlocksOne).getEnabledMetadata(metadata);
+		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockIronBlocksOne).getEnabledMetadata(metadata);
 		
 		switch (metadata) {
 			default:

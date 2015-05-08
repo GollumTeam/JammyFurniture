@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.block.wood;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -173,7 +174,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 				return true;
 				
 			case 9: // Le store en position initial
-				world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, metadata-1, 2); // Les autres stores sont dans le block wood 3
+				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksThree.blockID, metadata-1, 2); // Les autres stores sont dans le block wood 3
 				return true;
 				
 				

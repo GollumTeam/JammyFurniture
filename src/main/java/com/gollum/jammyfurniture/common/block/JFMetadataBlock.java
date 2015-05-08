@@ -1,6 +1,7 @@
 package com.gollum.jammyfurniture.common.block;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -40,6 +41,16 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	
 	public String getTextureKey() {
 		return this.textureKey;
+	}
+	/**
+	 * Enregistre les textures
+	 * Depuis la 1.5 on est obligé de charger les texture fichier par fichier
+	 */
+	@Override
+	public void registerIcons(IconRegister iconRegister) {
+		for (int metadata : this.listSubEnabled()) {
+			this.getGollumHelperMetadata().blockIcons.put(metadata, this.getGollumHelperMetadata().loadTexture(iconRegister));
+		}
 	}
 	
 	/////////////////////////////////

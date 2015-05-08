@@ -11,6 +11,7 @@ import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.crafting.CookerRecipes;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	
@@ -280,7 +281,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	
 	private int getSubBlock() {
 		int metadata =  this.getBlockMetadata();
-		return((IBlockMetadataHelper)ModJammyFurniture.blockIronBlocksOne).getEnabledMetadata(metadata);
+		return((IBlockMetadataHelper)ModBlocks.blockIronBlocksOne).getEnabledMetadata(metadata);
 	}
 	
 	/////////////

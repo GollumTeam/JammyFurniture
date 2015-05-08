@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.block;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -76,10 +77,10 @@ public class BlockLights extends JFMetadataBlock {
 		int metadata = world.getBlockMetadata(x, y, z);
 		int id       = world.getBlockId(x, y, z);
 
-		if (id == ModJammyFurniture.blockLightsOn.blockID) {
-			world.setBlock(x, y, z, ModJammyFurniture.blockLightsOff.blockID, metadata, 0);
+		if (id == ModBlocks.blockLightsOn.blockID) {
+			world.setBlock(x, y, z, ModBlocks.blockLightsOff.blockID, metadata, 0);
 		} else {
-			world.setBlock(x, y, z, ModJammyFurniture.blockLightsOn.blockID, metadata, 0);
+			world.setBlock(x, y, z, ModBlocks.blockLightsOn.blockID, metadata, 0);
 		}
 
 		return true;

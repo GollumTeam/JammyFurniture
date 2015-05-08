@@ -5,7 +5,6 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
 import com.gollum.jammyfurniture.client.model.wood.ModelCupboardBottom;
 import com.gollum.jammyfurniture.client.model.wood.ModelCupboardTop;
@@ -14,6 +13,7 @@ import com.gollum.jammyfurniture.client.model.wood.ModelStandTop;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 
@@ -26,7 +26,7 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 
 		TileEntityWoodBlocksFour tileEntityWood = (TileEntityWoodBlocksFour)tileEntity;
-		int subBlock = ((WoodBlocksFour)ModJammyFurniture.blockWoodBlocksFour).getEnabledMetadata(metadata);
+		int subBlock = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getEnabledMetadata(metadata);
 		
 		float rotation = 0;
 		

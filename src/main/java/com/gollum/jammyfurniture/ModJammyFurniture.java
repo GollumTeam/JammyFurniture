@@ -1,10 +1,8 @@
 package com.gollum.jammyfurniture;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.creativetab.GollumCreativeTabs;
 import com.gollum.core.common.i18n.I18n;
 import com.gollum.core.common.log.Logger;
 import com.gollum.core.common.mod.GollumMod;
@@ -17,29 +15,12 @@ import com.gollum.jammyfurniture.client.gui.GuiCraftingSide;
 import com.gollum.jammyfurniture.client.gui.GuiDishwasher;
 import com.gollum.jammyfurniture.client.gui.GuiWashingMachine;
 import com.gollum.jammyfurniture.common.CommonProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BathBlock;
-import com.gollum.jammyfurniture.common.block.BlockLights;
-import com.gollum.jammyfurniture.common.block.BlockSofa;
-import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
-import com.gollum.jammyfurniture.common.block.head.MobHeadsFour;
-import com.gollum.jammyfurniture.common.block.head.MobHeadsOne;
-import com.gollum.jammyfurniture.common.block.head.MobHeadsThree;
-import com.gollum.jammyfurniture.common.block.head.MobHeadsTwo;
-import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne;
-import com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo;
-import com.gollum.jammyfurniture.common.block.misc.MiscBlocksOne;
-import com.gollum.jammyfurniture.common.block.roofing.RoofingBlocksOne;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
 import com.gollum.jammyfurniture.common.config.ConfigJammyFuniture;
 import com.gollum.jammyfurniture.common.containers.ContainerCooker;
 import com.gollum.jammyfurniture.common.containers.ContainerCraftingSide;
 import com.gollum.jammyfurniture.common.containers.ContainerDishwasher;
 import com.gollum.jammyfurniture.common.containers.ContainerWashingMachine;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
-import com.gollum.jammyfurniture.common.recipes.JFRecipes;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
@@ -61,6 +42,9 @@ import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksF
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
+import com.gollum.jammyfurniture.inits.ModRecipes;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+import com.gollum.jammyfurniture.inits.ModCreativeTab;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -111,37 +95,6 @@ public class ModJammyFurniture extends GollumMod {
 	 * La configuration
 	 */
 	public static ConfigJammyFuniture config;
-	
-	/**
-	 * Tab du mode creative
-	 */
-	public static GollumCreativeTabs tabJammyFurniture = new GollumCreativeTabs("JammyFurniture");; 
-	
-	
-	/////////////////////
-	// Liste des blocs //
-	/////////////////////
-	public static Block blockWoodBlocksOne;
-	public static Block blockWoodBlocksTwo;
-	public static Block blockWoodBlocksThree;
-	public static Block blockWoodBlocksFour;
-	public static Block blockBathTub;
-	public static Block blockIronBlocksOne;
-	public static Block blockIronBlocksTwo;
-	public static Block blockCeramicBlocksOne;
-	public static Block blockRoofingBlocksOne;
-	public static Block blockMobHeadsOne;
-	public static Block blockMobHeadsTwo;
-	public static Block blockMobHeadsThree;
-	public static Block blockMobHeadsFour;
-	public static Block blockArmChair;
-	public static Block blockSofaPartLeft;
-	public static Block blockSofaPartRight;
-	public static Block blockSofaPartCenter;
-	public static Block blockSofaPartCorner;
-	public static Block blockMiscBlocksOne;
-	public static Block blockLightsOn;
-	public static Block blockLightsOff;
 	
 	/////////////////////
 	// Liste des items //
@@ -198,10 +151,10 @@ public class ModJammyFurniture extends GollumMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		// Initialisation des blocks
-		this.initBlocks ();
+		ModBlocks.init ();
 		
 		// Initialisation des blocks
-		this.initItems ();
+//		this.initItems ();
 		
 		// Test la version du mod
 		new VersionChecker();
@@ -222,9 +175,8 @@ public class ModJammyFurniture extends GollumMod {
 		EntityRegistry.registerModEntity(EntityMountableBlock.class, this.MODID+":EntityMountableBlock", 1, this, 400, 5, false);
 		
 		// Ajout des recettes
-		new JFRecipes().initRecipes();
+//		new ModRecipes().initRecipes();
 		
-		this.tabJammyFurniture.setIcon(this.blockArmChair);
 	}
 	
 	/** 3 **/
@@ -248,52 +200,15 @@ public class ModJammyFurniture extends GollumMod {
 	}
 	
 	/**
-	 * Initialisation des blocks
-	 */
-	public void initBlocks () {
-		
-		blockBathTub          = new BathBlock       (this.config.blockBathTubID         , "BathBlock"       ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
-		blockLightsOn         = new BlockLights     (this.config.blockLightsOnID        , "LightsOn" ,true  ).setCreativeTab(this.tabJammyFurniture).setHardness(0.3F);
-		blockLightsOff        = new BlockLights     (this.config.blockLightsOffID       , "LightsOff",false )                                       .setHardness(0.3F);
-		
-		
-		blockWoodBlocksOne    = new WoodBlocksOne   (this.config.blockWoodBlocksOneID   , "WoodBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		blockWoodBlocksTwo    = new WoodBlocksTwo   (this.config.blockWoodBlocksTwoID   , "WoodBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		blockWoodBlocksThree  = new WoodBlocksThree (this.config.blockWoodBlocksThreeID , "WoodBlocksThree" ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		blockWoodBlocksFour   = new WoodBlocksFour  (this.config.blockWoodBlocksFourID  , "WoodBlocksFour"  ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		
-		blockIronBlocksOne    = new IronBlocksOne   (this.config.blockIronBlocksOneID   , "IronBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
-		blockIronBlocksTwo    = new IronBlocksTwo   (this.config.blockIronBlocksTwoID   , "IronBlocksTwo"   ).setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
-		
-		blockCeramicBlocksOne = new CeramicBlocksOne(this.config.blockCeramicBlocksOneID, "CeramicBlocksOne").setCreativeTab(this.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
-		
-		blockRoofingBlocksOne = new RoofingBlocksOne(this.config.blockRoofingBlocksOneID, "RoofingBlocksOne").setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
-		
-		blockMiscBlocksOne    = new MiscBlocksOne   (this.config.blockMiscBlocksOneID   , "MiscBlocksOne"   ).setCreativeTab(this.tabJammyFurniture).setHardness(2.0F).setResistance(10.0F);
-		
-		blockMobHeadsOne      = new MobHeadsOne     (this.config.blockMobHeadsOneID     , "MobHeadsOne"     ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
-		blockMobHeadsTwo      = new MobHeadsTwo     (this.config.blockMobHeadsTwoID     , "MobHeadsTwo"     ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
-		blockMobHeadsThree    = new MobHeadsThree   (this.config.blockMobHeadsThreeID   , "MobHeadsThree"   ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
-		blockMobHeadsFour     = new MobHeadsFour    (this.config.blockMobHeadsFourID    , "MobHeadsFour"    ).setCreativeTab(this.tabJammyFurniture).setHardness(0.8F);
-		
-		blockArmChair         = new BlockSofa(this.config.blockArmChairID      , "ArmChair"  , TileEntityArmChair.class  ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
-		blockSofaPartLeft     = new BlockSofa(this.config.blockSofaPartLeftID  , "SofaLeft"  , TileEntitySofaLeft.class  ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
-		blockSofaPartRight    = new BlockSofa(this.config.blockSofaPartRightID , "SofaRight" , TileEntitySofaRight.class ).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
-		blockSofaPartCenter   = new BlockSofa(this.config.blockSofaPartCenterID, "SofaCenter", TileEntitySofaCenter.class).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
-		blockSofaPartCorner   = new BlockSofa(this.config.blockSofaPartCornerID, "SofaCorner", TileEntitySofaCorner.class).setCreativeTab(this.tabJammyFurniture).setHardness(1.2F);
-		
-	}
-	
-	/**
 	 * Initialisation des items
 	 */
 	public void initItems () {
-		itemLightBulb       = new HItem(this.config.itemLightBulbID      ,"LightBulb"      ).setCreativeTab(this.tabJammyFurniture);
-		itemMantlePieceUnf  = new HItem(this.config.itemMantlePieceUnfID ,"MantlePieceUnf" ).setCreativeTab(this.tabJammyFurniture);
-		itemCeramicPanelUnf = new HItem(this.config.itemCeramicPanelUnfID,"CeramicPanelUnf").setCreativeTab(this.tabJammyFurniture);
-		itemCeramicPanel    = new HItem(this.config.itemCeramicPanelID   ,"CeramicPanel"   ).setCreativeTab(this.tabJammyFurniture);
-		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"WMDrum"         ).setCreativeTab(this.tabJammyFurniture);
-		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"BlindPart"      ).setCreativeTab(this.tabJammyFurniture);
+		itemLightBulb       = new HItem(this.config.itemLightBulbID      ,"LightBulb"      ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
+		itemMantlePieceUnf  = new HItem(this.config.itemMantlePieceUnfID ,"MantlePieceUnf" ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
+		itemCeramicPanelUnf = new HItem(this.config.itemCeramicPanelUnfID,"CeramicPanelUnf").setCreativeTab(ModCreativeTab.tabJammyFurniture);
+		itemCeramicPanel    = new HItem(this.config.itemCeramicPanelID   ,"CeramicPanel"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
+		itemWMDrum          = new HItem(this.config.itemWMDrumID         ,"WMDrum"         ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
+		itemBlindPart       = new HItem(this.config.itemBlindPartID      ,"BlindPart"      ).setCreativeTab(ModCreativeTab.tabJammyFurniture);
 	}
 	
 	/**

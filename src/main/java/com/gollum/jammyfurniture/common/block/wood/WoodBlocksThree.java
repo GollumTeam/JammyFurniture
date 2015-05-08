@@ -7,6 +7,7 @@ import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.BlockMountable;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -123,13 +124,13 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			case 9:
 			case 10:
 			case 11: 
-				world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksThree.blockID, metadata+4, 2);
+				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksThree.blockID, metadata+4, 2);
 				return true;
 			case 12:
 			case 13:
 			case 14:
 			case 15: 
-				world.setBlock(x, y, z, ModJammyFurniture.blockWoodBlocksOne.blockID, metadata-3, 2);
+				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksOne.blockID, metadata-3, 2);
 				return true;
 			default:
 				break;
@@ -170,7 +171,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	 */
 	@Override
 	public int idDropped(int metadata, Random random, int j) {
-		return metadata >= 8 ? ModJammyFurniture.blockWoodBlocksOne.blockID : ModJammyFurniture.blockWoodBlocksThree.blockID;
+		return metadata >= 8 ? ModBlocks.blockWoodBlocksOne.blockID : ModBlocks.blockWoodBlocksThree.blockID;
 	}
 	
 	/**
@@ -182,7 +183,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
 		int metadata = world.getBlockMetadata(x, y, z);
-		return (metadata >= 8) ? new ItemStack (ModJammyFurniture.blockWoodBlocksOne.blockID, 1, 9) : super.getPickBlock(target, world, x, y, z);
+		return (metadata >= 8) ? new ItemStack (ModBlocks.blockWoodBlocksOne.blockID, 1, 9) : super.getPickBlock(target, world, x, y, z);
 	}
 	
 	/**

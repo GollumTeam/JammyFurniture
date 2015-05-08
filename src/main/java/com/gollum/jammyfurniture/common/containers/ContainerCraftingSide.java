@@ -1,6 +1,6 @@
 package com.gollum.jammyfurniture.common.containers;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -24,6 +24,6 @@ public class ContainerCraftingSide extends ContainerWorkbench {
 	}
 
 	public boolean canInteractWith(EntityPlayer player) {
-		return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != ModJammyFurniture.blockWoodBlocksOne.blockID ? false : player.getDistanceSq((double) this.posX + 0.5D, (double) this.posY + 0.5D, (double) this.posZ + 0.5D) <= 64.0D;
+		return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != ModBlocks.blockWoodBlocksOne.blockID ? false : player.getDistanceSq((double) this.posX + 0.5D, (double) this.posY + 0.5D, (double) this.posZ + 0.5D) <= 64.0D;
 	}
 }

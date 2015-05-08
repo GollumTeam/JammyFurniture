@@ -3,12 +3,12 @@ package com.gollum.jammyfurniture.client.render.wood;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.wood.ModelBasket;
 import com.gollum.jammyfurniture.client.model.wood.ModelKitchenCupboard;
 import com.gollum.jammyfurniture.client.model.wood.ModelTV;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -23,7 +23,7 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockWoodBlocksTwo).getEnabledMetadata(metadata);
+		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksTwo).getEnabledMetadata(metadata);
 		
 		switch (metadata) {
 			default:

@@ -3,11 +3,11 @@ package com.gollum.jammyfurniture.client.render;
 import net.minecraft.tileentity.TileEntity;
 
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.lights.ModelLight;
 import com.gollum.jammyfurniture.client.model.lights.ModelOutsideLamp;
 import com.gollum.jammyfurniture.client.model.lights.ModelTableLamp;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class LightsRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -18,7 +18,7 @@ public class LightsRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModJammyFurniture.blockLightsOn).getEnabledMetadata(metadata);
+		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockLightsOn).getEnabledMetadata(metadata);
 		
 		switch (metadata) {
 			default:
