@@ -2,6 +2,7 @@ package com.gollum.jammyfurniture.common.block.iron;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 import net.minecraft.block.material.Material;
@@ -10,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class IronBlocksTwo extends JFMetadataBlock {
 	
@@ -79,7 +81,7 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	 */
 	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadata) {
 		
-		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlodkID);
 		
 		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
 	}
@@ -93,5 +95,23 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	 */
 	public int getRenderType() {
 		return ModJammyFurniture.ironBlocksTwoRenderID;
+	}
+	
+	////////////
+	// Others //
+	////////////
+
+	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
+		
+		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
+		
+		if (subBlock == 0 || subBlock == 4) {
+			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
+			return true;
+		}
+		
+		return false;
 	}
 }

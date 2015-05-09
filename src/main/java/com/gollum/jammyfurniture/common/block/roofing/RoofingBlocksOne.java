@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class RoofingBlocksOne extends JFMetadataBlock {
 	
@@ -138,6 +139,24 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 	@Override
 	public int getRenderType() {
 		return ModJammyFurniture.roofingBlocksOneRenderID;
+	}
+	
+	////////////
+	// Others //
+	////////////
+
+	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
+		
+		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
+		
+		if (subBlock == 0 || subBlock == 4 || subBlock == 8) {
+			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
+			return true;
+		}
+		
+		return false;
 	}
 
 }

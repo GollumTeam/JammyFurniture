@@ -114,7 +114,7 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadtaID) {
 		
-		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlodkID);
 		
 		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadtaID);
 	}

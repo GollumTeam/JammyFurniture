@@ -85,10 +85,6 @@ public class WoodBlocksFour extends JFMetadataBlock {
 				case 5:
 				case 6:
 				case 7:
-					
-					if (world.isRemote) {
-						return true;
-					}
 					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_WARDROBE_ID, world, x, y, z);
 					return true;
 					

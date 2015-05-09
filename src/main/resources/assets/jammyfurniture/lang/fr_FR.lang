@@ -31,6 +31,14 @@ tile.WoodBlocksThree.4.name=Radio
 tile.WoodBlocksFour.0.name=Armoire
 tile.WoodBlocksFour.8.name=Porte-Manteau
 
+tile.IronBlocksOne.0.name=Frigo
+tile.IronBlocksOne.4.name=Congélateur
+tile.IronBlocksOne.8.name=Cuisinière
+tile.IronBlocksOne.12.name=Poubelle
+tile.IronBlocksOne.13.name=Coffee Table
+tile.IronBlocksTwo.0.name=Lave-vaisselle
+tile.IronBlocksTwo.4.name=Machine à laver
+
 tile.CeramicBlocksOne.0.name=Placard de sale de bain
 tile.CeramicBlocksOne.4.name=Lavabo
 tile.CeramicBlocksOne.8.name=Évier

@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
 import com.gollum.jammyfurniture.ModJammyFurniture;
@@ -161,5 +162,18 @@ public class BathBlock extends HBlockContainer {
 
 	public static int getDirection(int metadata) {
 		return metadata & 3;
+	}
+	
+	////////////
+	// Others //
+	////////////
+
+	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
+		
+		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
+		int metadata = world.getBlockMetadata(x, y, z);
+		
+		world.setBlockMetadataWithNotify(x, y, z, ((metadata + rotate) % 4), 2);
+		return true;
 	}
 }

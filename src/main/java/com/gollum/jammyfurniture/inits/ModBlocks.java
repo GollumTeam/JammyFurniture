@@ -88,9 +88,16 @@ public class ModBlocks {
 		ModBlocks.blockSofaPartCorner   = new BlockSofa(config.blockSofaPartCornerID, "SofaCorner", TileEntitySofaCorner.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		
 
+		ModItems.itemWrench.shiftRotations.add(BathBlock.class);
+		ModItems.itemWrench.shiftRotations.add(BlockLights.class);
 		ModItems.itemWrench.shiftRotations.add(WoodBlocksOne.class);
 		ModItems.itemWrench.shiftRotations.add(WoodBlocksTwo.class);
 		ModItems.itemWrench.shiftRotations.add(WoodBlocksThree.class);
+		ModItems.itemWrench.shiftRotations.add(WoodBlocksFour.class);
+		ModItems.itemWrench.shiftRotations.add(IronBlocksOne.class);
+		ModItems.itemWrench.shiftRotations.add(IronBlocksTwo.class);
+		ModItems.itemWrench.shiftRotations.add(CeramicBlocksOne.class);
+		ModItems.itemWrench.shiftRotations.add(BlockSofa.class);
 		
 	}
 }
