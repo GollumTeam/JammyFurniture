@@ -10,10 +10,10 @@
 		"0x1x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 0 },
 		"2x1x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 0 },
 				
-		"1x2x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "up"    },
-		"1x2x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "down"  },
-		"0x2x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "right" },
-		"2x2x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "left"  },
+		"1x2x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "up"   , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x2x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "down" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"0x2x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "right", "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"2x2x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "left" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
 				
 		"1x3x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 5, "orientation": "up"    },
 		"1x3x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 5, "orientation": "down"  },
@@ -29,15 +29,15 @@
 		"9x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "metadata": 14 },
 		"10x1x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 15 },
 				
-		"1x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "up"    },
-		"1x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "down"  },
-		"0x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "right" },
-		"2x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "left"  },
+		"1x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "up"   , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "down" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"0x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "right", "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"2x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "left" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
 				
-		"1x3x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "up"    },
-		"1x3x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "down"  },
-		"0x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "right" },
-		"2x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "left"  },
+		"1x3x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "up"   , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x3x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "down" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"0x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "right", "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"2x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "left" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
 			
 		"5x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "up"    },
 		"5x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "down"  },
@@ -47,7 +47,37 @@
 		"8x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 12 },
 		"9x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 13 },
 		"10x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 14 },
-		"11x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 15 }
+		"11x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 15 },
+				
+		"1x1x8" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "up"    },
+		"1x1x10": { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "down"  },
+		"0x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "right" },
+		"2x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "left"  },
+				
+		"5x1x8" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "up"    },
+		"5x1x10": { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "down"  },
+		"4x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "right" },
+		"6x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "left"  },
+				
+		"9x1x4" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "up"    },
+		"9x1x6" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "down"  },
+		"8x1x5" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "right" },
+		"10x1x5": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "left"  },
+				
+		"9x2x4" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "up"    },
+		"9x2x6" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "down"  },
+		"8x2x5" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "right" },
+		"10x2x5": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "left"  },
+				
+		"9x1x8" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "up"    },
+		"9x1x10": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "down"  },
+		"8x1x9" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "right" },
+		"10x1x9": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "left"  },
+				
+		"9x2x8" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "up"    },
+		"9x2x10": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "down"  },
+		"8x2x9" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "right" },
+		"10x2x9": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "left"  }
 		
 	}
 }

@@ -1,5 +1,7 @@
 package com.gollum.jammyfurniture.client.render.wood;
 
+import java.util.Random;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
 
@@ -23,6 +25,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	private ModelBlinds      modelBlinds      = new ModelBlinds();
 	private ModelKitchenSide modelKitchenSide = new ModelKitchenSide();
 	private ModelTable       modelTable       = new ModelTable();
+	private int numDial = 0;
 	
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
 		
@@ -66,16 +69,27 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	}
 	
 	private void renderModelDial(double x, double y, double z, float rotation) {
-		int numDial = 0;
 		
 		if (Minecraft.getMinecraft().theWorld != null) {
-			long time = Minecraft.getMinecraft().theWorld.getWorldTime();
-			double index = (double)time * 64.D / 24000.D;
-			if (index < 0) {
-				index = 64;
+			
+			if (Minecraft.getMinecraft().theWorld.provider.dimensionId >= 0) {
+				long time = Minecraft.getMinecraft().theWorld.getWorldTime();
+				double index = (double)time * 64.D / 24000.D;
+				if (index < 0) {
+					index = 64;
+				}
+				this.numDial = (int) Math.floor(index);
+				this.numDial = (numDial+48) % 64;
+			} else {
+				
+				int r = (new Random()).nextInt(3) - 1;
+				if (r != 0) {
+					this.numDial = (this.numDial + (r > 0 ? 1 : 63)) % 64;
+				}
 			}
-			numDial = (int) Math.floor(index);
-			numDial = (numDial+48) % 64;
+			
+		} else {
+			this.numDial = 0;
 		}
 		
 		GL11.glPushMatrix();
@@ -84,7 +98,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
 		this.bindTexture(this.getTexture("clocktop-dial"));
 		GL11.glPushMatrix();
-		this.modelClockTop.renderDial(numDial, 0.0625F);
+		this.modelClockTop.renderDial(this.numDial, 0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 	}

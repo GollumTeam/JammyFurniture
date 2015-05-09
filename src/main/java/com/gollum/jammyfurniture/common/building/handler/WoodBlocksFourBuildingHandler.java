@@ -19,12 +19,13 @@ public class WoodBlocksFourBuildingHandler extends BuildingBlockHandler {
 	@Override
 	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
 		
-		int subBlock = ((WoodBlocksOne)block).getEnabledMetadata(metadata);
+		int subBlock = metadata - (metadata%4);
 		
 		if (
-			subBlock == 1 ||
-			subBlock == 5 ||
-			subBlock == 9
+			subBlock == 0 ||
+			subBlock == 4 ||
+			subBlock == 8 ||
+			subBlock == 12
 		) {
 			
 			if (orientation == Unity.ORIENTATION_NONE)  { metadata = subBlock + 0; } else 

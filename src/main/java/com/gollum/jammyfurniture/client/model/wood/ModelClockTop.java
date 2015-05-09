@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 public class ModelClockTop extends ModelBase implements JFIModel {
 	ModelRenderer middleTop;
 	ModelRenderer clockFace;
-	ModelRenderer clockDial;
+	ModelRenderer clockDial[];
 	ModelRenderer top1;
 	ModelRenderer top4;
 	ModelRenderer top3;
@@ -27,11 +27,7 @@ public class ModelClockTop extends ModelBase implements JFIModel {
 		this.middleTop.mirror = true;
 		this.setRotation(this.middleTop, 0.0F, 0.0F, 0.0F);
 		
-		this.clockDial = new ModelRenderer(this, 0, 0);
-		this.clockDial.addBox(1.0F, 1.0F, 0.0F, 8, 6, 0);
-		this.clockDial.setRotationPoint(-5.0F, 12.0F, -5.0F);
-		this.clockDial.mirror = true;
-		this.setRotation(this.clockDial, 0.0F, 0.0F, 0.0F);
+		this.clockDial = new ModelRenderer[64];
 		
 		this.clockFace = new ModelRenderer(this, 0, 34);
 		this.clockFace.addBox(0.0F, 0.0F, 0.0F, 10, 9, 10);
@@ -96,13 +92,15 @@ public class ModelClockTop extends ModelBase implements JFIModel {
 	public void renderDial (int numDial, float f1) {
 		this.textureWidth = 8;
 		this.textureHeight = 378;
-		this.clockDial = null;
-		this.clockDial = new ModelRenderer(this, 0, 6*numDial);
-		this.clockDial.addBox(1.0F, 1.0F, 0.0F, 8, 6, 0);
-		this.clockDial.setRotationPoint(-5.0F, 12.0F, -5.0F);
-		this.clockDial.mirror = true;
-		this.setRotation(this.clockDial, 0.0F, 0.0F, 0.0F);
-		this.clockDial.render(f1);
+		if (this.clockDial[numDial] == null) {
+			this.clockDial[numDial] = new ModelRenderer(this, 0, 6*numDial);
+			this.clockDial[numDial].addBox(1.0F, 1.0F, 0.0F, 8, 6, 0);
+			this.clockDial[numDial].setRotationPoint(-5.0F, 12.0F, -5.0F);
+			this.clockDial[numDial].mirror = true;
+			this.setRotation(this.clockDial[numDial], 0.0F, 0.0F, 0.0F);
+			
+		}
+		this.clockDial[numDial].render(f1);
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 	}

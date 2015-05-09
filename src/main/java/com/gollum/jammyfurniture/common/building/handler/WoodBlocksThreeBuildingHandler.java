@@ -6,7 +6,6 @@ import net.minecraft.world.World;
 import com.gollum.core.ModGollumCoreLib;
 import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree;
 
 public class WoodBlocksThreeBuildingHandler extends BuildingBlockHandler {
@@ -19,12 +18,11 @@ public class WoodBlocksThreeBuildingHandler extends BuildingBlockHandler {
 	@Override
 	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
 		
-		int subBlock = ((WoodBlocksOne)block).getEnabledMetadata(metadata);
+		int subBlock = ((WoodBlocksThree)block).getEnabledMetadata(metadata);
 		
 		if (
-			subBlock == 1 ||
-			subBlock == 5 ||
-			subBlock == 9
+			subBlock == 0 ||
+			subBlock == 4
 		) {
 			
 			if (orientation == Unity.ORIENTATION_NONE)  { metadata = subBlock + 0; } else 
