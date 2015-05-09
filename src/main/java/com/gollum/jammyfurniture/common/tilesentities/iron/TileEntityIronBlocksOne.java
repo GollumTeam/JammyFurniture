@@ -236,7 +236,6 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		
 		this.currentItemBurnTime = getItemBurnTime(this.inventory[INDEX_SLOT_BURN]);
 		
-		ModJammyFurniture.log.debug("rubishBinOrientation "+rubishBinOrientation);
 	}
 
 	/**

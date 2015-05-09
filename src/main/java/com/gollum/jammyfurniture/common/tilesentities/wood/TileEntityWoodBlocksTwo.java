@@ -1,5 +1,12 @@
 package com.gollum.jammyfurniture.common.tilesentities.wood;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
+
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 
@@ -51,5 +58,39 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	
 	public boolean tvIsOn () {
 		return this.tvOn > 0;
+	}
+	
+	////////////////
+	// Save datas //
+	////////////////
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbtTagCompound) {
+		super.readFromNBT(nbtTagCompound);
+		
+		this.tvOn = nbtTagCompound.getLong("tvOn");
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound nbtTagCompound) {
+		super.writeToNBT(nbtTagCompound);
+		
+		nbtTagCompound.setLong("tvOn",  this.tvOn);
+	}
+	
+	/////////////
+	// Network //
+	/////////////
+	
+	@Override
+	public Packet getDescriptionPacket() {
+		NBTTagCompound nbttagcompound = new NBTTagCompound();
+		this.writeToNBT(nbttagcompound);
+		return new Packet132TileEntityData(this.xCoord, this.yCoord,this.zCoord, 0, nbttagcompound);
+	}
+	
+	@Override
+	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
+		this.readFromNBT(pkt.data);
 	}
 }

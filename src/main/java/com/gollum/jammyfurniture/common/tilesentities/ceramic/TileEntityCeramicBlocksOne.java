@@ -1,5 +1,10 @@
 package com.gollum.jammyfurniture.common.tilesentities.ceramic;
 
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
+
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 
@@ -58,5 +63,39 @@ public class TileEntityCeramicBlocksOne extends GCLInventoryTileEntity {
 	
 	public boolean waterIsOn() {
 		return this.waterOn;
+	}
+	
+	////////////////
+	// Save datas //
+	////////////////
+
+	@Override
+	public void readFromNBT(NBTTagCompound nbtTagCompound) {
+		super.readFromNBT(nbtTagCompound);
+		
+		this.waterOn = nbtTagCompound.getBoolean("waterOn");
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound nbtTagCompound) {
+		super.writeToNBT(nbtTagCompound);
+		
+		nbtTagCompound.setBoolean("waterOn",  this.waterOn);
+	}
+	
+	/////////////
+	// Network //
+	/////////////
+	
+	@Override
+	public Packet getDescriptionPacket() {
+		NBTTagCompound nbttagcompound = new NBTTagCompound();
+		this.writeToNBT(nbttagcompound);
+		return new Packet132TileEntityData(this.xCoord, this.yCoord,this.zCoord, 0, nbttagcompound);
+	}
+	
+	@Override
+	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
+		this.readFromNBT(pkt.data);
 	}
 }
