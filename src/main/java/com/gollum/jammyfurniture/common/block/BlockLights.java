@@ -79,9 +79,9 @@ public class BlockLights extends JFMetadataBlock {
 		int id       = world.getBlockId(x, y, z);
 
 		if (id == ModBlocks.blockLightsOn.blockID) {
-			world.setBlock(x, y, z, ModBlocks.blockLightsOff.blockID, metadata, 0);
+			world.setBlock(x, y, z, ModBlocks.blockLightsOff.blockID, metadata, 3);
 		} else {
-			world.setBlock(x, y, z, ModBlocks.blockLightsOn.blockID, metadata, 0);
+			world.setBlock(x, y, z, ModBlocks.blockLightsOn.blockID, metadata, 3);
 		}
 
 		return true;
