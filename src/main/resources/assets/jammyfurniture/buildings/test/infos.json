@@ -5,8 +5,49 @@
 	],
 	
 	"sets": {
-		"0x1x1": { "block": "JammyFurniture:WoodBlocksOne"   , "orientation": "left" },
-		"1x1x0": { "block": "JammyFurniture:WoodBlocksOne"   , "orientation": "down" },
-		"0x1x3": { "block": "JammyFurniture:WoodBlocksOne"   , "orientation": "up" }
+		"1x1x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 0 },
+		"1x1x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 0 },
+		"0x1x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 0 },
+		"2x1x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 0 },
+				
+		"1x2x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "up"    },
+		"1x2x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "down"  },
+		"0x2x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "right" },
+		"2x2x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 1, "orientation": "left"  },
+				
+		"1x3x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 5, "orientation": "up"    },
+		"1x3x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 5, "orientation": "down"  },
+		"0x3x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 5, "orientation": "right" },
+		"2x3x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 5, "orientation": "left"  },
+				
+		"5x1x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 9, "orientation": "up"    },
+		"5x1x2": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 9, "orientation": "down"  },
+		"4x1x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 9, "orientation": "right" },
+		"6x1x1": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 9, "orientation": "left"  },
+		
+		"8x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "metadata": 13 },
+		"9x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "metadata": 14 },
+		"10x1x0": { "block": "JammyFurniture:WoodBlocksOne", "metadata": 15 },
+				
+		"1x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "up"    },
+		"1x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "down"  },
+		"0x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "right" },
+		"2x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "left"  },
+				
+		"1x3x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "up"    },
+		"1x3x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "down"  },
+		"0x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "right" },
+		"2x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "left"  },
+			
+		"5x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "up"    },
+		"5x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "down"  },
+		"4x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "right" },
+		"6x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "left"  },
+		
+		"8x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 12 },
+		"9x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 13 },
+		"10x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 14 },
+		"11x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 15 }
+		
 	}
 }

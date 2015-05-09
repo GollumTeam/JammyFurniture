@@ -3,9 +3,8 @@ package com.gollum.jammyfurniture.inits;
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
 import net.minecraft.block.Block;
 
-import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.blocks.BlockProximitySpawn;
 import com.gollum.core.inits.ModItems;
+import com.gollum.core.tools.registry.BuildingBlockRegistry;
 import com.gollum.jammyfurniture.common.block.BathBlock;
 import com.gollum.jammyfurniture.common.block.BlockLights;
 import com.gollum.jammyfurniture.common.block.BlockSofa;
@@ -22,6 +21,10 @@ import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
+import com.gollum.jammyfurniture.common.building.handler.WoodBlocksFourBuildingHandler;
+import com.gollum.jammyfurniture.common.building.handler.WoodBlocksOneBuildingHandler;
+import com.gollum.jammyfurniture.common.building.handler.WoodBlocksThreeBuildingHandler;
+import com.gollum.jammyfurniture.common.building.handler.WoodBlocksTwoBuildingHandler;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
@@ -58,6 +61,14 @@ public class ModBlocks {
 	
 	public static void init() {
 		
+		initBlock ();
+		iniWrenchShiftRotations ();
+		initHandlerRotation ();
+		
+	}
+
+	public static void initBlock() {
+		
 		ModBlocks.blockBathTub          = new BathBlock       (config.blockBathTubID         , "BathBlock"       ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundWoodFootstep);
 		ModBlocks.blockLightsOn         = new BlockLights     (config.blockLightsOnID        , "LightsOn" ,true  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.3F);
 		ModBlocks.blockLightsOff        = new BlockLights     (config.blockLightsOffID       , "LightsOff",false )                                       .setHardness(0.3F);
@@ -87,7 +98,10 @@ public class ModBlocks {
 		ModBlocks.blockSofaPartCenter   = new BlockSofa(config.blockSofaPartCenterID, "SofaCenter", TileEntitySofaCenter.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		ModBlocks.blockSofaPartCorner   = new BlockSofa(config.blockSofaPartCornerID, "SofaCorner", TileEntitySofaCorner.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		
-
+	}
+	
+	public static void iniWrenchShiftRotations () {
+		
 		ModItems.itemWrench.shiftRotations.add(BathBlock.class);
 		ModItems.itemWrench.shiftRotations.add(BlockLights.class);
 		ModItems.itemWrench.shiftRotations.add(WoodBlocksOne.class);
@@ -100,4 +114,15 @@ public class ModBlocks {
 		ModItems.itemWrench.shiftRotations.add(BlockSofa.class);
 		
 	}
+	
+	public static void initHandlerRotation () {
+		
+		BuildingBlockRegistry.register(new WoodBlocksOneBuildingHandler());
+		BuildingBlockRegistry.register(new WoodBlocksTwoBuildingHandler());
+		BuildingBlockRegistry.register(new WoodBlocksThreeBuildingHandler());
+		BuildingBlockRegistry.register(new WoodBlocksFourBuildingHandler());
+		
+	}
+	
+	
 }
