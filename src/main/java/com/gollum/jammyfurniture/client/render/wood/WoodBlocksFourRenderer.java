@@ -35,12 +35,18 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 0; break;
 			case 3:
 			case 7:
+			case 9:
+			case 13:
 				rotation = 90; break;
 			case 2:
 			case 6:
+			case 10:
+			case 14:
 				rotation = 180; break;
 			case 1:
 			case 5:
+			case 11:
+			case 15:
 				rotation = 270; break;
 		}
 		

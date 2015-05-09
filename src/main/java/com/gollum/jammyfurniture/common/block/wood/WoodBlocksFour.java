@@ -8,10 +8,13 @@ import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class WoodBlocksFour extends JFMetadataBlock {
 	public static int rotation;
@@ -107,7 +110,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadtaID) {
 		
-		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlodkID);
 		
 		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadtaID);
 	}
@@ -136,5 +139,31 @@ public class WoodBlocksFour extends JFMetadataBlock {
 		return 
 			(metadata == 4  || metadata == 5  || metadata == 6  || metadata == 7) ||
 			(metadata == 12 || metadata == 13 || metadata == 14 || metadata == 15);
+	}
+	
+	////////////
+	// Others //
+	////////////
+
+	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
+		
+		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
+		if (this.isBlockHead(metadata)) {
+			subBlock += 4;
+		}
+		
+		world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
+		
+		y += this.isBlockHead(metadata) ? -1 : 1;
+		metadata = world.getBlockMetadata(x, y, z);
+		subBlock = this.getEnabledMetadata(metadata);
+		if (this.isBlockHead(metadata)) {
+			subBlock += 4;
+		}
+		world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
+		
+		return true;
 	}
 }

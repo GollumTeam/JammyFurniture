@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 
 import com.gollum.core.ModGollumCoreLib;
 import com.gollum.core.common.blocks.BlockProximitySpawn;
+import com.gollum.core.inits.ModItems;
 import com.gollum.jammyfurniture.common.block.BathBlock;
 import com.gollum.jammyfurniture.common.block.BlockLights;
 import com.gollum.jammyfurniture.common.block.BlockSofa;
@@ -61,7 +62,6 @@ public class ModBlocks {
 		ModBlocks.blockLightsOn         = new BlockLights     (config.blockLightsOnID        , "LightsOn" ,true  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.3F);
 		ModBlocks.blockLightsOff        = new BlockLights     (config.blockLightsOffID       , "LightsOff",false )                                       .setHardness(0.3F);
 		
-		
 		ModBlocks.blockWoodBlocksOne    = new WoodBlocksOne   (config.blockWoodBlocksOneID   , "WoodBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		ModBlocks.blockWoodBlocksTwo    = new WoodBlocksTwo   (config.blockWoodBlocksTwoID   , "WoodBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		ModBlocks.blockWoodBlocksThree  = new WoodBlocksThree (config.blockWoodBlocksThreeID , "WoodBlocksThree" ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
@@ -86,6 +86,11 @@ public class ModBlocks {
 		ModBlocks.blockSofaPartRight    = new BlockSofa(config.blockSofaPartRightID , "SofaRight" , TileEntitySofaRight.class ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		ModBlocks.blockSofaPartCenter   = new BlockSofa(config.blockSofaPartCenterID, "SofaCenter", TileEntitySofaCenter.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		ModBlocks.blockSofaPartCorner   = new BlockSofa(config.blockSofaPartCornerID, "SofaCorner", TileEntitySofaCorner.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+		
+
+		ModItems.itemWrench.shiftRotations.add(WoodBlocksOne.class);
+		ModItems.itemWrench.shiftRotations.add(WoodBlocksTwo.class);
+		ModItems.itemWrench.shiftRotations.add(WoodBlocksThree.class);
 		
 	}
 }

@@ -11,6 +11,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.RotationHelper;
 
 public class WoodBlocksOne extends JFMetadataBlock {
 	
@@ -223,6 +225,24 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	@Override
 	public int getRenderType() {
 		return ModJammyFurniture.woodBlocksOneRenderID;
+	}
+	
+	////////////
+	// Others //
+	////////////
+
+	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
+		
+		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
+		int metadata = world.getBlockMetadata(x, y, z);
+		int subBlock = this.getEnabledMetadata(metadata);
+		
+		if (subBlock == 1 || subBlock == 5 || subBlock == 9) {
+			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
+			return true;
+		}
+		
+		return false;
 	}
 
 }
