@@ -11,8 +11,8 @@ import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class ItemWoodBlocksFour extends HItemBlockMetadata {
 	
-	public ItemWoodBlocksFour(int id, Block block) {
-		super(id, block);
+	public ItemWoodBlocksFour(Block block) {
+		super(block);
 	}
 
 	/**

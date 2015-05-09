@@ -11,8 +11,8 @@ public class ItemBath extends ItemBlock {
 	
 	private Block block;
 	
-	public ItemBath(int id, Block block) {
-		super(id);
+	public ItemBath(Block block) {
+		super(block);
 		this.block = block;
 	}
 

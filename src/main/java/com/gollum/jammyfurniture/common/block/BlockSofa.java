@@ -1,27 +1,29 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
-
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockSofa extends JFMetadataBlock {
 	
-	private Icon blockIconRed;
-	private Icon blockIconBlue;
-	private Icon blockIconGreen;
-	private Icon blockIconGrey;
+	private IIcon blockIconRed;
+	private IIcon blockIconBlue;
+	private IIcon blockIconGreen;
+	private IIcon blockIconGrey;
 	
-	public BlockSofa(int id, String registerName, Class tileEntityClass) {
-		super(id, registerName, Material.wood, "wood", tileEntityClass, new int[] { 0, 4, 8, 12 });
+	public BlockSofa(String registerName, Class tileEntityClass) {
+		super(registerName, Material.wood, "wood", tileEntityClass, new int[] { 0, 4, 8, 12 });
 	}
 	
 	/////////////////////////////////
@@ -110,7 +112,7 @@ public class BlockSofa extends JFMetadataBlock {
 	 */
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister par1IconRegister) {
+	public void registerBlockIcons(IIconRegister par1IconRegister) {
 		this.blockIconRed   = this.helper.loadTexture (par1IconRegister, "sofa_red"  , true);
 		this.blockIconGreen = this.helper.loadTexture (par1IconRegister, "sofa_green", true);
 		this.blockIconGrey  = this.helper.loadTexture (par1IconRegister, "sofa_grey" , true);
@@ -122,7 +124,7 @@ public class BlockSofa extends JFMetadataBlock {
 	 * Args: side, metadata
 	 */
 	@Override
-	public Icon getIcon(int side, int metadata) {
+	public IIcon getIcon(int side, int metadata) {
 		int subBlock = this.getEnabledMetadata(metadata);
 		switch (subBlock) {
 			default:

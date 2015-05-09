@@ -1,7 +1,7 @@
 package com.gollum.jammyfurniture.common.block;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -16,8 +16,8 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	protected Class tileEntityClass;
 	protected String textureKey;
 	
-	public JFMetadataBlock(int id, String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
-		super(id, registerName, material, listSubBlock);
+	public JFMetadataBlock(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
+		super(registerName, material, listSubBlock);
 		this.tileEntityClass = tileEntityClass;
 		this.textureKey = textureKey;
 	}
@@ -27,7 +27,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * Returns a new instance of a block's tile entity class. Called on placing
 	 * the block.
 	 */
-	public TileEntity createNewTileEntity(World world) {
+	public TileEntity createNewTileEntity(World world, int metadata) {
 		try {
 			return (TileEntity) this.tileEntityClass.newInstance();
 		} catch (Exception e) {
@@ -42,12 +42,9 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	public String getTextureKey() {
 		return this.textureKey;
 	}
-	/**
-	 * Enregistre les textures
-	 * Depuis la 1.5 on est obligé de charger les texture fichier par fichier
-	 */
+
 	@Override
-	public void registerIcons(IconRegister iconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int metadata : this.listSubEnabled()) {
 			this.getGollumHelperMetadata().blockIcons.put(metadata, this.getGollumHelperMetadata().loadTexture(iconRegister));
 		}

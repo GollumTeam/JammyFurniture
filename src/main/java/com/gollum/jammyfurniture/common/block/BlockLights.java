@@ -5,22 +5,22 @@ import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockLights extends JFMetadataBlock {
 	
-	Icon blockIconLight0;
-	Icon blockIconLight1;
-	Icon blockIconLight2;
+	IIcon blockIconLight0;
+	IIcon blockIconLight1;
+	IIcon blockIconLight2;
 	
 	public BlockLights(int id, String registerName, boolean active) {
 		super(id, registerName, Material.glass, "wood", (active) ? TileEntityLightsOn.class : TileEntityLightsOff.class, new int[] { 0, 4, 8 });
@@ -76,9 +76,9 @@ public class BlockLights extends JFMetadataBlock {
 	 */
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		int metadata = world.getBlockMetadata(x, y, z);
-		int id       = world.getBlockId(x, y, z);
+		Block block  = world.getBlock(x, y, z);
 
-		if (id == ModBlocks.blockLightsOn.blockID) {
+		if (block == ModBlocks.blockLightsOn) {
 			world.setBlock(x, y, z, ModBlocks.blockLightsOff.blockID, metadata, 0);
 		} else {
 			world.setBlock(x, y, z, ModBlocks.blockLightsOn.blockID, metadata, 0);
@@ -109,10 +109,10 @@ public class BlockLights extends JFMetadataBlock {
 	 */
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIconLight0 = this.helper.loadTexture (par1IconRegister, "sofa_red"  , true);
-		this.blockIconLight1 = this.helper.loadTexture (par1IconRegister, "outlight", true);
-		this.blockIconLight2 = this.helper.loadTexture (par1IconRegister, "tablelight" , true);
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		this.blockIconLight0 = this.helper.loadTexture (iconRegister, "sofa_red"  , true);
+		this.blockIconLight1 = this.helper.loadTexture (iconRegister, "outlight"  , true);
+		this.blockIconLight2 = this.helper.loadTexture (iconRegister, "tablelight", true);
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class BlockLights extends JFMetadataBlock {
 	 * Args: side, metadata
 	 */
 	@Override
-	public Icon getIcon(int side, int metadata) {
+	public IIcon getIcon(int side, int metadata) {
 		int subBlock = this.getEnabledMetadata(metadata);
 		switch (subBlock) {
 			default:
