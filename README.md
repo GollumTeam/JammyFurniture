@@ -9,7 +9,12 @@ They have been modified and rewritten to the migration and use 1.7.2 and 1.7.10
 For install :
 
 <pre>
+git submodule update --init
+cd GollumCoreLib
+./gradlew setupDecompWorkspace
+./gradlew build
+cd..
 ./gradlew setupDecompWorkspace
 ./gradlew eclipse
 ./gradlew build
-</pre>
+<pre>
