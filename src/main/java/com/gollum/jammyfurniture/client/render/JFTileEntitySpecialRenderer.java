@@ -24,7 +24,7 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 			int metadata;
 			boolean invRender = false;
 		
-			if (tileEntity.worldObj == null) {
+			if (tileEntity.getWorldObj() == null) {
 				metadata = JFInventoryRenderer.getCurrentMetadata();
 				invRender = true;
 			} else {

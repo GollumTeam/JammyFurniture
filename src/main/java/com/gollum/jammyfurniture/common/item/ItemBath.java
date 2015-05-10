@@ -47,7 +47,7 @@ public class ItemBath extends ItemBlock {
 			if (orientation == 3) {
 				pos2X = 1;
 			}
-
+			
 			if (
 				player.canPlayerEdit(x        , y, z        , side, itemStack) && 
 				player.canPlayerEdit(x + pos2X, y, z + pos2Z, side, itemStack)
@@ -56,8 +56,8 @@ public class ItemBath extends ItemBlock {
 				if (
 					world.isAirBlock(x        , y, z) && 
 					world.isAirBlock(x + pos2X, y, z + pos2Z) && 
-					world.doesBlockHaveSolidTopSurface(x        , y - 1, z) && 
-					world.doesBlockHaveSolidTopSurface(x + pos2X, y - 1, z + pos2Z)
+					world.doesBlockHaveSolidTopSurface(world, x        , y - 1, z) && 
+					world.doesBlockHaveSolidTopSurface(world, x + pos2X, y - 1, z + pos2Z)
 				) {
 					
 					if (placeBlockAt(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ, orientation & 0x7)) {

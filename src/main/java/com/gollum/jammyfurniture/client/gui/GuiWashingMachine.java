@@ -28,15 +28,15 @@ public class GuiWashingMachine extends GuiContainer {
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 		
-		String line1 = this.wmInv.getInvName();
+		String line1 = this.wmInv.getInventoryName();
 		String line2 = "";
 		if (line1.contains(" ")) {
 			line2=line1.substring(line1.indexOf(" ")+1);
 			line1=line1.substring(0, line1.indexOf(" "));
 		}
-		this.fontRenderer.drawString(line1, 8, 6, 4210752);
-		this.fontRenderer.drawString(line2, 8, 15, 4210752);
-		this.fontRenderer.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInvName()), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRendererObj.drawString(line1, 8, 6, 4210752);
+		this.fontRendererObj.drawString(line2, 8, 15, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInventoryName()), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	/**

@@ -23,7 +23,7 @@ public class ContainerCooker extends Container {
 		
 		this.tileEntity = tileEntityCooker;
 		
-		tileEntityCooker.openChest();
+		tileEntityCooker.openInventory();
 		
 		this.addSlotToContainer(new Slot(tileEntityCooker, 0, 77, 20));
 		this.addSlotToContainer(new Slot(tileEntityCooker, 1, 20, 44));
@@ -50,7 +50,7 @@ public class ContainerCooker extends Container {
 	public void onContainerClosed(EntityPlayer par1EntityPlayer) {
 		
 		super.onContainerClosed(par1EntityPlayer);
-		this.tileEntity.closeChest();
+		this.tileEntity.closeInventory();
 		
 	}
 	

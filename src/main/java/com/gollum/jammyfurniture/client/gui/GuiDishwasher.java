@@ -29,8 +29,8 @@ public class GuiDishwasher extends GuiContainer {
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 		
-		this.fontRenderer.drawString(this.dwInv.getInvName(), 8, 6, 4210752);
-		this.fontRenderer.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInvName()), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRendererObj.drawString(this.dwInv.getInventoryName(), 8, 6, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInventoryName()), 8, this.ySize - 96 + 2, 4210752);
 		
 	}
 

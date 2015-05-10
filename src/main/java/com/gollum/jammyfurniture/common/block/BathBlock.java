@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -77,7 +78,7 @@ public class BathBlock extends HBlockContainer {
 		}
 		
 		if (world.getBlock(x2, y, z2) == this) {
-			world.destroyBlock(x2, y, z2, true);
+			world.func_147480_a(x2, y, z2, true);
 		}
 	}
 	
@@ -124,8 +125,8 @@ public class BathBlock extends HBlockContainer {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int metadata, Random random, int j) {
-		return this.isBlockHead(metadata) ? super.idDropped(metadata, random, j): 0;
+	public Item getItemDropped(int metadata, Random random, int j) {
+		return this.isBlockHead(metadata) ? super.getItemDropped(metadata, random, j): null;
 	}
 	
 	

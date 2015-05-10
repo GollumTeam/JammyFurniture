@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
@@ -172,8 +173,8 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int metadata, Random random, int j) {
-		return metadata >= 8 ? ModBlocks.blockWoodBlocksOne.blockID : ModBlocks.blockWoodBlocksThree.blockID;
+	public Item getItemDropped(int metadata, Random random, int j) {
+		return metadata >= 8 ? ModBlocks.blockWoodBlocksOne.getBlockItem() : ModBlocks.blockWoodBlocksThree.getBlockItem();
 	}
 	
 	/**
@@ -185,7 +186,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
 		int metadata = world.getBlockMetadata(x, y, z);
-		return (metadata >= 8) ? new ItemStack (ModBlocks.blockWoodBlocksOne.blockID, 1, 9) : super.getPickBlock(target, world, x, y, z);
+		return (metadata >= 8) ? new ItemStack (ModBlocks.blockWoodBlocksOne, 1, 9) : super.getPickBlock(target, world, x, y, z);
 	}
 	
 	/**

@@ -36,7 +36,7 @@ public class ItemWoodBlocksFour extends HItemBlockMetadata {
 				if (
 					world.isAirBlock(x, y    , z) && 
 					world.isAirBlock(x, y + 1, z) && 
-					world.doesBlockHaveSolidTopSurface(x, y - 1, z)
+					world.doesBlockHaveSolidTopSurface(world, x, y - 1, z)
 				) {
 					
 					if (placeBlockAt(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ, itemStack.getItemDamage()+orientation)) {

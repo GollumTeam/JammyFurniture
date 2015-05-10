@@ -21,7 +21,7 @@ public class ContainerWashingMachine extends Container {
 
 	public ContainerWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
 		this.tileEntity = teWashingMachine;
-		teWashingMachine.openChest();
+		teWashingMachine.openInventory();
 		this.addSlotToContainer(new Slot(teWashingMachine, 0, 79, 22));
 		this.addSlotToContainer(new Slot(teWashingMachine, 1, 15, 52));
 		this.addSlotToContainer(new Slot(teWashingMachine, 2, 113, 22));
@@ -71,7 +71,7 @@ public class ContainerWashingMachine extends Container {
 	 */
 	public void onContainerClosed(EntityPlayer par1EntityPlayer) {
 		super.onContainerClosed(par1EntityPlayer);
-		this.tileEntity.closeChest();
+		this.tileEntity.closeInventory();
 	}
 	
 	/**

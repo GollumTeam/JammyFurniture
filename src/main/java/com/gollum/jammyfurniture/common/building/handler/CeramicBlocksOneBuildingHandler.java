@@ -68,7 +68,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 			subBlock == 4 ||
 			subBlock == 8
 		) {
-			TileEntity te  = world.getBlockTileEntity (x, y, z);
+			TileEntity te  = world.getTileEntity (x, y, z);
 			if (te instanceof TileEntityCeramicBlocksOne) {
 				
 				boolean open = false; try { open = Boolean.parseBoolean(extra.get("open")); } catch (Exception e) {}

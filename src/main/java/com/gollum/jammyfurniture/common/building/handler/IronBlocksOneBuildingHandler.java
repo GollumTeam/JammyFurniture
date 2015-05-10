@@ -39,7 +39,7 @@ public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 			}
 		}
 		if (subBlock == 12) {
-			TileEntity te = world.getBlockTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(x, y, z);
 			if (te instanceof TileEntityIronBlocksOne) {
 				
 				if (orientation == Unity.ORIENTATION_NONE)  { ((TileEntityIronBlocksOne) te).rubishBinOrientation = 0; } else 

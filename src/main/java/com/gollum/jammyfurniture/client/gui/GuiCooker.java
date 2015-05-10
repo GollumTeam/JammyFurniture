@@ -30,8 +30,8 @@ public class GuiCooker extends GuiContainer {
 	 * the items)
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
-		this.fontRenderer.drawString(this.tileEntityCooker.getInvName(), 8, 6                  , 0x404040);
-		this.fontRenderer.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInvName()) , 8, this.ySize - 96 + 2, 0x404040);
+		this.fontRendererObj.drawString(this.tileEntityCooker.getInventoryName(), 8, 6                  , 0x404040);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInventoryName()) , 8, this.ySize - 96 + 2, 0x404040);
 	}
 
 	/**

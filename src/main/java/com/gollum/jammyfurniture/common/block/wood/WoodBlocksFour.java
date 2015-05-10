@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -60,7 +61,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 		}
 		
 		if (world.getBlock(x, y2, z) == this) {
-			world.destroyBlock(x, y2, z, true);
+			world.func_147480_a(x, y2, z, true);
 		}
 	}
 
@@ -124,8 +125,8 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int metadata, Random random, int j) {
-		return this.isBlockHead(metadata) ? super.idDropped(metadata, random, j): 0;
+	public Item getItemDropped(int metadata, Random random, int j) {
+		return this.isBlockHead(metadata) ? super.getItemDropped(metadata, random, j): null;
 	}
 
 	public static boolean isBlockHead(int metadata) {

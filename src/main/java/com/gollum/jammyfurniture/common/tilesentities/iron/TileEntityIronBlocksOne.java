@@ -208,7 +208,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 			}
 
 			if (inventoryChange) {
-				this.onInventoryChanged();
+				this.markDirty();
 			}
 		}
 	}

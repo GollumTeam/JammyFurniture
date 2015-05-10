@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -71,8 +72,8 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	 * neighbor blockID
 	 */
 	@Override
-	public void onNeighborBlockChange(World World, int x, int y, int z, int par5) {
-		super.onNeighborBlockChange(World, x, y, z, par5);
+	public void onNeighborBlockChange(World World, int x, int y, int z, Block block) {
+		super.onNeighborBlockChange(World, x, y, z, block);
 		
 		TileEntityWoodBlocksOne titleEntity = (TileEntityWoodBlocksOne) World.getTileEntity(x, y, z);
 
@@ -155,7 +156,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 				
 				ModJammyFurniture.log.debug ("%0"+paddingM+"d", strM);
 				
-				player.addChatMessage(ModJammyFurniture.i18n.trans("clock.displayTime", strH, strM, ModJammyFurniture.i18n.trans("clock.format."+((am)? "am" : "pm"))));
+				player.addChatMessage(new ChatComponentText(ModJammyFurniture.i18n.trans("clock.displayTime", strH, strM, ModJammyFurniture.i18n.trans("clock.format."+((am)? "am" : "pm")))));
 				
 				String message = null;
 				
@@ -171,13 +172,13 @@ public class WoodBlocksOne extends JFMetadataBlock {
 				
 				
 				if (message != null) {
-					player.addChatMessage(message);
+					player.addChatMessage(new ChatComponentText(message));
 				}
 				
 				return true;
 				
 			case 9: // Le store en position initial
-				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksThree.blockID, metadata-1, 2); // Les autres stores sont dans le block wood 3
+				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksThree, metadata-1, 2); // Les autres stores sont dans le block wood 3
 				return true;
 				
 				

@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.crafting;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -32,30 +33,30 @@ public class WashingMachineRecipes {
 
 	private WashingMachineRecipes() {
 		
-		this.addSmelting(Item.bootsLeather  , new ItemStack(Item.bootsLeather) , 1500);
-		this.addSmelting(Item.helmetLeather , new ItemStack(Item.helmetLeather), 1500);
-		this.addSmelting(Item.plateLeather  , new ItemStack(Item.plateLeather) , 1500);
-		this.addSmelting(Item.legsLeather   , new ItemStack(Item.legsLeather)  , 1500);
-
-		this.addSmelting(Item.bootsIron     , new ItemStack(Item.bootsIron)    , 4000);
-		this.addSmelting(Item.helmetIron    , new ItemStack(Item.helmetIron)   , 4000);
-		this.addSmelting(Item.plateIron     , new ItemStack(Item.plateIron)    , 4000);
-		this.addSmelting(Item.legsIron      , new ItemStack(Item.legsIron)     , 4000);
-
-		this.addSmelting(Item.bootsGold     , new ItemStack(Item.bootsGold)    , 4800);
-		this.addSmelting(Item.helmetGold    , new ItemStack(Item.helmetGold)   , 4800);
-		this.addSmelting(Item.plateGold     , new ItemStack(Item.plateGold)    , 4800);
-		this.addSmelting(Item.legsGold      , new ItemStack(Item.legsGold)     , 4800);
+		this.addSmelting(Items.leather_boots     , new ItemStack(Items.leather_boots     ), 1500);
+		this.addSmelting(Items.leather_helmet    , new ItemStack(Items.leather_helmet    ), 1500);
+		this.addSmelting(Items.leather_chestplate, new ItemStack(Items.leather_chestplate), 1500);
+		this.addSmelting(Items.leather_leggings  , new ItemStack(Items.leather_leggings  ), 1500);
 		
-		this.addSmelting(Item.bootsChain    , new ItemStack(Item.bootsChain)   , 6000);
-		this.addSmelting(Item.helmetChain   , new ItemStack(Item.helmetChain)  , 6000);
-		this.addSmelting(Item.plateChain    , new ItemStack(Item.plateChain)   , 6000);
-		this.addSmelting(Item.legsChain     , new ItemStack(Item.legsChain)    , 6000);
+		this.addSmelting(Items.iron_boots     , new ItemStack(Items.iron_boots     ), 4000);
+		this.addSmelting(Items.iron_helmet    , new ItemStack(Items.iron_helmet    ), 4000);
+		this.addSmelting(Items.iron_chestplate, new ItemStack(Items.iron_chestplate), 4000);
+		this.addSmelting(Items.iron_leggings  , new ItemStack(Items.iron_leggings  ), 4000);
 		
-		this.addSmelting(Item.bootsDiamond  , new ItemStack(Item.bootsDiamond) , 7200);
-		this.addSmelting(Item.helmetDiamond , new ItemStack(Item.helmetDiamond), 7200);
-		this.addSmelting(Item.plateDiamond  , new ItemStack(Item.plateDiamond) , 7200);
-		this.addSmelting(Item.legsDiamond   , new ItemStack(Item.legsDiamond)  , 7200);
+		this.addSmelting(Items.golden_boots     , new ItemStack(Items.golden_boots     ), 4800);
+		this.addSmelting(Items.golden_helmet    , new ItemStack(Items.golden_helmet    ), 4800);
+		this.addSmelting(Items.golden_chestplate, new ItemStack(Items.golden_chestplate), 4800);
+		this.addSmelting(Items.golden_leggings  , new ItemStack(Items.golden_leggings  ), 4800);
+		
+		this.addSmelting(Items.chainmail_boots     , new ItemStack(Items.chainmail_boots     ), 6000);
+		this.addSmelting(Items.chainmail_helmet    , new ItemStack(Items.chainmail_helmet    ), 6000);
+		this.addSmelting(Items.chainmail_chestplate, new ItemStack(Items.chainmail_chestplate), 6000);
+		this.addSmelting(Items.chainmail_leggings  , new ItemStack(Items.chainmail_leggings  ), 6000);
+		
+		this.addSmelting(Items.diamond_boots     , new ItemStack(Items.diamond_boots     ), 7200);
+		this.addSmelting(Items.diamond_helmet    , new ItemStack(Items.diamond_helmet    ), 7200);
+		this.addSmelting(Items.diamond_chestplate, new ItemStack(Items.diamond_chestplate), 7200);
+		this.addSmelting(Items.diamond_leggings  , new ItemStack(Items.diamond_leggings  ), 7200);
 	}
 	
 	public void addSmelting(Item itemArmor, ItemStack itemStack, int smeltTime) {
