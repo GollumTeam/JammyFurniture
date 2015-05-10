@@ -1,16 +1,17 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
 public class IronBlocksOne extends JFMetadataBlock {
 	
@@ -18,8 +19,8 @@ public class IronBlocksOne extends JFMetadataBlock {
 	 * Returns a new instance of a block's tile entity class. Called on placing
 	 * the block.
 	 */
-	public IronBlocksOne(int id, String registerName) {
-		super(id, registerName, Material.iron, "iron", TileEntityIronBlocksOne.class, new int[]{ 0, 4, 8, 12, 13 });
+	public IronBlocksOne(String registerName) {
+		super(registerName, Material.iron, "iron", TileEntityIronBlocksOne.class, new int[]{ 0, 4, 8, 12, 13 });
 		this.tileEntityClass = TileEntityIronBlocksOne.class;
 	}
 	
@@ -60,7 +61,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 		if (subBlock == 12) {
-			world.addBlockEvent(x, y, z, this.blockID, 2, orientation);
+			world.addBlockEvent(x, y, z, this, 2, orientation);
 		}
 	}
 
@@ -71,11 +72,11 @@ public class IronBlocksOne extends JFMetadataBlock {
 	 * ID, old metadata
 	 */
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadata) {
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
 		
-		this.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlock);
 		
-		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
+		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
 	}
 	
 	/**
@@ -84,7 +85,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
 		if (eventID == 2) {
-			TileEntity te = world.getBlockTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(x, y, z);
 	
 			if (te != null && te instanceof TileEntityIronBlocksOne) {
 				TileEntityIronBlocksOne teIronBlocks = (TileEntityIronBlocksOne)te;
@@ -106,7 +107,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 		int metadata    = world.getBlockMetadata(x, y, z);
 		int orientation = this.getOrientation(player);
 		int subBlock    = this.getEnabledMetadata(metadata);
-		TileEntity te   = world.getBlockTileEntity(x, y, z);
+		TileEntity te   = world.getTileEntity(x, y, z);
 		
 		if (te != null && te instanceof TileEntityIronBlocksOne) {
 			TileEntityIronBlocksOne teIron = (TileEntityIronBlocksOne)te;
@@ -165,7 +166,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 			return true;
 		}
 		if (subBlock == 12) {
-			TileEntity te = world.getBlockTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(x, y, z);
 			if (te instanceof TileEntityIronBlocksOne) {
 				int o = ((TileEntityIronBlocksOne) te).rubishBinOrientation;
 				((TileEntityIronBlocksOne) te).rubishBinOrientation = (short) ((o + rotate) % 4);
@@ -176,4 +177,5 @@ public class IronBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
+	
 }

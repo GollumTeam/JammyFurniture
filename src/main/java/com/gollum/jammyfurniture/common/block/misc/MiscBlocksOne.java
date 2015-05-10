@@ -2,28 +2,29 @@ package com.gollum.jammyfurniture.common.block.misc;
 
 import java.util.Random;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class MiscBlocksOne extends JFMetadataBlock {
 	
-	Icon blockIconChimney;
-	Icon blockIconMantle;
-	Icon blockIconChristmasTree;
+	IIcon blockIconChimney;
+	IIcon blockIconMantle;
+	IIcon blockIconChristmasTree;
 
-	public MiscBlocksOne(int id, String registerName) {
-		super(id, registerName, Material.rock, "mantle", TileEntityMiscBlockOne.class, new int[] { 0, 4, 8 });
+	public MiscBlocksOne(String registerName) {
+		super(registerName, Material.rock, "mantle", TileEntityMiscBlockOne.class, new int[] { 0, 4, 8 });
 	}
 	
 	///////////
@@ -83,11 +84,11 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	 */
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister par1IconRegister) {
+	public void registerBlockIcons(IIconRegister iconRegister) {
 		
-		this.blockIconChimney       = this.helper.loadTexture (par1IconRegister, "chimney"      , true);
-		this.blockIconMantle        = this.helper.loadTexture (par1IconRegister, "mantle"       , true);
-		this.blockIconChristmasTree = this.helper.loadTexture (par1IconRegister, "christmastree", true);
+		this.blockIconChimney       = this.helper.loadTexture (iconRegister, "chimney"      , true);
+		this.blockIconMantle        = this.helper.loadTexture (iconRegister, "mantle"       , true);
+		this.blockIconChristmasTree = this.helper.loadTexture (iconRegister, "christmastree", true);
 	}
 
 	/**
@@ -95,7 +96,7 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	 * Args: side, metadata
 	 */
 	@Override
-	public Icon getIcon(int side, int metadata) {
+	public IIcon getIcon(int side, int metadata) {
 		int subBlock = this.getEnabledMetadata(metadata);
 		switch (subBlock) {
 			default:

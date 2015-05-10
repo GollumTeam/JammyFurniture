@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 
 public class MobHeadsFour extends JFMobHeads {
 	
-	public MobHeadsFour(int id, String registerName) {
-		super(id, registerName, TileEntityMobHeadsFour.class);
+	public MobHeadsFour(String registerName) {
+		super(registerName, TileEntityMobHeadsFour.class);
 	}
 	
 	/////////////////////////////////

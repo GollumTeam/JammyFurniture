@@ -2,26 +2,23 @@ package com.gollum.jammyfurniture.common.block.wood;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
-
 public class WoodBlocksFour extends JFMetadataBlock {
 	public static int rotation;
-	private Icon jfm_blockIcon;
 	
-	public WoodBlocksFour(int id, String registerName) {
-		super(id, registerName, Material.wood, "wood", TileEntityWoodBlocksFour.class, new int[] { 0, 8 });
+	public WoodBlocksFour(String registerName) {
+		super(registerName, Material.wood, "wood", TileEntityWoodBlocksFour.class, new int[] { 0, 8 });
 		
 		this.setItemBlockClass(ItemWoodBlocksFour.class);
 	}
@@ -62,7 +59,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 			y2 = y-1;
 		}
 		
-		if (world.getBlockId(x, y2, z) == this.blockID) {
+		if (world.getBlock(x, y2, z) == this) {
 			world.destroyBlock(x, y2, z, true);
 		}
 	}
@@ -74,7 +71,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
-		TileEntity te = world.getBlockTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(x, y, z);
 
 		if (te != null && te instanceof TileEntityWoodBlocksFour) {
 			
@@ -104,11 +101,11 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	 * ID, old metadata
 	 */
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadtaID) {
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadtaID) {
 		
-		this.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlock);
 		
-		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadtaID);
+		super.breakBlock(world, x, y, z, oldBlock, oldMetadtaID);
 	}
 	
 	///////////////////

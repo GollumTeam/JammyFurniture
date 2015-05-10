@@ -1,12 +1,6 @@
 package com.gollum.jammyfurniture.common.block.ceramic;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
-import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
-import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,12 +10,19 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.BlockMountable;
+import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
+import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
 public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEvent {
 	
-	public CeramicBlocksOne(int id, String registerName) {
-		super(id, registerName, Material.glass, "ceramic", TileEntityCeramicBlocksOne.class, new int[]{ 0, 4, 8, 12 });
+	public CeramicBlocksOne(String registerName) {
+		super(registerName, Material.glass, "ceramic", TileEntityCeramicBlocksOne.class, new int[]{ 0, 4, 8, 12 });
 	}
 	
 	/////////////////////////////////
@@ -76,11 +77,11 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 	 * ID, old metadata
 	 */
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadata) {
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
 		
-		this.helper.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.helper.breakBlockInventory(world, x, y, z, oldBlock);
 		
-		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
+		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 		int metadata    = world.getBlockMetadata(x, y, z);
 		int subBlock    = this.getEnabledMetadata(metadata);
 		int orientation = this.getOrientation(player);
-		TileEntity te   = world.getBlockTileEntity(x, y, z);
+		TileEntity te   = world.getTileEntity(x, y, z);
 		
 		
 		if (te != null && te instanceof TileEntityCeramicBlocksOne) {
@@ -139,7 +140,7 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 						}
 					}
 					
-					world.addBlockEvent(x, y, z, this.blockID, 2, 0);
+					world.addBlockEvent(x, y, z, this, 2, 0);
 					
 					return true;
 					
@@ -181,7 +182,7 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 	*/
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
 		if (eventID == 2) {
-			TileEntity te = world.getBlockTileEntity(x, y, z);
+			TileEntity te = world.getTileEntity(x, y, z);
 	
 			if (te != null && te instanceof TileEntityCeramicBlocksOne) {
 				TileEntityCeramicBlocksOne teCeramicBlocks = (TileEntityCeramicBlocksOne)te;

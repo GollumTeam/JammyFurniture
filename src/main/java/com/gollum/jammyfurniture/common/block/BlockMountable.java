@@ -3,11 +3,11 @@ package com.gollum.jammyfurniture.common.block;
 import java.util.Iterator;
 import java.util.List;
 
-import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 
 public class BlockMountable/* extends Block*/ {
 //	public BlockMountable(int x, Material material) {

@@ -3,11 +3,7 @@ package com.gollum.jammyfurniture.common.block.wood;
 import java.util.List;
 import java.util.Random;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
-import com.gollum.jammyfurniture.inits.ModBlocks;
+import javax.swing.Icon;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -15,17 +11,22 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.BlockMountable;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class WoodBlocksThree extends JFMetadataBlock {
 	public static int rotation;
 	private Icon jfm_blockIcon;
 	
-	public WoodBlocksThree(int id, String registerName) {
-		super(id, registerName, Material.wood, "wood", TileEntityWoodBlocksThree.class, new int[] { 0, 4 });
+	public WoodBlocksThree(String registerName) {
+		super(registerName, Material.wood, "wood", TileEntityWoodBlocksThree.class, new int[] { 0, 4 });
 	}
 	
 	/////////////////////////////////
@@ -125,13 +126,13 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			case 9:
 			case 10:
 			case 11: 
-				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksThree.blockID, metadata+4, 2);
+				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksThree, metadata+4, 2);
 				return true;
 			case 12:
 			case 13:
 			case 14:
 			case 15: 
-				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksOne.blockID, metadata-3, 2);
+				world.setBlock(x, y, z, ModBlocks.blockWoodBlocksOne, metadata-3, 2);
 				return true;
 			default:
 				break;

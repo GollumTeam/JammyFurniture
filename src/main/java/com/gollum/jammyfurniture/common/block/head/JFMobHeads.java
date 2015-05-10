@@ -1,17 +1,17 @@
 package com.gollum.jammyfurniture.common.block.head;
 
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 
 public abstract class JFMobHeads extends JFMetadataBlock {
 
-	public JFMobHeads(int id, String registerName, Class tileEntityClass) {
-		super(id, registerName, Material.cloth, "cloth", tileEntityClass, new int[]{ 0, 4, 8, 12 });
+	public JFMobHeads(String registerName, Class tileEntityClass) {
+		super(registerName, Material.cloth, "cloth", tileEntityClass, new int[]{ 0, 4, 8, 12 });
 	}
 	
 	///////////

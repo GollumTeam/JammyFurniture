@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
 import com.gollum.jammyfurniture.ModJammyFurniture;
@@ -18,8 +18,8 @@ public class BathBlock extends HBlockContainer {
 	
 	public static final int[][] footBlockToHeadBlockMap = new int[][] { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
 	
-	public BathBlock(int par1, String registerName) {
-		super(par1, registerName, Material.iron);
+	public BathBlock(String registerName) {
+		super(registerName, Material.iron);
 		
 		this.setItemBlockClass(ItemBath.class);
 	}
@@ -29,7 +29,7 @@ public class BathBlock extends HBlockContainer {
 	 * the block.
 	 */
 	@Override
-	public TileEntity createNewTileEntity(World world) {
+	public TileEntity createNewTileEntity(World world, int metadata) {
 		return new TileEntityBath();
 	}
 	
@@ -76,7 +76,7 @@ public class BathBlock extends HBlockContainer {
 			z2 = z - footBlockToHeadBlockMap[direction][1];
 		}
 		
-		if (world.getBlockId(x2, y, z2) == this.blockID) {
+		if (world.getBlock(x2, y, z2) == this) {
 			world.destroyBlock(x2, y, z2, true);
 		}
 	}

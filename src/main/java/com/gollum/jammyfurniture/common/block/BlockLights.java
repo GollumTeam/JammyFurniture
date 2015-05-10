@@ -1,10 +1,5 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
-import com.gollum.jammyfurniture.inits.ModBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -13,6 +8,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,11 +24,11 @@ public class BlockLights extends JFMetadataBlock {
 	IIcon blockIconLight1;
 	IIcon blockIconLight2;
 	
-	public BlockLights(int id, String registerName, boolean active) {
-		super(id, registerName, Material.glass, "wood", (active) ? TileEntityLightsOn.class : TileEntityLightsOff.class, new int[] { 0, 4, 8 });
+	public BlockLights(String registerName, boolean active) {
+		super(registerName, Material.glass, "wood", (active) ? TileEntityLightsOn.class : TileEntityLightsOff.class, new int[] { 0, 4, 8 });
 		
 		if (active) {
-			this.setLightValue(1.0F);
+			this.setLightLevel(1.0F);
 		}
 	}
 	

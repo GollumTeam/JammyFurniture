@@ -1,22 +1,22 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 public class IronBlocksTwo extends JFMetadataBlock {
 	
-	public IronBlocksTwo(int id, String registerName) {
-		super(id, registerName, Material.iron, "iron", TileEntityIronBlocksTwo.class, new int[]{ 0, 4 });
+	public IronBlocksTwo(String registerName) {
+		super(registerName, Material.iron, "iron", TileEntityIronBlocksTwo.class, new int[]{ 0, 4 });
 	}
 	
 	/////////////////////////////////
@@ -52,7 +52,7 @@ public class IronBlocksTwo extends JFMetadataBlock {
 		int metadata    = world.getBlockMetadata(x, y, z);
 		int orientation = this.getOrientation(player);
 		int subBlock    = this.getEnabledMetadata(metadata);
-		TileEntity te   = world.getBlockTileEntity(x, y, z);
+		TileEntity te   = world.getTileEntity(x, y, z);
 		
 		if (te != null && te instanceof TileEntityIronBlocksTwo) {
 			TileEntityIronBlocksTwo teIron = (TileEntityIronBlocksTwo)te;
@@ -79,11 +79,11 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
-	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadata) {
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
 		
-		this.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlock);
 		
-		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadata);
+		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
 	}
 	
 	///////////////////

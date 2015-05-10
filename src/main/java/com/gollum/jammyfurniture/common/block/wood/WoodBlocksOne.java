@@ -1,23 +1,24 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
-import net.minecraftforge.common.RotationHelper;
-
 public class WoodBlocksOne extends JFMetadataBlock {
 	
-	public WoodBlocksOne(int id, String registerName) {
-		super(id, registerName, Material.wood, "wood", TileEntityWoodBlocksOne.class, new int[] { 0, 1, 5, 9, 13, 14, 15 });
+	public WoodBlocksOne(String registerName) {
+		super(registerName, Material.wood, "wood", TileEntityWoodBlocksOne.class, new int[] { 0, 1, 5, 9, 13, 14, 15 });
 	}
 	
 	/////////////////////////////////
@@ -73,7 +74,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	public void onNeighborBlockChange(World World, int x, int y, int z, int par5) {
 		super.onNeighborBlockChange(World, x, y, z, par5);
 		
-		TileEntityWoodBlocksOne titleEntity = (TileEntityWoodBlocksOne) World.getBlockTileEntity(x, y, z);
+		TileEntityWoodBlocksOne titleEntity = (TileEntityWoodBlocksOne) World.getTileEntity(x, y, z);
 
 		if (titleEntity != null) {
 			titleEntity.updateContainingBlockInfo();
@@ -87,11 +88,11 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	 * ID, old metadata
 	 */
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int oldBlodkID, int oldMetadtaID) {
+	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadtaID) {
 		
-		this.breakBlockInventory(world, x, y, z, oldBlodkID);
+		this.breakBlockInventory(world, x, y, z, oldBlock);
 		
-		super.breakBlock(world, x, y, z, oldBlodkID, oldMetadtaID);
+		super.breakBlock(world, x, y, z, oldBlock, oldMetadtaID);
 	}
 	
 	/**
@@ -104,7 +105,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 		int subBlock = this.getEnabledMetadata(metadata);
 		
 		ItemStack itemStack = player.inventory.getCurrentItem();
-		TileEntity te = world.getBlockTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(x, y, z);
 		
 		switch (subBlock) {
 			
@@ -206,12 +207,12 @@ public class WoodBlocksOne extends JFMetadataBlock {
 			return false;
 		}
 		
-		int id       = itemStack.itemID;
+		Item item    = itemStack.getItem();
 		int subBlock = this.getEnabledMetadata(itemStack.getItemDamage());
 		
 		return 
 			itemStack !=  null &&
-			id == this.getBlockItem().itemID && (
+			item == this.getBlockItem() && (
 				subBlock == 0 ||
 				subBlock == 1 ||
 				subBlock == 5
