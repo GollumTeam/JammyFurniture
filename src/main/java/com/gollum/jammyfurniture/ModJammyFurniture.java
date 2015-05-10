@@ -21,7 +21,6 @@ import com.gollum.jammyfurniture.inits.ModBlocks;
 import com.gollum.jammyfurniture.inits.ModCreativeTab;
 import com.gollum.jammyfurniture.inits.ModItems;
 import com.gollum.jammyfurniture.inits.ModRecipes;
-import com.gollum.jammyfurniture.inits.ModSounds;
 import com.gollum.jammyfurniture.inits.ModTileEntities;
 
 import cpw.mods.fml.common.Mod;
@@ -132,9 +131,6 @@ public class ModJammyFurniture extends GollumMod {
 		
 		// Execution du renderer en fonction du serveur ou du client
 		proxy.registerRenderers();
-		
-		// Initialisation des sons
-		ModSounds.init ();
 		
 		// Initialisation les TileEntities
 		ModTileEntities.init ();

@@ -1,0 +1,51 @@
+{
+  "clock-dong": {
+    "category": "block",
+    "sounds": [
+      "clock-dong"
+    ]
+  },
+  "clock-tick": {
+    "category": "block",
+    "sounds": [
+      "clock-tick"
+    ]
+  },
+  "machine": {
+    "category": "block",
+    "sounds": [
+      "machine"
+    ]
+  },
+  "radio": {
+    "category": "block",
+    "sounds": [
+      "radio"
+    ]
+  },
+  "sink_water": {
+    "category": "block",
+    "sounds": [
+      "sink_water"
+    ]
+  },
+  "toilet": {
+    "category": "block",
+    "sounds": [
+      "toilet"
+    ]
+  },
+  "trashclosed": {
+    "category": "block",
+    "sounds": [
+      "trashclosed"
+    ]
+  },
+  "trashopen": {
+    "category": "block",
+    "sounds": [
+      "trashopen"
+    ]
+  }
+}
+
