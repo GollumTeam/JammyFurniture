@@ -12,7 +12,7 @@ public class EntityMountableBlock extends Entity {
 	public int orgBlockPosX;
 	public int orgBlockPosY;
 	public int orgBlockPosZ;
-	public int orgBlockID;
+	public Block orgBlock;
 	public EntityPlayer player;
 	
 	public EntityMountableBlock(World world) {
@@ -42,7 +42,7 @@ public class EntityMountableBlock extends Entity {
 		this.orgBlockPosX = x;
 		this.orgBlockPosY = y;
 		this.orgBlockPosZ = z;
-		this.orgBlockID = world.getBlockId(x, y, z);
+		this.orgBlock = world.getBlock(x, y, z);
 		this.setPosition(mountingX, mountingY, mountingZ);
 	}
 
@@ -65,15 +65,14 @@ public class EntityMountableBlock extends Entity {
 		this.worldObj.theProfiler.startSection("entityBaseTick");
 		
 		if (this.riddenByEntity != null && !this.riddenByEntity.isDead) {
-			if (this.worldObj.getBlockId(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ) != this.orgBlockID) {
+			if (this.worldObj.getBlock(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ) != this.orgBlock) {
 				this.interact((EntityPlayer) this.riddenByEntity);
 			}
 		} else {
 			this.setDead();
-			int id = this.worldObj.getBlockId(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ);
+			Block block = this.worldObj.getBlock(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ);
 			
-			if (id != 0) {
-				Block block = Block.blocksList[id];
+			if (block != null) {
 				if (block instanceof IBlockUnmountEvent) {
 					((IBlockUnmountEvent)block).onBlockPlacedBy(this.worldObj, this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ, this, this.player);
 				}

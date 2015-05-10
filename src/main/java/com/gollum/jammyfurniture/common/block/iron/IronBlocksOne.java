@@ -170,7 +170,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 			if (te instanceof TileEntityIronBlocksOne) {
 				int o = ((TileEntityIronBlocksOne) te).rubishBinOrientation;
 				((TileEntityIronBlocksOne) te).rubishBinOrientation = (short) ((o + rotate) % 4);
-				world.markBlockForRenderUpdate(x, y, z);
+				world.func_147479_m(x, y, z);
 			}
 			return true;
 		}

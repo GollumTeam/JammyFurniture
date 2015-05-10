@@ -22,7 +22,8 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	/**
 	 * Returns the name of the inventory.
 	 */
-	public String getInvName() {
+	@Override
+	public String getInventoryName() {
 		return ModJammyFurniture.i18n.trans("Hidey Hole");
 	}
 	
@@ -36,42 +37,40 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	 * e.g. the mob spawner uses this to count ticks and creates a new spawn
 	 * inside its implementation.
 	 */
+	@Override
 	public void updateEntity() {
 		
 		super.updateEntity();
 		
-		int id      = this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord);
+		Block block = this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord);
 		int metadta = this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
 		
-		if (id != 0) {
-			Block block = Block.blocksList[id];
-			if (block instanceof IBlockMetadataHelper) {
+		if (block instanceof IBlockMetadataHelper) {
+			
+			int subBlock = ((IBlockMetadataHelper)block).getEnabledMetadata(metadta);
+			
+			if (subBlock == 5) { // Clock top
 				
-				int subBlock = ((IBlockMetadataHelper)block).getEnabledMetadata(metadta);
+				double x = (double) this.xCoord + 0.5D;
+				double y = (double) this.yCoord + 0.5D;
+				double z = (double) this.zCoord + 0.5D;
 				
-				if (subBlock == 5) { // Clock top
+				int time = (int)this.worldObj.getWorldTime();
+				int hour = ((time / 1000)+6) % 24;
+				int min = (time - (time/1000)*1000) * 60 / 1000;
+				
+				if (!soundDongClock && (hour == 0 || hour == 12) && min == 0) {
+					soundDongClock = true;
+					this.worldObj.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":clock-dong", 0.15F, this.worldObj.rand.nextFloat() * 0.1F + 0.8F);
+				}
+				if (min != 0) {
+					soundDongClock = false;
+				}
+				
+				if (System.currentTimeMillis() - this.soundTimeClock >= 2000) { // gestion du tic tac
+					this.worldObj.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":clock-tick", 0.25F, this.worldObj.rand.nextFloat() * 0.1F + 0.8F);
+					this.soundTimeClock = System.currentTimeMillis();
 					
-					double x = (double) this.xCoord + 0.5D;
-					double y = (double) this.yCoord + 0.5D;
-					double z = (double) this.zCoord + 0.5D;
-					
-					int time = (int)this.worldObj.getWorldTime();
-					int hour = ((time / 1000)+6) % 24;
-					int min = (time - (time/1000)*1000) * 60 / 1000;
-					
-					if (!soundDongClock && (hour == 0 || hour == 12) && min == 0) {
-						soundDongClock = true;
-						this.worldObj.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":clock-dong", 0.15F, this.worldObj.rand.nextFloat() * 0.1F + 0.8F);
-					}
-					if (min != 0) {
-						soundDongClock = false;
-					}
-					
-					if (System.currentTimeMillis() - this.soundTimeClock >= 2000) { // gestion du tic tac
-						this.worldObj.playSoundEffect(x, y, z, ModJammyFurniture.MODID.toLowerCase()+":clock-tick", 0.25F, this.worldObj.rand.nextFloat() * 0.1F + 0.8F);
-						this.soundTimeClock = System.currentTimeMillis();
-						
-					}
 				}
 			}
 		}

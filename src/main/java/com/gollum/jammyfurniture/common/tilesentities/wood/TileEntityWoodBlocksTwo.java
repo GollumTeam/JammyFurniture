@@ -1,11 +1,9 @@
 package com.gollum.jammyfurniture.common.tilesentities.wood;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.INetworkManager;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.Packet132TileEntityData;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.jammyfurniture.ModJammyFurniture;
@@ -25,7 +23,8 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	/**
 	 * Returns the name of the inventory.
 	 */
-	public String getInvName() {
+	@Override
+	public String getInventoryName() {
 		return ModJammyFurniture.i18n.trans("Cupboard");
 	}
 	
@@ -38,6 +37,7 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	 * e.g. the mob spawner uses this to count ticks and creates a new spawn
 	 * inside its implementation.
 	 */
+	@Override
 	public void updateEntity() {
 		super.updateEntity ();
 		if (this.tvIsOn () && (System.currentTimeMillis() - this.tvOn) > 6500) { // 6 seconde
@@ -86,11 +86,11 @@ public class TileEntityWoodBlocksTwo extends GCLInventoryTileEntity {
 	public Packet getDescriptionPacket() {
 		NBTTagCompound nbttagcompound = new NBTTagCompound();
 		this.writeToNBT(nbttagcompound);
-		return new Packet132TileEntityData(this.xCoord, this.yCoord,this.zCoord, 0, nbttagcompound);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord,this.zCoord, 0, nbttagcompound);
 	}
 	
 	@Override
-	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
-		this.readFromNBT(pkt.data);
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		this.readFromNBT(pkt.func_148857_g());
 	}
 }

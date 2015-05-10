@@ -2,9 +2,9 @@ package com.gollum.jammyfurniture.common.tilesentities.iron;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.INetworkManager;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.Packet132TileEntityData;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
@@ -83,7 +83,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	 * Returns the name of the inventory.
 	 */
 	@Override
-	public String getInvName() {
+	public String getInventoryName() {
 		
 		switch (this.getSubBlock()) {
 			case 0:  return ModJammyFurniture.i18n.trans("Fridge");
@@ -172,7 +172,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 							
 							--this.inventory[INDEX_SLOT_BURN].stackSize;
 							if (this.inventory[INDEX_SLOT_BURN].stackSize == 0) {
-								this.inventory[INDEX_SLOT_BURN] = this.inventory[INDEX_SLOT_BURN].getItem().getContainerItemStack(this.inventory[INDEX_SLOT_BURN]);
+								this.inventory[INDEX_SLOT_BURN] = this.inventory[INDEX_SLOT_BURN].getItem().getContainerItem(this.inventory[INDEX_SLOT_BURN]);
 							}
 						}
 					}
@@ -252,17 +252,20 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		nbtTagCompound.setShort("rubishBinOrientation", this.rubishBinOrientation);
 	}
 	
-	@Override
-	public Packet getDescriptionPacket() {
-		 NBTTagCompound nbttagcompound = new NBTTagCompound();
-		this.writeToNBT(nbttagcompound);
-		return new Packet132TileEntityData(this.xCoord, this.yCoord, this.zCoord, 0, nbttagcompound);
-	 }
+	/////////////
+	// Network //
+	/////////////
 	
 	@Override
-	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
-		 this.readFromNBT(pkt.data);
-		 this.worldObj.markBlockRangeForRenderUpdate(this.xCoord, this.yCoord, this.zCoord, this.xCoord, this.yCoord, this.zCoord);
+	public Packet getDescriptionPacket() {
+		NBTTagCompound nbttagcompound = new NBTTagCompound();
+		this.writeToNBT(nbttagcompound);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord,this.zCoord, 0, nbttagcompound);
+	}
+	
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		this.readFromNBT(pkt.func_148857_g());
 	}
 	
 	////////////

@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.crafting;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -25,8 +26,8 @@ public class CeramicBlocksOneRecipes {
 	}
 	
 	private CeramicBlocksOneRecipes() {
-		this.addSmelting(Item.bucketEmpty, new ItemStack(Item.bucketWater, 1, 0));
-		this.addSmelting(Item.glassBottle, new ItemStack(Item.potion, 1, 0));
+		this.addSmelting(Items.bucket      , new ItemStack(Items.water_bucket, 1, 0));
+		this.addSmelting(Items.glass_bottle, new ItemStack(Items.potionitem, 1, 0));
 	}
 
 	
