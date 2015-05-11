@@ -31,14 +31,14 @@
 			<location>ROOT_LOC/src</location>
 		</link>
 		<link>
-			<name>GollumCoreLib</name>
-			<type>2</type>
-			<location>ROOT_LOC/GollumCoreLib</location>
-		</link>
-		<link>
 			<name>vendors</name>
 			<type>2</type>
 			<location>MCP_LOC/src/minecraft</location>
+		</link>
+		<link>
+			<name>GollumCoreLib</name>
+			<type>2</type>
+			<locationURI>ROOT_LOC/GollumCoreLib</locationURI>
 		</link>
 	</linkedResources>
 	<filteredResources>
