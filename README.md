@@ -11,6 +11,6 @@ For install :
 <pre>
 git submodule update --init
 ./gradlew setupDecompWorkspace
-./gradlew eclipse
 ./gradlew build
+./gradlew eclipse
 <pre>
