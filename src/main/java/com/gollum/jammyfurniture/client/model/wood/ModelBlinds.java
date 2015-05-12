@@ -176,11 +176,33 @@ public class ModelBlinds extends ModelBase implements JFIModel {
 		this.shape14.render(f5);
 		this.shape15.render(f5);
 	}
-
+	
+	public void renderModelHalfOpen(float f) {
+		
+		this.shape1.rotateAngleX = 26.0F;
+		this.shape2.rotateAngleX = 26.0F;
+		this.shape3.rotateAngleX = 26.0F;
+		this.shape4.rotateAngleX = 26.0F;
+		this.shape5.rotateAngleX = 26.0F;
+		this.shape6.rotateAngleX = 26.0F;
+		this.shape7.rotateAngleX = 26.0F;
+		this.shape8.rotateAngleX = 26.0F;
+		this.shape9.rotateAngleX = 26.0F;
+		this.shape10.rotateAngleX = 26.0F;
+		this.shape11.rotateAngleX = 26.0F;
+		this.shape12.rotateAngleX = 26.0F;
+		this.shape13.rotateAngleX = 26.0F;
+		this.shape14.rotateAngleX = 26.0F;
+		this.shape15.rotateAngleX = 26.0F;
+		this.shape16.rotateAngleX = 26.0F;
+		this.renderModel(f);
+		
+	}
+	
 	public void renderModelClosed(float f5) {
 		this.modelClosed.render(f5);
 	}
-
+	
 	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
@@ -196,4 +218,6 @@ public class ModelBlinds extends ModelBase implements JFIModel {
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 	}
+
+	
 }

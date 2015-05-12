@@ -91,8 +91,7 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 		}
 		return "armchair";
 	}
-
-
+	
 	private JFIModel getModel(TileEntity tileentity) {
 		if (tileentity instanceof TileEntitySofaCenter) {
 			return this.modelSofaCenter;
