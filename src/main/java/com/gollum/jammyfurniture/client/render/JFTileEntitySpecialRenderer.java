@@ -15,7 +15,7 @@ import com.gollum.jammyfurniture.client.model.JFIModelDoor;
 
 public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRenderer {
 	private HashMap<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
-	protected boolean isInventory = true;
+	protected boolean isInventory;
 	protected boolean light = false;
 	protected boolean lightInventory = true;
 	protected double scale = 1.0;
@@ -28,16 +28,15 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		try {
 			
 			int metadata;
-			boolean invRender = false;
-		
-			if (tileEntity.getWorldObj() == null) {
+			this.isInventory = tileEntity.getWorldObj() == null;
+			
+			if (this.isInventory) {
 				metadata = JFInventoryRenderer.getCurrentMetadata();
-				invRender = true;
 			} else {
 				metadata = tileEntity.getBlockMetadata();
 			}
 			
-			this.renderTileEntityAt(tileEntity, x,  y, z, f, metadata, invRender);
+			this.renderTileEntityAt(tileEntity, x,  y, z, f, metadata);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,6 +59,20 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 	}
 	
 	protected void beforeRender(String textureName, double x, double y, double z, float rotation) {
+		
+		this.bindTexture(this.getTexture(textureName));
+		
+		if (this.isInventory && this.lightInventory) {
+			RenderHelper.enableGUIStandardItemLighting();
+		} else {
+			if (this.light) {
+				RenderHelper.disableStandardItemLighting();
+			} else {
+				RenderHelper.enableStandardItemLighting();
+			}
+		}
+		
+		GL11.glPushMatrix();
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.5F + (float)(this.isInventory ? this.scaleInventory : 1.0), (float) z + 0.5F);
 		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
@@ -74,18 +87,6 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GL11.glColor4f(1F, 1F, 1F, this.alpha);
-		}
-		
-		this.bindTexture(this.getTexture(textureName));
-		GL11.glPushMatrix();
-		if (this.isInventory && this.lightInventory) {
-			RenderHelper.enableGUIStandardItemLighting();
-		} else {
-			if (this.light) {
-				RenderHelper.disableStandardItemLighting();
-			} else {
-				RenderHelper.enableStandardItemLighting();
-			}
 		}
 	}
 	
@@ -104,6 +105,6 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		this.renderModel(model, textureName, x, y, z, rotation);
 	}
 	
-	protected abstract void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender);
+	protected abstract void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata);
 	
 }

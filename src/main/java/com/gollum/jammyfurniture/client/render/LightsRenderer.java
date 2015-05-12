@@ -15,7 +15,7 @@ public class LightsRenderer extends JFTileEntitySpecialRenderer {
 	private ModelOutsideLamp modelOutsideLamp = new ModelOutsideLamp();
 	private ModelTableLamp   modelTableLamp   = new ModelTableLamp();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockLightsOn).getEnabledMetadata(metadata);
@@ -31,8 +31,10 @@ public class LightsRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
+		} else {
+			this.light = tileEntity instanceof TileEntityLightsOn;
 		}
 		
 		String status = (tileEntity instanceof TileEntityLightsOn) ? "_on" : "_off";

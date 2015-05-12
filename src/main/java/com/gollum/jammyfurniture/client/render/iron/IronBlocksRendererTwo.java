@@ -14,7 +14,7 @@ public class IronBlocksRendererTwo extends JFTileEntitySpecialRenderer {
 	private ModelDishwasher     modelDishwasher      = new ModelDishwasher();
 	private ModelWashingMachine modelWashingMachine = new ModelWashingMachine();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 
 		TileEntityIronBlocksTwo tileentityIron = (TileEntityIronBlocksTwo)tileEntity;
 		
@@ -36,7 +36,7 @@ public class IronBlocksRendererTwo extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		

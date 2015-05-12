@@ -20,7 +20,7 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	private long lastSwitch = 0;
 	private boolean switchTvTexture = false;
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksTwo).getEnabledMetadata(metadata);
@@ -42,14 +42,14 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		
 		switch (subBlock) {
 			default:
-			case 0: this.renderModel(this.modelKitchenCupboard, "kitchencupboardnotop", x, y, z, rotation); break;
-			case 4: this.renderModel(this.modelKitchenCupboard, "kitchencupboard"     , x, y, z, rotation); break;
+			case 0:  this.renderModel(this.modelKitchenCupboard, "kitchencupboardnotop", x, y, z, rotation); break;
+			case 4:  this.renderModel(this.modelKitchenCupboard, "kitchencupboard"     , x, y, z, rotation); break;
 			case 8:
 				String textureTv = "tv";
 				if (((TileEntityWoodBlocksTwo)tileentity).tvIsOn()) {

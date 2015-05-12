@@ -23,7 +23,7 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 	private ModelStandBase      modelStandBase      = new ModelStandBase();
 	private ModelBlinds blinds = new ModelBlinds();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 
 		TileEntityWoodBlocksFour tileEntityWood = (TileEntityWoodBlocksFour)tileEntity;
 		int subBlock = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getEnabledMetadata(metadata);
@@ -50,7 +50,7 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			this.renderInInventory(subBlock, x, y, z);
 			return;
 		}
@@ -75,7 +75,7 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 			case 9:
 			case 10:
 			case 11:
-				this.renderModel(new ModelStandBase(), "coatstandbase", x, y, z, rotation);
+				this.renderModel(this.modelStandBase, "coatstandbase", x, y, z, rotation);
 				break;
 			case 12:
 			case 13:

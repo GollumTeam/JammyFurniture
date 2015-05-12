@@ -5,13 +5,11 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
 import com.gollum.jammyfurniture.client.model.wood.ModelChair;
 import com.gollum.jammyfurniture.client.model.wood.ModelRadio;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -19,7 +17,7 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 	private ModelRadio  radio = new ModelRadio();
 	private ModelBlinds blinds = new ModelBlinds();
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		
@@ -43,11 +41,11 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		
-
+		
 		switch (metadata) {
 			default:
 			case 0:

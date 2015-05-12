@@ -17,7 +17,7 @@ public abstract class JFMobHeadsRenderer extends JFTileEntitySpecialRenderer {
 		this.textures = textures;
 	}
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 
 		float rotation = 0;
 		
@@ -41,7 +41,7 @@ public abstract class JFMobHeadsRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 

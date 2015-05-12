@@ -18,7 +18,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	private ModelRubbishBin  modelRubbishBin  = new ModelRubbishBin();
 	private ModelCoffeeTable modelCoffeetable = new ModelCoffeeTable();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 		
 		TileEntityIronBlocksOne tileEntityIron = (TileEntityIronBlocksOne)tileEntity;
 		
@@ -42,7 +42,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		
@@ -62,12 +62,12 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 		default:
 			case 0:  
 				this.modelFridge.setFridge();
-				this.renderModel(this.modelFridge, "fridge", x, y, z, (invRender) ? 0 : rotation, doorProgess);
+				this.renderModel(this.modelFridge, "fridge", x, y, z, (this.isInventory) ? 0 : rotation, doorProgess);
 				break;
 
 			case 4:  
 				this.modelFridge.setFreezer();
-				this.renderModel(this.modelFridge, "freezer", x, y, z, (invRender) ? 0 : rotation, doorProgess);
+				this.renderModel(this.modelFridge, "freezer", x, y, z, (this.isInventory) ? 0 : rotation, doorProgess);
 				break;
 			case 8:  this.renderModel(this.modelCooker     , "cooker"     , x, y, z, rotation, doorProgess); break;
 			case 12: this.renderModel(this.modelRubbishBin , "rubbishbin" , x, y, z, rotation, doorProgess); break;

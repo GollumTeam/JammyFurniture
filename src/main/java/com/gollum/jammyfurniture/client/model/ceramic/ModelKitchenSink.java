@@ -168,6 +168,11 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 		this.tapOut2.render(f5);
 		this.pipeDown.render(f5);
 		this.pipeAcross.render(f5);
+	}
+	
+	public void renderWatter(boolean open, float f5) {
+		this.water0.showModel = open;
+		this.water1.showModel = open;
 		this.water0.render(f5);
 		this.water1.render(f5);
 	}
@@ -188,8 +193,4 @@ public class ModelKitchenSink extends ModelBase implements JFIModel {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 	}
 	
-	public void setDisplayWater (boolean display) {
-		this.water0.showModel = display;
-		this.water1.showModel = display;
-	}
 }

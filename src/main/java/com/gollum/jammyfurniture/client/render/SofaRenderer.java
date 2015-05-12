@@ -23,7 +23,7 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	private ModelSofaRight  modelSofaRight  = new ModelSofaRight();
 	private ModelSofaLeft   modelSofaLeft   = new ModelSofaLeft();
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockArmChair).getEnabledMetadata(metadata);
@@ -48,29 +48,17 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		
 		String texture;
-		switch (metadata) {
+		switch (subBlock) {
 			default:
-			case 0:  
-			case 1:  
-			case 2:  
-			case 3:  texture = this.getPrefrixeTexture (tileentity)+"_red"; break;
-			case 4:  
-			case 5:  
-			case 6:  
-			case 7:  texture = this.getPrefrixeTexture (tileentity)+"_blue"; break;
-			case 8:  
-			case 9:  
-			case 10: 
-			case 11: texture = this.getPrefrixeTexture (tileentity)+"_green"; break;
-			case 12:  
-			case 13:  
-			case 14:  
-			case 15: texture = this.getPrefrixeTexture (tileentity)+"_grey"; break;
+			case 0:  texture = this.getPrefrixeTexture (tileentity)+"_red"; break;
+			case 4:  texture = this.getPrefrixeTexture (tileentity)+"_blue"; break;
+			case 8:  texture = this.getPrefrixeTexture (tileentity)+"_green"; break;
+			case 12: texture = this.getPrefrixeTexture (tileentity)+"_grey"; break;
 		}
 		
 		this.renderModel(this.getModel(tileentity), texture, x, y, z, rotation);
@@ -91,7 +79,8 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 		}
 		return "armchair";
 	}
-	
+
+
 	private JFIModel getModel(TileEntity tileentity) {
 		if (tileentity instanceof TileEntitySofaCenter) {
 			return this.modelSofaCenter;
@@ -107,7 +96,5 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 		}
 		return this.modelArmChair;
 	}
-	
-	
 	
 }
