@@ -86,30 +86,12 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 		}
 	}
 	
-
 	private void renderInInventory(int subBlock, double x, double y, double z) {
 		switch (subBlock) {
 			default:
 			case 0:
-				ResourceLocation texture = this.getTexture("cupboard");
-				GL11.glPushMatrix();
-				GL11.glTranslatef((float) x + 0.5F, (float) y + 2.0F, (float) z + 0.5F);
-				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
-				GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-				this.bindTexture(texture);
-				GL11.glPushMatrix();
-				this.modelCupboardTop.renderModel(0.0625F);
-				GL11.glPopMatrix();
-				GL11.glPopMatrix();
-				GL11.glPushMatrix();
-				GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
-				GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
-				GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-				this.bindTexture(texture);
-				GL11.glPushMatrix();
-				this.modelCupboardBottom.renderModel(0.0625F);
-				GL11.glPopMatrix();
-				GL11.glPopMatrix();
+				this.renderModel(this.modelCupboardTop   , "cupboard", x, y + 1.0F, z, 180.0F);
+				this.renderModel(this.modelCupboardBottom, "cupboard", x, y       , z, 180.0F);
 				break;
 			case 8:
 				this.renderModel(this.modelStandTop, "coatstandtop", x, y, z, 180.0F);

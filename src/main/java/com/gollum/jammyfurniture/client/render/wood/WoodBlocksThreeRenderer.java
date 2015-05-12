@@ -45,7 +45,7 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 			rotation = 180;
 		}
 		
-
+		
 		switch (metadata) {
 			default:
 			case 0:
@@ -77,50 +77,17 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 				break;
 		}
 	}
+	
 	private void renderModelBlindsCloses(double x, double y, double z, float rotation) {
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		ResourceLocation texture = this.getTexture("blinds");
-		if (texture != null) {
-			this.bindTexture(texture);
-		} else {
-			ModJammyFurniture.log.warning("Error load texture model : blinds");
-		}
-		GL11.glPushMatrix();
+		this.beforeRender("blinds", x, y, z, rotation);
 		this.blinds.renderModelClosed(0.0625F);
-		GL11.glPopMatrix();
-		GL11.glPopMatrix();
+		this.endRender();
 	}
-
+	
 	private void renderModelBlindsHalfOpen(double x, double y, double z, float rotation) {
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		ResourceLocation texture = this.getTexture("blinds");
-		if (texture != null) this.bindTexture(texture);
-		GL11.glPushMatrix();
-		this.blinds.shape1.rotateAngleX = 26.0F;
-		this.blinds.shape2.rotateAngleX = 26.0F;
-		this.blinds.shape3.rotateAngleX = 26.0F;
-		this.blinds.shape4.rotateAngleX = 26.0F;
-		this.blinds.shape5.rotateAngleX = 26.0F;
-		this.blinds.shape6.rotateAngleX = 26.0F;
-		this.blinds.shape7.rotateAngleX = 26.0F;
-		this.blinds.shape8.rotateAngleX = 26.0F;
-		this.blinds.shape9.rotateAngleX = 26.0F;
-		this.blinds.shape10.rotateAngleX = 26.0F;
-		this.blinds.shape11.rotateAngleX = 26.0F;
-		this.blinds.shape12.rotateAngleX = 26.0F;
-		this.blinds.shape13.rotateAngleX = 26.0F;
-		this.blinds.shape14.rotateAngleX = 26.0F;
-		this.blinds.shape15.rotateAngleX = 26.0F;
-		this.blinds.shape16.rotateAngleX = 26.0F;
-		this.blinds.renderModel(0.0625F);
-		GL11.glPopMatrix();
-		GL11.glPopMatrix();
+		this.beforeRender("blinds", x, y, z, rotation);
+		this.blinds.renderModelHalfOpen(0.0625F);
+		this.endRender();
 	}
 	
 }
