@@ -27,6 +27,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * Returns a new instance of a block's tile entity class. Called on placing
 	 * the block.
 	 */
+	@Override
 	public TileEntity createNewTileEntity(World world) {
 		try {
 			return (TileEntity) this.tileEntityClass.newInstance();
@@ -38,10 +39,12 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	/////////////
 	// Texture //
 	/////////////
-	
+
+	@Override
 	public String getTextureKey() {
 		return this.textureKey;
 	}
+	
 	/**
 	 * Enregistre les textures
 	 * Depuis la 1.5 on est obligé de charger les texture fichier par fichier
@@ -105,6 +108,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * or not to render the shared face of two adjacent blocks and also whether
 	 * the player can attach torches, redstone wire, etc to this block.
 	 */
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
@@ -113,6 +117,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * If this block doesn't render as an ordinary block it will return False
 	 * (examples: signs, buttons, stairs, etc)
 	 */
+	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}

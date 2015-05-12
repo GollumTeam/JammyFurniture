@@ -132,6 +132,11 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 		this.tapEnd1.render(f5);
 		this.tapBase2.render(f5);
 		this.tapEnd2.render(f5);
+	}
+	
+	public void renderWatter(boolean open, float f5) {
+		this.water0.showModel = open;
+		this.water1.showModel = open;
 		this.water0.render(f5);
 		this.water1.render(f5);
 	}
@@ -151,10 +156,6 @@ public class ModelBathroomSink extends ModelBase implements JFIModel {
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 	}
-	
-	public void setDisplayWater (boolean display) {
-		this.water0.showModel = display;
-		this.water1.showModel = display;
-	}
+
 	
 }

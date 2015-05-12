@@ -17,7 +17,7 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 	private ModelRadio  radio = new ModelRadio();
 	private ModelBlinds blinds = new ModelBlinds();
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		
@@ -41,7 +41,7 @@ public class WoodBlocksThreeRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		

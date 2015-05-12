@@ -11,7 +11,7 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 	
 	private static final ModelBath modelBath = new ModelBath();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		
@@ -29,7 +29,7 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			
 			renderInInventory(x, y, z);
 			
@@ -44,40 +44,21 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 	}
 
 	private void renderModel(double x, double y, double z, float rotation, boolean left) {
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-		GL11.glRotatef((float) rotation, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		this.bindTexture(this.getTexture("bath"));
-		GL11.glPushMatrix();
+		this.beforeRender("bath", x, y, z, rotation);
 		if (left) {
 			this.modelBath.renderModelLeft(0.0625F);
 		} else {
 			this.modelBath.renderModelRight(0.0625F);
 		}
-		GL11.glPopMatrix();
-		GL11.glPopMatrix();
+		this.endRender();
 	}
 	
 	private void renderInInventory(double x, double y, double z) {
-		ResourceLocation texture = this.getTexture("bath");
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-		GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		this.bindTexture(texture);
-		GL11.glPushMatrix();
+		this.beforeRender("bath", x, y, z + 1.0F, 90.0F);
 		this.modelBath.renderModelLeft(0.0625F);
-		GL11.glPopMatrix();
-		GL11.glPopMatrix();
-		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 1.5F);
-		GL11.glRotatef(270.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
-		this.bindTexture(texture);
-		GL11.glPushMatrix();
+		this.endRender();
+		this.beforeRender("bath", x, y, z + 1.0F, 270.0F);
 		this.modelBath.renderModelRight(0.0625F);
-		GL11.glPopMatrix();
-		GL11.glPopMatrix();
+		this.endRender();
 	}
 }

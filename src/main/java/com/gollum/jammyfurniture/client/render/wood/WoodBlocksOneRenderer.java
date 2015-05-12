@@ -27,7 +27,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	private ModelTable       modelTable       = new ModelTable();
 	private int numDial = 0;
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksOne).getEnabledMetadata(metadata);
@@ -49,7 +49,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 

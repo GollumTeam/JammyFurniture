@@ -19,7 +19,7 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	private ModelKitchenSink      modelKitchenSink      = new ModelKitchenSink();
 	private ModelToilet           modelToilet           = new ModelToilet();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata, boolean invRender) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
 		
 		TileEntityCeramicBlocksOne tileentityCeramic = (TileEntityCeramicBlocksOne)tileEntity;
 		
@@ -46,7 +46,7 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 				rotation = 270; break;
 		}
 		
-		if (invRender) {
+		if (this.isInventory) {
 			rotation = 180;
 		}
 		
@@ -56,13 +56,31 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 			default:
 			case 0:  this.renderModel(this.modelBathroomCupboard, "bathroomcupboard", x, y, z, rotation, doorProgess); break;
 			case 4:  
-				this.modelBathroomSink.setDisplayWater (tileentityCeramic.waterIsOn());
-				this.renderModel(this.modelBathroomSink    , "sink"            , x, y, z, (invRender) ? 270 : rotation); break;
+				this.renderModel(this.modelBathroomSink, "sink", x, y, z, (this.isInventory) ? 270 : rotation);
+				this.renderModelBathroomWater(tileentityCeramic.waterIsOn(), x, y, z, rotation);
+				break;
 			case 8:  
-				this.modelKitchenSink.setDisplayWater (tileentityCeramic.waterIsOn());
-				this.renderModel(this.modelKitchenSink     , "kitchensink"     , x, y, z, rotation); break;
-			case 12: this.renderModel(this.modelToilet          , "toilet"          , x, y, z, rotation); break;
+				this.renderModel(this.modelKitchenSink, "kitchensink", x, y, z, rotation); 
+				this.renderModelKitchenWater(tileentityCeramic.waterIsOn(), x, y, z, rotation);
+				break;
+			case 12: this.renderModel(this.modelToilet, "toilet", x, y, z, rotation); break;
 		}
 		
+	}
+	
+	private void renderModelBathroomWater(boolean open, double x, double y, double z, float rotation) {
+		this.alpha = 0.60f;
+		this.beforeRender("sink", x, y, z, rotation);
+		this.modelBathroomSink.renderWatter(open, 0.0625F);
+		this.endRender();
+		this.alpha = 1.0f;
+	}
+	
+	private void renderModelKitchenWater(boolean open, double x, double y, double z, float rotation) {
+		this.alpha = 0.60f;
+		this.beforeRender("kitchensink", x, y, z, rotation);
+		this.modelKitchenSink.renderWatter(open, 0.0625F);
+		this.endRender();
+		this.alpha = 1.0f;
 	}
 }
