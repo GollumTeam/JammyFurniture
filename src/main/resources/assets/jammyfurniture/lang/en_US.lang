@@ -7,7 +7,7 @@ item.CeramicPanel.name=Ceramic Panel
 item.WMDrum.name=Washing Machine Drum
 item.BlindPart.name=Blind Part
 
-tile.BathBlock.name=Bath
+tile.Bath.name=Bath
 tile.LightsOn.0.name=Light
 tile.LightsOn.4.name=Outdoor Lamp
 tile.LightsOn.8.name=Table Lamp

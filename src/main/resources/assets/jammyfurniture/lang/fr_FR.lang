@@ -7,7 +7,7 @@ item.CeramicPanel.name=Plaque en céramique
 item.WMDrum.name=Lessive
 item.BlindPart.name=Lamelle de stores
 
-tile.BathBlock.name=Bainoire
+tile.Bath.name=Bainoire
 tile.LightsOn.0.name=Luminaire
 tile.LightsOn.4.name=Lampe d'extérieur
 tile.LightsOn.8.name=Lampe de chevet

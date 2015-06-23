@@ -54,10 +54,10 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 	}
 	
 	private void renderInInventory(double x, double y, double z) {
-		this.beforeRender("bath", x, y, z + 1.0F, 90.0F);
+		this.beforeRender("bath", x, y, z-0.3F, 90.0F);
 		this.modelBath.renderModelLeft(0.0625F);
 		this.endRender();
-		this.beforeRender("bath", x, y, z + 1.0F, 270.0F);
+		this.beforeRender("bath", x, y, z + 0.7F, 270.0F);
 		this.modelBath.renderModelRight(0.0625F);
 		this.endRender();
 	}
