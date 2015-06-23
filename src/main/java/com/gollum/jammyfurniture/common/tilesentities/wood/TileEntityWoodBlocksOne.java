@@ -22,6 +22,7 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	/**
 	 * Returns the name of the inventory.
 	 */
+	@Override
 	public String getInvName() {
 		return ModJammyFurniture.i18n.trans("Hidey Hole");
 	}
@@ -36,6 +37,7 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	 * e.g. the mob spawner uses this to count ticks and creates a new spawn
 	 * inside its implementation.
 	 */
+	@Override
 	public void updateEntity() {
 		
 		super.updateEntity();

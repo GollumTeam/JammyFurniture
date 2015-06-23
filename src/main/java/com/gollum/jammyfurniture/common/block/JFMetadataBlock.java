@@ -39,7 +39,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	/////////////
 	// Texture //
 	/////////////
-
+	
 	@Override
 	public String getTextureKey() {
 		return this.textureKey;

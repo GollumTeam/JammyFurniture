@@ -252,6 +252,10 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		nbtTagCompound.setShort("rubishBinOrientation", this.rubishBinOrientation);
 	}
 	
+	/////////////
+	// Network //
+	/////////////
+	
 	@Override
 	public Packet getDescriptionPacket() {
 		 NBTTagCompound nbttagcompound = new NBTTagCompound();

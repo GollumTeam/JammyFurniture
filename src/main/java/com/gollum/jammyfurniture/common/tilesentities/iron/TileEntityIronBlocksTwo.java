@@ -45,6 +45,7 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	/**
 	 * Returns the name of the inventory.
 	 */
+	@Override
 	public String getInvName() {
 
 		switch (this.getSubBlock()) {
@@ -84,6 +85,7 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	 * e.g. the mob spawner uses this to count ticks and creates a new spawn
 	 * inside its implementation.
 	 */
+	@Override
 	public void updateEntity() {
 		
 		super.updateEntity();
@@ -229,6 +231,10 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 		nbtTagCompound.setShort("slot3Time", (short) this.slot3Time);
 		
 	}
+	
+	/////////////
+	// Network //
+	/////////////
 	
 	@Override
 	public Packet getDescriptionPacket() {
