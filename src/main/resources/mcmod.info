@@ -6,7 +6,7 @@
 	"logoFile": "logo_jammyfurniture.png",
 	"version": "5.0.0",
 	"url": "http://www.smeagol-mods.com",
-	"mcversion": "1.7.10",
+	"mcversion": "1.7.2",
 	"authorList": ["SmeagolWorms4", "Jammy780", "ITOS", "Redori"],
 	"requiredMods": ["GollumCoreLib"]
 }
