@@ -31,7 +31,7 @@ tile.WoodBlocksThree.4.name=Radio
 tile.WoodBlocksFour.0.name=Armoire
 tile.WoodBlocksFour.8.name=Porte-Manteau
 
-tile.IronBlocksOne.0.name=Frigo
+tile.IronBlocksOne.0.name=Réfrigérateur
 tile.IronBlocksOne.4.name=Congélateur
 tile.IronBlocksOne.8.name=Cuisinière
 tile.IronBlocksOne.12.name=Poubelle
@@ -91,7 +91,7 @@ tile.SofaCorner.4.name=Canapé (Coin)
 tile.SofaCorner.8.name=Canapé (Coin)
 tile.SofaCorner.12.name=Canapé (Coin)
 
-jammyfurniture.Fridge=Frigo
+jammyfurniture.Fridge=Réfrigérateur
 jammyfurniture.Freezer=Congélateur
 jammyfurniture.Cooker=Cuisinière
 jammyfurniture.Rubbish Bin=Poubelle
