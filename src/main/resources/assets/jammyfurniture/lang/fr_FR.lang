@@ -18,7 +18,7 @@ tile.WoodBlocksOne.5.name=Horloge
 tile.WoodBlocksOne.9.name=Stores
 tile.WoodBlocksOne.13.name=Plaque de'établi
 tile.WoodBlocksOne.14.name=Plaque de travail
-tile.WoodBlocksOne.15.name=Table basse
+tile.WoodBlocksOne.15.name=Table
 tile.WoodBlocksTwo.0.name=Placard de cuisine
 tile.WoodBlocksTwo.4.name=Placard de cuisine (Étagère)
 tile.WoodBlocksTwo.8.name=Télévision
@@ -35,7 +35,7 @@ tile.IronBlocksOne.0.name=Réfrigérateur
 tile.IronBlocksOne.4.name=Congélateur
 tile.IronBlocksOne.8.name=Cuisinière
 tile.IronBlocksOne.12.name=Poubelle
-tile.IronBlocksOne.13.name=Coffee Table
+tile.IronBlocksOne.13.name=Table basse
 tile.IronBlocksTwo.0.name=Lave-vaisselle
 tile.IronBlocksTwo.4.name=Machine à laver
 
