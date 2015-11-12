@@ -48,7 +48,7 @@ public class ModJammyFurniture extends GollumMod {
 
 	public final static String MODID = "JammyFurniture";
 	public final static String MODNAME = "Jammy Furniture";
-	public final static String VERSION = "5.0.0DEV [Build Smeagol]";
+	public final static String VERSION = "5.0.0 [Build Smeagol]";
 	public final static String MINECRAFT_VERSION = "1.6.4";
 	public final static String DEPENDENCIES = "required-after:"+ModGollumCoreLib.MODID;
 	
