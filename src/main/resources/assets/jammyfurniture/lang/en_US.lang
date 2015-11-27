@@ -114,3 +114,20 @@ jammyfurniture.clock.dusk=It's dusk.
 jammyfurniture.clock.midnight=It's midnight, I wouldn't go outside if I were you!
 jammyfurniture.clock.night=It's night.
 jammyfurniture.clock.dawn=It's dawn.
+
+jammyfurniture.config.HeadSounds=Sound's Head
+jammyfurniture.config.soundHeadChicken=Chicken Head
+jammyfurniture.config.soundHeadCow=Cow Head
+jammyfurniture.config.soundHeadCreeper=Creeper Head
+jammyfurniture.config.soundHeadPig=Pig Head
+jammyfurniture.config.soundHeadSheep=Sheep Head
+jammyfurniture.config.soundHeadSkeleton=Skeleton Head
+jammyfurniture.config.soundHeadSpider=Spider Head
+jammyfurniture.config.soundHeadSteve=Steve Head
+jammyfurniture.config.soundHeadWolf= Wolf Head
+jammyfurniture.config.soundHeadZombie=Zombie Head
+jammyfurniture.config.soundHeadEnderman=Enderman Head
+jammyfurniture.config.soundHeadSlim= Slime Head
+jammyfurniture.config.soundHeadBlaze=Blaze Head
+jammyfurniture.config.soundHeadZombiepig=Zombie Pig Head
+
