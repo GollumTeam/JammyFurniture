@@ -1,6 +1,7 @@
 package com.gollum.jammyfurniture.common.block.head;
 
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsThree;
 

@@ -3,17 +3,15 @@ package com.gollum.jammyfurniture.common.building.handler;
 import java.util.HashMap;
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityCommandBlock;
-import net.minecraft.world.World;
-
 import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.building.Builder;
 import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 	

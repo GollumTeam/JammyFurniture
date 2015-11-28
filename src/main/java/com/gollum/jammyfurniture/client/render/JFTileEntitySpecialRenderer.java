@@ -2,16 +2,16 @@ package com.gollum.jammyfurniture.client.render;
 
 import java.util.HashMap;
 
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.model.JFIModel;
 import com.gollum.jammyfurniture.client.model.JFIModelDoor;
+
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 
 public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRenderer {
 	private HashMap<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();

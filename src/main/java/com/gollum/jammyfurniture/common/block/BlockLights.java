@@ -1,5 +1,12 @@
 package com.gollum.jammyfurniture.common.block;
 
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -9,14 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
-import com.gollum.jammyfurniture.inits.ModBlocks;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockLights extends JFMetadataBlock {
 	

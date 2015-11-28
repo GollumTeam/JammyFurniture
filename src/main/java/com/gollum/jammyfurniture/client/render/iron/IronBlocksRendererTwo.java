@@ -1,13 +1,13 @@
 package com.gollum.jammyfurniture.client.render.iron;
 
-import net.minecraft.tileentity.TileEntity;
-
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.iron.ModelDishwasher;
 import com.gollum.jammyfurniture.client.model.iron.ModelWashingMachine;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import net.minecraft.tileentity.TileEntity;
 
 public class IronBlocksRendererTwo extends JFTileEntitySpecialRenderer {
 	

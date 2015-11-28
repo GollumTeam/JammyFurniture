@@ -1,14 +1,14 @@
 package com.gollum.jammyfurniture.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
+import com.gollum.jammyfurniture.common.containers.ContainerCraftingSide;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
-import org.lwjgl.opengl.GL11;
-
-import com.gollum.jammyfurniture.common.containers.ContainerCraftingSide;
 
 public class GuiCraftingSide extends GuiContainer {
 	protected ResourceLocation texture = new ResourceLocation("textures/gui/container/crafting_table.png");

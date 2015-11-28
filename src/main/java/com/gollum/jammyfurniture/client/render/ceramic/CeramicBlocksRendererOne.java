@@ -1,7 +1,5 @@
 package com.gollum.jammyfurniture.client.render.ceramic;
 
-import net.minecraft.tileentity.TileEntity;
-
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.ceramic.ModelBathroomCupboard;
 import com.gollum.jammyfurniture.client.model.ceramic.ModelBathroomSink;
@@ -10,6 +8,8 @@ import com.gollum.jammyfurniture.client.model.ceramic.ModelToilet;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import net.minecraft.tileentity.TileEntity;
 
 public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	

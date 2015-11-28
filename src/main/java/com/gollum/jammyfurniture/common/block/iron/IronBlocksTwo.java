@@ -1,5 +1,9 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -8,10 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 public class IronBlocksTwo extends JFMetadataBlock {
 	

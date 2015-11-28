@@ -1,7 +1,5 @@
 package com.gollum.jammyfurniture.inits;
 
-import net.minecraft.block.Block;
-
 import com.gollum.core.inits.ModItems;
 import com.gollum.core.tools.registry.BuildingBlockRegistry;
 import com.gollum.jammyfurniture.common.block.BathBlock;
@@ -38,6 +36,8 @@ import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
+
+import net.minecraft.block.Block;
 
 public class ModBlocks {
 
