@@ -58,6 +58,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     
     compile files('GollumCoreLib/build/libs/GollumCoreLib-2.1.0-'+minecraft.version+'-unmapped.jar')
+    compile files('lib/Thaumcraft-deobf-1.7.10-4.2.3.5.jar')
+    compile files('lib/Baubles-deobf-1.7.10-1.0.1.10.jar')
 
 }
 
