@@ -1,15 +1,14 @@
 package com.gollum.jammyfurniture.common.building.handler;
 
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
 import com.gollum.core.ModGollumCoreLib;
 import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
+
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 	

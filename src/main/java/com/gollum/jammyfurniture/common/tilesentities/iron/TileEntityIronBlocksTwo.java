@@ -1,18 +1,18 @@
 package com.gollum.jammyfurniture.common.tilesentities.iron;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
-
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.crafting.DishwasherRecipes;
 import com.gollum.jammyfurniture.common.crafting.WashingMachineRecipes;
 import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	

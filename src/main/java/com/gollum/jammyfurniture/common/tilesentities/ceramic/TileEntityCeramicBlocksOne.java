@@ -1,12 +1,12 @@
 package com.gollum.jammyfurniture.common.tilesentities.ceramic;
 
+import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
+import com.gollum.jammyfurniture.ModJammyFurniture;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-
-import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
-import com.gollum.jammyfurniture.ModJammyFurniture;
 
 public class TileEntityCeramicBlocksOne extends GCLInventoryTileEntity {
 

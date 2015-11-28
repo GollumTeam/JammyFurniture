@@ -1,12 +1,12 @@
 package com.gollum.jammyfurniture.common.block.head;
 
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 
 public abstract class JFMobHeads extends JFMetadataBlock {
 

@@ -5,6 +5,12 @@ import java.util.Random;
 
 import javax.swing.Icon;
 
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.BlockMountable;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,12 +21,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class WoodBlocksThree extends JFMetadataBlock {
 	public static int rotation;

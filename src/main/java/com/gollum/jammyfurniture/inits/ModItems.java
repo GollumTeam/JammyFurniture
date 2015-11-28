@@ -1,13 +1,8 @@
 package com.gollum.jammyfurniture.inits;
 
-import static com.gollum.jammyfurniture.ModJammyFurniture.config;
-import net.minecraft.item.Item;
-
-import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.items.ItemBuilding;
-import com.gollum.core.common.items.ItemInfos;
-import com.gollum.core.common.items.ItemWrench;
 import com.gollum.core.tools.helper.items.HItem;
+
+import net.minecraft.item.Item;
 
 public class ModItems {
 

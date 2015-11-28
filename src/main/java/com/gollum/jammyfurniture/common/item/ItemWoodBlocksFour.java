@@ -1,13 +1,13 @@
 package com.gollum.jammyfurniture.common.item;
 
+import com.gollum.core.tools.helper.items.HItemBlockMetadata;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import com.gollum.core.tools.helper.items.HItemBlockMetadata;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class ItemWoodBlocksFour extends HItemBlockMetadata {
 	

@@ -1,10 +1,5 @@
 package com.gollum.jammyfurniture.client.render.wood;
 
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
 import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
 import com.gollum.jammyfurniture.client.model.wood.ModelCupboardBottom;
 import com.gollum.jammyfurniture.client.model.wood.ModelCupboardTop;
@@ -14,6 +9,8 @@ import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import net.minecraft.tileentity.TileEntity;
 
 public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 

@@ -1,6 +1,5 @@
 package com.gollum.jammyfurniture.inits;
 
-import com.gollum.core.common.tileentities.TileEntityBlockProximitySpawn;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;

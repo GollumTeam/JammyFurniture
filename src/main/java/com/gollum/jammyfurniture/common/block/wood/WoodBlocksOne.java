@@ -1,5 +1,10 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,11 +15,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class WoodBlocksOne extends JFMetadataBlock {
 	

@@ -1,5 +1,12 @@
 package com.gollum.jammyfurniture.common.block.ceramic;
 
+import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.BlockMountable;
+import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
+import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
+import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -11,13 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
-import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
-import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
-import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
 public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEvent {
 	

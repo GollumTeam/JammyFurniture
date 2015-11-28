@@ -1,14 +1,14 @@
 package com.gollum.jammyfurniture.client.gui;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
-
 import org.lwjgl.opengl.GL11;
 
 import com.gollum.jammyfurniture.common.containers.ContainerWashingMachine;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 public class GuiWashingMachine extends GuiContainer {
 

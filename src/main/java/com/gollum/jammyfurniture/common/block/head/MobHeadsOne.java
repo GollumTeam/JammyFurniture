@@ -1,5 +1,7 @@
 package com.gollum.jammyfurniture.common.block.head;
 
+import static com.gollum.jammyfurniture.ModJammyFurniture.config;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
 
@@ -55,13 +57,13 @@ public class MobHeadsOne extends JFMobHeads {
 		switch (subBlock) {
 			
 			case 0:
-				world.playSound((double) x, (double) y, (double) z, "mob.chicken.say", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadChicken, 1.0F, 1.0F, true);
 				return true;
 			case 4:
-				world.playSound((double) x, (double) y, (double) z, "mob.cow.say", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadCow, 1.0F, 1.0F, true);
 				return true;
 			case 8:
-				world.playSound((double) x, (double) y, (double) z, "random.fuse", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadCreeper, 1.0F, 1.0F, true);
 				return true;
 			default:
 		}

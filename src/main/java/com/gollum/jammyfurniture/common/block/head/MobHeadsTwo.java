@@ -1,5 +1,7 @@
 package com.gollum.jammyfurniture.common.block.head;
 
+import static com.gollum.jammyfurniture.ModJammyFurniture.config;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 
@@ -55,16 +57,16 @@ public class MobHeadsTwo extends JFMobHeads {
 		switch (subBlock) {
 			
 			case 0:
-				world.playSound((double) x, (double) y, (double) z, "mob.pig.say", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadPig, 1.0F, 1.0F, true);
 				return true;
 			case 4:
-				world.playSound((double) x, (double) y, (double) z, "mob.sheep.say", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadSheep, 1.0F, 1.0F, true);
 				return true;
 			case 8:
-				world.playSound((double) x, (double) y, (double) z, "mob.skeleton.say", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadSkeleton, 1.0F, 1.0F, true);
 				return true;
 			case 12:
-				world.playSound((double) x, (double) y, (double) z, "mob.spider.say", 1.0F, 1.0F, true);
+				world.playSound((double) x, (double) y, (double) z, config.soundHeadSpider, 1.0F, 1.0F, true);
 				return true;
 			default:
 		}

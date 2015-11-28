@@ -2,11 +2,6 @@ package com.gollum.jammyfurniture.client.render.wood;
 
 import java.util.Random;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.tileentity.TileEntity;
-
-import org.lwjgl.opengl.GL11;
-
 import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
 import com.gollum.jammyfurniture.client.model.wood.ModelClockBase;
@@ -16,6 +11,9 @@ import com.gollum.jammyfurniture.client.model.wood.ModelKitchenSide;
 import com.gollum.jammyfurniture.client.model.wood.ModelTable;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.tileentity.TileEntity;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	
