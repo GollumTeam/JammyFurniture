@@ -70,10 +70,10 @@ tile.MobHeadsFour.4.name=Slime Head
 tile.MobHeadsFour.8.name=Blaze Head
 tile.MobHeadsFour.12.name=Zombie Pig Head
 
-tile.ArmChair.0.name=Arm Chair
-tile.ArmChair.4.name=Arm Chair
-tile.ArmChair.8.name=Arm Chair
-tile.ArmChair.12.name=Arm Chair
+tile.ArmChair.0.name=Armchair
+tile.ArmChair.4.name=Armchair
+tile.ArmChair.8.name=Armchair
+tile.ArmChair.12.name=Armchair
 tile.SofaLeft.0.name=Sofa Part (Left)
 tile.SofaLeft.4.name=Sofa Part (Left)
 tile.SofaLeft.8.name=Sofa Part (Left)
