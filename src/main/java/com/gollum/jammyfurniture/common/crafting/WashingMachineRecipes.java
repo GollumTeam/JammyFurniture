@@ -1,7 +1,11 @@
 package com.gollum.jammyfurniture.common.crafting;
 
+import static com.gollum.jammyfurniture.ModJammyFurniture.log;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import com.gollum.core.tools.registered.RegisteredObjects;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -30,37 +34,48 @@ public class WashingMachineRecipes {
 		return smeltingBase;
 	}
 	
-
 	private WashingMachineRecipes() {
+		this.addSmelting(Items.leather_boots     , 1500);
+		this.addSmelting(Items.leather_helmet    , 1500);
+		this.addSmelting(Items.leather_chestplate, 1500);
+		this.addSmelting(Items.leather_leggings  , 1500);
 		
-		this.addSmelting(Items.leather_boots     , new ItemStack(Items.leather_boots     ), 1500);
-		this.addSmelting(Items.leather_helmet    , new ItemStack(Items.leather_helmet    ), 1500);
-		this.addSmelting(Items.leather_chestplate, new ItemStack(Items.leather_chestplate), 1500);
-		this.addSmelting(Items.leather_leggings  , new ItemStack(Items.leather_leggings  ), 1500);
+		this.addSmelting(Items.iron_boots     , 4000);
+		this.addSmelting(Items.iron_helmet    , 4000);
+		this.addSmelting(Items.iron_chestplate, 4000);
+		this.addSmelting(Items.iron_leggings  , 4000);
 		
-		this.addSmelting(Items.iron_boots     , new ItemStack(Items.iron_boots     ), 4000);
-		this.addSmelting(Items.iron_helmet    , new ItemStack(Items.iron_helmet    ), 4000);
-		this.addSmelting(Items.iron_chestplate, new ItemStack(Items.iron_chestplate), 4000);
-		this.addSmelting(Items.iron_leggings  , new ItemStack(Items.iron_leggings  ), 4000);
+		this.addSmelting(Items.golden_boots     , 4800);
+		this.addSmelting(Items.golden_helmet    , 4800);
+		this.addSmelting(Items.golden_chestplate, 4800);
+		this.addSmelting(Items.golden_leggings  , 4800);
 		
-		this.addSmelting(Items.golden_boots     , new ItemStack(Items.golden_boots     ), 4800);
-		this.addSmelting(Items.golden_helmet    , new ItemStack(Items.golden_helmet    ), 4800);
-		this.addSmelting(Items.golden_chestplate, new ItemStack(Items.golden_chestplate), 4800);
-		this.addSmelting(Items.golden_leggings  , new ItemStack(Items.golden_leggings  ), 4800);
+		this.addSmelting(Items.chainmail_boots     , 6000);
+		this.addSmelting(Items.chainmail_helmet    , 6000);
+		this.addSmelting(Items.chainmail_chestplate, 6000);
+		this.addSmelting(Items.chainmail_leggings  , 6000);
 		
-		this.addSmelting(Items.chainmail_boots     , new ItemStack(Items.chainmail_boots     ), 6000);
-		this.addSmelting(Items.chainmail_helmet    , new ItemStack(Items.chainmail_helmet    ), 6000);
-		this.addSmelting(Items.chainmail_chestplate, new ItemStack(Items.chainmail_chestplate), 6000);
-		this.addSmelting(Items.chainmail_leggings  , new ItemStack(Items.chainmail_leggings  ), 6000);
-		
-		this.addSmelting(Items.diamond_boots     , new ItemStack(Items.diamond_boots     ), 7200);
-		this.addSmelting(Items.diamond_helmet    , new ItemStack(Items.diamond_helmet    ), 7200);
-		this.addSmelting(Items.diamond_chestplate, new ItemStack(Items.diamond_chestplate), 7200);
-		this.addSmelting(Items.diamond_leggings  , new ItemStack(Items.diamond_leggings  ), 7200);
+		this.addSmelting(Items.diamond_boots     , 7200);
+		this.addSmelting(Items.diamond_helmet    , 7200);
+		this.addSmelting(Items.diamond_chestplate, 7200);
+		this.addSmelting(Items.diamond_leggings  , 7200);
 	}
 	
-	public void addSmelting(Item itemArmor, ItemStack itemStack, int smeltTime) {
-		this.smeltingList.put(itemArmor, new RecipesResult (itemStack, smeltTime));
+	public void addSmelting(String registerName, int smeltTime) {
+		Item item = RegisteredObjects.instance().getItem(registerName);
+		if (item != null) {
+			this.addSmelting(item, smeltTime);
+		} else {
+			log.severe("Item "+registerName+" for smeating Dishwasher");
+		}
+	}
+	
+	public void addSmelting(Item item, int smeltTime) {
+		this.addSmelting(item, new ItemStack(item), smeltTime);
+	}
+	
+	public void addSmelting(Item item, ItemStack itemStack, int smeltTime) {
+		this.smeltingList.put(item, new RecipesResult (itemStack, smeltTime));
 	}
 	
 	public ItemStack getSmeltingResult(ItemStack itemStack) {
