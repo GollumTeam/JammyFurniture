@@ -1,12 +1,12 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
 import net.minecraft.block.material.Material;
 
-public class WoodBlocksFour extends JFMetadataBlock {
+public class WoodBlocksFour extends JFBlockMetadata {
 	public static int rotation;
 	
 	public WoodBlocksFour(String registerName) {

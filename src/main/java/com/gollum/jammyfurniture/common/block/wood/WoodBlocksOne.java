@@ -1,14 +1,14 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class WoodBlocksOne extends JFMetadataBlock {
+public class WoodBlocksOne extends JFBlockMetadata {
 	
 	public WoodBlocksOne(String registerName) {
 		super(registerName, Material.wood, "wood", TileEntityWoodBlocksOne.class, new int[] { 0, 1, 5, 9, 13, 14, 15 });

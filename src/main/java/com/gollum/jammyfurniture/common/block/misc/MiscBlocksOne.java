@@ -1,12 +1,12 @@
 package com.gollum.jammyfurniture.common.block.misc;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 
 import net.minecraft.block.material.Material;
 
-public class MiscBlocksOne extends JFMetadataBlock {
+public class MiscBlocksOne extends JFBlockMetadata {
 	
 	/* FIXME
 	IIcon blockIconChimney;

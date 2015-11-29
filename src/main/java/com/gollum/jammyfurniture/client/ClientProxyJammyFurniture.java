@@ -42,6 +42,7 @@ import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksO
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
@@ -82,6 +83,7 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.miscBlocksOneRenderID   , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.lightsRenderID        , new JFInventoryRenderer());
 		*/
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksOneRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new WoodBlocksTwoRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksThree.class , new WoodBlocksThreeRenderer());

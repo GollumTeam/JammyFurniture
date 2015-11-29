@@ -1,22 +1,40 @@
 package com.gollum.jammyfurniture.common.block;
 
+import static com.gollum.core.tools.helper.blocks.HBlockMetadata.METADATA;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class JFMetadataBlock extends HBlockContainerMetadata {
-
+public abstract class JFBlockMetadata extends HBlockContainerMetadata {
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	
 	protected Class tileEntityClass;
 	protected String textureKey;
 	
-	public JFMetadataBlock(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
+	public JFBlockMetadata(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
 		super(registerName, material, listSubBlock);
+		this.setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH));
 		this.tileEntityClass = tileEntityClass;
 		this.textureKey = textureKey;
+	}
+	
+	@Override
+	protected List<IProperty> getStateProperties() {
+		List<IProperty> prop = super.getStateProperties();
+		prop.add(FACING);
+		return prop;
 	}
 	
 	

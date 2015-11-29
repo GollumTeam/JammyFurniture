@@ -1,11 +1,24 @@
 package com.gollum.jammyfurniture.common.block;
 
+import static com.gollum.jammyfurniture.common.block.JFBlockMetadata.FACING;
+
+import java.util.TreeSet;
+
+import static com.gollum.core.tools.helper.blocks.HBlockMetadata.METADATA;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.World;
 
-public class BlockLights extends JFMetadataBlock {
+public class BlockLights extends JFBlockMetadata {
 	
 	/* FIXME
 	IIcon blockIconLight0;
@@ -67,20 +80,23 @@ public class BlockLights extends JFMetadataBlock {
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
-	/* FIXME
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		int metadata = world.getBlockMetadata(x, y, z);
-		Block block  = world.getBlock(x, y, z);
-
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+		int metadata = state.getValue(METADATA);
+		EnumFacing orientaion = state.getValue(FACING);
+		Block block  = state.getBlock();
+		IBlockState newState = null;
 		if (block == ModBlocks.blockLightsOn) {
-			world.setBlock(x, y, z, ModBlocks.blockLightsOff, metadata, 3);
+			newState = ModBlocks.blockLightsOff.getDefaultState();
 		} else {
-			world.setBlock(x, y, z, ModBlocks.blockLightsOn, metadata, 3);
+			newState = ModBlocks.blockLightsOn.getDefaultState();
 		}
+		newState = newState.withProperty(METADATA, metadata);
+		newState = newState.withProperty(FACING, orientaion);
+		world.setBlockState(pos, newState, 3);
 
 		return true;
 	}
-	*/
 	
 	///////////////////
 	// Data du block //

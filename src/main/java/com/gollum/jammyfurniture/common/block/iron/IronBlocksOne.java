@@ -1,12 +1,12 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
 import net.minecraft.block.material.Material;
 
-public class IronBlocksOne extends JFMetadataBlock {
+public class IronBlocksOne extends JFBlockMetadata {
 	
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing

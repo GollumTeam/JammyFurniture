@@ -2,7 +2,7 @@ package com.gollum.jammyfurniture.common.block.ceramic;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
 import net.minecraft.block.material.Material;
@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEvent {
+public class CeramicBlocksOne extends JFBlockMetadata implements IBlockUnmountEvent {
 	
 	public CeramicBlocksOne(String registerName) {
 		super(registerName, Material.glass, "ceramic", TileEntityCeramicBlocksOne.class, new int[]{ 0, 4, 8, 12 });

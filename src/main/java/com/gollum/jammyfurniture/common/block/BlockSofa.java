@@ -4,7 +4,7 @@ import com.gollum.jammyfurniture.ModJammyFurniture;
 
 import net.minecraft.block.material.Material;
 
-public class BlockSofa extends JFMetadataBlock {
+public class BlockSofa extends JFBlockMetadata {
 	
 	/* FIXME
 	private IIcon blockIconRed;

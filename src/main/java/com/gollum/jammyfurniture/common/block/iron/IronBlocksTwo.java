@@ -1,12 +1,12 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
+import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 import net.minecraft.block.material.Material;
 
-public class IronBlocksTwo extends JFMetadataBlock {
+public class IronBlocksTwo extends JFBlockMetadata {
 	
 	public IronBlocksTwo(String registerName) {
 		super(registerName, Material.iron, "iron", TileEntityIronBlocksTwo.class, new int[]{ 0, 4 });

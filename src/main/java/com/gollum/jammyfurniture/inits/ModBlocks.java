@@ -77,34 +77,34 @@ public class ModBlocks {
 
 	public static void initBlock() {
 		
-		ModBlocks.blockBathTub          = (BathBlock)  new BathBlock       ("Bath"            ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
+//		ModBlocks.blockBathTub          = (BathBlock)  new BathBlock       ("Bath"            ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
 		ModBlocks.blockLightsOn         = (BlockLights)new BlockLights     ("LightsOn" ,true  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.3F);
 		ModBlocks.blockLightsOff        = (BlockLights)new BlockLights     ("LightsOff",false )                                       .setHardness(0.3F);
-		
-		ModBlocks.blockWoodBlocksOne    = (WoodBlocksOne)  new WoodBlocksOne   ("WoodBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		ModBlocks.blockWoodBlocksTwo    = (WoodBlocksTwo)  new WoodBlocksTwo   ("WoodBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		ModBlocks.blockWoodBlocksThree  = (WoodBlocksThree)new WoodBlocksThree ("WoodBlocksThree" ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		ModBlocks.blockWoodBlocksFour   = (WoodBlocksFour) new WoodBlocksFour  ("WoodBlocksFour"  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-		
-		ModBlocks.blockIronBlocksOne    = (IronBlocksOne)new IronBlocksOne   ("IronBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
-		ModBlocks.blockIronBlocksTwo    = (IronBlocksTwo)new IronBlocksTwo   ("IronBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
-		
-		ModBlocks.blockCeramicBlocksOne = (CeramicBlocksOne)new CeramicBlocksOne("CeramicBlocksOne").setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
-		
-		ModBlocks.blockRoofingBlocksOne = (RoofingBlocksOne)new RoofingBlocksOne("RoofingBlocksOne").setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
-		
-		ModBlocks.blockMiscBlocksOne    = (MiscBlocksOne)new MiscBlocksOne   ("MiscBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(10.0F);
-		
-		ModBlocks.blockMobHeadsOne      = (MobHeadsOne)  new MobHeadsOne     ("MobHeadsOne"     ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
-		ModBlocks.blockMobHeadsTwo      = (MobHeadsTwo)  new MobHeadsTwo     ("MobHeadsTwo"     ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
-		ModBlocks.blockMobHeadsThree    = (MobHeadsThree)new MobHeadsThree   ("MobHeadsThree"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
-		ModBlocks.blockMobHeadsFour     = (MobHeadsFour) new MobHeadsFour    ("MobHeadsFour"    ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
-		
-		ModBlocks.blockArmChair         = (BlockSofa)new BlockSofa("ArmChair"  , TileEntityArmChair.class  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
-		ModBlocks.blockSofaPartLeft     = (BlockSofa)new BlockSofa("SofaLeft"  , TileEntitySofaLeft.class  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
-		ModBlocks.blockSofaPartRight    = (BlockSofa)new BlockSofa("SofaRight" , TileEntitySofaRight.class ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
-		ModBlocks.blockSofaPartCenter   = (BlockSofa)new BlockSofa("SofaCenter", TileEntitySofaCenter.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
-		ModBlocks.blockSofaPartCorner   = (BlockSofa)new BlockSofa("SofaCorner", TileEntitySofaCorner.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+//		
+//		ModBlocks.blockWoodBlocksOne    = (WoodBlocksOne)  new WoodBlocksOne   ("WoodBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+//		ModBlocks.blockWoodBlocksTwo    = (WoodBlocksTwo)  new WoodBlocksTwo   ("WoodBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+//		ModBlocks.blockWoodBlocksThree  = (WoodBlocksThree)new WoodBlocksThree ("WoodBlocksThree" ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+//		ModBlocks.blockWoodBlocksFour   = (WoodBlocksFour) new WoodBlocksFour  ("WoodBlocksFour"  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+//		
+//		ModBlocks.blockIronBlocksOne    = (IronBlocksOne)new IronBlocksOne   ("IronBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
+//		ModBlocks.blockIronBlocksTwo    = (IronBlocksTwo)new IronBlocksTwo   ("IronBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
+//		
+//		ModBlocks.blockCeramicBlocksOne = (CeramicBlocksOne)new CeramicBlocksOne("CeramicBlocksOne").setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
+//		
+//		ModBlocks.blockRoofingBlocksOne = (RoofingBlocksOne)new RoofingBlocksOne("RoofingBlocksOne").setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+//		
+//		ModBlocks.blockMiscBlocksOne    = (MiscBlocksOne)new MiscBlocksOne   ("MiscBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(10.0F);
+//		
+//		ModBlocks.blockMobHeadsOne      = (MobHeadsOne)  new MobHeadsOne     ("MobHeadsOne"     ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
+//		ModBlocks.blockMobHeadsTwo      = (MobHeadsTwo)  new MobHeadsTwo     ("MobHeadsTwo"     ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
+//		ModBlocks.blockMobHeadsThree    = (MobHeadsThree)new MobHeadsThree   ("MobHeadsThree"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
+//		ModBlocks.blockMobHeadsFour     = (MobHeadsFour) new MobHeadsFour    ("MobHeadsFour"    ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.8F);
+//		
+//		ModBlocks.blockArmChair         = (BlockSofa)new BlockSofa("ArmChair"  , TileEntityArmChair.class  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+//		ModBlocks.blockSofaPartLeft     = (BlockSofa)new BlockSofa("SofaLeft"  , TileEntitySofaLeft.class  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+//		ModBlocks.blockSofaPartRight    = (BlockSofa)new BlockSofa("SofaRight" , TileEntitySofaRight.class ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+//		ModBlocks.blockSofaPartCenter   = (BlockSofa)new BlockSofa("SofaCenter", TileEntitySofaCenter.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
+//		ModBlocks.blockSofaPartCorner   = (BlockSofa)new BlockSofa("SofaCorner", TileEntitySofaCorner.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		
 	}
 	
