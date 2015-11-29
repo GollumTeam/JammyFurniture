@@ -23,7 +23,7 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	private ModelSofaRight  modelSofaRight  = new ModelSofaRight();
 	private ModelSofaLeft   modelSofaLeft   = new ModelSofaLeft();
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockArmChair).getEnabledMetadata(metadata);

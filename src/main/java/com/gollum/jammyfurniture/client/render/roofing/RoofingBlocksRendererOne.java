@@ -17,7 +17,7 @@ public class RoofingBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	private ModelRoofingInverted modelRoofingInverted = new ModelRoofingInverted();
 	private ModelRoofingBlock    modelRoofingBlock    = new ModelRoofingBlock();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockRoofingBlocksOne).getEnabledMetadata(metadata);

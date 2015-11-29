@@ -20,7 +20,7 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 	private ModelStandBase      modelStandBase      = new ModelStandBase();
 	private ModelBlinds blinds = new ModelBlinds();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 
 		TileEntityWoodBlocksFour tileEntityWood = (TileEntityWoodBlocksFour)tileEntity;
 		int subBlock = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getEnabledMetadata(metadata);

@@ -1,27 +1,19 @@
 package com.gollum.jammyfurniture.common.block.misc;
 
-import java.util.Random;
-
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class MiscBlocksOne extends JFMetadataBlock {
 	
+	/* FIXME
 	IIcon blockIconChimney;
 	IIcon blockIconMantle;
 	IIcon blockIconChristmasTree;
-
+	*/
+	
 	public MiscBlocksOne(String registerName) {
 		super(registerName, Material.rock, "mantle", TileEntityMiscBlockOne.class, new int[] { 0, 4, 8 });
 	}
@@ -33,6 +25,9 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	
+	
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack item) {
 		
@@ -43,11 +38,13 @@ public class MiscBlocksOne extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 	
 	/**
 	 * A randomly called display update to be able to add particles or other
 	 * items for display
 	 */
+	/* FIXME
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		int metadata = world.getBlockMetadata(i, j, k);
 		int subBlock = this.getEnabledMetadata(metadata);
@@ -64,6 +61,7 @@ public class MiscBlocksOne extends JFMetadataBlock {
 			world.spawnParticle("smoke", (double) f, (double) f1, (double) (f2 + f4), 0.0D, 0.0D, 0.0D);
 		}
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -81,6 +79,7 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
 	 * is the only chance you get to register icons.
 	 */
+	/* FIXME
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
@@ -89,11 +88,13 @@ public class MiscBlocksOne extends JFMetadataBlock {
 		this.blockIconMantle        = this.helper.loadTexture (iconRegister, "mantle"       , true);
 		this.blockIconChristmasTree = this.helper.loadTexture (iconRegister, "christmastree", true);
 	}
+	*/
 
 	/**
 	 * From the specified side and block metadata retrieves the blocks texture.
 	 * Args: side, metadata
 	 */
+	/* FIXME
 	@Override
 	public IIcon getIcon(int side, int metadata) {
 		int subBlock = this.getEnabledMetadata(metadata);
@@ -104,11 +105,13 @@ public class MiscBlocksOne extends JFMetadataBlock {
 			case 8:  return this.blockIconChristmasTree;
 		}
 	}
+	*/
 	
 	////////////
 	// Others //
 	////////////
-
+	
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -122,5 +125,6 @@ public class MiscBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 	
 }

@@ -1,26 +1,12 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.List;
-import java.util.Random;
-
 import javax.swing.Icon;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class WoodBlocksThree extends JFMetadataBlock {
 	public static int rotation;
@@ -39,6 +25,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	 * boxes to the list if they intersect the mask.) Parameters: World, X, Y,
 	 * Z, mask, list, colliding entity
 	 */
+	/* FIXME
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
@@ -65,6 +52,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		
 		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
 	}
+	*/
 	
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
@@ -97,6 +85,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -106,10 +95,12 @@ public class WoodBlocksThree extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
@@ -164,6 +155,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
 		
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -172,10 +164,12 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	/**
 	 * Returns the ID of the items to drop on destruction.
 	 */
+	/* FIXME
 	@Override
 	public Item getItemDropped(int metadata, Random random, int j) {
 		return metadata >= 8 ? ModBlocks.blockWoodBlocksOne.getBlockItem() : ModBlocks.blockWoodBlocksThree.getBlockItem();
 	}
+	*/
 	
 	/**
 	 * Called when a user uses the creative pick block button on this block
@@ -183,11 +177,13 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	 * @param target The full target the player is looking at
 	 * @return A ItemStack to add to the player's inventory, Null if nothing should be added.
 	 */
+	/* FIXME
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
 		int metadata = world.getBlockMetadata(x, y, z);
 		return (metadata >= 8) ? new ItemStack (ModBlocks.blockWoodBlocksOne, 1, 9) : super.getPickBlock(target, world, x, y, z);
 	}
+	*/
 	
 	/**
 	 * The type of render function that is called for this block
@@ -200,7 +196,8 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	////////////
 	// Others //
 	////////////
-
+	
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -214,4 +211,5 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 }

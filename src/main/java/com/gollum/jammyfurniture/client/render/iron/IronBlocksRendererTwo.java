@@ -14,7 +14,7 @@ public class IronBlocksRendererTwo extends JFTileEntitySpecialRenderer {
 	private ModelDishwasher     modelDishwasher      = new ModelDishwasher();
 	private ModelWashingMachine modelWashingMachine = new ModelWashingMachine();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 
 		TileEntityIronBlocksTwo tileentityIron = (TileEntityIronBlocksTwo)tileEntity;
 		

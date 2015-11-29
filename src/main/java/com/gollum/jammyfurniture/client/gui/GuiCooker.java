@@ -7,6 +7,7 @@ import com.gollum.jammyfurniture.common.containers.ContainerCooker;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -19,8 +20,8 @@ public class GuiCooker extends GuiContainer {
 	
 	
 	
-	public GuiCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker) {
-		super(new ContainerCooker(inventoryPlayer, tileEntityCooker));
+	public GuiCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker, EntityPlayer player) {
+		super(new ContainerCooker(inventoryPlayer, tileEntityCooker, player));
 		this.inventoryPlayer  = inventoryPlayer;
 		this.tileEntityCooker = (TileEntityIronBlocksOne) tileEntityCooker;
 	}
@@ -30,8 +31,8 @@ public class GuiCooker extends GuiContainer {
 	 * the items)
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
-		this.fontRendererObj.drawString(this.tileEntityCooker.getInventoryName(), 8, 6                  , 0x404040);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInventoryName()) , 8, this.ySize - 96 + 2, 0x404040);
+		this.fontRendererObj.drawString(this.tileEntityCooker.getDisplayName().getUnformattedText(), 8, 6                  , 0x404040);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getDisplayName().getUnformattedText()) , 8, this.ySize - 96 + 2, 0x404040);
 	}
 
 	/**

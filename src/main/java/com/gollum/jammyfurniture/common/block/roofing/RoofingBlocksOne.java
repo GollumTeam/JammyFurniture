@@ -1,18 +1,10 @@
 package com.gollum.jammyfurniture.common.block.roofing;
 
-import java.util.List;
-
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class RoofingBlocksOne extends JFMetadataBlock {
 	
@@ -29,6 +21,7 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 	 * boxes to the list if they intersect the mask.) Parameters: World, X, Y,
 	 * Z, mask, list, colliding entity
 	 */
+	/* FIXME
 	@Override
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
 		
@@ -103,6 +96,7 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 		super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
 		return;
 	}
+	*/
 	
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
@@ -118,6 +112,7 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -128,6 +123,7 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -144,7 +140,8 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 	////////////
 	// Others //
 	////////////
-
+	
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -158,5 +155,6 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
-
+	*/
+	
 }

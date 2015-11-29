@@ -22,7 +22,7 @@ import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksO
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModTileEntities {
 	

@@ -48,6 +48,7 @@ public class MobHeadsOne extends JFMobHeads {
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 
@@ -70,6 +71,7 @@ public class MobHeadsOne extends JFMobHeads {
 		
 		return false;
 	}
+	*/
 	
 	///////////////////
 	// Data du block //

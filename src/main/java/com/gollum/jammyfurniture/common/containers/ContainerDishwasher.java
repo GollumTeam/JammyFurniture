@@ -21,10 +21,10 @@ public class ContainerDishwasher extends Container {
 	public int slot2Time = 0;
 	public int slot3Time = 0;
 	
-	public ContainerDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher) {
+	public ContainerDishwasher(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teDishwasher, EntityPlayer player) {
 		
 		this.tileEntity = teDishwasher;
-		this.tileEntity.openInventory();
+		this.tileEntity.openInventory(player);
 		
 		this.addSlotToContainer(new Slot(teDishwasher, 0, 79, 27));
 		this.addSlotToContainer(new Slot(teDishwasher, 1, 15, 52));
@@ -73,9 +73,9 @@ public class ContainerDishwasher extends Container {
 	/**
 	 * Called when the container is closed.
 	 */
-	public void onContainerClosed(EntityPlayer par1EntityPlayer) {
-		super.onContainerClosed(par1EntityPlayer);
-		this.tileEntity.closeInventory();
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
+		this.tileEntity.closeInventory(player);
 	}
 	
 	/**

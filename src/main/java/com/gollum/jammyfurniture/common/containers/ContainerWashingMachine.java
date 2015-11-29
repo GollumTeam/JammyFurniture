@@ -19,9 +19,9 @@ public class ContainerWashingMachine extends Container {
 	private int BurnTime = 0;
 	private int currentItemBurnTime = 0;
 
-	public ContainerWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine) {
+	public ContainerWashingMachine(InventoryPlayer inventoryplayer, TileEntityIronBlocksTwo teWashingMachine, EntityPlayer player) {
 		this.tileEntity = teWashingMachine;
-		teWashingMachine.openInventory();
+		teWashingMachine.openInventory(player);
 		this.addSlotToContainer(new Slot(teWashingMachine, 0, 79, 22));
 		this.addSlotToContainer(new Slot(teWashingMachine, 1, 15, 52));
 		this.addSlotToContainer(new Slot(teWashingMachine, 2, 113, 22));
@@ -69,9 +69,9 @@ public class ContainerWashingMachine extends Container {
 	/**
 	 * Called when the container is closed.
 	 */
-	public void onContainerClosed(EntityPlayer par1EntityPlayer) {
-		super.onContainerClosed(par1EntityPlayer);
-		this.tileEntity.closeInventory();
+	public void onContainerClosed(EntityPlayer player) {
+		super.onContainerClosed(player);
+		this.tileEntity.closeInventory(player);
 	}
 	
 	/**

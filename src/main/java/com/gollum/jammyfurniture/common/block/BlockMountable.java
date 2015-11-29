@@ -24,11 +24,14 @@ public class BlockMountable/* extends Block*/ {
 //	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 //		return onBlockActivated(world, x, y, z, player, 0.5F, 1.0F, 0.5F, 0, 0, 0, 0);
 //	}
-
+	
+	/* FIXME
 	public static boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, float f) {
 		return onBlockActivated(world, x, y, z, player, 0.5F, f, 0.5F, 0, 0, 0, 0);
 	}
-
+	*/
+	
+	/* FIXME
 	public static boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, float hitX, float hitY, float hitZ, int north, int south, int east, int west) {
 		if (!world.isRemote) {
 			List listEMB = world.getEntitiesWithinAABB(EntityMountableBlock.class, AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D).expand(1.0D, 1.0D, 1.0D));
@@ -71,4 +74,5 @@ public class BlockMountable/* extends Block*/ {
 			return true;
 		}
 	}
+	*/
 }

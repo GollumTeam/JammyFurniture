@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -15,15 +17,15 @@ public class ItemBath extends ItemBlock {
 		super(block);
 		this.block = block;
 	}
-
+	
 	/**
 	 * Callback for item usage. If the item does something special on right
 	 * clicking, he will have one of those. Return True if something happen and
 	 * false if it don't. This is for ITEMS, not BLOCKS
 	 */
 	 @Override
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+		/* FIXME
 		if (side != 1) {
 			return false;
 		} else {
@@ -49,8 +51,8 @@ public class ItemBath extends ItemBlock {
 			}
 			
 			if (
-				player.canPlayerEdit(x        , y, z        , side, itemStack) && 
-				player.canPlayerEdit(x + pos2X, y, z + pos2Z, side, itemStack)
+				player.canPlayerEdit(new BlockPos(x        , y, z        ), side, itemStack) && 
+				player.canPlayerEdit(new BlockPos(x + pos2X, y, z + pos2Z), side, itemStack)
 			) {
 				
 				if (
@@ -77,5 +79,6 @@ public class ItemBath extends ItemBlock {
 				return false;
 			}
 		}
+		*/return false;
 	}
 }

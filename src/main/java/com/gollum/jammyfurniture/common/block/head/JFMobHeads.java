@@ -3,10 +3,7 @@ package com.gollum.jammyfurniture.common.block.head;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class JFMobHeads extends JFMetadataBlock {
 
@@ -21,6 +18,7 @@ public abstract class JFMobHeads extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -31,11 +29,13 @@ public abstract class JFMobHeads extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 	
 	////////////
 	// Others //
 	////////////
-
+	
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -49,5 +49,6 @@ public abstract class JFMobHeads extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 
 }

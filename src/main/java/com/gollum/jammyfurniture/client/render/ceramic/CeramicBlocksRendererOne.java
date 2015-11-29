@@ -19,7 +19,7 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	private ModelKitchenSink      modelKitchenSink      = new ModelKitchenSink();
 	private ModelToilet           modelToilet           = new ModelToilet();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		TileEntityCeramicBlocksOne tileentityCeramic = (TileEntityCeramicBlocksOne)tileEntity;
 		

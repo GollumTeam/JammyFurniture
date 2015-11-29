@@ -7,6 +7,8 @@ import com.gollum.jammyfurniture.inits.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class ItemWoodBlocksFour extends HItemBlockMetadata {
@@ -20,8 +22,8 @@ public class ItemWoodBlocksFour extends HItemBlockMetadata {
 	 * clicking, he will have one of those. Return True if something happen and
 	 * false if it don't. This is for ITEMS, not BLOCKS
 	 */
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+		/* FIXME
 		int orientation = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getOrientation(player);
 		
 		if (side != 1) {
@@ -56,5 +58,6 @@ public class ItemWoodBlocksFour extends HItemBlockMetadata {
 				return false;
 			}
 		}
+		*/ return false;
 	}
 }

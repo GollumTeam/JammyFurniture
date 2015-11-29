@@ -1,19 +1,16 @@
 package com.gollum.jammyfurniture.common.block;
 
-import java.util.Random;
-
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.item.ItemBath;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BathBlock extends HBlockContainer {
 	
@@ -42,18 +39,20 @@ public class BathBlock extends HBlockContainer {
 	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
+	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, BlockPos pos) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8F, 1.0F);
 	}
 	
 	/////////////
 	// Texture //
 	/////////////
-
+	
+	/* FIXME
 	@Override
 	public String getTextureKey () {
 		return "ceramic";
 	}
+	*/
 	
 	///////////
 	// Event //
@@ -62,8 +61,9 @@ public class BathBlock extends HBlockContainer {
 	/**
 	 * Called right before the block is destroyed by a player. Args: world, x, y, z, metaData
 	 */
+	/* FIXME
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, int metadata) {
 		int direction = getDirection(metadata);
 		
 		
@@ -81,12 +81,14 @@ public class BathBlock extends HBlockContainer {
 			world.func_147480_a(x2, y, z2, true);
 		}
 	}
+	*/
 	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		
@@ -114,7 +116,7 @@ public class BathBlock extends HBlockContainer {
 			return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
 		}
 	}
-	
+	*/
 	
 	
 	///////////////////
@@ -124,11 +126,12 @@ public class BathBlock extends HBlockContainer {
 	/**
 	 * Returns the ID of the items to drop on destruction.
 	 */
+	/* FIXME
 	@Override
 	public Item getItemDropped(int metadata, Random random, int j) {
 		return this.isBlockHead(metadata) ? super.getItemDropped(metadata, random, j): null;
 	}
-	
+	*/
 	
 	/**
 	 * The type of render function that is called for this block
@@ -137,15 +140,17 @@ public class BathBlock extends HBlockContainer {
 	public int getRenderType() {
 		return ModJammyFurniture.bathTubRenderID;
 	}
-
+	
 	/**
 	 * If this block doesn't render as an ordinary block it will return False
 	 * (examples: signs, buttons, stairs, etc)
 	 */
+	/* FIXME
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
+	*/
 
 	/**
 	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
@@ -169,12 +174,13 @@ public class BathBlock extends HBlockContainer {
 	// Others //
 	////////////
 
-	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
-		
-		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
+	public boolean rotateBlock(World world, int x, int y, int z, EnumFacing axis) {
+		/* FIXME
+		int rotate   = axis == EnumFacing.DOWN ? 3 : 1;
 		int metadata = world.getBlockMetadata(x, y, z);
 		
 		world.setBlockMetadataWithNotify(x, y, z, ((metadata + rotate) % 4), 2);
+		*/
 		return true;
 	}
 }

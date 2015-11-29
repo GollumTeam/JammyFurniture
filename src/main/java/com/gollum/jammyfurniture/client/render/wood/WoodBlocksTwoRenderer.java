@@ -20,7 +20,7 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	private long lastSwitch = 0;
 	private boolean switchTvTexture = false;
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksTwo).getEnabledMetadata(metadata);

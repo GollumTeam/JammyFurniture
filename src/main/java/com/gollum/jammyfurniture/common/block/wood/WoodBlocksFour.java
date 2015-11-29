@@ -1,19 +1,10 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.Random;
-
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class WoodBlocksFour extends JFMetadataBlock {
 	public static int rotation;
@@ -52,6 +43,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	/**
 	 * Called right before the block is destroyed by a player. Args: world, x, y, z, metaData
 	 */
+	/* FIXME
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
 		
@@ -64,10 +56,12 @@ public class WoodBlocksFour extends JFMetadataBlock {
 			world.func_147480_a(x, y2, z, true);
 		}
 	}
+	*/
 
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
@@ -94,6 +88,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 		return false;
 		
 	}
+	*/
 	
 	/**
 	 * Called on server worlds only when the block has been replaced by a
@@ -101,6 +96,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
+	/* FIXME
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadtaID) {
 		
@@ -108,6 +104,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 		
 		super.breakBlock(world, x, y, z, oldBlock, oldMetadtaID);
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -116,18 +113,23 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	/**
 	 * The type of render function that is called for this block
 	 */
+	/* FIXME
 	@Override
 	public int getRenderType() {
 		return ModJammyFurniture.woodBlocksFourRenderID;
 	}
+	*/
 	
 	/**
 	 * Returns the ID of the items to drop on destruction.
 	 */
+	/* FIXME
 	@Override
 	public Item getItemDropped(int metadata, Random random, int j) {
 		return this.isBlockHead(metadata) ? super.getItemDropped(metadata, random, j): null;
 	}
+	*/
+	
 
 	public static boolean isBlockHead(int metadata) {
 		return 
@@ -136,9 +138,12 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	}
 	
 	////////////
+	
+	////////////
 	// Others //
 	////////////
 
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -160,4 +165,5 @@ public class WoodBlocksFour extends JFMetadataBlock {
 		
 		return true;
 	}
+	*/
 }

@@ -9,7 +9,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
 
 public class ContainerCooker extends Container {
@@ -19,17 +19,17 @@ public class ContainerCooker extends Container {
 	private int BurnTime = 0;
 	private int ItemBurnTime = 0;
 
-	public ContainerCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker) {
+	public ContainerCooker(InventoryPlayer inventoryPlayer, TileEntityIronBlocksOne tileEntityCooker, EntityPlayer player) {
 		
 		this.tileEntity = tileEntityCooker;
 		
-		tileEntityCooker.openInventory();
+		tileEntityCooker.openInventory(player);
 		
 		this.addSlotToContainer(new Slot(tileEntityCooker, 0, 77, 20));
 		this.addSlotToContainer(new Slot(tileEntityCooker, 1, 20, 44));
-		this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tileEntityCooker, 2, 143, 22));
+		this.addSlotToContainer(new SlotFurnaceFuel(tileEntityCooker, 2, 143, 22));
 		this.addSlotToContainer(new Slot(tileEntityCooker, 3, 77, 49));
-		this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tileEntityCooker, 4, 143, 49));
+		this.addSlotToContainer(new SlotFurnaceFuel(tileEntityCooker, 4, 143, 49));
 		int j;
 
 		for (j = 0; j < 3; ++j) {
@@ -50,7 +50,7 @@ public class ContainerCooker extends Container {
 	public void onContainerClosed(EntityPlayer par1EntityPlayer) {
 		
 		super.onContainerClosed(par1EntityPlayer);
-		this.tileEntity.closeInventory();
+		this.tileEntity.closeInventory(par1EntityPlayer);
 		
 	}
 	

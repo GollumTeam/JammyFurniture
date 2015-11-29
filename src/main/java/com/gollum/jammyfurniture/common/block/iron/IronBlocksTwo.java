@@ -4,14 +4,7 @@ import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class IronBlocksTwo extends JFMetadataBlock {
 	
@@ -35,6 +28,7 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -44,10 +38,12 @@ public class IronBlocksTwo extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		int metadata    = world.getBlockMetadata(x, y, z);
 		int orientation = this.getOrientation(player);
@@ -72,6 +68,7 @@ public class IronBlocksTwo extends JFMetadataBlock {
 		}
 		return false;
 	}
+	*/
 	
 	/**
 	 * Called on server worlds only when the block has been replaced by a
@@ -79,12 +76,14 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
+	/* FIXME
 	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
 		
 		this.breakBlockInventory(world, x, y, z, oldBlock);
 		
 		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -100,7 +99,8 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	////////////
 	// Others //
 	////////////
-
+	
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -114,4 +114,5 @@ public class IronBlocksTwo extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 }

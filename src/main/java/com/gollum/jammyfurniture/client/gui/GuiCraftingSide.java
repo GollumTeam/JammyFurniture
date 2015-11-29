@@ -6,6 +6,7 @@ import com.gollum.jammyfurniture.common.containers.ContainerCraftingSide;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
@@ -13,8 +14,8 @@ import net.minecraft.world.World;
 public class GuiCraftingSide extends GuiContainer {
 	protected ResourceLocation texture = new ResourceLocation("textures/gui/container/crafting_table.png");
 	
-	public GuiCraftingSide(IInventory inventoryPlayer, World wWorld, int x, int y, int z) {
-		super(new ContainerCraftingSide(inventoryPlayer, wWorld, x, y, z));
+	public GuiCraftingSide(IInventory inventoryPlayer, World world, BlockPos pos) {
+		super(new ContainerCraftingSide(inventoryPlayer, world, pos));
 	}
 	
 	/**

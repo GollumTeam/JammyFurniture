@@ -1,20 +1,20 @@
 package com.gollum.jammyfurniture.client.render;
 
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+/* FIXME
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.world.IBlockAccess;
+*/
 
-public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
+public class JFInventoryRenderer /*implements ISimpleBlockRenderingHandler */{
 	
 	private static int currentMetadata;
 	
 	public static int getCurrentMetadata() {
 		return currentMetadata;
 	}
-	
+	/*
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
 		
@@ -38,4 +38,5 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 	public int getRenderId() {
 		return 0;
 	}
+	*/
 }

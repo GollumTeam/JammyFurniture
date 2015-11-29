@@ -2,23 +2,16 @@ package com.gollum.jammyfurniture.common.block;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockSofa extends JFMetadataBlock {
 	
+	/* FIXME
 	private IIcon blockIconRed;
 	private IIcon blockIconBlue;
 	private IIcon blockIconGreen;
 	private IIcon blockIconGrey;
+	*/
 	
 	public BlockSofa(String registerName, Class tileEntityClass) {
 		super(registerName, Material.wood, "wood", tileEntityClass, new int[] { 0, 4, 8, 12 });
@@ -44,6 +37,7 @@ public class BlockSofa extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack item) {
 		
@@ -54,10 +48,12 @@ public class BlockSofa extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
@@ -87,6 +83,7 @@ public class BlockSofa extends JFMetadataBlock {
 		return BlockMountable.onBlockActivated (world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
 		
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -108,6 +105,7 @@ public class BlockSofa extends JFMetadataBlock {
 	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
 	 * is the only chance you get to register icons.
 	 */
+	/* FIXME
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister par1IconRegister) {
@@ -116,11 +114,13 @@ public class BlockSofa extends JFMetadataBlock {
 		this.blockIconGrey  = this.helper.loadTexture (par1IconRegister, "sofa_grey" , true);
 		this.blockIconBlue  = this.helper.loadTexture (par1IconRegister, "sofa_blue" , true);
 	}
-
+	*/
+	
 	/**
 	 * From the specified side and block metadata retrieves the blocks texture.
 	 * Args: side, metadata
 	 */
+	/* FIXME
 	@Override
 	public IIcon getIcon(int side, int metadata) {
 		int subBlock = this.getEnabledMetadata(metadata);
@@ -132,11 +132,13 @@ public class BlockSofa extends JFMetadataBlock {
 			case 12: return this.blockIconGrey;
 		}
 	}
+	*/
 	
 	////////////
 	// Others //
 	////////////
-
+	
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -150,5 +152,6 @@ public class BlockSofa extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 	
 }

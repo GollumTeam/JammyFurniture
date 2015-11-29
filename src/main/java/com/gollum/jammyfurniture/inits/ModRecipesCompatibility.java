@@ -3,7 +3,7 @@ package com.gollum.jammyfurniture.inits;
 import com.gollum.jammyfurniture.common.crafting.DishwasherRecipes;
 import com.gollum.jammyfurniture.common.crafting.WashingMachineRecipes;
 
-import cpw.mods.fml.common.Loader;
+import net.minecraftforge.fml.common.Loader;
 
 public class ModRecipesCompatibility {
 

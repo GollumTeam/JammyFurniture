@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class EntityMountableBlock extends Entity {
@@ -42,7 +43,7 @@ public class EntityMountableBlock extends Entity {
 		this.orgBlockPosX = x;
 		this.orgBlockPosY = y;
 		this.orgBlockPosZ = z;
-		this.orgBlock = world.getBlock(x, y, z);
+		this.orgBlock = world.getBlockState(new BlockPos(x, y, z)).getBlock();
 		this.setPosition(mountingX, mountingY, mountingZ);
 	}
 
@@ -65,12 +66,12 @@ public class EntityMountableBlock extends Entity {
 		this.worldObj.theProfiler.startSection("entityBaseTick");
 		
 		if (this.riddenByEntity != null && !this.riddenByEntity.isDead) {
-			if (this.worldObj.getBlock(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ) != this.orgBlock) {
+			if (this.worldObj.getBlockState(new BlockPos(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ)).getBlock() != this.orgBlock) {
 				this.interact((EntityPlayer) this.riddenByEntity);
 			}
 		} else {
 			this.setDead();
-			Block block = this.worldObj.getBlock(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ);
+			Block block = this.worldObj.getBlockState(new BlockPos(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ)).getBlock();
 			
 			if (block != null) {
 				if (block instanceof IBlockUnmountEvent) {

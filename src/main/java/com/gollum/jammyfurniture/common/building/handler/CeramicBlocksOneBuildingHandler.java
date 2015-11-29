@@ -22,7 +22,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
 	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
-		
+		/* FIXME
 		int subBlock = ((CeramicBlocksOne)block).getEnabledMetadata(metadata);
 		
 		if (
@@ -44,7 +44,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 		
 		world.setBlockMetadataWithNotify(x, y, z, metadata, 0);
 		return;
-		
+		*/
 	}
 
 	protected void applyExtra(
@@ -58,7 +58,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 		int dx, int dz,
 		int maxX, int maxZ
 	) {
-		
+		/* FIXME
 		int metadata = world.getBlockMetadata(x, y, z);
 		int subBlock = ((CeramicBlocksOne)block).getEnabledMetadata(metadata);
 		
@@ -76,7 +76,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 				}
 			}
 		}
-		
+		*/
 		
 	}
 }

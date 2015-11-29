@@ -18,7 +18,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	private ModelRubbishBin  modelRubbishBin  = new ModelRubbishBin();
 	private ModelCoffeeTable modelCoffeetable = new ModelCoffeeTable();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		TileEntityIronBlocksOne tileEntityIron = (TileEntityIronBlocksOne)tileEntity;
 		

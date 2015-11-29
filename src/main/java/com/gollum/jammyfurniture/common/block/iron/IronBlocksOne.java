@@ -4,14 +4,7 @@ import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class IronBlocksOne extends JFMetadataBlock {
 	
@@ -51,6 +44,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -64,13 +58,15 @@ public class IronBlocksOne extends JFMetadataBlock {
 			world.addBlockEvent(x, y, z, this, 2, orientation);
 		}
 	}
-
+	*/
+	
 	/**
 	 * Called on server worlds only when the block has been replaced by a
 	 * different block ID, or the same block with a different metadata value,
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
+	/* FIXME
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
 		
@@ -78,11 +74,13 @@ public class IronBlocksOne extends JFMetadataBlock {
 		
 		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
 	}
+	*/
 	
 	/**
 	* Called when the block receives a BlockEvent - see World.addBlockEvent. By default, passes it on to the tile
 	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
 	*/
+	/* FIXME
 	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
 		if (eventID == 2) {
 			TileEntity te = world.getTileEntity(x, y, z);
@@ -97,10 +95,12 @@ public class IronBlocksOne extends JFMetadataBlock {
 		}
 		return super.onBlockEventReceived(world, x, y, z, eventID, parameter);
 	}
+	*/
 	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
 		
@@ -137,7 +137,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
-	
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -155,6 +155,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 	// Others //
 	////////////
 
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -177,5 +178,5 @@ public class IronBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
-	
+	*/
 }

@@ -3,12 +3,9 @@ package com.gollum.jammyfurniture.common.block;
 import com.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public abstract class JFMetadataBlock extends HBlockContainerMetadata {
@@ -40,17 +37,21 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	// Texture //
 	/////////////
 	
+	/* FIXME
 	@Override
 	public String getTextureKey() {
 		return this.textureKey;
 	}
-
+	*/
+	
+	/* FIXME
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		for (int metadata : this.listSubEnabled()) {
 			this.getGollumHelperMetadata().blockIcons.put(metadata, this.getGollumHelperMetadata().loadTexture(iconRegister));
 		}
 	}
+	*/
 	
 	/////////////////////////////////
 	// Forme et collition du block //
@@ -60,6 +61,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
+	/* FIXME
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		
@@ -68,10 +70,12 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 		
 		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
+	*/
 	
 	/**
 	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
+	/* FIXME
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
 		
@@ -79,6 +83,7 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 		this.getCollisionBoundingBox(metadata, true);
 		
 	}
+	*/
 	
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -113,9 +118,11 @@ public abstract class JFMetadataBlock extends HBlockContainerMetadata {
 	 * If this block doesn't render as an ordinary block it will return False
 	 * (examples: signs, buttons, stairs, etc)
 	 */
+	/* FIXME	
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
+	*/
 
 }

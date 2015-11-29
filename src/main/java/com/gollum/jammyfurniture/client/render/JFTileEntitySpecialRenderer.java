@@ -23,12 +23,12 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 	protected float alpha = 1.0F;
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
+	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int destroyStage) {
 
 		try {
 			
 			int metadata;
-			this.isInventory = tileEntity.getWorldObj() == null;
+			this.isInventory = tileEntity.getWorld() == null;
 			
 			if (this.isInventory) {
 				metadata = JFInventoryRenderer.getCurrentMetadata();
@@ -36,7 +36,7 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 				metadata = tileEntity.getBlockMetadata();
 			}
 			
-			this.renderTileEntityAt(tileEntity, x,  y, z, f, metadata);
+			this.renderTileEntityAt(tileEntity, x,  y, z, f,  destroyStage, metadata);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,6 +105,6 @@ public abstract class JFTileEntitySpecialRenderer extends TileEntitySpecialRende
 		this.renderModel(model, textureName, x, y, z, rotation);
 	}
 	
-	protected abstract void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata);
+	protected abstract void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int destroyStage, int metadata);
 	
 }

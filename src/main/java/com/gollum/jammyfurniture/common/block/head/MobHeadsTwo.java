@@ -49,6 +49,7 @@ public class MobHeadsTwo extends JFMobHeads {
 	 * Called upon block activation (right click on the block.)
 	 */
 	@Override
+	/* FIXME
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
 		
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -72,6 +73,7 @@ public class MobHeadsTwo extends JFMobHeads {
 		}
 		return false;
 	}
+	*/
 	
 	///////////////////
 	// Data du block //

@@ -25,7 +25,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	private ModelTable       modelTable       = new ModelTable();
 	private int numDial = 0;
 	
-	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksOne).getEnabledMetadata(metadata);
@@ -70,7 +70,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 		
 		if (Minecraft.getMinecraft().theWorld != null) {
 			
-			if (Minecraft.getMinecraft().theWorld.provider.dimensionId >= 0) {
+			if (Minecraft.getMinecraft().theWorld.provider.getDimensionId() >= 0) {
 				long time = Minecraft.getMinecraft().theWorld.getWorldTime();
 				double index = (double)time * 64.D / 24000.D;
 				if (index < 0) {

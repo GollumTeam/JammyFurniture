@@ -17,7 +17,7 @@ public class WoodBlocksTwoBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
 	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
-		
+		/* FIXME
 		int subBlock = ((WoodBlocksTwo)block).getEnabledMetadata(metadata);
 		
 		if (
@@ -38,7 +38,7 @@ public class WoodBlocksTwoBuildingHandler extends BuildingBlockHandler {
 		
 		world.setBlockMetadataWithNotify(x, y, z, metadata, 0);
 		return;
-		
+		*/
 	}
 	
 }

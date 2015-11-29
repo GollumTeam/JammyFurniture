@@ -15,7 +15,7 @@ public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	private ModelMantlePiece   modelMantlePiece   = new ModelMantlePiece();
 	private ModelChristmasTree modelChristmasTree = new ModelChristmasTree();
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
 		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockIronBlocksOne).getEnabledMetadata(metadata);

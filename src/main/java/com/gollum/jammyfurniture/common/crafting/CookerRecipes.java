@@ -14,7 +14,7 @@ public class CookerRecipes {
 	}
 	
 	public ItemStack getSmeltingResult(ItemStack item) {
-		ItemStack rtn = FurnaceRecipes.smelting().getSmeltingResult(item);
+		ItemStack rtn = FurnaceRecipes.instance().getSmeltingResult(item);
 		
 		if (rtn == null || !(rtn.getItem() instanceof ItemFood)) {
 			return null;

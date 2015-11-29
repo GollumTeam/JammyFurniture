@@ -17,7 +17,7 @@ public class BathBlockBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
 	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
-		
+		/* FIXME
 		int subBlock = ((BathBlock)block).isBlockHead(metadata) ? 4 : 0;
 		
 		if (orientation == Unity.ORIENTATION_NONE)  { metadata = subBlock + 0; } else 
@@ -31,7 +31,7 @@ public class BathBlockBuildingHandler extends BuildingBlockHandler {
 		
 		world.setBlockMetadataWithNotify(x, y, z, metadata, 0);
 		return;
-		
+		*/
 	}
 	
 }

@@ -6,6 +6,7 @@ import com.gollum.jammyfurniture.common.containers.ContainerWashingMachine;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -16,8 +17,8 @@ public class GuiWashingMachine extends GuiContainer {
 	private TileEntityIronBlocksTwo wmInv;
 	protected ResourceLocation texture = new ResourceLocation("jammyfurniture:gui/jammy_washingmachine.png");
 
-	public GuiWashingMachine(InventoryPlayer inventoryPlayer, TileEntityIronBlocksTwo teWashingMachine) {
-		super(new ContainerWashingMachine(inventoryPlayer, teWashingMachine));
+	public GuiWashingMachine(InventoryPlayer inventoryPlayer, TileEntityIronBlocksTwo teWashingMachine, EntityPlayer player) {
+		super(new ContainerWashingMachine(inventoryPlayer, teWashingMachine, player));
 		this.inventoryPlayer  = inventoryPlayer;
 		this.wmInv = teWashingMachine;
 	}
@@ -28,7 +29,7 @@ public class GuiWashingMachine extends GuiContainer {
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 		
-		String line1 = this.wmInv.getInventoryName();
+		String line1 = this.wmInv.getDisplayName().getUnformattedText();
 		String line2 = "";
 		if (line1.contains(" ")) {
 			line2=line1.substring(line1.indexOf(" ")+1);
@@ -36,7 +37,7 @@ public class GuiWashingMachine extends GuiContainer {
 		}
 		this.fontRendererObj.drawString(line1, 8, 6, 4210752);
 		this.fontRendererObj.drawString(line2, 8, 15, 4210752);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getInventoryName()), 8, this.ySize - 96 + 2, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.inventoryPlayer.getDisplayName().getUnformattedText()), 8, this.ySize - 96 + 2, 4210752);
 	}
 
 	/**

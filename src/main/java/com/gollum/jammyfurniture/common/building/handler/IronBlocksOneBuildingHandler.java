@@ -19,7 +19,7 @@ public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
 	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
-		
+		/* FIXME
 		int subBlock = ((IronBlocksOne)block).getEnabledMetadata(metadata);
 		
 		if (
@@ -54,7 +54,7 @@ public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 		
 		world.setBlockMetadataWithNotify(x, y, z, metadata, 0);
 		return;
-		
+		*/
 	}
 	
 }

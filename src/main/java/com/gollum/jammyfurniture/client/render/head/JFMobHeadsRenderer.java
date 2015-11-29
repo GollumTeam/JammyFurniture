@@ -17,7 +17,7 @@ public abstract class JFMobHeadsRenderer extends JFTileEntitySpecialRenderer {
 		this.textures = textures;
 	}
 	
-	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int metadata) {
+	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 
 		float rotation = 0;
 		

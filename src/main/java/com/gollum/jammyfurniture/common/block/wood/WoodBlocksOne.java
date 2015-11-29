@@ -3,18 +3,10 @@ package com.gollum.jammyfurniture.common.block.wood;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class WoodBlocksOne extends JFMetadataBlock {
 	
@@ -55,6 +47,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	/* FIXME
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack item) {
 		
@@ -65,12 +58,14 @@ public class WoodBlocksOne extends JFMetadataBlock {
 			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
 		}
 	}
+	*/
 	
 	/**
 	 * Lets the block know when one of its neighbor changes. Doesn't know which
 	 * neighbor changed (coordinates passed are their own) Args: x, y, z,
 	 * neighbor blockID
 	 */
+	/* FIXME
 	@Override
 	public void onNeighborBlockChange(World World, int x, int y, int z, Block block) {
 		super.onNeighborBlockChange(World, x, y, z, block);
@@ -81,6 +76,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 			titleEntity.updateContainingBlockInfo();
 		}
 	}
+	*/
 	
 	/**
 	 * Called on server worlds only when the block has been replaced by a
@@ -88,6 +84,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	 * but before the new metadata value is set. Args: World, x, y, z, old block
 	 * ID, old metadata
 	 */
+	/* FIXME
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadtaID) {
 		
@@ -95,10 +92,12 @@ public class WoodBlocksOne extends JFMetadataBlock {
 		
 		super.breakBlock(world, x, y, z, oldBlock, oldMetadtaID);
 	}
+	*/
 	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
+	/* FIXME
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
@@ -197,6 +196,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 	
 	///////////////////
 	// Data du block //
@@ -233,6 +233,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 	// Others //
 	////////////
 
+	/* FIXME
 	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
@@ -246,5 +247,6 @@ public class WoodBlocksOne extends JFMetadataBlock {
 		
 		return false;
 	}
+	*/
 
 }
