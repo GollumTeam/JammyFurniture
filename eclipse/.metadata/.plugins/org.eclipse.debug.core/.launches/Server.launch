@@ -8,6 +8,6 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="GradleStartServer"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="MDKExample"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xincgc -Xmx1024M -Xms1024M -Dfml.coreMods.load=com.gollum.fmlcore.FMLGollumCoreLib"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xincgc -Xmx1024M -Xms1024M -Dfml.coreMods.load=com.gollum.core.asm.GollumCoreLibPlugin"/>
 <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc}/run"/>
 </launchConfiguration>
