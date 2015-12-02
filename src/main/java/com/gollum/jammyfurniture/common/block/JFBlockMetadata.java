@@ -11,8 +11,10 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public abstract class JFBlockMetadata extends HBlockContainerMetadata implements ISimpleBlockRendered {
@@ -73,14 +75,13 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata implements
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-	
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
 	/* FIXME
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, BlockPos pos) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		this.getCollisionBoundingBox(metadata, false);
@@ -89,18 +90,18 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata implements
 	}
 	*/
 	
+	
 	/**
 	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
-	/* FIXME
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-		
-		int metadata = blockAccess.getBlockMetadata(x, y, z);
-		this.getCollisionBoundingBox(metadata, true);
+	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, BlockPos pos) {
+		// FIXME
+//		int metadata = blockAccess.getBlockMetadata(x, y, z);
+//		this.getCollisionBoundingBox(metadata, true);
 		
 	}
-	*/
+	
 	
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
