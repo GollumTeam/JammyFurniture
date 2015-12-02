@@ -2,11 +2,13 @@ package com.gollum.jammyfurniture.common.block.wood;
 
 import javax.swing.Icon;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksThree extends JFBlockMetadata {
 	public static int rotation;
@@ -77,6 +79,15 @@ public class WoodBlocksThree extends JFBlockMetadata {
 		}
 	}
 	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.woodBlocksThreeRenderID;
+	}
 	
 	///////////
 	// Event //
@@ -184,14 +195,6 @@ public class WoodBlocksThree extends JFBlockMetadata {
 		return (metadata >= 8) ? new ItemStack (ModBlocks.blockWoodBlocksOne, 1, 9) : super.getPickBlock(target, world, x, y, z);
 	}
 	*/
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	@Override
-	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksThreeRenderID;
-	}
 	
 	////////////
 	// Others //

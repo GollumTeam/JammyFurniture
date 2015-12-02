@@ -1,10 +1,13 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksFour extends JFBlockMetadata {
 	public static int rotation;
@@ -35,6 +38,15 @@ public class WoodBlocksFour extends JFBlockMetadata {
 		}
 	}
 	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.woodBlocksFourRenderID;
+	}
 	
 	///////////
 	// Event //
@@ -109,16 +121,6 @@ public class WoodBlocksFour extends JFBlockMetadata {
 	///////////////////
 	// Data du block //
 	///////////////////
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	/* FIXME
-	@Override
-	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksFourRenderID;
-	}
-	*/
 	
 	/**
 	 * Returns the ID of the items to drop on destruction.

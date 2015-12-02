@@ -2,11 +2,13 @@ package com.gollum.jammyfurniture.common.block.head;
 
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MobHeadsFour extends JFMobHeads {
 	
@@ -45,7 +47,17 @@ public class MobHeadsFour extends JFMobHeads {
 				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
 		}
 	}
-		
+	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.mobHeadsFourRenderID;
+	}
+	
 	///////////
 	// Event //
 	///////////
@@ -80,14 +92,4 @@ public class MobHeadsFour extends JFMobHeads {
 	}
 	*/
 	
-	///////////////////
-	// Data du block //
-	///////////////////
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	public int getRenderType() {
-		return ModJammyFurniture.mobHeadsFourRenderID;
-	}
 }

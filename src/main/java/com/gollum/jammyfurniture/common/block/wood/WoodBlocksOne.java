@@ -1,12 +1,14 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksOne extends JFBlockMetadata {
 	
@@ -38,6 +40,16 @@ public class WoodBlocksOne extends JFBlockMetadata {
 			case 14: this.setBlockBounds(0.0F, 0.875F, 0.0F, 1.0F, 1.0F, 1.0F); break;
 			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
 		}
+	}
+	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.woodBlocksOneRenderID;
 	}
 	
 	///////////
@@ -219,14 +231,6 @@ public class WoodBlocksOne extends JFBlockMetadata {
 				subBlock == 5
 			)
 		;
-	}
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	@Override
-	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksOneRenderID;
 	}
 	
 	////////////

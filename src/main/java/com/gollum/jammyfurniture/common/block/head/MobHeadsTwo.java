@@ -2,11 +2,13 @@ package com.gollum.jammyfurniture.common.block.head;
 
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsTwo;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MobHeadsTwo extends JFMobHeads {
 
@@ -41,6 +43,16 @@ public class MobHeadsTwo extends JFMobHeads {
 		}
 	}
 	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.mobHeadsTwoRenderID;
+	}
+	
 	///////////
 	// Event //
 	///////////
@@ -48,8 +60,8 @@ public class MobHeadsTwo extends JFMobHeads {
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
-	@Override
 	/* FIXME
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
 		
 		int metadata    = world.getBlockMetadata(x, y, z);
@@ -74,15 +86,4 @@ public class MobHeadsTwo extends JFMobHeads {
 		return false;
 	}
 	*/
-	
-	///////////////////
-	// Data du block //
-	///////////////////
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	public int getRenderType() {
-		return ModJammyFurniture.mobHeadsTwoRenderID;
-	}
 }

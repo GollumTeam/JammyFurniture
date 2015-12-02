@@ -1,10 +1,12 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class IronBlocksTwo extends JFBlockMetadata {
 	
@@ -19,6 +21,16 @@ public class IronBlocksTwo extends JFBlockMetadata {
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+	}
+	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.ironBlocksTwoRenderID;
 	}
 	
 	///////////
@@ -84,17 +96,6 @@ public class IronBlocksTwo extends JFBlockMetadata {
 		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
 	}
 	*/
-	
-	///////////////////
-	// Data du block //
-	///////////////////
-
-	/**
-	 * The type of render function that is called for this block
-	 */
-	public int getRenderType() {
-		return ModJammyFurniture.ironBlocksTwoRenderID;
-	}
 	
 	////////////
 	// Others //

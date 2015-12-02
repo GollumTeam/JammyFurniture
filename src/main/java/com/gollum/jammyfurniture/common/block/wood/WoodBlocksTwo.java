@@ -1,10 +1,12 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksTwo extends JFBlockMetadata {
 	
@@ -120,16 +122,14 @@ public class WoodBlocksTwo extends JFBlockMetadata {
 	}
 	*/
 	
-	///////////////////
-	// Data du block //
-	///////////////////
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
 	@Override
-	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksTwoRenderID;
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.woodBlocksTwoRenderID;
 	}
 	
 	////////////

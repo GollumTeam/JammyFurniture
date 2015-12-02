@@ -111,11 +111,6 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata implements
 	// Data du block //
 	///////////////////
 	
-	@Override // TODO must be remove
-	public int getGCLRenderType() {
-		return ModJammyFurniture.lightsRenderID;
-	}
-	
 	/**
 	 * Renvoi l'orientation du block par rapport à lentity
 	 * Pour le palcement

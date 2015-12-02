@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 import static com.gollum.core.tools.helper.blocks.HBlockMetadata.METADATA;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
@@ -19,6 +19,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockLights extends JFBlockMetadata {
 	
@@ -100,18 +102,19 @@ public class BlockLights extends JFBlockMetadata {
 		return true;
 	}
 	
-	///////////////////
-	// Data du block //
-	///////////////////
-	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ModJammyFurniture.lightsRenderID;
+		return ClientProxyJammyFurniture.lightsRenderID;
 	}
 	
 	
 	//////////////////////////
-	//Gestion des textures  //
+	// Gestion des textures //
 	//////////////////////////
 
 	/**

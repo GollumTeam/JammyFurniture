@@ -1,6 +1,7 @@
 package com.gollum.jammyfurniture.common.block.ceramic;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
 import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
@@ -9,6 +10,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CeramicBlocksOne extends JFBlockMetadata implements IBlockUnmountEvent {
 	
@@ -41,6 +44,16 @@ public class CeramicBlocksOne extends JFBlockMetadata implements IBlockUnmountEv
 			case 15: this.setBlockBounds(0.0F , 0.0F, 0.15F, 0.95F, 1.0F, 0.85F); break;
 			default: this.setBlockBounds(0.0F , 0.0F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
 		}
+	}
+	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.ceramicBlocksOneRenderID;
 	}
 	
 	///////////
@@ -196,18 +209,6 @@ public class CeramicBlocksOne extends JFBlockMetadata implements IBlockUnmountEv
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
 		world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
-	}
-	
-	///////////////////
-	// Data du block //
-	///////////////////
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	@Override
-	public int getRenderType() {
-		return ModJammyFurniture.ceramicBlocksOneRenderID;
 	}
 	
 	////////////

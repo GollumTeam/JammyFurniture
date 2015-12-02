@@ -1,7 +1,7 @@
 package com.gollum.jammyfurniture.common.block;
 
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.item.ItemBath;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
 
@@ -138,7 +138,7 @@ public class BathBlock extends HBlockContainer {
 	 */
 	@Override
 	public int getRenderType() {
-		return ModJammyFurniture.bathTubRenderID;
+		return ClientProxyJammyFurniture.bathTubRenderID;
 	}
 	
 	/**

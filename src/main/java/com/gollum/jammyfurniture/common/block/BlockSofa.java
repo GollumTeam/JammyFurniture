@@ -1,8 +1,10 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSofa extends JFBlockMetadata {
 	
@@ -85,16 +87,14 @@ public class BlockSofa extends JFBlockMetadata {
 	}
 	*/
 	
-	///////////////////
-	// Data du block //
-	///////////////////
+	////////////////////
+	// Rendu du block //
+	////////////////////
 	
-	/**
-	 * The type of render function that is called for this block
-	 */
+	@SideOnly(Side.CLIENT)
 	@Override
-	public int getRenderType() {
-		return ModJammyFurniture.sofaRenderID;
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.sofaRenderID;
 	}
 	
 	//////////////////////////
