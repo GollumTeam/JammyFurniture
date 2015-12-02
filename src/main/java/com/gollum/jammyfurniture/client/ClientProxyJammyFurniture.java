@@ -64,7 +64,7 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		ModJammyFurniture.mobHeadsFourRenderID     = RenderingRegistry.getNextAvailableRenderId();
 		ModJammyFurniture.sofaRenderID             = RenderingRegistry.getNextAvailableRenderId();
 		ModJammyFurniture.miscBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.lightsRenderID           = RenderingRegistry.getNextAvailableRenderId();
+		           = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.woodBlocksOneRenderID   , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.woodBlocksTwoRenderID   , new JFInventoryRenderer());
@@ -81,8 +81,9 @@ public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsFourRenderID    , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaRenderID            , new JFInventoryRenderer());
 		RenderingRegistry.registerBlockHandler(ModJammyFurniture.miscBlocksOneRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.lightsRenderID        , new JFInventoryRenderer());
 		*/
+		ModJammyFurniture.lightsRenderID = RenderingRegistry.registerBlockHandler(new JFInventoryRenderer());
+		
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksOneRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new WoodBlocksTwoRenderer());

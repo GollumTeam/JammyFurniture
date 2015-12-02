@@ -1,11 +1,10 @@
 package com.gollum.jammyfurniture.common.block;
 
-import static com.gollum.core.tools.helper.blocks.HBlockMetadata.METADATA;
-
-import java.util.ArrayList;
 import java.util.List;
 
+import com.gollum.core.common.blocks.ISimpleBlockRendered;
 import com.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -16,7 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class JFBlockMetadata extends HBlockContainerMetadata {
+public abstract class JFBlockMetadata extends HBlockContainerMetadata implements ISimpleBlockRendered {
 	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	
@@ -111,6 +110,11 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata {
 	///////////////////
 	// Data du block //
 	///////////////////
+	
+	@Override // TODO must be remove
+	public int getGCLRenderType() {
+		return ModJammyFurniture.lightsRenderID;
+	}
 	
 	/**
 	 * Renvoi l'orientation du block par rapport à lentity

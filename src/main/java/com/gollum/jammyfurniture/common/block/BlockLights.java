@@ -5,6 +5,8 @@ import static com.gollum.jammyfurniture.common.block.JFBlockMetadata.FACING;
 import java.util.TreeSet;
 
 import static com.gollum.core.tools.helper.blocks.HBlockMetadata.METADATA;
+
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
@@ -102,15 +104,11 @@ public class BlockLights extends JFBlockMetadata {
 	// Data du block //
 	///////////////////
 	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	/* FIXME
 	@Override
-	public int getRenderType() {
+	public int getGCLRenderType() {
 		return ModJammyFurniture.lightsRenderID;
 	}
-	*/
+	
 	
 	//////////////////////////
 	//Gestion des textures  //
