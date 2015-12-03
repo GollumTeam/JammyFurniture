@@ -5,6 +5,7 @@ import com.gollum.jammyfurniture.client.model.JFIModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraftforge.client.model.ISmartBlockModel;
 
 public class ModelLight extends ModelBase implements JFIModel {
 	
@@ -83,7 +84,7 @@ public class ModelLight extends ModelBase implements JFIModel {
 		this.midLeft.mirror = true;
 		this.setRotation(this.midLeft, 0.0F, 0.0F, 0.0F);
 	}
-
+	
 	/**
 	 * Sets the models various rotation angles then renders the model.
 	 */

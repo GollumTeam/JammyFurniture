@@ -61,6 +61,16 @@ public class BlockLights extends JFBlockMetadata {
 		}
 	}
 	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.lightsRenderID;
+	}
+	
 	///////////
 	// Event //
 	///////////
@@ -100,16 +110,6 @@ public class BlockLights extends JFBlockMetadata {
 		world.setBlockState(pos, newState, 3);
 
 		return true;
-	}
-	
-	////////////////////
-	// Rendu du block //
-	////////////////////
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.lightsRenderID;
 	}
 	
 	
