@@ -82,7 +82,7 @@ public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRen
 	// Data du block //
 	///////////////////
 	
-	// TODO
+	// TODO atester
 //	/**
 //	 * Renvoi l'orientation du block par rapport à lentity
 //	 * Pour le palcement

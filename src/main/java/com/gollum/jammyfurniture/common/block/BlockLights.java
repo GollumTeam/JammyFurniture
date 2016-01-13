@@ -99,28 +99,6 @@ public class BlockLights extends JFBlock {
 		});
 	}
 	
-	// TODO peut etre a supprimer
-//	/**
-//	 * Enregistrement du rendu du bloc. Appelé a la fin de l'Init
-//	 */
-//	@SideOnly(Side.CLIENT)
-//	@Override
-//	public void registerRender () {
-//		helper.registerRender(0);
-//		helper.registerRender(4);
-//		helper.registerRender(8);
-//		
-//		ModelBakery.addVariantName(
-//			this.getBlockItem(), 
-//			ModJammyFurniture.MODID+":light", 
-//			ModJammyFurniture.MODID+":outdoor_lamp", 
-//			ModJammyFurniture.MODID+":table_lamp"
-//		);
-//		helper.registerRender(0, "light");
-//		helper.registerRender(4, "outdoor_lamp");
-//		helper.registerRender(8, "table_lamp");
-//	}
-	
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState state = this.getDefaultState();
 		switch (meta) {
@@ -217,22 +195,4 @@ public class BlockLights extends JFBlock {
 
 		return true;
 	}
-	
-	////////////
-	// Others //
-	////////////
-	/* FIXME
-	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
-		
-		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
-		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = this.getEnabledMetadata(metadata);
-		
-		if (subBlock == 4) {
-			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
-			return true;
-		}
-		return true;
-	}
-	*/
 }
