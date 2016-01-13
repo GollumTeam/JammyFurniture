@@ -24,7 +24,15 @@ public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRen
 	
 	protected Class tileEntityClass;
 	
+	/**
+	 * TODO
+	 * @deprecated
+	 */
 	public JFBlock(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
+		this(registerName, material, tileEntityClass);
+	}
+	
+	public JFBlock(String registerName, Material material, Class tileEntityClass) {
 		super(registerName, material);
 		this.tileEntityClass = tileEntityClass;
 		this.setItemBlockClass(HItemBlockMetadata.class);
@@ -82,16 +90,13 @@ public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRen
 	// Data du block //
 	///////////////////
 	
-	// TODO atester
-//	/**
-//	 * Renvoi l'orientation du block par rapport à lentity
-//	 * Pour le palcement
-//	 * @param entity
-//	 * @return
-//	 */
-//	public int getOrientation(Entity entity) {
-//		return (MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
-//	}
+	/**
+	 * @param entity
+	 * @return
+	 */
+	public EnumFacing getOrientation(Entity entity) {
+		return entity.getHorizontalFacing().getOpposite();
+	}
 	
 	/**
 	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether

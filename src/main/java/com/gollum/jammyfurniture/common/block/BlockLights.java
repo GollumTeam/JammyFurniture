@@ -39,8 +39,8 @@ public class BlockLights extends JFBlock {
 	public static enum EnumType implements IStringSerializable
 	{
 		LIGHT       ("light", 0),
-		OUTDOOR_LAMP("outdoor_lamp", 1),
-		TABLE_LAMP  ("table_lamp", 2);
+		OUTDOOR_LAMP("outdoor_lamp", 4),
+		TABLE_LAMP  ("table_lamp", 8);
 
 		private final String name;
 		private final int value;
@@ -77,7 +77,7 @@ public class BlockLights extends JFBlock {
 	
 	
 	public BlockLights(String registerName, boolean active) {
-		super(registerName, Material.glass, "wood", (active) ? TileEntityLightsOn.class : TileEntityLightsOff.class, new int[] { 0, 4, 8 });
+		super(registerName, Material.glass, (active) ? TileEntityLightsOn.class : TileEntityLightsOff.class);
 		this.setDefaultState(this.getDefaultState()
 			.withProperty(FACING, EnumFacing.NORTH)
 			.withProperty(TYPE, EnumType.LIGHT)
@@ -122,7 +122,7 @@ public class BlockLights extends JFBlock {
 		if (state == null) {
 			return 0;
 		}
-		return state.getValue(TYPE).getValue() * 4 + state.getValue(FACING).getHorizontalIndex();
+		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
 	}
 	
 	@Override
@@ -172,7 +172,7 @@ public class BlockLights extends JFBlock {
 	
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
 		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, player.getHorizontalFacing().getOpposite()), 2);
+		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
 	}
 	
 	/**
