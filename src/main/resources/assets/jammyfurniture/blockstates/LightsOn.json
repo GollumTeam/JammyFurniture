@@ -2,6 +2,7 @@
    "variants": {
 	
        "inventory": {"model": "jammyfurniture:light" },
+       
        "facing=north,type=light": {"model": "jammyfurniture:light" },
        "facing=east,type=light": {"model": "jammyfurniture:light" },
        "facing=west,type=light": {"model": "jammyfurniture:light" },
