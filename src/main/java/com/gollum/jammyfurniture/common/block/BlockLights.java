@@ -99,31 +99,28 @@ public class BlockLights extends JFBlock {
 		});
 	}
 	
-	/**
-	 * Enregistrement du rendu du bloc. Appelé a la fin de l'Init
-	 */
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerRender () {
-		log.message("Auto register render: "+ModJammyFurniture.MODID+":"+this.getRegisterName());
-		ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
-		
-		ModelBakery.addVariantName(
-			this.getBlockItem(), 
-			ModJammyFurniture.MODID+":light", 
-			ModJammyFurniture.MODID+":outdoor_lamp", 
-			ModJammyFurniture.MODID+":table_lamp"
-		);
-		this.registerRender(mesher, 0, "light");
-		this.registerRender(mesher, 4, "outdoor_lamp");
-		this.registerRender(mesher, 8, "table_lamp");
-	}
+	// TODO peut etre a supprimer
+//	/**
+//	 * Enregistrement du rendu du bloc. Appelé a la fin de l'Init
+//	 */
+//	@SideOnly(Side.CLIENT)
+//	@Override
+//	public void registerRender () {
+//		helper.registerRender(0);
+//		helper.registerRender(4);
+//		helper.registerRender(8);
+//		
+//		ModelBakery.addVariantName(
+//			this.getBlockItem(), 
+//			ModJammyFurniture.MODID+":light", 
+//			ModJammyFurniture.MODID+":outdoor_lamp", 
+//			ModJammyFurniture.MODID+":table_lamp"
+//		);
+//		helper.registerRender(0, "light");
+//		helper.registerRender(4, "outdoor_lamp");
+//		helper.registerRender(8, "table_lamp");
+//	}
 	
-	
-	private void registerRender(ItemModelMesher mesher, int metadata, String name) {
-		mesher.register(this.getBlockItem(), metadata, new ModelResourceLocation(ModJammyFurniture.MODID+":"+name, "inventory"));
-	}
-
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState state = this.getDefaultState();
 		switch (meta) {
@@ -136,11 +133,11 @@ public class BlockLights extends JFBlock {
 			case 5:
 			case 6:
 			case 7:
-				state = state.withProperty(TYPE, EnumType.OUTDOOR_LAMP).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
+				state = state.withProperty(TYPE, EnumType.OUTDOOR_LAMP); break;
 			default:
 				state = state.withProperty(TYPE, EnumType.TABLE_LAMP); break;
 		}
-		return state;
+		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
 	}
 	
 	public int getMetaFromState(IBlockState state) {
@@ -161,6 +158,7 @@ public class BlockLights extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
+	// TODO a revoir
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		switch (metadata) {
@@ -196,9 +194,7 @@ public class BlockLights extends JFBlock {
 	
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
 		state = this.getStateFromMeta(stack.getItemDamage());
-		if (state.getValue(TYPE) == EnumType.OUTDOOR_LAMP) {
-			world.setBlockState(pos, state.withProperty(FACING, player.getHorizontalFacing().getOpposite()), 2);
-		}
+		world.setBlockState(pos, state.withProperty(FACING, player.getHorizontalFacing().getOpposite()), 2);
 	}
 	
 	/**

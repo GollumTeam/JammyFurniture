@@ -1,18 +1,11 @@
 package com.gollum.jammyfurniture.client.render;
 
 import com.gollum.core.client.handlers.ISimpleBlockRenderingHandler;
-import com.gollum.core.client.renderer.GLCRenderBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-
-/* FIXME
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.world.IBlockAccess;
-*/
 
 public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 	
@@ -23,7 +16,7 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 	}
 	
 	@Override
-	public void renderInventoryBlock(Block block, int metadata, int modelID, GLCRenderBlocks renderer) {
+	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderItem renderer) {
 		
 		this.currentMetadata = metadata;
 		
