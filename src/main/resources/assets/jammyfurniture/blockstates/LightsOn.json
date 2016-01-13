@@ -7,14 +7,14 @@
        "facing=west,type=light": {"model": "jammyfurniture:light" },
        "facing=south,type=light": {"model": "jammyfurniture:light" },
        
-       "facing=north,type=outdoor_lamp": {"model": "jammyfurniture:light" },
-       "facing=east,type=outdoor_lamp": {"model": "jammyfurniture:light" },
-       "facing=west,type=outdoor_lamp": {"model": "jammyfurniture:light" },
-       "facing=south,type=outdoor_lamp": {"model": "jammyfurniture:light" },
+       "facing=north,type=outdoor_lamp": {"model": "jammyfurniture:outdoor_lamp" },
+       "facing=east,type=outdoor_lamp": {"model": "jammyfurniture:outdoor_lamp" },
+       "facing=west,type=outdoor_lamp": {"model": "jammyfurniture:outdoor_lamp" },
+       "facing=south,type=outdoor_lamp": {"model": "jammyfurniture:outdoor_lamp" },
        
-       "facing=north,type=table_lamp": {"model": "jammyfurniture:light" },
-       "facing=east,type=table_lamp": {"model": "jammyfurniture:light" },
-       "facing=west,type=table_lamp": {"model": "jammyfurniture:light" },
-       "facing=south,type=table_lamp": {"model": "jammyfurniture:light" }
+       "facing=north,type=table_lamp": {"model": "jammyfurniture:table_lamp" },
+       "facing=east,type=table_lamp": {"model": "jammyfurniture:table_lamp" },
+       "facing=west,type=table_lamp": {"model": "jammyfurniture:table_lamp" },
+       "facing=south,type=table_lamp": {"model": "jammyfurniture:table_lamp" }
    }
 }

@@ -1,5 +1,5 @@
 {
-    "parent": "jammyfurniture:block/light",
+    "parent": "jammyfurniture:block/table_lamp",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

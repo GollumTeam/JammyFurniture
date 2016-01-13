@@ -13,7 +13,6 @@ import com.gollum.jammyfurniture.client.model.wood.ModelKitchenSide;
 import com.gollum.jammyfurniture.client.model.wood.ModelTable;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.state.IBlockState;
@@ -34,16 +33,16 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		IBlockState state = ModBlocks.blockLightsOn.getStateFromMeta(metadata);
+		IBlockState state = ModBlocks.blockWoodBlocksOne.getStateFromMeta(metadata);
 		EnumFacing facing = state.getValue(FACING);
 		EnumType type = state.getValue(TYPE);
 		
-		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
-		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
-		if (facing == EnumFacing.EAST ) { rotation = 270; } else
+		if (facing == EnumFacing.NORTH ) { rotation = 90 ; } else
+		if (facing == EnumFacing.WEST) { rotation = 180; } else
+		if (facing == EnumFacing.SOUTH ) { rotation = 270; } else
 		
 		if (this.isInventory) {
-			rotation = 180;
+			rotation = 270;
 		}
 		
 		if (type == EnumType.CLOCK_BASE   ) { this.renderModel(this.modelClockBase  , "clockbase"  , x, y, z, rotation); } else

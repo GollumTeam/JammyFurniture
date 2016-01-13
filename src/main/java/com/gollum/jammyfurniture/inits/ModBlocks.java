@@ -78,7 +78,7 @@ public class ModBlocks {
 		ModBlocks.blockLightsOn         = (BlockLights)new BlockLights     ("LightsOn" ,true  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.3F);
 		ModBlocks.blockLightsOff        = (BlockLights)new BlockLights     ("LightsOff",false )                                       .setHardness(0.3F);
 		
-		ModBlocks.blockWoodBlocksOne    = (WoodBlocksOne)  new WoodBlocksOne   ("WoodBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
+//		ModBlocks.blockWoodBlocksOne    = (WoodBlocksOne)  new WoodBlocksOne   ("WoodBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 //		ModBlocks.blockWoodBlocksTwo    = (WoodBlocksTwo)  new WoodBlocksTwo   ("WoodBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 //		ModBlocks.blockWoodBlocksThree  = (WoodBlocksThree)new WoodBlocksThree ("WoodBlocksThree" ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 //		ModBlocks.blockWoodBlocksFour   = (WoodBlocksFour) new WoodBlocksFour  ("WoodBlocksFour"  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
