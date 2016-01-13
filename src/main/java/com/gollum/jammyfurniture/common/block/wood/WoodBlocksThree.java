@@ -3,14 +3,14 @@ package com.gollum.jammyfurniture.common.block.wood;
 import javax.swing.Icon;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
+import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WoodBlocksThree extends JFBlockMetadata {
+public class WoodBlocksThree extends JFBlock {
 	public static int rotation;
 	private Icon jfm_blockIcon;
 	

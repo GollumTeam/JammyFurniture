@@ -1,13 +1,17 @@
 package com.gollum.jammyfurniture.client.render;
 
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
+import static com.gollum.jammyfurniture.common.block.BlockLights.FACING;
+import static com.gollum.jammyfurniture.common.block.BlockLights.TYPE;
 import com.gollum.jammyfurniture.client.model.lights.ModelLight;
 import com.gollum.jammyfurniture.client.model.lights.ModelOutsideLamp;
 import com.gollum.jammyfurniture.client.model.lights.ModelTableLamp;
+import com.gollum.jammyfurniture.common.block.BlockLights.EnumType;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 public class LightsRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -18,18 +22,13 @@ public class LightsRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockLightsOn).getEnabledMetadata(metadata);
+		IBlockState state = ModBlocks.blockLightsOn.getStateFromMeta(metadata);
+		EnumFacing facing = state.getValue(FACING);
+		EnumType type = state.getValue(TYPE);
 		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 7:
-				rotation = 90; break;
-			case 6:
-				rotation = 180; break;
-			case 5:
-				rotation = 270; break;
-		}
+		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
+		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; } else
 		
 		if (this.isInventory) {
 			rotation = 180;
@@ -39,11 +38,9 @@ public class LightsRenderer extends JFTileEntitySpecialRenderer {
 		
 		String status = (tileEntity instanceof TileEntityLightsOn) ? "_on" : "_off";
 		
-		switch (subBlock) {
-			case 0:  this.renderModel(this.modeLight       , "lightbulb" + status, x, y, z, rotation); break;
-			case 4:  this.renderModel(this.modelOutsideLamp, "lamp"      + status, x, y, z, rotation); break;
-			case 8:  this.renderModel(this.modelTableLamp  , "tablelamp" + status, x, y, z, rotation); break;
-		}
-
+		if (type == EnumType.LIGHT       ) { this.renderModel(this.modeLight       , "lightbulb" + status, x, y, z, rotation); } else
+		if (type == EnumType.OUTDOOR_LAMP) { this.renderModel(this.modelOutsideLamp, "lamp"      + status, x, y, z, rotation); } else
+		if (type == EnumType.TABLE_LAMP  ) { this.renderModel(this.modelTableLamp  , "tablelamp" + status, x, y, z, rotation); }
+		
 	}
 }

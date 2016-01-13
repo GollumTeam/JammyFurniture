@@ -3,12 +3,15 @@ package com.gollum.jammyfurniture.common.block;
 import java.util.List;
 
 import com.gollum.core.common.blocks.ISimpleBlockRendered;
-import com.gollum.core.tools.helper.blocks.HBlockContainerMetadata;
+import com.gollum.core.tools.helper.blocks.HBlockContainer;
+import com.gollum.core.tools.helper.items.HItemBlockMetadata;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
@@ -17,27 +20,15 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public abstract class JFBlockMetadata extends HBlockContainerMetadata implements ISimpleBlockRendered {
-	
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRendered {
 	
 	protected Class tileEntityClass;
-	protected String textureKey;
 	
-	public JFBlockMetadata(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
-		super(registerName, material, listSubBlock);
-		this.setDefaultState(this.getDefaultState().withProperty(FACING, EnumFacing.NORTH));
+	public JFBlock(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
+		super(registerName, material);
 		this.tileEntityClass = tileEntityClass;
-		this.textureKey = textureKey;
+		this.setItemBlockClass(HItemBlockMetadata.class);
 	}
-	
-	@Override
-	protected List<IProperty> getStateProperties() {
-		List<IProperty> prop = super.getStateProperties();
-		prop.add(FACING);
-		return prop;
-	}
-	
 	
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing
@@ -51,26 +42,6 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata implements
 			throw new RuntimeException(e);
 		}
 	}
-	
-	/////////////
-	// Texture //
-	/////////////
-	
-	/* FIXME
-	@Override
-	public String getTextureKey() {
-		return this.textureKey;
-	}
-	*/
-	
-	/* FIXME
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		for (int metadata : this.listSubEnabled()) {
-			this.getGollumHelperMetadata().blockIcons.put(metadata, this.getGollumHelperMetadata().loadTexture(iconRegister));
-		}
-	}
-	*/
 	
 	/////////////////////////////////
 	// Forme et collition du block //
@@ -106,21 +77,21 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata implements
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
-
-
+	
 	///////////////////
 	// Data du block //
 	///////////////////
 	
-	/**
-	 * Renvoi l'orientation du block par rapport à lentity
-	 * Pour le palcement
-	 * @param entity
-	 * @return
-	 */
-	public int getOrientation(Entity entity) {
-		return (MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
-	}
+	// TODO
+//	/**
+//	 * Renvoi l'orientation du block par rapport à lentity
+//	 * Pour le palcement
+//	 * @param entity
+//	 * @return
+//	 */
+//	public int getOrientation(Entity entity) {
+//		return (MathHelper.floor_double((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) % 4;
+//	}
 	
 	/**
 	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
@@ -131,16 +102,5 @@ public abstract class JFBlockMetadata extends HBlockContainerMetadata implements
 	public boolean isOpaqueCube() {
 		return false;
 	}
-
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
-	/* FIXME	
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-	*/
 
 }

@@ -1,13 +1,11 @@
 package com.gollum.jammyfurniture.client.render.iron;
 
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.iron.ModelCoffeeTable;
 import com.gollum.jammyfurniture.client.model.iron.ModelCooker;
 import com.gollum.jammyfurniture.client.model.iron.ModelFridge;
 import com.gollum.jammyfurniture.client.model.iron.ModelRubbishBin;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.tileentity.TileEntity;
 
@@ -23,7 +21,7 @@ public class IronBlocksRendererOne extends JFTileEntitySpecialRenderer {
 		TileEntityIronBlocksOne tileEntityIron = (TileEntityIronBlocksOne)tileEntity;
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockIronBlocksOne).getEnabledMetadata(metadata);
+		int subBlock = 0;
 		
 		switch (metadata) {
 			default:

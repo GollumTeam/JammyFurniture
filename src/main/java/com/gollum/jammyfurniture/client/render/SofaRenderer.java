@@ -1,6 +1,5 @@
 package com.gollum.jammyfurniture.client.render;
 
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.JFIModel;
 import com.gollum.jammyfurniture.client.model.sofa.ModelArmChair;
 import com.gollum.jammyfurniture.client.model.sofa.ModelSofaCenter;
@@ -11,7 +10,6 @@ import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.tileentity.TileEntity;
 
@@ -26,7 +24,7 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockArmChair).getEnabledMetadata(metadata);
+		int subBlock = 0;
 		
 		switch (metadata) {
 			default:

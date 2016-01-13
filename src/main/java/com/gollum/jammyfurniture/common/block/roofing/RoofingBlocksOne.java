@@ -1,14 +1,14 @@
 package com.gollum.jammyfurniture.common.block.roofing;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
+import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class RoofingBlocksOne extends JFBlockMetadata {
+public class RoofingBlocksOne extends JFBlock {
 	
 	public RoofingBlocksOne(String registerName) {
 		super(registerName, Material.rock, "roof", TileEntityRoofingBlocksOne.class, new int[]{ 0, 4, 8, 12 });

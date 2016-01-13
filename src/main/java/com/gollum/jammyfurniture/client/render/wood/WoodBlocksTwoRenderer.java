@@ -1,6 +1,5 @@
 package com.gollum.jammyfurniture.client.render.wood;
 
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.wood.ModelBasket;
 import com.gollum.jammyfurniture.client.model.wood.ModelKitchenCupboard;
 import com.gollum.jammyfurniture.client.model.wood.ModelTV;
@@ -23,7 +22,7 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksTwo).getEnabledMetadata(metadata);
+		int subBlock = 0;
 		
 		switch (metadata) {
 			default:

@@ -2,7 +2,6 @@ package com.gollum.jammyfurniture.client.render.wood;
 
 import java.util.Random;
 
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
 import com.gollum.jammyfurniture.client.model.wood.ModelClockBase;
 import com.gollum.jammyfurniture.client.model.wood.ModelClockMiddle;
@@ -10,7 +9,6 @@ import com.gollum.jammyfurniture.client.model.wood.ModelClockTop;
 import com.gollum.jammyfurniture.client.model.wood.ModelKitchenSide;
 import com.gollum.jammyfurniture.client.model.wood.ModelTable;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
-import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
@@ -28,7 +26,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = ((IBlockMetadataHelper)ModBlocks.blockWoodBlocksOne).getEnabledMetadata(metadata);
+		int subBlock = 0;
 		
 		switch (metadata) {
 			default:

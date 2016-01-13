@@ -1,7 +1,6 @@
 package com.gollum.jammyfurniture.common.tilesentities.wood;
 
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
-import com.gollum.core.tools.helper.IBlockMetadataHelper;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 
 import net.minecraft.block.Block;

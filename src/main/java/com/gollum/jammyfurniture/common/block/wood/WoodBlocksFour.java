@@ -1,7 +1,7 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
+import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 
@@ -9,7 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WoodBlocksFour extends JFBlockMetadata {
+public class WoodBlocksFour extends JFBlock {
 	public static int rotation;
 	
 	public WoodBlocksFour(String registerName) {
@@ -24,18 +24,18 @@ public class WoodBlocksFour extends JFBlockMetadata {
 	
 	@Override
 	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		int subBlock = this.getEnabledMetadata(metadata);
-		switch (subBlock) {
-			case 0:  this.setBlockBounds(0.06F, 0.0F, 0.06F, 0.94F, 0.95F, 0.94F); break;
-			case 8:  
-				if (isSelectBox) {
-					this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 1.0F, 0.7F); 
-				}else {
-					this.setBlockBounds(0.47F, 0.0F, 0.47F, 0.53F, 1.0F, 0.53F);
-				}
-				break;
-			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
-		}
+//		int subBlock = this.getEnabledMetadata(metadata);
+//		switch (subBlock) {
+//			case 0:  this.setBlockBounds(0.06F, 0.0F, 0.06F, 0.94F, 0.95F, 0.94F); break;
+//			case 8:  
+//				if (isSelectBox) {
+//					this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 1.0F, 0.7F); 
+//				}else {
+//					this.setBlockBounds(0.47F, 0.0F, 0.47F, 0.53F, 1.0F, 0.53F);
+//				}
+//				break;
+//			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
+//		}
 	}
 	
 	////////////////////

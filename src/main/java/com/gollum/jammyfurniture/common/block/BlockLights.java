@@ -1,41 +1,147 @@
 package com.gollum.jammyfurniture.common.block;
 
-import static com.gollum.jammyfurniture.common.block.JFBlockMetadata.FACING;
+import static com.gollum.jammyfurniture.ModJammyFurniture.log;
 
-import java.util.TreeSet;
+import java.util.List;
 
-import static com.gollum.core.tools.helper.blocks.HBlockMetadata.METADATA;
-
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
+import com.google.common.collect.Lists;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockLights extends JFBlockMetadata {
+public class BlockLights extends JFBlock {
 	
-	/* FIXME
-	IIcon blockIconLight0;
-	IIcon blockIconLight1;
-	IIcon blockIconLight2;
-	*/
+	public static enum EnumType implements IStringSerializable
+	{
+		LIGHT       ("light", 0),
+		OUTDOOR_LAMP("outdoor_lamp", 1),
+		TABLE_LAMP  ("table_lamp", 2);
+
+		private final String name;
+		private final int value;
+		
+		private EnumType(String name, int value) {
+			this.name = name;
+			this.value = value;
+		}
+		
+		public String toString() {
+			return this.name;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+	}
+	
+	public static class PropertyType extends PropertyEnum<EnumType> {
+		protected PropertyType(String name) {
+			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+		}
+		public static PropertyType create(String name) {
+			return new PropertyType(name);
+		}
+	}
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyType TYPE = PropertyType.create("type");
+	
 	
 	public BlockLights(String registerName, boolean active) {
 		super(registerName, Material.glass, "wood", (active) ? TileEntityLightsOn.class : TileEntityLightsOff.class, new int[] { 0, 4, 8 });
-		
+		this.setDefaultState(this.getDefaultState()
+			.withProperty(FACING, EnumFacing.NORTH)
+			.withProperty(TYPE, EnumType.LIGHT)
+		);
 		if (active) {
 			this.setLightLevel(1.0F);
 		}
+	}
+	
+	////////////
+	// States //
+	////////////
+	
+	@Override
+	protected BlockState createBlockState() {
+		return new BlockState(this, new IProperty[]{
+			FACING,
+			TYPE,
+		});
+	}
+	
+	/**
+	 * Enregistrement du rendu du bloc. Appelé a la fin de l'Init
+	 */
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerRender () {
+		log.message("Auto register render: "+ModJammyFurniture.MODID+":"+this.getRegisterName());
+		ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+		for (int i = 0; i < 12; i++) {
+			mesher.register(this.getBlockItem(), i, new ModelResourceLocation(ModJammyFurniture.MODID+":"+this.getRegisterName(), "inventory"));
+		}
+	}
+	
+	public IBlockState getStateFromMeta(int meta) {
+		IBlockState state = this.getDefaultState();
+		switch (meta) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				state = state.withProperty(TYPE, EnumType.LIGHT); break;
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+				state = state.withProperty(TYPE, EnumType.OUTDOOR_LAMP).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
+			default:
+				state = state.withProperty(TYPE, EnumType.TABLE_LAMP); break;
+		}
+		return state;
+	}
+	
+	public int getMetaFromState(IBlockState state) {
+		if (state == null) {
+			return 0;
+		}
+		return state.getValue(TYPE).getValue() * 4 + state.getValue(FACING).getHorizontalIndex();
+	}
+	
+	@Override
+	public void getSubBlocks(Item item, CreativeTabs ctabs, List list) {
+		list.add(new ItemStack(item, 1, 0));
+		list.add(new ItemStack(item, 1, 4));
+		list.add(new ItemStack(item, 1, 8));
 	}
 	
 	/////////////////////////////////
@@ -75,28 +181,19 @@ public class BlockLights extends JFBlockMetadata {
 	// Event //
 	///////////
 	
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	/* FIXME
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack item) {
-		
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int orientation = this.getOrientation(entityliving);
-
-		if (metadata == 4) {
-			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+		state = this.getStateFromMeta(stack.getItemDamage());
+		if (state.getValue(TYPE) == EnumType.OUTDOOR_LAMP) {
+			world.setBlockState(pos, state.withProperty(FACING, player.getHorizontalFacing().getOpposite()), 2);
 		}
 	}
-	*/
 	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
-		int metadata = state.getValue(METADATA);
+		EnumType type = state.getValue(TYPE);
 		EnumFacing orientaion = state.getValue(FACING);
 		Block block  = state.getBlock();
 		IBlockState newState = null;
@@ -105,48 +202,12 @@ public class BlockLights extends JFBlockMetadata {
 		} else {
 			newState = ModBlocks.blockLightsOn.getDefaultState();
 		}
-		newState = newState.withProperty(METADATA, metadata);
+		newState = newState.withProperty(TYPE, type);
 		newState = newState.withProperty(FACING, orientaion);
 		world.setBlockState(pos, newState, 3);
 
 		return true;
 	}
-	
-	
-	//////////////////////////
-	// Gestion des textures //
-	//////////////////////////
-
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	/* FIXME
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		this.blockIconLight0 = this.helper.loadTexture (iconRegister, "sofa_red"  , true);
-		this.blockIconLight1 = this.helper.loadTexture (iconRegister, "outlight"  , true);
-		this.blockIconLight2 = this.helper.loadTexture (iconRegister, "tablelight", true);
-	}
-	*/
-
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture.
-	 * Args: side, metadata
-	 */
-	/* FIXME
-	@Override
-	public IIcon getIcon(int side, int metadata) {
-		int subBlock = this.getEnabledMetadata(metadata);
-		switch (subBlock) {
-			default:
-			case 0:  return this.blockIconLight0;
-			case 4:  return this.blockIconLight1;
-			case 8:  return this.blockIconLight2;
-		}
-	}
-	*/
 	
 	////////////
 	// Others //

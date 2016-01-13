@@ -1,7 +1,7 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
+import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 
 import net.minecraft.block.material.Material;
@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WoodBlocksOne extends JFBlockMetadata {
+public class WoodBlocksOne extends JFBlock {
 	
 	public WoodBlocksOne(String registerName) {
 		super(registerName, Material.wood, "wood", TileEntityWoodBlocksOne.class, new int[] { 0, 1, 5, 9, 13, 14, 15 });
@@ -214,24 +214,24 @@ public class WoodBlocksOne extends JFBlockMetadata {
 	// Data du block //
 	///////////////////
 	
-	private boolean isClock (ItemStack itemStack) {
-		
-		if (itemStack == null) {
-			return false;
-		}
-		
-		Item item    = itemStack.getItem();
-		int subBlock = this.getEnabledMetadata(itemStack.getItemDamage());
-		
-		return 
-			itemStack !=  null &&
-			item == this.getBlockItem() && (
-				subBlock == 0 ||
-				subBlock == 1 ||
-				subBlock == 5
-			)
-		;
-	}
+//	private boolean isClock (ItemStack itemStack) {
+//		
+//		if (itemStack == null) {
+//			return false;
+//		}
+//		
+//		Item item    = itemStack.getItem();
+//		int subBlock = this.getEnabledMetadata(itemStack.getItemDamage());
+//		
+//		return 
+//			itemStack !=  null &&
+//			item == this.getBlockItem() && (
+//				subBlock == 0 ||
+//				subBlock == 1 ||
+//				subBlock == 5
+//			)
+//		;
+//	}
 	
 	////////////
 	// Others //

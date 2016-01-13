@@ -22,65 +22,65 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 	
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 
-		TileEntityWoodBlocksFour tileEntityWood = (TileEntityWoodBlocksFour)tileEntity;
-		int subBlock = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getEnabledMetadata(metadata);
-		
-		float rotation = 0;
-		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 3:
-			case 7:
-			case 9:
-			case 13:
-				rotation = 90; break;
-			case 2:
-			case 6:
-			case 10:
-			case 14:
-				rotation = 180; break;
-			case 1:
-			case 5:
-			case 11:
-			case 15:
-				rotation = 270; break;
-		}
-		
-		if (this.isInventory) {
-			this.renderInInventory(subBlock, x, y, z);
-			return;
-		}
-		
-		float doorProgess = tileEntityWood.getPreviousDoorOpenProgress() + (tileEntityWood.getDoorOpenProgress() - tileEntityWood.getPreviousDoorOpenProgress()) * f;
-		
-		switch (metadata) {
-			default:
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				this.renderModel(this.modelCupboardBottom, "cupboard", x, y, z, rotation);
-				break;
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-				this.renderModel(this.modelCupboardTop, "cupboard", x, y, z, rotation, doorProgess);
-				break;
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-				this.renderModel(this.modelStandBase, "coatstandbase", x, y, z, rotation);
-				break;
-			case 12:
-			case 13:
-			case 14:
-			case 15:
-				this.renderModel(this.modelStandTop, "coatstandtop", x, y, z, rotation);
-				break;
-		}
+//		TileEntityWoodBlocksFour tileEntityWood = (TileEntityWoodBlocksFour)tileEntity;
+//		int subBlock = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getEnabledMetadata(metadata);
+//		
+//		float rotation = 0;
+//		
+//		switch (metadata) {
+//			default:
+//				rotation = 0; break;
+//			case 3:
+//			case 7:
+//			case 9:
+//			case 13:
+//				rotation = 90; break;
+//			case 2:
+//			case 6:
+//			case 10:
+//			case 14:
+//				rotation = 180; break;
+//			case 1:
+//			case 5:
+//			case 11:
+//			case 15:
+//				rotation = 270; break;
+//		}
+//		
+//		if (this.isInventory) {
+//			this.renderInInventory(subBlock, x, y, z);
+//			return;
+//		}
+//		
+//		float doorProgess = tileEntityWood.getPreviousDoorOpenProgress() + (tileEntityWood.getDoorOpenProgress() - tileEntityWood.getPreviousDoorOpenProgress()) * f;
+//		
+//		switch (metadata) {
+//			default:
+//			case 0:
+//			case 1:
+//			case 2:
+//			case 3:
+//				this.renderModel(this.modelCupboardBottom, "cupboard", x, y, z, rotation);
+//				break;
+//			case 4:
+//			case 5:
+//			case 6:
+//			case 7:
+//				this.renderModel(this.modelCupboardTop, "cupboard", x, y, z, rotation, doorProgess);
+//				break;
+//			case 8:
+//			case 9:
+//			case 10:
+//			case 11:
+//				this.renderModel(this.modelStandBase, "coatstandbase", x, y, z, rotation);
+//				break;
+//			case 12:
+//			case 13:
+//			case 14:
+//			case 15:
+//				this.renderModel(this.modelStandTop, "coatstandtop", x, y, z, rotation);
+//				break;
+//		}
 	}
 	
 	private void renderInInventory(int subBlock, double x, double y, double z) {

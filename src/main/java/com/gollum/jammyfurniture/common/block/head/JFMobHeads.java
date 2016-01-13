@@ -1,11 +1,11 @@
 package com.gollum.jammyfurniture.common.block.head;
 
-import com.gollum.jammyfurniture.common.block.JFBlockMetadata;
+import com.gollum.jammyfurniture.common.block.JFBlock;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 
-public abstract class JFMobHeads extends JFBlockMetadata {
+public abstract class JFMobHeads extends JFBlock {
 
 	public JFMobHeads(String registerName, Class tileEntityClass) {
 		super(registerName, Material.cloth, "cloth", tileEntityClass, new int[]{ 0, 4, 8, 12 });
