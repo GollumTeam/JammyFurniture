@@ -20,6 +20,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -106,11 +107,23 @@ public class BlockLights extends JFBlock {
 	public void registerRender () {
 		log.message("Auto register render: "+ModJammyFurniture.MODID+":"+this.getRegisterName());
 		ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
-		for (int i = 0; i < 12; i++) {
-			mesher.register(this.getBlockItem(), i, new ModelResourceLocation(ModJammyFurniture.MODID+":"+this.getRegisterName(), "inventory"));
-		}
+		
+		ModelBakery.addVariantName(
+			this.getBlockItem(), 
+			ModJammyFurniture.MODID+":light", 
+			ModJammyFurniture.MODID+":outdoor_lamp", 
+			ModJammyFurniture.MODID+":table_lamp"
+		);
+		this.registerRender(mesher, 0, "light");
+		this.registerRender(mesher, 4, "outdoor_lamp");
+		this.registerRender(mesher, 8, "table_lamp");
 	}
 	
+	
+	private void registerRender(ItemModelMesher mesher, int metadata, String name) {
+		mesher.register(this.getBlockItem(), metadata, new ModelResourceLocation(ModJammyFurniture.MODID+":"+name, "inventory"));
+	}
+
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState state = this.getDefaultState();
 		switch (meta) {

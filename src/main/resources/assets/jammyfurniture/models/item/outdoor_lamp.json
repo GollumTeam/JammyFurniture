@@ -1,5 +1,5 @@
 {
-    "parent": "gollumcorelib:block/LightsOn",
+    "parent": "jammyfurniture:block/light",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
