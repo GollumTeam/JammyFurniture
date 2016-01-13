@@ -44,7 +44,7 @@ public class WoodBlocksOne extends JFBlock {
 		BLINDS        ("blinds", 9),
 		CRAFTING_SIDE ("crafting_side", 13),
 		KITCHEN_SIDE  ("kitchen_side", 14),
-		TABLE         ("Table", 15);
+		TABLE         ("table", 15);
 		
 		private final String name;
 		private final int value;

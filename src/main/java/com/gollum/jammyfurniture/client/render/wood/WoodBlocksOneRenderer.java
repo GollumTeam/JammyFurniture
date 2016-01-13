@@ -1,5 +1,8 @@
 package com.gollum.jammyfurniture.client.render.wood;
 
+import static com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.FACING;
+import static com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.TYPE;
+
 import java.util.Random;
 
 import com.gollum.jammyfurniture.client.model.wood.ModelBlinds;
@@ -9,9 +12,14 @@ import com.gollum.jammyfurniture.client.model.wood.ModelClockTop;
 import com.gollum.jammyfurniture.client.model.wood.ModelKitchenSide;
 import com.gollum.jammyfurniture.client.model.wood.ModelTable;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
+import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -26,42 +34,29 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = 0;
+		IBlockState state = ModBlocks.blockLightsOn.getStateFromMeta(metadata);
+		EnumFacing facing = state.getValue(FACING);
+		EnumType type = state.getValue(TYPE);
 		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 4:
-			case 8:
-			case 12:
-				rotation = 90; break;
-			case 3:
-			case 7:
-			case 11:
-				rotation = 180; break;
-			case 2:
-			case 6:
-			case 10:
-				rotation = 270; break;
-		}
+		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
+		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; } else
 		
 		if (this.isInventory) {
 			rotation = 180;
 		}
-
-		switch (subBlock) {
-			default:
-			case 0:  this.renderModel(this.modelClockBase  , "clockbase"  , x, y, z, rotation); break;
-			case 1:  this.renderModel(this.modelClockMiddle, "clockmiddle", x, y, z, rotation); break;
-			case 5:  
-				this.renderModelDial(x, y, z, rotation);
-				this.renderModel(this.modelClockTop   , "clocktop"   , x, y, z, rotation); 
-				break;
-			case 9:  this.renderModel(this.modelBlinds     , "blinds"     , x, y, z, rotation); break;
-			case 13: this.renderModel(this.modelKitchenSide, "craftside"  , x, y, z, rotation); break;
-			case 14: this.renderModel(this.modelKitchenSide, "kitchenside", x, y, z, rotation); break;
-			case 15: this.renderModel(this.modelTable      , "table"      , x, y, z, rotation); break;
-		}
+		
+		if (type == EnumType.CLOCK_BASE   ) { this.renderModel(this.modelClockBase  , "clockbase"  , x, y, z, rotation); } else
+		if (type == EnumType.CLOCK_MIDDLE ) { this.renderModel(this.modelClockMiddle, "clockmiddle", x, y, z, rotation); } else
+		if (type == EnumType.CLOCK_TOP    ) {
+			this.renderModelDial(x, y, z, rotation);
+			this.renderModel(this.modelClockTop   , "clocktop"   , x, y, z, rotation); 
+		} else	
+		if (type == EnumType.BLINDS       ) { this.renderModel(this.modelBlinds     , "blinds"     , x, y, z, rotation); } else
+		if (type == EnumType.CRAFTING_SIDE) { this.renderModel(this.modelKitchenSide, "craftside"  , x, y, z, rotation); } else
+		if (type == EnumType.KITCHEN_SIDE ) { this.renderModel(this.modelKitchenSide, "kitchenside", x, y, z, rotation); } else
+		if (type == EnumType.TABLE        ) { this.renderModel(this.modelTable      , "table"      , x, y, z, rotation); }
+		
 	}
 	
 	private void renderModelDial(double x, double y, double z, float rotation) {

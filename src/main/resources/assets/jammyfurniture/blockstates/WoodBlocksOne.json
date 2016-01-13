@@ -1,0 +1,46 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:light" },
+		
+		"facing=north,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		"facing=east,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		"facing=west,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		"facing=south,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		
+		"facing=north,type=clock_middle": {"model": "jammyfurniture:clock_middle" },
+		"facing=east,type=clock_middle": {"model": "jammyfurniture:clock_middle" },
+		"facing=west,type=clock_middle": {"model": "jammyfurniture:clock_middle" },
+		"facing=south,type=clock_middle": {"model": "jammyfurniture:clock_middle" },
+		
+		"facing=north,type=clock_top": {"model": "jammyfurniture:clock_top" },
+		"facing=east,type=clock_top": {"model": "jammyfurniture:clock_top" },
+		"facing=west,type=clock_top": {"model": "jammyfurniture:clock_top" },
+		"facing=south,type=clock_top": {"model": "jammyfurniture:clock_top" },
+		
+		"facing=north,type=blinds": {"model": "jammyfurniture:blinds" },
+		"facing=east,type=blinds": {"model": "jammyfurniture:blinds" },
+		"facing=west,type=blinds": {"model": "jammyfurniture:blinds" },
+		"facing=south,type=blinds": {"model": "jammyfurniture:blinds" },
+		
+		"facing=north,type=crafting_side": {"model": "jammyfurniture:crafting_side" },
+		"facing=east,type=crafting_side": {"model": "jammyfurniture:crafting_side" },
+		"facing=west,type=crafting_side": {"model": "jammyfurniture:crafting_side" },
+		"facing=south,type=crafting_side": {"model": "jammyfurniture:crafting_side" },
+		
+		"facing=north,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		"facing=east,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		"facing=west,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		"facing=south,type=clock_base": {"model": "jammyfurniture:clock_base" },
+		
+		"facing=north,type=kitchen_side": {"model": "jammyfurniture:kitchen_side" },
+		"facing=east,type=kitchen_side": {"model": "jammyfurniture:kitchen_side" },
+		"facing=west,type=kitchen_side": {"model": "jammyfurniture:kitchen_side" },
+		"facing=south,type=kitchen_side": {"model": "jammyfurniture:kitchen_side" },
+		
+		"facing=north,type=table": {"model": "jammyfurniture:table" },
+		"facing=east,type=table": {"model": "jammyfurniture:table" },
+		"facing=west,type=table": {"model": "jammyfurniture:table" },
+		"facing=south,type=table": {"model": "jammyfurniture:table" }
+	}
+}
