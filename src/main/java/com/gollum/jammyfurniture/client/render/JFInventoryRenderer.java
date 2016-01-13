@@ -27,7 +27,7 @@ public class JFInventoryRenderer implements ISimpleBlockRenderingHandler {
 		
 		this.currentMetadata = metadata;
 		
-		TileEntityRendererDispatcher.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null, metadata), 0.0D, -0.1D, 0.0D, 0.0F);
+		TileEntityRendererDispatcher.instance.renderTileEntityAt(((BlockContainer)block).createNewTileEntity(null, metadata), 0.0D, 0.0D, 0.0D, 0.0F);
 		
 	}
 	
