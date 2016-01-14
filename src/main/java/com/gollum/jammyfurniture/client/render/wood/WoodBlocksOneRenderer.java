@@ -39,7 +39,7 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 		
 		if (facing == EnumFacing.NORTH ) { rotation = 90 ; } else
 		if (facing == EnumFacing.WEST) { rotation = 180; } else
-		if (facing == EnumFacing.SOUTH ) { rotation = 270; } else
+		if (facing == EnumFacing.SOUTH ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			rotation = 270;

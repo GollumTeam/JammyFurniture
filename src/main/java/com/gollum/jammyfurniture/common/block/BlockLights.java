@@ -2,6 +2,7 @@ package com.gollum.jammyfurniture.common.block;
 
 import static com.gollum.jammyfurniture.ModJammyFurniture.log;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
@@ -125,11 +126,12 @@ public class BlockLights extends JFBlock {
 		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs ctabs, List list) {
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 4));
-		list.add(new ItemStack(item, 1, 8));
+	public void getSubNames(HashMap<Integer, String> list) {
+		list.put(0, "light");
+		list.put(4, "outdoor_lamp");
+		list.put(8, "table_lamp");
 	}
 	
 	/////////////////////////////////

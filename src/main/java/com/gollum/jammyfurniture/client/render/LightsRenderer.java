@@ -28,7 +28,7 @@ public class LightsRenderer extends JFTileEntitySpecialRenderer {
 		
 		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
 		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
-		if (facing == EnumFacing.EAST ) { rotation = 270; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			rotation = 180;

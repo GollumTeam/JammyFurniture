@@ -1,5 +1,6 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
@@ -147,15 +148,16 @@ public class WoodBlocksOne extends JFBlock {
 		return state.getValue(TYPE).getValue();
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs ctabs, List list) {
-		list.add(new ItemStack(item, 1, 0));
-		list.add(new ItemStack(item, 1, 1));
-		list.add(new ItemStack(item, 1, 5));
-		list.add(new ItemStack(item, 1, 9));
-		list.add(new ItemStack(item, 1, 13));
-		list.add(new ItemStack(item, 1, 14));
-		list.add(new ItemStack(item, 1, 15));
+	public void getSubNames(HashMap<Integer, String> list) {
+		list.put(0, "clock_base");
+		list.put(1, "clock_middle");
+		list.put(5, "clock_top");
+		list.put(9, "blinds");
+		list.put(13, "crafting_side");  
+		list.put(14, "kitchen_side");   
+		list.put(15, "table");
 	}
 	
 	/////////////////////////////////
