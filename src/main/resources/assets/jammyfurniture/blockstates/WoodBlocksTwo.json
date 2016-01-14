@@ -1,0 +1,41 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:cupboard" },
+		
+		"facing=north,type=cupboard": {"model": "jammyfurniture:cupboard" },
+		"facing=east,type=cupboard": {"model": "jammyfurniture:cupboard" },
+		"facing=west,type=cupboard": {"model": "jammyfurniture:cupboard" },
+		"facing=south,type=cupboard": {"model": "jammyfurniture:cupboard" },
+		
+		"facing=north,type=cupboard_shelf": {"model": "jammyfurniture:cupboard_shelf" },
+		"facing=east,type=cupboard_shelf": {"model": "jammyfurniture:cupboard_shelf" },
+		"facing=west,type=cupboard_shelf": {"model": "jammyfurniture:cupboard_shelf" },
+		"facing=south,type=cupboard_shelf": {"model": "jammyfurniture:cupboard_shelf" },
+		
+		"facing=north,type=television": {"model": "jammyfurniture:television" },
+		"facing=east,type=television": {"model": "jammyfurniture:television" },
+		"facing=west,type=television": {"model": "jammyfurniture:television" },
+		"facing=south,type=television": {"model": "jammyfurniture:television" },
+		
+		"facing=north,type=basket_red": {"model": "jammyfurniture:basket_red" },
+		"facing=east,type=basket_red": {"model": "jammyfurniture:basket_red" },
+		"facing=west,type=basket_red": {"model": "jammyfurniture:basket_red" },
+		"facing=south,type=basket_red": {"model": "jammyfurniture:basket_red" },
+		
+		"facing=north,type=basket_blue": {"model": "jammyfurniture:basket_blue" },
+		"facing=east,type=basket_blue": {"model": "jammyfurniture:basket_blue" },
+		"facing=west,type=basket_blue": {"model": "jammyfurniture:basket_blue" },
+		"facing=south,type=basket_blue": {"model": "jammyfurniture:basket_blue" },
+		
+		"facing=north,type=basket_green": {"model": "jammyfurniture:basket_green" },
+		"facing=east,type=basket_green": {"model": "jammyfurniture:basket_green" },
+		"facing=west,type=basket_green": {"model": "jammyfurniture:basket_green" },
+		"facing=south,type=basket_green": {"model": "jammyfurniture:basket_green" },
+		
+		"facing=north,type=basket_grey": {"model": "jammyfurniture:basket_grey" },
+		"facing=east,type=basket_grey": {"model": "jammyfurniture:basket_grey" },
+		"facing=west,type=basket_grey": {"model": "jammyfurniture:basket_grey" },
+		"facing=south,type=basket_grey": {"model": "jammyfurniture:basket_grey" }
+	}
+}

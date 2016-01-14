@@ -37,8 +37,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockLights extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable
-	{
+	public static enum EnumType implements IStringSerializable {
+		
 		LIGHT       ("light", 0),
 		OUTDOOR_LAMP("outdoor_lamp", 4),
 		TABLE_LAMP  ("table_lamp", 8);

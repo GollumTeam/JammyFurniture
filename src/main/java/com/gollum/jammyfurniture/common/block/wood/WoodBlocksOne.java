@@ -37,8 +37,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksOne extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable
-	{
+	public static enum EnumType implements IStringSerializable {
+		
 		CLOCK_BASE    ("clock_base", 0),
 		CLOCK_MIDDLE  ("clock_middle", 1),
 		CLOCK_TOP     ("clock_top", 5),
@@ -296,6 +296,7 @@ public class WoodBlocksOne extends JFBlock {
 //				.withProperty(ModBlocks.blockWoodBlocksThree.TYPE, ModBlocks.blockWoodBlocksThree.EnumType.BLINDS_OPEN),
 //				.withProperty(ModBlocks.blockWoodBlocksThree.FACING, state.getValue(FACING)),
 //			2); // Les autres stores sont dans le block wood 3
+			return true;
 		} else
 		if (state.getValue(TYPE) == EnumType.CRAFTING_SIDE) { // table de craft
 			
