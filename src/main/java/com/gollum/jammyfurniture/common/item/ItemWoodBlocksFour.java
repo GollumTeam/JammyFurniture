@@ -1,6 +1,6 @@
 package com.gollum.jammyfurniture.common.item;
 
-import com.gollum.core.tools.helper.items.HItemBlockMetadata;
+import com.gollum.core.tools.helper.items.HItemBlock;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
@@ -11,7 +11,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class ItemWoodBlocksFour extends HItemBlockMetadata {
+public class ItemWoodBlocksFour extends HItemBlock {
 	
 	public ItemWoodBlocksFour(Block block) {
 		super(block);

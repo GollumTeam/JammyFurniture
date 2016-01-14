@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.gollum.core.common.blocks.ISimpleBlockRendered;
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
-import com.gollum.core.tools.helper.items.HItemBlockMetadata;
+import com.gollum.core.tools.helper.items.HItemBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 
 import net.minecraft.block.material.Material;
@@ -36,7 +36,6 @@ public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRen
 	public JFBlock(String registerName, Material material, Class tileEntityClass) {
 		super(registerName, material);
 		this.tileEntityClass = tileEntityClass;
-		this.setItemBlockClass(HItemBlockMetadata.class);
 	}
 	
 	/**
