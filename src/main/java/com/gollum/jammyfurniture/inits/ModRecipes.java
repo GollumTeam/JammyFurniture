@@ -12,7 +12,7 @@ public class ModRecipes extends ModJammyFurniture {
 	public static void init() {
 		
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 0), new Object[] { " W ", "WWW", "WWW", 'W', Block.planks });
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 4), new Object[] { " WW", "IWW", " WW", 'W', Block.planks, 'I', Item.ingotIron });
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 1), new Object[] { " WW", "IWW", " WW", 'W', Block.planks, 'I', Item.ingotIron });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 5), new Object[] { " W ", "WCW", "WWW", 'W', Block.planks, 'C', Item.pocketSundial });
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockWoodBlocksOne, 1, 9), new Object[] { "BBB", "BBB", 'B', ModItems.itemBlindPart });
 		
