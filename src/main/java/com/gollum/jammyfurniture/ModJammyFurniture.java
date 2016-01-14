@@ -157,7 +157,7 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	@Override
 	public void initGuiCommon () {
-		InventoryRegistry.registerInventory (GUI_CLOCK_ID           , 3);
+		InventoryRegistry.registerInventory (GUI_CLOCK_ID           , 2);
 		InventoryRegistry.registerInventory (GUI_KITCHENCUPBOARD_ID , 3);
 		InventoryRegistry.registerInventory (GUI_FRIDGE_ID          , 3);
 		InventoryRegistry.registerInventory (GUI_RUBBISHBIN_ID      , 9);
