@@ -1,21 +1,127 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
+import java.util.HashMap;
+
 import javax.swing.Icon;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo.EnumType;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo.PropertyType;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
+import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksThree extends JFBlock {
-	public static int rotation;
-	private Icon jfm_blockIcon;
+	
+	public static enum EnumType implements IStringSerializable {
+		
+		CHAIR("chair", 0),
+		RADIO("radio", 4);
+		
+		private final String name;
+		private final int value;
+		
+		private EnumType(String name, int value) {
+			this.name = name;
+			this.value = value;
+		}
+		
+		public String toString() {
+			return this.name;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+	}
+	
+	public static class PropertyType extends PropertyEnum<EnumType> {
+		protected PropertyType(String name) {
+			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+		}
+		public static PropertyType create(String name) {
+			return new PropertyType(name);
+		}
+	}
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyType TYPE = PropertyType.create("type");
 	
 	public WoodBlocksThree(String registerName) {
-		super(registerName, Material.wood, "wood", TileEntityWoodBlocksThree.class, new int[] { 0, 4 });
+		super(registerName, Material.wood, TileEntityWoodBlocksThree.class);
+	}
+	
+	////////////
+	// States //
+	////////////
+	
+	@Override
+	protected BlockState createBlockState() {
+		return new BlockState(this, new IProperty[]{
+			FACING,
+			TYPE,
+		});
+	}
+	
+	public IBlockState getStateFromMeta(int meta) {
+		IBlockState state = this.getDefaultState();
+		switch (meta) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				state = state.withProperty(TYPE, EnumType.CHAIR).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+				state = state.withProperty(TYPE, EnumType.RADIO).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
+			default:
+				state = state.withProperty(TYPE, EnumType.CHAIR); break;
+		}
+		return state;
+	}
+	
+	public int getMetaFromState(IBlockState state) {
+		if (state == null) {
+			return 0;
+		}
+		EnumType type = state.getValue(TYPE);
+		if (
+			type == EnumType.CHAIR ||
+			type == EnumType.RADIO
+		) {
+			return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
+		}
+		return state.getValue(TYPE).getValue();
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void getSubNames(HashMap<Integer, String> list) {
+		list.put(0 , "chair");
+		list.put(8 , "radio");
 	}
 	
 	/////////////////////////////////
@@ -79,35 +185,15 @@ public class WoodBlocksThree extends JFBlock {
 //		}
 //	}
 	
-	////////////////////
-	// Rendu du block //
-	////////////////////
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.woodBlocksThreeRenderID;
-	}
-	
 	///////////
 	// Event //
 	///////////
 	
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	/* FIXME
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int orientation = this.getOrientation(entityliving);
-
-		if (metadata == 0 || metadata == 4) {
-			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
-		}
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+		state = this.getStateFromMeta(stack.getItemDamage());
+		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
 	}
-	*/
-
+	
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
@@ -168,6 +254,16 @@ public class WoodBlocksThree extends JFBlock {
 	}
 	*/
 	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.woodBlocksThreeRenderID;
+	}
+	
 	///////////////////
 	// Data du block //
 	///////////////////
@@ -182,37 +278,11 @@ public class WoodBlocksThree extends JFBlock {
 	}
 	*/
 	
-	/**
-	 * Called when a user uses the creative pick block button on this block
-	 * 
-	 * @param target The full target the player is looking at
-	 * @return A ItemStack to add to the player's inventory, Null if nothing should be added.
-	 */
-	/* FIXME
-	@Override
-	public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
-		int metadata = world.getBlockMetadata(x, y, z);
-		return (metadata >= 8) ? new ItemStack (ModBlocks.blockWoodBlocksOne, 1, 9) : super.getPickBlock(target, world, x, y, z);
-	}
-	*/
-	
-	////////////
-	// Others //
-	////////////
-	
-	/* FIXME
-	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
-		
-		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
-		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = this.getEnabledMetadata(metadata);
-		
-		if (subBlock == 0 || subBlock == 4) {
-			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
-			return true;
-		}
-		
-		return false;
-	}
-	*/
+	// TODO
+//	@Override
+//	public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player) {
+//		IBlockState state = world.getBlockState(pos);
+//		EnumType type = state.getValue(TYPE);
+//		return (type == EnumType.CHAIR) ? new ItemStack (ModBlocks.blockWoodBlocksOne, 1, 9) : super.getPickBlock(target, world, x, y, z);
+//	}
 }

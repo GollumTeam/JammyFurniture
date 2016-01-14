@@ -28,11 +28,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksTwo extends JFBlock {
-
+	
 	public static enum EnumType implements IStringSerializable {
 		
-		CUPBOARD      ("cupboard"      , 0),
-		CUPBOARD_SHELF("cupboard_shelf", 4),
+		CUPBOARD_SHELF("cupboard_shelf", 0),
+		CUPBOARD      ("cupboard"      , 4),
 		TELEVISION    ("television"    , 8),
 		BASKET_RED    ("basket_red"    , 12),
 		BASKET_BLUE   ("basket_blue"   , 13),
@@ -95,12 +95,12 @@ public class WoodBlocksTwo extends JFBlock {
 			case 1:
 			case 2:
 			case 3:
-				state = state.withProperty(TYPE, EnumType.CUPBOARD).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
+				state = state.withProperty(TYPE, EnumType.CUPBOARD_SHELF).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
 			case 4:
 			case 5:
 			case 6:
 			case 7:
-				state = state.withProperty(TYPE, EnumType.CUPBOARD_SHELF).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
+				state = state.withProperty(TYPE, EnumType.CUPBOARD).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
 			case 8:
 			case 9:
 			case 10:
@@ -115,7 +115,7 @@ public class WoodBlocksTwo extends JFBlock {
 			case 15:
 				state = state.withProperty(TYPE, EnumType.BASKET_GREY); break;
 			default:
-				state = state.withProperty(TYPE, EnumType.CUPBOARD); break;
+				state = state.withProperty(TYPE, EnumType.CUPBOARD_SHELF); break;
 		}
 		return state;
 	}
@@ -126,8 +126,8 @@ public class WoodBlocksTwo extends JFBlock {
 		}
 		EnumType type = state.getValue(TYPE);
 		if (
-			type == EnumType.CUPBOARD ||
 			type == EnumType.CUPBOARD_SHELF ||
+			type == EnumType.CUPBOARD ||
 			type == EnumType.TELEVISION
 		) {
 			return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
@@ -138,15 +138,14 @@ public class WoodBlocksTwo extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
-		list.put(0 , "cupboard");
-		list.put(4 , "cupboard_shelf");
+		list.put(0 , "cupboard_shelf");
+		list.put(4 , "cupboard");
 		list.put(8 , "television");
 		list.put(12, "basket_red");
 		list.put(13, "basket_blue");
 		list.put(14, "basket_green");
 		list.put(15, "basket_grey");
 	}
-	
 	
 	/////////////////////////////////
 	// Forme et collition du block //
@@ -159,7 +158,7 @@ public class WoodBlocksTwo extends JFBlock {
 		EnumType type = state.getValue(TYPE);
 		EnumFacing facing = state.getValue(FACING);
 
-		if (type == EnumType.CUPBOARD || type == EnumType.CUPBOARD_SHELF) {
+		if (type == EnumType.CUPBOARD_SHELF || type == EnumType.CUPBOARD) {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		} else 
 		if (type == EnumType.TELEVISION) {
@@ -188,7 +187,7 @@ public class WoodBlocksTwo extends JFBlock {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		if (state.getValue(TYPE) == EnumType.CUPBOARD || state.getValue(TYPE) == EnumType.CUPBOARD_SHELF) {
+		if (state.getValue(TYPE) == EnumType.CUPBOARD_SHELF || state.getValue(TYPE) == EnumType.CUPBOARD) {
 			player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_KITCHENCUPBOARD_ID, world, pos.getX(), pos.getY(), pos.getZ());
 			return true;
 		} else if (state.getValue(TYPE) == EnumType.TELEVISION) {
@@ -233,7 +232,7 @@ public class WoodBlocksTwo extends JFBlock {
 	public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
 		EnumType type = world.getBlockState(pos).getValue(TYPE);
 		
-		if (type == EnumType.CUPBOARD || type == EnumType.CUPBOARD_SHELF || type == EnumType.TELEVISION) {
+		if (type == EnumType.CUPBOARD_SHELF || type == EnumType.CUPBOARD || type == EnumType.TELEVISION) {
 			return super.rotateBlock(world, pos, axis);
 		}
 		

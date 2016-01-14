@@ -10,7 +10,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksFour extends JFBlock {
-	public static int rotation;
 	
 	public WoodBlocksFour(String registerName) {
 		super(registerName, Material.wood, "wood", TileEntityWoodBlocksFour.class, new int[] { 0, 8 });

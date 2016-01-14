@@ -40,8 +40,8 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 			rotation = 180;
 		}
 		
-		if (type == EnumType.CUPBOARD      ) { this.renderModel(this.modelKitchenCupboard  , "kitchencupboardnotop"  , x, y, z, rotation); } else
-		if (type == EnumType.CUPBOARD_SHELF) { this.renderModel(this.modelKitchenCupboard, "kitchencupboard", x, y, z, rotation); } else
+		if (type == EnumType.CUPBOARD_SHELF) { this.renderModel(this.modelKitchenCupboard  , "kitchencupboardnotop"  , x, y, z, rotation); } else
+		if (type == EnumType.CUPBOARD      ) { this.renderModel(this.modelKitchenCupboard, "kitchencupboard", x, y, z, rotation); } else
 		if (type == EnumType.TELEVISION    ) {
 			String textureTv = "tv";
 			if (((TileEntityWoodBlocksTwo)tileentity).tvIsOn()) {
