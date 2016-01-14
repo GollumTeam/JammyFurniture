@@ -164,26 +164,35 @@ public class WoodBlocksOne extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	// TODO fix this
 	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		switch (metadata) {
-			case 0:  this.setBlockBounds(0.13F, 0.0F, 0.13F, 0.87F, 1.0F, 0.87F); break;
-			case 1:
-			case 2:  
-			case 3:  
-			case 4:  this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F); break;
-			case 5:
-			case 6:
-			case 7:
-			case 8:  this.setBlockBounds(0.13F, 0.0F, 0.13F, 0.87F, 1.0F, 0.87F); break;
-			case 9:  this.setBlockBounds(0.0F, 0.0F, 0.9F, 1.0F, 1.0F, 1.0F); break; 
-			case 10: this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 1.0F, 1.0F); break; 
-			case 11: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1F); break; 
-			case 12: this.setBlockBounds(0.9F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break; 
-			case 13:
-			case 14: this.setBlockBounds(0.0F, 0.875F, 0.0F, 1.0F, 1.0F, 1.0F); break;
-			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
+
+		EnumType type = state.getValue(TYPE);
+		EnumFacing facing = state.getValue(FACING);
+
+		if (type == EnumType.CLOCK_BASE) {
+			this.setBlockBounds(0.13F, 0.0F, 0.13F, 0.87F, 1.0F, 0.87F);
+		} else 
+		if (type == EnumType.CLOCK_MIDDLE) {
+			this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
+		} else 
+		if (type == EnumType.CLOCK_TOP) {
+			this.setBlockBounds(0.13F, 0.0F, 0.13F, 0.87F, 1.0F, 0.87F);
+		} else 
+		if (type == EnumType.BLINDS) {
+			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.0F, 0.0F, 0.9F, 1.0F, 1.0F, 1.0F);
+			if (facing == EnumFacing.EAST ) this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 1.0F, 1.0F);
+			if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.1F);
+			if (facing == EnumFacing.WEST ) this.setBlockBounds(0.9F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		} else 
+		if (type == EnumType.CRAFTING_SIDE) {
+			this.setBlockBounds(0.0F, 0.875F, 0.0F, 1.0F, 1.0F, 1.0F);
+		} else 
+		if (type == EnumType.KITCHEN_SIDE) {
+			this.setBlockBounds(0.0F, 0.875F, 0.0F, 1.0F, 1.0F, 1.0F);
+		} else 
+		if (type == EnumType.TABLE) {
+			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		}
 	}
 	

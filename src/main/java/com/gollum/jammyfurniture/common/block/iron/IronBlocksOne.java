@@ -23,21 +23,21 @@ public class IronBlocksOne extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		switch (metadata) {
-			case 0:  
-			case 2:  
-			case 4:  
-			case 6:  this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F); break;
-			case 1:  
-			case 3:  
-			case 5:  
-			case 7:  this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F); break;
-			case 12: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
-			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-		}
-	}
+//	@Override
+//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+//		switch (metadata) {
+//			case 0:  
+//			case 2:  
+//			case 4:  
+//			case 6:  this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F); break;
+//			case 1:  
+//			case 3:  
+//			case 5:  
+//			case 7:  this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F); break;
+//			case 12: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
+//			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+//		}
+//	}
 	
 	////////////////////
 	// Rendu du block //

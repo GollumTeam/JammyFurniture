@@ -138,23 +138,23 @@ public class BlockLights extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	// TODO a revoir
 	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		switch (metadata) {
-			case 0:  
-			case 1:
-			case 2:  
-			case 3:  this.setBlockBounds(0.25F, 0.385F, 0.315F, 0.685F, 1.0F, 0.75F); break;
-			case 4:  this.setBlockBounds(0.315F, 0.125F, 0.5F, 0.625F, 0.925F, 1.0F); break;
-			case 5:  this.setBlockBounds(0.0F, 0.125F, 0.315F, 0.5F, 0.925F, 0.625F); break;
-			case 6:  this.setBlockBounds(0.375F, 0.125F, 0.0F, 0.685F, 0.925F, 0.5F); break;
-			case 7:  this.setBlockBounds(0.5F, 0.125F, 0.375F, 1.0F, 0.925F, 0.685F); break;
-			case 8:  
-			case 9:  
-			case 10: 
-			case 11: this.setBlockBounds(0.315F, 0.0F, 0.315F, 0.685F, 0.875F, 0.685F); break;
-			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
+
+		EnumType type = state.getValue(TYPE);
+		EnumFacing facing = state.getValue(FACING);
+
+		if (type == EnumType.LIGHT) {
+			this.setBlockBounds(0.25F, 0.385F, 0.315F, 0.685F, 1.0F, 0.75F);
+		} else 
+		if (type == EnumType.OUTDOOR_LAMP) {
+			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.315F, 0.125F, 0.5F, 0.625F, 0.925F, 1.0F);
+			if (facing == EnumFacing.EAST ) this.setBlockBounds(0.0F, 0.125F, 0.315F, 0.5F, 0.925F, 0.625F);
+			if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.375F, 0.125F, 0.0F, 0.685F, 0.925F, 0.5F);
+			if (facing == EnumFacing.WEST ) this.setBlockBounds(0.5F, 0.125F, 0.375F, 1.0F, 0.925F, 0.685F);
+		} else 
+		if (type == EnumType.TABLE_LAMP) {
+			this.setBlockBounds(0.315F, 0.0F, 0.315F, 0.685F, 0.875F, 0.685F);
 		}
 	}
 	

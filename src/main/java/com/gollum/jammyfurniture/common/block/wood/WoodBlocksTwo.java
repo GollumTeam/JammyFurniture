@@ -18,20 +18,20 @@ public class WoodBlocksTwo extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		switch (metadata) {
-			case 8:  
-			case 10: this.setBlockBounds(0.0F, 0.0F, 0.2F, 1.0F, 0.75F, 0.8F); break;
-			case 9:  
-			case 11: this.setBlockBounds(0.2F, 0.0F, 0.0F, 0.8F, 0.75F, 1.0F); break;
-			case 12: 
-			case 13: 
-			case 14: 
-			case 15: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 0.4F, 0.95F); break;
-			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
-		}
-	}
+//	@Override
+//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+//		switch (metadata) {
+//			case 8:  
+//			case 10: this.setBlockBounds(0.0F, 0.0F, 0.2F, 1.0F, 0.75F, 0.8F); break;
+//			case 9:  
+//			case 11: this.setBlockBounds(0.2F, 0.0F, 0.0F, 0.8F, 0.75F, 1.0F); break;
+//			case 12: 
+//			case 13: 
+//			case 14: 
+//			case 15: this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 0.4F, 0.95F); break;
+//			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
+//		}
+//	}
 	
 	///////////
 	// Event //

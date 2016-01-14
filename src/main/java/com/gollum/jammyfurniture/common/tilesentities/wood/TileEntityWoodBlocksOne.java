@@ -9,26 +9,33 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityWoodBlocksOne extends TileEntity /* GCLInventoryTileEntity */{
+public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
+
+	private long soundTimeClock = 0;
+	private boolean soundDongClock = false;
+	
+	public TileEntityWoodBlocksOne() {
+		super (6);
+	}
+	
+	///////////////
+	// Inventory //
+	///////////////
+	
+	@Override
+	public String getCommandSenderName() {
+		return ModJammyFurniture.i18n.trans("Hidey Hole");
+	}
+	
+	@Override
+	public String getGuiID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 //	FIXME
-//	private long soundTimeClock = 0;
-//	private boolean soundDongClock = false;
 //	
-//	public TileEntityWoodBlocksOne() {
-//		super (6);
-//	}
 //	
-//	///////////////
-//	// Inventory //
-//	///////////////
-//	
-//	/**
-//	 * Returns the name of the inventory.
-//	 */
-//	@Override
-//	public String getInventoryName() {
-//		return ModJammyFurniture.i18n.trans("Hidey Hole");
-//	}
 //	
 //	
 //	////////////

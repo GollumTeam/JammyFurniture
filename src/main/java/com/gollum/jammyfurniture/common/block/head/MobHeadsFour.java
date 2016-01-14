@@ -20,33 +20,33 @@ public class MobHeadsFour extends JFMobHeads {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		switch (metadata) {
-			case 0:
-			case 4:
-			case 8:
-			case 12:
-				this.setBlockBounds(0.25F, 0.25F, 0.5F, 0.75F, 0.75F, 1.0F); break;
-			case 1:
-			case 5:
-			case 9:
-			case 13:
-				this.setBlockBounds(0.0F, 0.25F, 0.25F, 0.5F, 0.75F, 0.75F); break;
-			case 2:
-			case 6:
-			case 10:
-			case 14:
-				this.setBlockBounds(0.25F, 0.25F, 0.0F, 0.75F, 0.75F, 0.5F); break;
-			case 3:
-			case 7:
-			case 11:
-			case 15:
-				this.setBlockBounds(0.5F, 0.25F, 0.25F, 1.0F, 0.75F, 0.75F); break;
-			default:
-				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
-		}
-	}
+//	@Override
+//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+//		switch (metadata) {
+//			case 0:
+//			case 4:
+//			case 8:
+//			case 12:
+//				this.setBlockBounds(0.25F, 0.25F, 0.5F, 0.75F, 0.75F, 1.0F); break;
+//			case 1:
+//			case 5:
+//			case 9:
+//			case 13:
+//				this.setBlockBounds(0.0F, 0.25F, 0.25F, 0.5F, 0.75F, 0.75F); break;
+//			case 2:
+//			case 6:
+//			case 10:
+//			case 14:
+//				this.setBlockBounds(0.25F, 0.25F, 0.0F, 0.75F, 0.75F, 0.5F); break;
+//			case 3:
+//			case 7:
+//			case 11:
+//			case 15:
+//				this.setBlockBounds(0.5F, 0.25F, 0.25F, 1.0F, 0.75F, 0.75F); break;
+//			default:
+//				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
+//		}
+//	}
 	
 	////////////////////
 	// Rendu du block //

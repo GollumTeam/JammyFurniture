@@ -23,28 +23,28 @@ public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		switch (metadata) {
-			case 0:  this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F); break;
-			case 1:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F); break;
-			case 2:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F); break;
-			case 3:  this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
-			case 4:  this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F); break;
-			case 5:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F); break;
-			case 6:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F); break;
-			case 7:  this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
-			case 8:  
-			case 9:  
-			case 10: 
-			case 11: this.setBlockBounds(0.0F , 0.4F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
-			case 12: this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F ); break;
-			case 13: this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F , 1.0F, 0.85F); break;
-			case 14: this.setBlockBounds(0.15F, 0.0F, 0.0F , 0.85F, 1.0F, 0.95F); break;
-			case 15: this.setBlockBounds(0.0F , 0.0F, 0.15F, 0.95F, 1.0F, 0.85F); break;
-			default: this.setBlockBounds(0.0F , 0.0F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
-		}
-	}
+//	@Override
+//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+//		switch (metadata) {
+//			case 0:  this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F); break;
+//			case 1:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F); break;
+//			case 2:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F); break;
+//			case 3:  this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
+//			case 4:  this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F); break;
+//			case 5:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F); break;
+//			case 6:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F); break;
+//			case 7:  this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
+//			case 8:  
+//			case 9:  
+//			case 10: 
+//			case 11: this.setBlockBounds(0.0F , 0.4F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
+//			case 12: this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F ); break;
+//			case 13: this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F , 1.0F, 0.85F); break;
+//			case 14: this.setBlockBounds(0.15F, 0.0F, 0.0F , 0.85F, 1.0F, 0.95F); break;
+//			case 15: this.setBlockBounds(0.0F , 0.0F, 0.15F, 0.95F, 1.0F, 0.85F); break;
+//			default: this.setBlockBounds(0.0F , 0.0F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
+//		}
+//	}
 	
 	////////////////////
 	// Rendu du block //

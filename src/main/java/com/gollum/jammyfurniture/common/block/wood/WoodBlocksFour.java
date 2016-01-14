@@ -22,8 +22,8 @@ public class WoodBlocksFour extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+//	@Override
+//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
 //		int subBlock = this.getEnabledMetadata(metadata);
 //		switch (subBlock) {
 //			case 0:  this.setBlockBounds(0.06F, 0.0F, 0.06F, 0.94F, 0.95F, 0.94F); break;
@@ -36,7 +36,7 @@ public class WoodBlocksFour extends JFBlock {
 //				break;
 //			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
 //		}
-	}
+//	}
 	
 	////////////////////
 	// Rendu du block //

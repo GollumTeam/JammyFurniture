@@ -12,8 +12,10 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
@@ -54,35 +56,28 @@ public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRen
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this
-	 * box can change after the pool has been cleared to be reused)
-	 */
-	/* FIXME
+	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, BlockPos pos) {
+	public AxisAlignedBB getSelectedBoundingBox(World world, BlockPos pos) {
 		
-		int metadata = world.getBlockMetadata(x, y, z);
-		this.getCollisionBoundingBox(metadata, false);
+		IBlockState state = world.getBlockState(pos);
+		this.getCollisionBoundingBox(state, false);
 		
-		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
+		return super.getSelectedBoundingBox(world, pos);
 	}
-	*/
 	
 	
 	/**
 	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, BlockPos pos) {
-		// FIXME
-//		int metadata = blockAccess.getBlockMetadata(x, y, z);
-//		this.getCollisionBoundingBox(metadata, true);
-		
+	public void setBlockBoundsBasedOnState(IBlockAccess  world, BlockPos pos) {
+		IBlockState state = world.getBlockState(pos);
+		this.getCollisionBoundingBox(state, true);
 	}
 	
 	
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 	

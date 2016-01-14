@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.block;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -24,7 +25,7 @@ public class BlockSofa extends JFBlock {
 	/////////////////////////////////
 	
 	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 		if (isSelectBox) {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		} else {

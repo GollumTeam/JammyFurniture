@@ -18,10 +18,10 @@ public class IronBlocksTwo extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 
-	@Override
-	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-	}
+//	@Override
+//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
+//		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+//	}
 	
 	////////////////////
 	// Rendu du block //
