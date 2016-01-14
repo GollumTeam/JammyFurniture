@@ -21,6 +21,7 @@ import com.gollum.jammyfurniture.inits.ModBlocks;
 import com.gollum.jammyfurniture.inits.ModCreativeTab;
 import com.gollum.jammyfurniture.inits.ModItems;
 import com.gollum.jammyfurniture.inits.ModRecipes;
+import com.gollum.jammyfurniture.inits.ModRecipesCompatibility;
 import com.gollum.jammyfurniture.inits.ModTileEntities;
 
 import cpw.mods.fml.common.Mod;
@@ -147,6 +148,8 @@ public class ModJammyFurniture extends GollumMod {
 	
 	/** 3 **/
 	public void postInit(FMLPostInitializationEvent event) {
+		// Ajout de la compatibilitéavec les autres mods
+		ModRecipesCompatibility.init ();
 	}
 	
 	/**
