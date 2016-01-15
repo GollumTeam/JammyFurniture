@@ -203,13 +203,9 @@ public class WoodBlocksThree extends JFMetadataBlock {
 		
 		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
 		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = this.getEnabledMetadata(metadata);
+		int subBlock = metadata - metadata % 4;
 		
-		if (subBlock == 0 || subBlock == 4) {
-			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
-			return true;
-		}
-		
-		return false;
+		world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
+		return true;
 	}
 }
