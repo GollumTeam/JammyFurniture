@@ -1,0 +1,25 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:wardrobe" },
+		
+		"facing=north,part=foot,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=east,part=foot,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=west,part=foot,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=south,part=foot,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=north,part=head,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=east,part=head,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=west,part=head,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		"facing=south,part=head,type=wardrobe": {"model": "jammyfurniture:wardrobe" },
+		
+		"facing=north,part=foot,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=east,part=foot,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=west,part=foot,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=south,part=foot,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=north,part=head,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=east,part=head,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=west,part=head,type=coat_stand": {"model": "jammyfurniture:coat_stand" },
+		"facing=south,part=head,type=coat_stand": {"model": "jammyfurniture:coat_stand" }
+		
+	}
+}
