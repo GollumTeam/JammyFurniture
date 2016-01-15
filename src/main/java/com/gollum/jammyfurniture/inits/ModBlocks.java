@@ -70,7 +70,6 @@ public class ModBlocks {
 	public static void init() {
 		
 		initBlock ();
-		iniWrenchShiftRotations ();
 		initHandlerRotation ();
 		
 	}
@@ -105,21 +104,6 @@ public class ModBlocks {
 		ModBlocks.blockSofaPartRight    = (BlockSofa)new BlockSofa("SofaRight" , TileEntitySofaRight.class ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		ModBlocks.blockSofaPartCenter   = (BlockSofa)new BlockSofa("SofaCenter", TileEntitySofaCenter.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
 		ModBlocks.blockSofaPartCorner   = (BlockSofa)new BlockSofa("SofaCorner", TileEntitySofaCorner.class).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(1.2F);
-		
-	}
-	
-	public static void iniWrenchShiftRotations () {
-		
-		ModItems.itemWrench.shiftRotations.add(BathBlock.class);
-		ModItems.itemWrench.shiftRotations.add(BlockLights.class);
-		ModItems.itemWrench.shiftRotations.add(WoodBlocksOne.class);
-		ModItems.itemWrench.shiftRotations.add(WoodBlocksTwo.class);
-		ModItems.itemWrench.shiftRotations.add(WoodBlocksThree.class);
-		ModItems.itemWrench.shiftRotations.add(WoodBlocksFour.class);
-		ModItems.itemWrench.shiftRotations.add(IronBlocksOne.class);
-		ModItems.itemWrench.shiftRotations.add(IronBlocksTwo.class);
-		ModItems.itemWrench.shiftRotations.add(CeramicBlocksOne.class);
-		ModItems.itemWrench.shiftRotations.add(BlockSofa.class);
 		
 	}
 	
