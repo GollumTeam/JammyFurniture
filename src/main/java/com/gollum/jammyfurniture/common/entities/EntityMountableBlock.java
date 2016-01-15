@@ -10,9 +10,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class EntityMountableBlock extends Entity {
-	public int orgBlockPosX;
-	public int orgBlockPosY;
-	public int orgBlockPosZ;
+	public BlockPos orgBlockPos;
 	public Block orgBlock;
 	public EntityPlayer player;
 	
@@ -23,27 +21,16 @@ public class EntityMountableBlock extends Entity {
 		this.width = 0.0F;
 		this.height = 0.0F;
 	}
-
-	public EntityMountableBlock(World world, double x, double y, double z) {
-		super(world);
-		this.noClip = true;
-		this.preventEntitySpawning = true;
-		this.width = 0.0F;
-		this.height = 0.0F;
-		this.setPosition(x, y, z);
-	}
 	
-	public EntityMountableBlock(World world, EntityPlayer player, int x, int y, int z, double mountingX, double mountingY, double mountingZ) {
+	public EntityMountableBlock(World world, EntityPlayer player, BlockPos pos, double mountingX, double mountingY, double mountingZ) {
 		super(world);
 		this.player = player;
 		this.noClip = true;
 		this.preventEntitySpawning = true;
 		this.width = 0.0F;
 		this.height = 0.0F;
-		this.orgBlockPosX = x;
-		this.orgBlockPosY = y;
-		this.orgBlockPosZ = z;
-		this.orgBlock = world.getBlockState(new BlockPos(x, y, z)).getBlock();
+		this.orgBlockPos = pos;
+		this.orgBlock = world.getBlockState(pos).getBlock();
 		this.setPosition(mountingX, mountingY, mountingZ);
 	}
 
@@ -66,16 +53,16 @@ public class EntityMountableBlock extends Entity {
 		this.worldObj.theProfiler.startSection("entityBaseTick");
 		
 		if (this.riddenByEntity != null && !this.riddenByEntity.isDead) {
-			if (this.worldObj.getBlockState(new BlockPos(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ)).getBlock() != this.orgBlock) {
+			if (this.worldObj.getBlockState(this.orgBlockPos).getBlock() != this.orgBlock) {
 				this.interact((EntityPlayer) this.riddenByEntity);
 			}
 		} else {
 			this.setDead();
-			Block block = this.worldObj.getBlockState(new BlockPos(this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ)).getBlock();
+			Block block = this.worldObj.getBlockState(this.orgBlockPos).getBlock();
 			
 			if (block != null) {
 				if (block instanceof IBlockUnmountEvent) {
-					((IBlockUnmountEvent)block).onBlockPlacedBy(this.worldObj, this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ, this, this.player);
+					((IBlockUnmountEvent)block).onBlockPlacedBy(this.worldObj, this.orgBlockPos.getX(), this.orgBlockPos.getY(), this.orgBlockPos.getZ(), this, this.player);
 				}
 			}
 		}
