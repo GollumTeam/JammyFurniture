@@ -5,8 +5,6 @@ import java.util.HashMap;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.PropertyType;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import com.google.common.collect.Lists;
 
@@ -162,9 +160,8 @@ public class WoodBlocksTwo extends JFBlock {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		} else 
 		if (type == EnumType.TELEVISION) {
+			this.setBlockBounds(0.2F, 0.0F, 0.0F, 0.8F, 0.75F, 1.0F);
 			if (facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH) {
-				this.setBlockBounds(0.2F, 0.0F, 0.0F, 0.8F, 0.75F, 1.0F);
-			} else {
 				this.setBlockBounds(0.0F, 0.0F, 0.2F, 1.0F, 0.75F, 0.8F);
 			}
 		} else {

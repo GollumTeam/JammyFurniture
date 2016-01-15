@@ -1,15 +1,10 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import java.util.HashMap;
-import java.util.List;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.BlockLights.EnumType;
-import com.gollum.jammyfurniture.common.block.BlockLights.PropertyType;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
-import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 import com.google.common.collect.Lists;
@@ -21,10 +16,8 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
@@ -143,9 +136,9 @@ public class WoodBlocksOne extends JFBlock {
 			type == EnumType.CLOCK_TOP ||
 			type == EnumType.BLINDS
 		) {
-			return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
+			return type.getValue() + state.getValue(FACING).getHorizontalIndex();
 		}
-		return state.getValue(TYPE).getValue();
+		return type.getValue();
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -226,26 +219,30 @@ public class WoodBlocksOne extends JFBlock {
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+
+		ItemStack  itemStack = player.inventory.getCurrentItem();
+		TileEntity te        = world.getTileEntity(pos);
+		EnumType   type      = state.getValue(TYPE);
+		EnumFacing facing    = state.getValue(FACING);
 		
-		ItemStack itemStack = player.inventory.getCurrentItem();
-		TileEntity te = world.getTileEntity(pos);
-		
-		if (state.getValue(TYPE) == EnumType.CLOCK_MIDDLE) { // Horloge milieux
+		if (type == EnumType.CLOCK_MIDDLE) { // Horloge milieux
 				
-				// Exclus les les block horloge sauf sur la port
-				if (
-					this.isClock(itemStack) && !(state.getValue(FACING)  == side) // TODO a tester a fond
-				) {
-					return false;
-				}
-				
-				if (te != null && te instanceof TileEntityWoodBlocksOne) {
-					TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CLOCK_ID, world, pos.getX(), pos.getY(), pos.getZ());
-					return true;
-				}
+			// Exclus les les block horloge sauf sur la port
+			if (
+				this.isClock(itemStack) && !(state.getValue(FACING)  == side) // TODO a tester a fond
+			) {
+				return false;
+			}
+			
+			if (te != null && te instanceof TileEntityWoodBlocksOne) {
+				TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
+				player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CLOCK_ID, world, pos.getX(), pos.getY(), pos.getZ());
+				return true;
+			}
+			
 		} else
-		if (state.getValue(TYPE) == EnumType.CLOCK_TOP) { // Horloge du haut
+		if (type == EnumType.CLOCK_TOP) { // Horloge du haut
+			
 			// Clock top
 			if (world.isRemote) {
 				return true;
@@ -288,23 +285,25 @@ public class WoodBlocksOne extends JFBlock {
 			}
 			
 			return true;
+			
 		} else 
-		if (state.getValue(TYPE) == EnumType.BLINDS) { // Le store en position initial
+		if (type == EnumType.BLINDS) { // Le store en position initial
 			
-			// TODO existe pas encore
-//			world.setBlockState(pos, ModBlocks.blockWoodBlocksThree.getDefaultState()
-//				.withProperty(ModBlocks.blockWoodBlocksThree.TYPE, ModBlocks.blockWoodBlocksThree.EnumType.BLINDS_OPEN),
-//				.withProperty(ModBlocks.blockWoodBlocksThree.FACING, state.getValue(FACING)),
-//			2); // Les autres stores sont dans le block wood 3
+			state = ModBlocks.blockWoodBlocksThree.getDefaultState()
+				.withProperty(WoodBlocksThree.TYPE, WoodBlocksThree.EnumType.BLINDS_HALF)
+				.withProperty(WoodBlocksThree.FACING, facing)
+			;
+			world.setBlockState(pos, state, 2);
 			return true;
-		} else
-		if (state.getValue(TYPE) == EnumType.CRAFTING_SIDE) { // table de craft
 			
-				if (te != null && te instanceof TileEntityWoodBlocksOne) {
-					TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CRAFTSIDE_ID, world, pos.getX(), pos.getY(), pos.getZ());
-					return true;
-				}
+		} else
+		if (type == EnumType.CRAFTING_SIDE) { // table de craft
+			
+			if (te != null && te instanceof TileEntityWoodBlocksOne) {
+				TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
+				player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CRAFTSIDE_ID, world, pos.getX(), pos.getY(), pos.getZ());
+				return true;
+			}
 		}
 		
 		return false;
@@ -320,13 +319,14 @@ public class WoodBlocksOne extends JFBlock {
 			return false;
 		}
 		IBlockState state = this.getStateFromMeta(itemStack.getItemDamage());
+		EnumType type = state.getValue(TYPE);
 		
 		return 
 			state !=  null &&
 			this == state.getBlock() && (
-				state.getValue(TYPE) == EnumType.CLOCK_BASE ||
-				state.getValue(TYPE) == EnumType.CLOCK_MIDDLE ||
-				state.getValue(TYPE) == EnumType.CLOCK_TOP
+				type == EnumType.CLOCK_BASE ||
+				type == EnumType.CLOCK_MIDDLE ||
+				type == EnumType.CLOCK_TOP
 			)
 		;
 	}
