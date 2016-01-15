@@ -1,10 +1,17 @@
 package com.gollum.jammyfurniture.common.item;
 
+import static com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.FACING;
+import static com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.TYPE;
+import static com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.PART;
+
 import com.gollum.core.tools.helper.items.HItemBlock;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.EnumPart;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.EnumType;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
@@ -16,48 +23,40 @@ public class ItemWoodBlocksFour extends HItemBlock {
 	public ItemWoodBlocksFour(Block block) {
 		super(block);
 	}
-
-	/**
-	 * Callback for item usage. If the item does something special on right
-	 * clicking, he will have one of those. Return True if something happen and
-	 * false if it don't. This is for ITEMS, not BLOCKS
-	 */
+	
+	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
-		/* FIXME
-		int orientation = ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getOrientation(player);
+
+		IBlockState state = ModBlocks.blockWoodBlocksFour.getStateFromMeta(itemStack.getItemDamage());
+		EnumType type = state.getValue(TYPE);
 		
-		if (side != 1) {
-			return false;
-		} else {
-			++y;
-			if (
-				player.canPlayerEdit(x, y    , z, side, itemStack) && 
-				player.canPlayerEdit(x, y + 1, z, side, itemStack)
-			) {
+
+		if (
+			side == EnumFacing.UP &&
+			player.canPlayerEdit(pos.up(), side, itemStack) && 
+			player.canPlayerEdit(pos.up().up(), side, itemStack) &&
+			
+			world.isAirBlock(pos.up()) && 
+			world.isAirBlock(pos.up().up()) && 
+			world.doesBlockHaveSolidTopSurface(world, pos)
+		) {
+			state = state
+				.withProperty(PART, EnumPart.FOOT)
+				.withProperty(FACING, ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getOrientation(player))
+			;
+			
+			if (placeBlockAt(itemStack, player, world, pos.up(), side, hitX, hitY, hitZ, state)) {
 				
-				if (
-					world.isAirBlock(x, y    , z) && 
-					world.isAirBlock(x, y + 1, z) && 
-					world.doesBlockHaveSolidTopSurface(world, x, y - 1, z)
-				) {
-					
-					if (placeBlockAt(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ, itemStack.getItemDamage()+orientation)) {
-						
-						placeBlockAt(itemStack, player, world, x, y + 1, z, side, hitX, hitY, hitZ, itemStack.getItemDamage()+orientation + 4);
-						
-					} else {
-						return false;
-					}
-					
-					--itemStack.stackSize;
-					return true;
-				} else {
-					return false;
-				}
+				state = state.withProperty(PART, EnumPart.HEAD);
+				placeBlockAt(itemStack, player, world, pos.up().up(), side, hitX, hitY, hitZ, state);
+				
 			} else {
 				return false;
 			}
+			
+			--itemStack.stackSize;
+			return true;
 		}
-		*/ return false;
+		return false;
 	}
 }

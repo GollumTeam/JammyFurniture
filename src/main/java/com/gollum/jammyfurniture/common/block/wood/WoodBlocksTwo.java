@@ -5,6 +5,7 @@ import java.util.HashMap;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import com.google.common.collect.Lists;
 
@@ -72,6 +73,10 @@ public class WoodBlocksTwo extends JFBlock {
 	
 	public WoodBlocksTwo(String registerName) {
 		super(registerName, Material.wood, TileEntityWoodBlocksTwo.class);
+		this.setDefaultState(this.getDefaultState()
+			.withProperty(FACING, EnumFacing.NORTH)
+			.withProperty(TYPE, EnumType.CUPBOARD_SHELF)
+		);
 	}
 	
 	////////////

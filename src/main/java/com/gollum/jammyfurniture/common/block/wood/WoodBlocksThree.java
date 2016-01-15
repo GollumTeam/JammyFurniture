@@ -78,6 +78,10 @@ public class WoodBlocksThree extends JFBlock {
 	
 	public WoodBlocksThree(String registerName) {
 		super(registerName, Material.wood, TileEntityWoodBlocksThree.class);
+		this.setDefaultState(this.getDefaultState()
+			.withProperty(FACING, EnumFacing.NORTH)
+			.withProperty(TYPE, EnumType.CHAIR)
+		);
 	}
 	
 	////////////
@@ -132,8 +136,8 @@ public class WoodBlocksThree extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
-		list.put(0 , "chair");
-		list.put(4 , "radio");
+		list.put(0, "chair");
+		list.put(4, "radio");
 	}
 	
 	/////////////////////////////////
