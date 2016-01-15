@@ -17,8 +17,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 
 public class WoodBlocksFour extends JFMetadataBlock {
-	public static int rotation;
-	private Icon jfm_blockIcon;
 	
 	public WoodBlocksFour(int id, String registerName) {
 		super(id, registerName, Material.wood, "wood", TileEntityWoodBlocksFour.class, new int[] { 0, 8 });
