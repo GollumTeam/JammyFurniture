@@ -6,9 +6,8 @@ import java.util.Random;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 import com.google.common.collect.Lists;
@@ -255,7 +254,7 @@ public class WoodBlocksThree extends JFBlock {
 			player.rotationYaw = -90.0F;
 		}
 		
-		return BlockMountable.onBlockActivated(world, pos, player, 0.5F, 0.4F, 0.5F);
+		return EntityMountableBlock.onBlockActivated(world, pos, player, 0.5F, 0.4F, 0.5F);
 		
 	}
 	
