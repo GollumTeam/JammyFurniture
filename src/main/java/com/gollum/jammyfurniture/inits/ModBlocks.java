@@ -82,9 +82,9 @@ public class ModBlocks {
 		ModBlocks.blockWoodBlocksTwo    = (WoodBlocksTwo)  new WoodBlocksTwo   ("WoodBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		ModBlocks.blockWoodBlocksThree  = (WoodBlocksThree)new WoodBlocksThree ("WoodBlocksThree" ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
 		ModBlocks.blockWoodBlocksFour   = (WoodBlocksFour) new WoodBlocksFour  ("WoodBlocksFour"  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(2.0F).setResistance(1.0F);
-//		
-//		ModBlocks.blockIronBlocksOne    = (IronBlocksOne)new IronBlocksOne   ("IronBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
-//		ModBlocks.blockIronBlocksTwo    = (IronBlocksTwo)new IronBlocksTwo   ("IronBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
+		
+		ModBlocks.blockIronBlocksOne    = (IronBlocksOne)new IronBlocksOne   ("IronBlocksOne"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
+		ModBlocks.blockIronBlocksTwo    = (IronBlocksTwo)new IronBlocksTwo   ("IronBlocksTwo"   ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
 //		
 //		ModBlocks.blockCeramicBlocksOne = (CeramicBlocksOne)new CeramicBlocksOne("CeramicBlocksOne").setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F);
 //		
