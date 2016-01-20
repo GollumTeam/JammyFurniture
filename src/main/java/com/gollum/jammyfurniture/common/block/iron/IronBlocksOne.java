@@ -151,32 +151,23 @@ public class IronBlocksOne extends JFBlock {
 	
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
-
+		
 		EnumType type = state.getValue(TYPE);
 		EnumFacing facing = state.getValue(FACING);
-		//TODO a finir
+		
 		if (type == EnumType.RUBBISH_BIN) {
 			this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
+			
+		} else 
+		if (type == EnumType.FRIDGE || type == EnumType.FREEZER) {
+			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F);
+			if (facing == EnumFacing.EAST ) this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F);
+			if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F);
+			if (facing == EnumFacing.WEST ) this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F);
 		} else {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		}
 	}
-	
-//	@Override
-//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-//		switch (metadata) {
-//			case 0:  
-//			case 2:  
-//			case 4:  
-//			case 6:  this.setBlockBounds(0.05F, 0.0F, 0.1F, 0.95F, 1.0F, 0.9F); break;
-//			case 1:  
-//			case 3:  
-//			case 5:  
-//			case 7:  this.setBlockBounds(0.1F, 0.0F, 0.05F, 0.9F, 1.0F, 0.95F); break;
-//			case 12: 
-//			default: this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-//		}
-//	}
 	
 	////////////////////
 	// Rendu du block //
