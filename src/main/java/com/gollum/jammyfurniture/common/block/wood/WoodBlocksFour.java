@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.block.wood;
 import java.util.Random;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
@@ -117,7 +118,7 @@ public class WoodBlocksFour extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksFourRenderID;
+		return ClientProxyJammyFurniture.woodBlocksFourRenderID;
 	}
 	
 	/**

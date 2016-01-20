@@ -1,6 +1,5 @@
 package com.gollum.jammyfurniture.client;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.render.BathRenderer;
 import com.gollum.jammyfurniture.client.render.JFInventoryRenderer;
 import com.gollum.jammyfurniture.client.render.LightsRenderer;
@@ -45,42 +44,63 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxyJammyFurniture extends CommonProxyJammyFurniture {
+	
+	/////////////////
+	// Renders IDs //
+	/////////////////
+	
+	public static int woodBlocksOneRenderID;
+	public static int woodBlocksTwoRenderID;
+	public static int woodBlocksThreeRenderID;
+	public static int woodBlocksFourRenderID;
+	public static int bathTubRenderID;
+	public static int ironBlocksOneRenderID;
+	public static int ironBlocksTwoRenderID;
+	public static int ceramicBlocksOneRenderID;
+	public static int roofingBlocksOneRenderID;
+	public static int mobHeadsOneRenderID;
+	public static int mobHeadsTwoRenderID;
+	public static int mobHeadsThreeRenderID;
+	public static int mobHeadsFourRenderID;
+	public static int sofaRenderID;
+	public static int miscBlocksOneRenderID;
+	public static int lightsRenderID;
 
 	public void registerRenderers() {
 		
-		ModJammyFurniture.woodBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.woodBlocksTwoRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.woodBlocksThreeRenderID  = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.woodBlocksFourRenderID   = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.bathTubRenderID          = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.ironBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.ironBlocksTwoRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.ceramicBlocksOneRenderID = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.roofingBlocksOneRenderID = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.mobHeadsOneRenderID      = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.mobHeadsTwoRenderID      = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.mobHeadsThreeRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.mobHeadsFourRenderID     = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.sofaRenderID             = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.miscBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
-		ModJammyFurniture.lightsRenderID           = RenderingRegistry.getNextAvailableRenderId();
+		this.woodBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
+		this.woodBlocksTwoRenderID    = RenderingRegistry.getNextAvailableRenderId();
+		this.woodBlocksThreeRenderID  = RenderingRegistry.getNextAvailableRenderId();
+		this.woodBlocksFourRenderID   = RenderingRegistry.getNextAvailableRenderId();
+		this.bathTubRenderID          = RenderingRegistry.getNextAvailableRenderId();
+		this.ironBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
+		this.ironBlocksTwoRenderID    = RenderingRegistry.getNextAvailableRenderId();
+		this.ceramicBlocksOneRenderID = RenderingRegistry.getNextAvailableRenderId();
+		this.roofingBlocksOneRenderID = RenderingRegistry.getNextAvailableRenderId();
+		this.mobHeadsOneRenderID      = RenderingRegistry.getNextAvailableRenderId();
+		this.mobHeadsTwoRenderID      = RenderingRegistry.getNextAvailableRenderId();
+		this.mobHeadsThreeRenderID    = RenderingRegistry.getNextAvailableRenderId();
+		this.mobHeadsFourRenderID     = RenderingRegistry.getNextAvailableRenderId();
+		this.sofaRenderID             = RenderingRegistry.getNextAvailableRenderId();
+		this.miscBlocksOneRenderID    = RenderingRegistry.getNextAvailableRenderId();
+		this.lightsRenderID           = RenderingRegistry.getNextAvailableRenderId();
 		
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.woodBlocksOneRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.woodBlocksTwoRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.woodBlocksThreeRenderID , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.woodBlocksFourRenderID  , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.bathTubRenderID         , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.ironBlocksOneRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.ironBlocksTwoRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.ceramicBlocksOneRenderID, new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.roofingBlocksOneRenderID, new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsOneRenderID     , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsTwoRenderID     , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsThreeRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.mobHeadsFourRenderID    , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.sofaRenderID            , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.miscBlocksOneRenderID   , new JFInventoryRenderer());
-		RenderingRegistry.registerBlockHandler(ModJammyFurniture.lightsRenderID        , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.woodBlocksOneRenderID   , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.woodBlocksTwoRenderID   , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.woodBlocksThreeRenderID , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.woodBlocksFourRenderID  , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.bathTubRenderID         , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.ironBlocksOneRenderID   , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.ironBlocksTwoRenderID   , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.ceramicBlocksOneRenderID, new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.roofingBlocksOneRenderID, new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.mobHeadsOneRenderID     , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.mobHeadsTwoRenderID     , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.mobHeadsThreeRenderID   , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.mobHeadsFourRenderID    , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.sofaRenderID            , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.miscBlocksOneRenderID   , new JFInventoryRenderer());
+		RenderingRegistry.registerBlockHandler(this.lightsRenderID        , new JFInventoryRenderer());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksOne.class   , new WoodBlocksOneRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWoodBlocksTwo.class   , new WoodBlocksTwoRenderer());
