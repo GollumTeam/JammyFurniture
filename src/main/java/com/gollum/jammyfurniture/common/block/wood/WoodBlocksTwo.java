@@ -1,6 +1,7 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 
@@ -129,7 +130,7 @@ public class WoodBlocksTwo extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksTwoRenderID;
+		return ClientProxyJammyFurniture.woodBlocksTwoRenderID;
 	}
 	
 	////////////

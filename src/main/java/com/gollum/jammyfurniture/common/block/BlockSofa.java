@@ -1,6 +1,6 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -97,7 +97,7 @@ public class BlockSofa extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ModJammyFurniture.sofaRenderID;
+		return ClientProxyJammyFurniture.sofaRenderID;
 	}
 	
 	//////////////////////////
