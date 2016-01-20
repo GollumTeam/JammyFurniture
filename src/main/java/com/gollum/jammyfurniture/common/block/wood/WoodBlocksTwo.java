@@ -138,7 +138,6 @@ public class WoodBlocksTwo extends JFBlock {
 		return state.getValue(TYPE).getValue();
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
 		list.put(0 , "cupboard_shelf");
@@ -178,14 +177,12 @@ public class WoodBlocksTwo extends JFBlock {
 	// Event //
 	///////////
 	
+	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
 		state = this.getStateFromMeta(stack.getItemDamage());
 		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
 	}
 	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		

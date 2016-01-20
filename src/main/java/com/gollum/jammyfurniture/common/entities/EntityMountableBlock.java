@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class EntityMountableBlock extends Entity {
@@ -30,21 +31,6 @@ public class EntityMountableBlock extends Entity {
 					double mountingX = (double) pos.getX() + hitX;
 					double mountingY = (double) pos.getY() + hitY;
 					double mountingZ = (double) pos.getZ() + hitZ;
-
-//					if (north != south) {
-//						int netadata = world.getBlockMetadata(x, y, z);
-//
-//						if (netadata == east) {
-//							mountingX = (double) (x + 1) - hitZ;
-//							mountingZ = (double) z + hitX;
-//						} else if (netadata == south) {
-//							mountingX = (double) (x + 1) - hitX;
-//							mountingZ = (double) (z + 1) - hitZ;
-//						} else if (netadata == west) {
-//							mountingX = (double) x + hitZ;
-//							mountingZ = (double) (z + 1) - hitX;
-//						}
-//					}
 					
 					EntityMountableBlock entity = new EntityMountableBlock(world, player, pos, mountingX, mountingY, mountingZ);
 					world.spawnEntityInWorld(entity);
@@ -101,6 +87,7 @@ public class EntityMountableBlock extends Entity {
 		this.worldObj.theProfiler.startSection("entityBaseTick");
 		
 		if (this.orgBlockPos != null) {
+			
 			if (this.riddenByEntity != null && !this.riddenByEntity.isDead) {
 				IBlockState state =  this.worldObj.getBlockState(this.orgBlockPos);
 				if (state!= null && state.getBlock() != this.orgBlock) {

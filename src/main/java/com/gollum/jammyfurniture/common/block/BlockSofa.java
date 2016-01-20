@@ -1,23 +1,76 @@
 package com.gollum.jammyfurniture.common.block;
 
+import java.util.HashMap;
+
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
+import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockSofa extends JFBlock {
 	
-	/* FIXME
-	private IIcon blockIconRed;
-	private IIcon blockIconBlue;
-	private IIcon blockIconGreen;
-	private IIcon blockIconGrey;
-	*/
+	public static enum EnumColor implements IStringSerializable {
+		
+		RED   ("red"  , 0),
+		BLUE  ("blue" , 4),
+		GREEN ("green", 8),
+		GREY  ("grey" , 12);
+		
+		private final String name;
+		private final int value;
+		
+		private EnumColor(String name, int value) {
+			this.name = name;
+			this.value = value;
+		}
+		
+		public String toString() {
+			return this.name;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+	}
+	
+	public static class PropertyColor extends PropertyEnum<EnumColor> {
+		protected PropertyColor(String name) {
+			super(name, EnumColor.class, Lists.newArrayList(EnumColor.values()));
+		}
+		public static PropertyColor create(String name) {
+			return new PropertyColor(name);
+		}
+	}
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyColor COLOR = PropertyColor.create("color");
 	
 	public BlockSofa(String registerName, Class tileEntityClass) {
-		super(registerName, Material.wood, "wood", tileEntityClass, new int[] { 0, 4, 8, 12 });
+		super(registerName, Material.wood, tileEntityClass);
+		this.setDefaultState(this.getDefaultState()
+				.withProperty(FACING, EnumFacing.NORTH)
+				.withProperty(COLOR, EnumColor.RED)
+			);
 	}
 	
 	/////////////////////////////////
@@ -33,60 +86,95 @@ public class BlockSofa extends JFBlock {
 		}
 	}
 	
+	////////////
+	// States //
+	////////////
+	
+	@Override
+	protected BlockState createBlockState() {
+		return new BlockState(this, new IProperty[]{
+			FACING,
+			COLOR,
+		});
+	}
+	
+	public IBlockState getStateFromMeta(int meta) {
+		IBlockState state = this.getDefaultState();
+		switch (meta) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				state = state.withProperty(COLOR, EnumColor.RED); break;
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+				state = state.withProperty(COLOR, EnumColor.BLUE); break;
+			case 8:
+			case 9:
+			case 10:
+			case 11:
+				state = state.withProperty(COLOR, EnumColor.GREEN); break;
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+				state = state.withProperty(COLOR, EnumColor.GREY); break;
+			default:
+				state = state.withProperty(COLOR, EnumColor.RED); break;
+		}
+		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
+	}
+	
+	public int getMetaFromState(IBlockState state) {
+		if (state == null) {
+			return 0;
+		}
+		return  state.getValue(COLOR).getValue() + state.getValue(FACING).getHorizontalIndex();
+	}
+	
+	@Override
+	public void getSubNames(HashMap<Integer, String> list) {
+		list.put(0, "red");
+		list.put(4, "blue");
+		list.put(8, "green");
+		list.put(12, "grey");
+	}
+	
+	
 	///////////
 	// Event //
 	///////////
 	
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	/* FIXME
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack item) {
-		
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int orientation = this.getOrientation(entityliving);
-
-		if (metadata == 0 || metadata == 4 || metadata == 8 || metadata == 12) {
-			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
-		}
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+		state = this.getStateFromMeta(stack.getItemDamage());
+		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
 	}
-	*/
 	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
-	/* FIXME
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		int metadata = world.getBlockMetadata(x, y, z);
-
+		EnumFacing facing    = state.getValue(FACING);
+		
 		if (world.isRemote) {
 			return true;
 		}
-		metadata %= 4;
 		
-		if (metadata == 0) {
+		player.rotationYaw = 0.0F;
+		if (facing == facing.WEST) {
+			player.rotationYaw = 90.0F;
+		} else
+		if (facing == EnumFacing.NORTH) {
 			player.rotationYaw = 180.0F;
-		}
-		
-		if (metadata == 1) {
+		} else
+		if (facing == facing.EAST) {
 			player.rotationYaw = -90.0F;
 		}
-		
-		if (metadata == 2) {
-			player.rotationYaw = 0.0F;
-		}
-		
-		if (metadata == 3) {
-			player.rotationYaw = 90.0F;
-		}
-		
-		return BlockMountable.onBlockActivated (world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
+		return EntityMountableBlock.onBlockActivated(world, pos, player, 0.5F, 0.4F, 0.5F);
 		
 	}
-	*/
 	
 	////////////////////
 	// Rendu du block //
@@ -97,62 +185,5 @@ public class BlockSofa extends JFBlock {
 	public int getGCLRenderType() {
 		return ClientProxyJammyFurniture.sofaRenderID;
 	}
-	
-	//////////////////////////
-	//Gestion des textures  //
-	//////////////////////////
-	
-	/**
-	 * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-	 * is the only chance you get to register icons.
-	 */
-	/* FIXME
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerBlockIcons(IIconRegister par1IconRegister) {
-		this.blockIconRed   = this.helper.loadTexture (par1IconRegister, "sofa_red"  , true);
-		this.blockIconGreen = this.helper.loadTexture (par1IconRegister, "sofa_green", true);
-		this.blockIconGrey  = this.helper.loadTexture (par1IconRegister, "sofa_grey" , true);
-		this.blockIconBlue  = this.helper.loadTexture (par1IconRegister, "sofa_blue" , true);
-	}
-	*/
-	
-	/**
-	 * From the specified side and block metadata retrieves the blocks texture.
-	 * Args: side, metadata
-	 */
-	/* FIXME
-	@Override
-	public IIcon getIcon(int side, int metadata) {
-		int subBlock = this.getEnabledMetadata(metadata);
-		switch (subBlock) {
-			default:
-			case 0:  return this.blockIconRed;
-			case 4:  return this.blockIconBlue;
-			case 8:  return this.blockIconGreen;
-			case 12: return this.blockIconGrey;
-		}
-	}
-	*/
-	
-	////////////
-	// Others //
-	////////////
-	
-	/* FIXME
-	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
-		
-		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
-		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = this.getEnabledMetadata(metadata);
-		
-		if (subBlock == 0 || subBlock == 4 || subBlock == 8 || subBlock == 12) {
-			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
-			return true;
-		}
-		
-		return false;
-	}
-	*/
 	
 }

@@ -3,9 +3,13 @@ package com.gollum.jammyfurniture.common.block.head;
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.block.head.JFMobHeads.EnumType;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsFour;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -20,33 +24,45 @@ public class MobHeadsFour extends JFMobHeads {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-//	@Override
-//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-//		switch (metadata) {
-//			case 0:
-//			case 4:
-//			case 8:
-//			case 12:
-//				this.setBlockBounds(0.25F, 0.25F, 0.5F, 0.75F, 0.75F, 1.0F); break;
-//			case 1:
-//			case 5:
-//			case 9:
-//			case 13:
-//				this.setBlockBounds(0.0F, 0.25F, 0.25F, 0.5F, 0.75F, 0.75F); break;
-//			case 2:
-//			case 6:
-//			case 10:
-//			case 14:
-//				this.setBlockBounds(0.25F, 0.25F, 0.0F, 0.75F, 0.75F, 0.5F); break;
-//			case 3:
-//			case 7:
-//			case 11:
-//			case 15:
-//				this.setBlockBounds(0.5F, 0.25F, 0.25F, 1.0F, 0.75F, 0.75F); break;
-//			default:
-//				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F); break;
-//		}
-//	}
+	@Override
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
+
+		EnumFacing facing = state.getValue(FACING);
+		
+		if (facing == EnumFacing.NORTH) this.setBlockBounds(0.25F, 0.25F, 0.5F, 0.75F, 0.75F, 1.0F);
+		if (facing == EnumFacing.EAST ) this.setBlockBounds(0.0F, 0.25F, 0.25F, 0.5F, 0.75F, 0.75F);
+		if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.25F, 0.25F, 0.0F, 0.75F, 0.75F, 0.5F);
+		if (facing == EnumFacing.WEST ) this.setBlockBounds(0.5F, 0.25F, 0.25F, 1.0F, 0.75F, 0.75F);
+	}
+	
+	///////////
+	// Event //
+	///////////
+	
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+		
+		EnumType   type      = state.getValue(TYPE);
+		EnumFacing facing    = state.getValue(FACING);
+		
+		if (type == EnumType.HEAD_1) {
+			world.playSound(pos.getX(), pos.getY(), pos.getZ(), config.soundHeadEnderman, 1.0F, 1.0F, true);
+			return true;
+		} else 
+		if (type == EnumType.HEAD_2) {
+			world.playSound(pos.getX(), pos.getY(), pos.getZ(), config.soundHeadSlim, 1.0F, 1.0F, true);
+			return true;
+		} else
+		if (type == EnumType.HEAD_3) {
+			world.playSound(pos.getX(), pos.getY(), pos.getZ(), config.soundHeadBlaze, 1.0F, 1.0F, true);
+			return true;
+		} else 
+		if (type == EnumType.HEAD_4) {
+			world.playSound(pos.getX(), pos.getY(), pos.getZ(), config.soundHeadZombiepig, 1.0F, 1.0F, true);
+			return true;
+		}
+		return false;
+	}
 	
 	////////////////////
 	// Rendu du block //
@@ -57,39 +73,5 @@ public class MobHeadsFour extends JFMobHeads {
 	public int getGCLRenderType() {
 		return ClientProxyJammyFurniture.mobHeadsFourRenderID;
 	}
-	
-	///////////
-	// Event //
-	///////////
-	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
-	/* FIXME
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int par6, float par7, float par8, float par9) {
-		
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int subBlock    = this.getEnabledMetadata(metadata);
-
-		switch (subBlock) {
-			
-			case 0:
-				world.playSound((double) x, (double) y, (double) z, config.soundHeadEnderman, 1.0F, 1.0F, true);
-				return true;
-			case 4:
-				world.playSound((double) x, (double) y, (double) z, config.soundHeadSlim, 1.0F, 1.0F, true);
-				return true;
-			case 8:
-				world.playSound((double) x, (double) y, (double) z, config.soundHeadBlaze, 1.0F, 1.0F, true);
-				return true;
-			case 12:
-				world.playSound((double) x, (double) y, (double) z, config.soundHeadZombiepig, 1.0F, 1.0F, true);
-				return true;
-			default:
-		}
-		return false;
-	}
-	*/
 	
 }

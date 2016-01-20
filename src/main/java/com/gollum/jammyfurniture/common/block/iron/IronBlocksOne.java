@@ -134,7 +134,6 @@ public class IronBlocksOne extends JFBlock {
 		return type.getValue();
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
 		list.put(0, "fridge");
@@ -183,6 +182,7 @@ public class IronBlocksOne extends JFBlock {
 	// Event //
 	///////////
 	
+	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
 		state = this.getStateFromMeta(stack.getItemDamage());
 		EnumFacing orientation = this.getOrientation(player);

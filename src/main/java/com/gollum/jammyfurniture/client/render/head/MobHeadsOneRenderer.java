@@ -8,6 +8,7 @@ import com.gollum.jammyfurniture.client.model.heads.ModelChickenHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelCowHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelEnderDragonHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelHead;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class MobHeadsOneRenderer extends JFMobHeadsRenderer {
 	private ModelChickenHead     modelChickenHead     = new ModelChickenHead();
@@ -29,6 +30,6 @@ public class MobHeadsOneRenderer extends JFMobHeadsRenderer {
 		textures.add ("creeperhead");
 		textures.add ("enderdragonhead");
 		
-		this.init (models, textures);
+		this.init (ModBlocks.blockMobHeadsOne, models, textures);
 	}
 }

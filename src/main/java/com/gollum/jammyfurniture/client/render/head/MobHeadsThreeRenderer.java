@@ -7,6 +7,7 @@ import com.gollum.jammyfurniture.client.model.JFIModel;
 import com.gollum.jammyfurniture.client.model.heads.ModelHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelSquidHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelWolfHead;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class MobHeadsThreeRenderer extends JFMobHeadsRenderer {
 	
@@ -28,7 +29,7 @@ public class MobHeadsThreeRenderer extends JFMobHeadsRenderer {
 		textures.add ("zombiehead");
 		textures.add ("squidhead");
 		
-		this.init (models, textures);
+		this.init (ModBlocks.blockMobHeadsThree, models, textures);
 	}
 	
 }

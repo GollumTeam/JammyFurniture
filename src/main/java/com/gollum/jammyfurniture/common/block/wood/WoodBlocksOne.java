@@ -141,7 +141,6 @@ public class WoodBlocksOne extends JFBlock {
 		return type.getValue();
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
 		list.put(0, "clock_base");
@@ -203,6 +202,7 @@ public class WoodBlocksOne extends JFBlock {
 	// Event //
 	///////////
 	
+	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
 		state = this.getStateFromMeta(stack.getItemDamage());
 		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);

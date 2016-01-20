@@ -110,7 +110,6 @@ public class IronBlocksTwo extends JFBlock {
 		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
 		list.put(0, "dishwasher");
@@ -131,6 +130,7 @@ public class IronBlocksTwo extends JFBlock {
 	// Event //
 	///////////
 	
+	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
 		state = this.getStateFromMeta(stack.getItemDamage());
 		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);

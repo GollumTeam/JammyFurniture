@@ -1,17 +1,27 @@
 package com.gollum.jammyfurniture.client.render;
 
+import static com.gollum.jammyfurniture.common.block.BlockSofa.FACING;
+import static com.gollum.jammyfurniture.common.block.BlockSofa.COLOR;
+
 import com.gollum.jammyfurniture.client.model.JFIModel;
 import com.gollum.jammyfurniture.client.model.sofa.ModelArmChair;
 import com.gollum.jammyfurniture.client.model.sofa.ModelSofaCenter;
 import com.gollum.jammyfurniture.client.model.sofa.ModelSofaCorner;
 import com.gollum.jammyfurniture.client.model.sofa.ModelSofaLeft;
 import com.gollum.jammyfurniture.client.model.sofa.ModelSofaRight;
+import com.gollum.jammyfurniture.common.block.BlockSofa;
+import com.gollum.jammyfurniture.common.block.BlockSofa.EnumColor;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.EnumType;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaLeft;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaRight;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -24,39 +34,17 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = 0;
+		IBlockState state  = this.getBlock(tileentity).getStateFromMeta(metadata);
+		EnumFacing facing  = state.getValue(FACING);
+		EnumColor  color   = state.getValue(COLOR);
+		String     texture = this.getPrefrixeTexture (tileentity)+"_"+color.getName();
 		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 3:
-			case 7:
-			case 11:
-			case 15:
-				rotation = 90; break;
-			case 2:
-			case 6:
-			case 10:
-			case 14:
-				rotation = 180; break;
-			case 1:
-			case 5:
-			case 9:
-			case 13:
-				rotation = 270; break;
-		}
+		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
+		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			rotation = 180;
-		}
-		
-		String texture;
-		switch (subBlock) {
-			default:
-			case 0:  texture = this.getPrefrixeTexture (tileentity)+"_red"; break;
-			case 4:  texture = this.getPrefrixeTexture (tileentity)+"_blue"; break;
-			case 8:  texture = this.getPrefrixeTexture (tileentity)+"_green"; break;
-			case 12: texture = this.getPrefrixeTexture (tileentity)+"_grey"; break;
 		}
 		
 		this.renderModel(this.getModel(tileentity), texture, x, y, z, rotation);
@@ -77,8 +65,7 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 		}
 		return "armchair";
 	}
-
-
+	
 	private JFIModel getModel(TileEntity tileentity) {
 		if (tileentity instanceof TileEntitySofaCenter) {
 			return this.modelSofaCenter;
@@ -93,6 +80,22 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 			return this.modelSofaRight;
 		}
 		return this.modelArmChair;
+	}
+	
+	private BlockSofa getBlock(TileEntity tileentity) {
+		if (tileentity instanceof TileEntitySofaCenter) {
+			return ModBlocks.blockArmChair;
+		}
+		if (tileentity instanceof TileEntitySofaCorner) {
+			return ModBlocks.blockSofaPartCorner;
+		}
+		if (tileentity instanceof TileEntitySofaLeft) {
+			return ModBlocks.blockSofaPartLeft;
+		}
+		if (tileentity instanceof TileEntitySofaRight) {
+			return ModBlocks.blockSofaPartRight;
+		}
+		return ModBlocks.blockArmChair;
 	}
 	
 }

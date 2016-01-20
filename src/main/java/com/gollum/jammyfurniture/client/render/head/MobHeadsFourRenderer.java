@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.gollum.jammyfurniture.client.model.JFIModel;
 import com.gollum.jammyfurniture.client.model.heads.ModelHead;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class MobHeadsFourRenderer extends JFMobHeadsRenderer {
 	
@@ -24,6 +25,6 @@ public class MobHeadsFourRenderer extends JFMobHeadsRenderer {
 		textures.add ("blazehead");
 		textures.add ("pigmanhead");
 		
-		this.init (models, textures);
+		this.init (ModBlocks.blockMobHeadsFour, models, textures);
 	}
 }

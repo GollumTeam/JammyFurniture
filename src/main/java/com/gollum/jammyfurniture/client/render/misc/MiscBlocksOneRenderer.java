@@ -1,11 +1,18 @@
 package com.gollum.jammyfurniture.client.render.misc;
 
+import static com.gollum.jammyfurniture.common.block.misc.MiscBlocksOne.FACING;
+import static com.gollum.jammyfurniture.common.block.misc.MiscBlocksOne.TYPE;
+
 import com.gollum.jammyfurniture.client.model.misc.ModelChimney;
 import com.gollum.jammyfurniture.client.model.misc.ModelChristmasTree;
 import com.gollum.jammyfurniture.client.model.misc.ModelMantlePiece;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.block.misc.MiscBlocksOne.EnumType;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -16,38 +23,21 @@ public class MiscBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		int subBlock = 0;
+		IBlockState state = ModBlocks.blockMiscBlocksOne.getStateFromMeta(metadata);
+		EnumFacing facing = state.getValue(FACING);
+		EnumType type = state.getValue(TYPE);
 		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 3:
-			case 7:
-			case 11:
-			case 15:
-				rotation = 90; break;
-			case 2:
-			case 6:
-			case 10:
-			case 14:
-				rotation = 180; break;
-			case 1:
-			case 5:
-			case 9:
-			case 13:
-				rotation = 270; break;
-		}
+		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
+		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			rotation = 180;
 		}
 		
-		switch (subBlock) {
-			default:
-			case 0:  this.renderModel(this.modelChimney      , "chimney"    , x, y, z, rotation); break;
-			case 4:  this.renderModel(this.modelMantlePiece  , "mantlepiece", x, y, z, rotation); break;
-			case 8:  this.renderModel(this.modelChristmasTree, "tree"       , x, y, z, rotation); break;
-		}
+		if (type == EnumType.CHIMNEY       ) { this.renderModel(this.modelChimney      , "chimney"    , x, y, z, rotation); } else
+		if (type == EnumType.MANTLE_PIECE  ) { this.renderModel(this.modelMantlePiece  , "mantlepiece", x, y, z, rotation); } else
+		if (type == EnumType.CHRISTMAS_TREE) { this.renderModel(this.modelChristmasTree, "tree"       , x, y, z, rotation); }
 		
 	}
 }

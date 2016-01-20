@@ -1,13 +1,20 @@
 package com.gollum.jammyfurniture.client.render.ceramic;
 
+import static com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.FACING;
+import static com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.TYPE;
+
 import com.gollum.jammyfurniture.client.model.ceramic.ModelBathroomCupboard;
 import com.gollum.jammyfurniture.client.model.ceramic.ModelBathroomSink;
 import com.gollum.jammyfurniture.client.model.ceramic.ModelKitchenSink;
 import com.gollum.jammyfurniture.client.model.ceramic.ModelToilet;
 import com.gollum.jammyfurniture.client.render.JFTileEntitySpecialRenderer;
+import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.EnumType;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	
@@ -19,56 +26,42 @@ public class CeramicBlocksRendererOne extends JFTileEntitySpecialRenderer {
 	
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
-		TileEntityCeramicBlocksOne tileentityCeramic = (TileEntityCeramicBlocksOne)tileEntity;
-		
 		float rotation = 0;
-		int subBlock = 0;
+		IBlockState state = ModBlocks.blockCeramicBlocksOne.getStateFromMeta(metadata);
+		EnumFacing facing = state.getValue(FACING);
+		EnumType type = state.getValue(TYPE);
 		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 3:
-			case 4:
-			case 11:
-			case 15:
-				rotation = 90; break;
-			case 2:
-			case 7:
-			case 10:
-			case 14:
-				rotation = 180; break;
-			case 1:
-			case 6:
-			case 9:
-			case 13:
-				rotation = 270; break;
-		}
+		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
+		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			rotation = 180;
 		}
 		
+		TileEntityCeramicBlocksOne tileentityCeramic = (TileEntityCeramicBlocksOne)tileEntity;
 		float doorProgess = tileentityCeramic.getPreviousDoorOpenProgress() + (tileentityCeramic.getDoorOpenProgress() - tileentityCeramic.getPreviousDoorOpenProgress()) * f;
 		
-		switch (subBlock) {
-			default:
-			case 0:  this.renderModel(this.modelBathroomCupboard, "bathroomcupboard", x, y, z, rotation, doorProgess); break;
-			case 4:  
-				this.renderModel(this.modelBathroomSink, "sink", x, y, z, (this.isInventory) ? 270 : rotation);
-				this.renderModelBathroomWater(tileentityCeramic.waterIsOn(), x, y, z, rotation);
-				break;
-			case 8:  
-				this.renderModel(this.modelKitchenSink, "kitchensink", x, y, z, rotation); 
-				this.renderModelKitchenWater(tileentityCeramic.waterIsOn(), x, y, z, rotation);
-				break;
-			case 12: this.renderModel(this.modelToilet, "toilet", x, y, z, rotation); break;
+		if (type == EnumType.BATHROOM_CUPBOARD) {
+			this.renderModel(this.modelBathroomCupboard, "bathroomcupboard", x, y, z, rotation, doorProgess);
+		} else
+		if (type == EnumType.BATHROOM_SINK) {
+			this.renderModel(this.modelBathroomSink, "sink", x, y, z, (rotation + 90) % 360);
+			this.renderModelBathroomWater(tileentityCeramic.waterIsOn(), x, y, z, rotation);
+		} else
+		if (type == EnumType.KITCHEN) {
+			this.renderModel(this.modelKitchenSink, "kitchensink", x, y, z, rotation); 
+			this.renderModelKitchenWater(tileentityCeramic.waterIsOn(), x, y, z, rotation);
+		} else
+		if (type == EnumType.TOILET) {
+			this.renderModel(this.modelToilet, "toilet", x, y, z, rotation);
 		}
 		
 	}
 	
 	private void renderModelBathroomWater(boolean open, double x, double y, double z, float rotation) {
 		this.alpha = 0.60f;
-		this.beforeRender("sink", x, y, z, rotation);
+		this.beforeRender("sink", x, y, z, (rotation + 90) % 360);
 		this.modelBathroomSink.renderWatter(open, 0.0625F);
 		this.endRender();
 		this.alpha = 1.0f;

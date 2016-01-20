@@ -1,50 +1,283 @@
 package com.gollum.jammyfurniture.common.block.ceramic;
 
+import java.util.HashMap;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
 import com.gollum.jammyfurniture.common.block.JFBlock;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.EnumType;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.PropertyType;
+import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	
+	public static enum EnumType implements IStringSerializable {
+		
+		BATHROOM_CUPBOARD("bathroom_cupboard", 0),
+		BATHROOM_SINK    ("bathroom_sink", 4),
+		KITCHEN          ("kitchen", 8),
+		TOILET           ("toilet", 12);
+		
+		private final String name;
+		private final int value;
+		
+		private EnumType(String name, int value) {
+			this.name = name;
+			this.value = value;
+		}
+		
+		public String toString() {
+			return this.name;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+	}
+	
+	public static class PropertyType extends PropertyEnum<EnumType> {
+		protected PropertyType(String name) {
+			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+		}
+		public static PropertyType create(String name) {
+			return new PropertyType(name);
+		}
+	}
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyType TYPE = PropertyType.create("type");
+	
 	public CeramicBlocksOne(String registerName) {
-		super(registerName, Material.glass, "ceramic", TileEntityCeramicBlocksOne.class, new int[]{ 0, 4, 8, 12 });
+		super(registerName, Material.glass, TileEntityCeramicBlocksOne.class);
+		this.setDefaultState(this.getDefaultState()
+			.withProperty(FACING, EnumFacing.NORTH)
+			.withProperty(TYPE, EnumType.BATHROOM_CUPBOARD)
+		);
+	}
+	
+	////////////
+	// States //
+	////////////
+	
+	@Override
+	protected BlockState createBlockState() {
+		return new BlockState(this, new IProperty[]{
+			FACING,
+			TYPE,
+		});
+	}
+	
+	public IBlockState getStateFromMeta(int meta) {
+		IBlockState state = this.getDefaultState();
+		switch (meta) {
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				state = state.withProperty(TYPE, EnumType.BATHROOM_CUPBOARD); break;
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+				state = state.withProperty(TYPE, EnumType.BATHROOM_SINK); break;
+			case 8:
+			case 9:
+			case 10:
+			case 11:
+				state = state.withProperty(TYPE, EnumType.KITCHEN); break;
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+				state = state.withProperty(TYPE, EnumType.TOILET); break;
+			default:
+				state = state.withProperty(TYPE, EnumType.BATHROOM_CUPBOARD); break;
+		}
+		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
+	}
+	
+	public int getMetaFromState(IBlockState state) {
+		if (state == null) {
+			return 0;
+		}
+		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
+	}
+	
+	@Override
+	public void getSubNames(HashMap<Integer, String> list) {
+		list.put(0 , "bathroom_cupboard");
+		list.put(4 , "bathroom_sink");
+		list.put(8 , "kitchen");
+		list.put(12, "toilet");
 	}
 	
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-//	@Override
-//	protected void getCollisionBoundingBox(int metadata, boolean isSelectBox) {
-//		switch (metadata) {
-//			case 0:  this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F); break;
-//			case 1:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F); break;
-//			case 2:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F); break;
-//			case 3:  this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
-//			case 4:  this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F); break;
-//			case 5:  this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F); break;
-//			case 6:  this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F); break;
-//			case 7:  this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F); break;
-//			case 8:  
-//			case 9:  
-//			case 10: 
-//			case 11: this.setBlockBounds(0.0F , 0.4F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
-//			case 12: this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F ); break;
-//			case 13: this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F , 1.0F, 0.85F); break;
-//			case 14: this.setBlockBounds(0.15F, 0.0F, 0.0F , 0.85F, 1.0F, 0.95F); break;
-//			case 15: this.setBlockBounds(0.0F , 0.0F, 0.15F, 0.95F, 1.0F, 0.85F); break;
-//			default: this.setBlockBounds(0.0F , 0.0F, 0.0F , 1.0F , 1.0F, 1.0F ); break;
-//		}
-//	}
+	@Override
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
+
+		EnumType type = state.getValue(TYPE);
+		EnumFacing facing = state.getValue(FACING);
+
+		if (type == EnumType.BATHROOM_CUPBOARD) {
+			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F);
+			if (facing == EnumFacing.EAST ) this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.4F, 1.0F, 0.9F);
+			if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.4F);
+			if (facing == EnumFacing.WEST ) this.setBlockBounds(0.6F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F);
+		} else 
+		if (type == EnumType.BATHROOM_SINK) {
+			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.1F, 0.0F, 0.2F, 0.9F, 1.0F, 1.0F);
+			if (facing == EnumFacing.EAST ) this.setBlockBounds(0.0F, 0.0F, 0.1F, 0.8F, 1.0F, 0.9F);
+			if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.1F, 0.0F, 0.0F, 0.9F, 1.0F, 0.8F);
+			if (facing == EnumFacing.WEST ) this.setBlockBounds(0.2F, 0.0F, 0.1F, 1.0F, 1.0F, 0.9F);
+		} else 
+		if (type == EnumType.KITCHEN) {
+			this.setBlockBounds(0.0F , 0.4F, 0.0F , 1.0F , 1.0F, 1.0F );
+		} else {
+			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.15F, 0.0F, 0.05F, 0.85F, 1.0F, 1.0F );
+			if (facing == EnumFacing.EAST ) this.setBlockBounds(0.05F, 0.0F, 0.15F, 1.0F , 1.0F, 0.85F);
+			if (facing == EnumFacing.SOUTH) this.setBlockBounds(0.15F, 0.0F, 0.0F , 0.85F, 1.0F, 0.95F);
+			if (facing == EnumFacing.WEST ) this.setBlockBounds(0.0F , 0.0F, 0.15F, 0.95F, 1.0F, 0.85F);
+		}
+	}
+	
+	///////////
+	// Event //
+	///////////
+
+	@Override
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+		state = this.getStateFromMeta(stack.getItemDamage());
+		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
+
+		EnumType   type   = state.getValue(TYPE);
+		EnumFacing facing = state.getValue(FACING);
+		TileEntity te     = world.getTileEntity(pos);
+		
+		
+		if (te != null && te instanceof TileEntityCeramicBlocksOne) {
+			TileEntityCeramicBlocksOne teCeramic = (TileEntityCeramicBlocksOne)te;
+			
+			if (type == EnumType.BATHROOM_CUPBOARD) {
+				
+				player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_BARHROOMCUPBOARD_ID, world, pos.getX(), pos.getY(), pos.getZ());
+				return true;
+				
+			} else 
+			if (type == EnumType.BATHROOM_SINK || type == EnumType.KITCHEN) {
+				
+
+				if (world.isRemote) {
+					return true;
+				}
+				
+				if (teCeramic.waterIsOn ()) {
+					
+					ItemStack itemStack = player.inventory.getCurrentItem();
+					ItemStack newItemStack = CeramicBlocksOneRecipes.smelting().getSmeltingResult(itemStack);
+					
+					if (newItemStack != null) {
+						
+						--itemStack.stackSize;
+						
+						if (itemStack.stackSize <= 0) {
+							player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
+						}
+						
+						if (player.inventory.addItemStackToInventory(newItemStack.copy())) {
+							if (player instanceof EntityPlayerMP) {
+								((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
+							}
+						} else {
+							ModJammyFurniture.log.debug("Spawn new entity");
+							world.spawnEntityInWorld(new EntityItem(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 1.5D, (double) pos.getZ() + 0.5D, newItemStack));
+						}
+						
+						return true;
+					}
+				}
+				
+				world.addBlockEvent(pos, this, 2, 0);
+				return true;
+				
+			} else 
+			if (type == EnumType.TOILET) {
+				
+				if (world.isRemote) {
+					return true;
+				}
+
+				player.rotationYaw = 0.0F;
+				if (facing == facing.WEST) {
+					player.rotationYaw = 90.0F;
+				} else
+				if (facing == EnumFacing.NORTH) {
+					player.rotationYaw = 180.0F;
+				} else
+				if (facing == facing.EAST) {
+					player.rotationYaw = -90.0F;
+				}
+				
+				return EntityMountableBlock.onBlockActivated(world, pos, player, 0.5F, 0.4F, 0.5F);
+			}
+		}
+		
+		return false;
+	}
+	
+	@Override
+	public boolean onBlockEventReceived(World world, BlockPos pos, IBlockState state, int eventID, int parameter) {
+		if (eventID == 2) {
+			TileEntity te = world.getTileEntity(pos);
+	
+			if (te != null && te instanceof TileEntityCeramicBlocksOne) {
+				TileEntityCeramicBlocksOne teCeramicBlocks = (TileEntityCeramicBlocksOne)te;
+				
+				teCeramicBlocks.toggleWater();
+			}
+			return true;
+		}
+		return super.onBlockEventReceived(world, pos, state, eventID, parameter);
+	}
+	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
+		world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
+	}
 	
 	////////////////////
 	// Rendu du block //
@@ -55,180 +288,5 @@ public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	public int getGCLRenderType() {
 		return ClientProxyJammyFurniture.ceramicBlocksOneRenderID;
 	}
-	
-	///////////
-	// Event //
-	///////////
-	
-	/**
-	 * Called when the block is placed in the world.
-	 */
-	/* FIXME
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack itemStack) {
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int subBlock    = this.getEnabledMetadata(metadata);
-		int orientation = this.getOrientation(entityliving);
-
-		if (subBlock == 0 || subBlock == 4 || subBlock == 8 || subBlock == 12) {
-			world.setBlockMetadataWithNotify(x, y, z, metadata + orientation, 2);
-		}
-	}
-	*/
-	
-	/**
-	 * Called on server worlds only when the block has been replaced by a
-	 * different block ID, or the same block with a different metadata value,
-	 * but before the new metadata value is set. Args: World, x, y, z, old block
-	 * ID, old metadata
-	 */
-	/* FIXME
-	@Override
-	public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
-		
-		this.helper.breakBlockInventory(world, x, y, z, oldBlock);
-		
-		super.breakBlock(world, x, y, z, oldBlock, oldMetadata);
-	}
-	*/
-
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
-	/* FIXME
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
-		int metadata    = world.getBlockMetadata(x, y, z);
-		int subBlock    = this.getEnabledMetadata(metadata);
-		int orientation = this.getOrientation(player);
-		TileEntity te   = world.getTileEntity(x, y, z);
-		
-		
-		if (te != null && te instanceof TileEntityCeramicBlocksOne) {
-			TileEntityCeramicBlocksOne teCeramic = (TileEntityCeramicBlocksOne)te;
-			
-			switch (subBlock) {
-				
-				case 0: // Armoire a salle de bain
-					
-					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_BARHROOMCUPBOARD_ID, world, x, y, z);
-					return true;
-					
-				case 4: // Lavabo mural
-				case 8: // Lavabo 
-					
-					if (world.isRemote) {
-						return true;
-					}
-					
-					if (teCeramic.waterIsOn ()) {
-						
-						ItemStack itemStack = player.inventory.getCurrentItem();
-						ItemStack newItemStack = CeramicBlocksOneRecipes.smelting().getSmeltingResult(itemStack);
-						
-						if (newItemStack != null) {
-							
-							--itemStack.stackSize;
-							
-							if (itemStack.stackSize <= 0) {
-								player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
-							}
-							
-							if (player.inventory.addItemStackToInventory(newItemStack.copy())) {
-								if (player instanceof EntityPlayerMP) {
-									((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
-								}
-							} else {
-								ModJammyFurniture.log.debug("Spawn new entity");
-								world.spawnEntityInWorld(new EntityItem(world, (double) x + 0.5D, (double) y + 1.5D, (double) z + 0.5D, newItemStack));
-							}
-							
-							
-							return true;
-						}
-					}
-					
-					world.addBlockEvent(x, y, z, this, 2, 0);
-					
-					return true;
-					
-				case 12: // Les toilettes
-					
-					if (world.isRemote) {
-						return true;
-					}
-					
-					if (orientation == 0) {
-						player.rotationYaw = 180.0F;
-					}
-					
-					if (orientation == 1) {
-						player.rotationYaw = -90.0F;
-					}
-					
-					if (orientation == 2) {
-						player.rotationYaw = 0.0F;
-					}
-					
-					if (orientation == 3) {
-						player.rotationYaw = 90.0F;
-					}
-					
-					return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
-				default:
-					break;
-			}
-		}
-		
-		
-		return false;
-	}
-	*/
-	
-	/**
-	* Called when the block receives a BlockEvent - see World.addBlockEvent. By default, passes it on to the tile
-	* entity at this location. Args: world, x, y, z, blockID, EventID, event parameter
-	*/
-	/* FIXME
-	public boolean onBlockEventReceived(World world, int x, int y, int z, int eventID, int parameter) {
-		if (eventID == 2) {
-			TileEntity te = world.getTileEntity(x, y, z);
-	
-			if (te != null && te instanceof TileEntityCeramicBlocksOne) {
-				TileEntityCeramicBlocksOne teCeramicBlocks = (TileEntityCeramicBlocksOne)te;
-				
-				teCeramicBlocks.toggleWater();
-			}
-			return true;
-		}
-		return super.onBlockEventReceived(world, x, y, z, eventID, parameter);
-	}
-	*/
-	
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
-		world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
-	}
-	
-	////////////
-	// Others //
-	////////////
-	
-	/* FIXME
-	public boolean rotateBlock(World world, int x, int y, int z, ForgeDirection axis) {
-		
-		int rotate   = axis == ForgeDirection.DOWN ? 3 : 1;
-		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = this.getEnabledMetadata(metadata);
-		
-		if (subBlock == 0 || subBlock == 4 || subBlock == 8 || subBlock == 12) {
-			world.setBlockMetadataWithNotify(x, y, z, ((metadata - subBlock + rotate) % 4) + subBlock, 2);
-			return true;
-		}
-		
-		return false;
-	}
-	*/
 	
 }

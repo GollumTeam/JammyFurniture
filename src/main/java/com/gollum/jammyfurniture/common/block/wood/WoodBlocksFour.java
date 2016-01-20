@@ -153,7 +153,6 @@ public class WoodBlocksFour extends JFBlock {
 		return state.getValue(TYPE).getValue() + state.getValue(PART).getValue()+ state.getValue(FACING).getHorizontalIndex();
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubNames(HashMap<Integer, String> list) {
 		list.put(0, "wardrobe");
@@ -181,9 +180,6 @@ public class WoodBlocksFour extends JFBlock {
 	// Event //
 	///////////
 	
-	/**
-	 * Called right before the block is destroyed by a player. Args: world, x, y, z, metaData
-	 */
 	@Override
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
 		
@@ -196,7 +192,8 @@ public class WoodBlocksFour extends JFBlock {
 			world.destroyBlock(pos2, true);
 		}
 	}
-
+	
+	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
 		if (state.getValue(TYPE) == EnumType.WARDROBE && state.getValue(PART) == EnumPart.HEAD) {

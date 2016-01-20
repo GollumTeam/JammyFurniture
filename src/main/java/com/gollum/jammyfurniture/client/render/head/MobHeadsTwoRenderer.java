@@ -7,6 +7,7 @@ import com.gollum.jammyfurniture.client.model.JFIModel;
 import com.gollum.jammyfurniture.client.model.heads.ModelHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelPigHead;
 import com.gollum.jammyfurniture.client.model.heads.ModelSheepHead;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class MobHeadsTwoRenderer extends JFMobHeadsRenderer {
 	
@@ -28,6 +29,6 @@ public class MobHeadsTwoRenderer extends JFMobHeadsRenderer {
 		textures.add ("skeletonhead");
 		textures.add ("spiderhead");
 		
-		this.init (models, textures);
+		this.init (ModBlocks.blockMobHeadsTwo, models, textures);
 	}
 }
