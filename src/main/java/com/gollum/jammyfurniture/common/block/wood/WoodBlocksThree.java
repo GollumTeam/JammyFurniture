@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.BlockMountable;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
@@ -190,7 +191,7 @@ public class WoodBlocksThree extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ModJammyFurniture.woodBlocksThreeRenderID;
+		return ClientProxyJammyFurniture.woodBlocksThreeRenderID;
 	}
 	
 	////////////

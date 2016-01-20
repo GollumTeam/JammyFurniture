@@ -2,7 +2,7 @@ package com.gollum.jammyfurniture.common.block.misc;
 
 import java.util.Random;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 
@@ -48,20 +48,18 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	 * A randomly called display update to be able to add particles or other
 	 * items for display
 	 */
-	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		int metadata = world.getBlockMetadata(i, j, k);
+	public void randomDisplayTick(World world, int blockX, int blockY, int blockZ, Random random) {
+		int metadata = world.getBlockMetadata(blockX, blockY, blockZ);
 		int subBlock = this.getEnabledMetadata(metadata);
 
 		if (subBlock == 0) { // La cheminé
-			float f = (float) i + 0.5F;
-			float f1 = (float) j + 1.0F + random.nextFloat() * 6.0F / 10.0F;
-			float f2 = (float) k + 0.5F;
-			float f3 = 0.52F;
-			float f4 = random.nextFloat() * 0.6F - 0.3F;
-			world.spawnParticle("smoke", (double) f, (double) f1, (double) (f2 + f4), 0.0D, 0.0D, 0.0D);
-			world.spawnParticle("smoke", (double) f, (double) f1, (double) (f2 + f4), 0.0D, 0.0D, 0.0D);
-			world.spawnParticle("smoke", (double) f, (double) f1, (double) (f2 + f4), 0.0D, 0.0D, 0.0D);
-			world.spawnParticle("smoke", (double) f, (double) f1, (double) (f2 + f4), 0.0D, 0.0D, 0.0D);
+			float x = (float) blockX + 0.5F + random.nextFloat() * 0.6F - 0.3F;
+			float y = (float) blockY + 1.0F + random.nextFloat() * 0.6F;
+			float z = (float) blockZ + 0.5F + random.nextFloat() * 0.6F - 0.3F;
+			world.spawnParticle("smoke", (double) x, (double) y, (double) (z), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", (double) x, (double) y, (double) (z), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", (double) x, (double) y, (double) (z), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("smoke", (double) x, (double) y, (double) (z), 0.0D, 0.0D, 0.0D);
 		}
 	}
 	
@@ -70,7 +68,7 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	///////////////////
 	
 	public int getRenderType() {
-		return ModJammyFurniture.miscBlocksOneRenderID;
+		return ClientProxyJammyFurniture.miscBlocksOneRenderID;
 	}
 	
 	//////////////////////////

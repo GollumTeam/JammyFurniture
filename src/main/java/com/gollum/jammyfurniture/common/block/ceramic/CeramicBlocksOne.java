@@ -1,6 +1,7 @@
 package com.gollum.jammyfurniture.common.block.ceramic;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.BlockMountable;
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
@@ -207,7 +208,7 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 	 */
 	@Override
 	public int getRenderType() {
-		return ModJammyFurniture.ceramicBlocksOneRenderID;
+		return ClientProxyJammyFurniture.ceramicBlocksOneRenderID;
 	}
 	
 	////////////

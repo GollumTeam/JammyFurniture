@@ -1,7 +1,8 @@
 package com.gollum.jammyfurniture.common.block.head;
 
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
-import com.gollum.jammyfurniture.ModJammyFurniture;
+
+import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -78,6 +79,6 @@ public class MobHeadsOne extends JFMobHeads {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return ModJammyFurniture.mobHeadsOneRenderID;
+		return ClientProxyJammyFurniture.mobHeadsOneRenderID;
 	}
 }
