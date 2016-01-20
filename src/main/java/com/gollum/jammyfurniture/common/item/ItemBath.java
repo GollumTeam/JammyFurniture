@@ -1,12 +1,18 @@
 package com.gollum.jammyfurniture.common.item;
 
+import static com.gollum.jammyfurniture.common.block.BathBlock.FACING;
+import static com.gollum.jammyfurniture.common.block.BathBlock.PART;
+
+import com.gollum.jammyfurniture.common.block.BathBlock.EnumPart;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class ItemBath extends ItemBlock {
@@ -18,67 +24,40 @@ public class ItemBath extends ItemBlock {
 		this.block = block;
 	}
 	
-	/**
-	 * Callback for item usage. If the item does something special on right
-	 * clicking, he will have one of those. Return True if something happen and
-	 * false if it don't. This is for ITEMS, not BLOCKS
-	 */
-	 @Override
+	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
-		/* FIXME
-		if (side != 1) {
-			return false;
-		} else {
-			++y;
-			int orientation = MathHelper.floor_double((double) (player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-			byte pos2X = 0;
-			byte pos2Z = 0;
 
-			if (orientation == 0) {
-				pos2Z = 1;
-			}
-
-			if (orientation == 1) {
-				pos2X = -1;
-			}
-
-			if (orientation == 2) {
-				pos2Z = -1;
-			}
-
-			if (orientation == 3) {
-				pos2X = 1;
-			}
+		IBlockState state = ModBlocks.blockBathTub.getStateFromMeta(itemStack.getItemDamage());
+		EnumFacing facing = player.getHorizontalFacing();
+		BlockPos pos1 = pos.up();
+		BlockPos pos2 = pos1.add(facing.getDirectionVec());
+		
+		if (
+			side == EnumFacing.UP &&
+			player.canPlayerEdit(pos1, side, itemStack) && 
+			player.canPlayerEdit(pos2, side, itemStack) &&
 			
-			if (
-				player.canPlayerEdit(new BlockPos(x        , y, z        ), side, itemStack) && 
-				player.canPlayerEdit(new BlockPos(x + pos2X, y, z + pos2Z), side, itemStack)
-			) {
+			world.isAirBlock(pos1) && 
+			world.isAirBlock(pos2) && 
+			world.doesBlockHaveSolidTopSurface(world, pos)
+		) {
+			state = state
+				.withProperty(FACING, facing)
+			;
+			
+			if (placeBlockAt(itemStack, player, world, pos1, side, hitX, hitY, hitZ, state)) {
 				
-				if (
-					world.isAirBlock(x        , y, z) && 
-					world.isAirBlock(x + pos2X, y, z + pos2Z) && 
-					world.doesBlockHaveSolidTopSurface(world, x        , y - 1, z) && 
-					world.doesBlockHaveSolidTopSurface(world, x + pos2X, y - 1, z + pos2Z)
-				) {
-					
-					if (placeBlockAt(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ, orientation & 0x7)) {
-						
-						placeBlockAt(itemStack, player, world, x + pos2X, y, z + pos2Z, side, hitX, hitY, hitZ, orientation | 0x8);
-						
-					} else {
-						return false;
-					}
-					
-					--itemStack.stackSize;
-					return true;
-				} else {
-					return false;
-				}
+				state = state.withProperty(PART, EnumPart.RIGHT);
+				placeBlockAt(itemStack, player, world, pos2, side, hitX, hitY, hitZ, state);
+				
 			} else {
 				return false;
 			}
+			
+			--itemStack.stackSize;
+			return true;
 		}
-		*/return false;
+		return false;
 	}
+	
 }

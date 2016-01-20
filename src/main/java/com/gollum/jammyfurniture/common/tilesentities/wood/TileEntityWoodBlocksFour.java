@@ -5,6 +5,7 @@ import static com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.TYPE;
 
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.EnumPart;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.EnumType;
 
@@ -41,7 +42,11 @@ public class TileEntityWoodBlocksFour extends GCLInventoryTileEntity {
 	public void update() {
 		
 		IBlockState state =  this.worldObj.getBlockState(this.pos);
-		if (state.getValue(TYPE) == EnumType.WARDROBE && state.getValue(PART) == EnumPart.FOOT) {
+		if (
+			state.getBlock() instanceof WoodBlocksFour && 
+			state.getValue(TYPE) == EnumType.WARDROBE && 
+			state.getValue(PART) == EnumPart.FOOT
+		) {
 			return;
 		}
 		super.update();

@@ -16,8 +16,10 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne;
 import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne.EnumType;
 import com.gollum.jammyfurniture.common.crafting.CookerRecipes;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	
@@ -60,7 +62,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
-			if (state != null) {
+			if (state != null && state.getBlock() instanceof IronBlocksOne) {
 				EnumType type = state.getValue(TYPE);
 				if (type == EnumType.FRIDGE || type == EnumType.FREEZER) {
 					return this.INV_SIZE_FRIDGE;
@@ -95,7 +97,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
-			if (state != null) {
+			if (state != null && state.getBlock() instanceof IronBlocksOne) {
 				EnumType type = state.getValue(TYPE);
 				if (type == EnumType.FRIDGE) {
 					return ModJammyFurniture.i18n.trans("Fridge");
@@ -158,7 +160,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
-			if (state != null) {
+			if (state != null && state.getBlock() instanceof IronBlocksOne) {
 				EnumType type = state.getValue(TYPE);
 				
 				if (type == EnumType.RUBBISH_BIN) {

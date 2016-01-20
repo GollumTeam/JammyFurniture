@@ -1,8 +1,15 @@
 package com.gollum.jammyfurniture.client.render;
 
-import com.gollum.jammyfurniture.client.model.ModelBath;
+import static com.gollum.jammyfurniture.common.block.BathBlock.FACING;
+import static com.gollum.jammyfurniture.common.block.BathBlock.PART;
 
+import com.gollum.jammyfurniture.client.model.ModelBath;
+import com.gollum.jammyfurniture.common.block.BathBlock.EnumPart;
+import com.gollum.jammyfurniture.inits.ModBlocks;
+
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 
 public class BathRenderer extends JFTileEntitySpecialRenderer {
 	
@@ -11,20 +18,13 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 	protected void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f, int newParam, int metadata) {
 		
 		float rotation = 0;
-		
-		switch (metadata) {
-			default:
-				rotation = 0; break;
-			case 0:
-			case 10:
-				rotation = 90; break;
-			case 3:
-			case 9:
-				rotation = 180; break;
-			case 2:
-			case 8:
-				rotation = 270; break;
-		}
+		IBlockState state = ModBlocks.blockBathTub.getStateFromMeta(metadata);
+		EnumFacing facing = state.getValue(FACING);
+		EnumPart type = state.getValue(PART);
+
+		if (facing == EnumFacing.NORTH ) { rotation = 90 ; } else
+		if (facing == EnumFacing.WEST) { rotation = 180; } else
+		if (facing == EnumFacing.SOUTH ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			
@@ -32,8 +32,8 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 			
 		} else {
 			
-			if (metadata > 7) {
-				renderModel(x, y, z, rotation, false);
+			if (type == EnumPart.LEFT) {
+				renderModel(x, y, z, (rotation + 180) % 360, false);
 			} else {
 				renderModel(x, y, z, rotation, true);
 			}

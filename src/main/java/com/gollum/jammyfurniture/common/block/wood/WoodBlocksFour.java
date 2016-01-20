@@ -116,6 +116,10 @@ public class WoodBlocksFour extends JFBlock {
 		);
 	}
 	
+	////////////
+	// States //
+	////////////
+	
 	@Override
 	protected BlockState createBlockState() {
 		return new BlockState(this, new IProperty[]{
@@ -160,7 +164,6 @@ public class WoodBlocksFour extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 		if (state.getValue(TYPE) == EnumType.WARDROBE) {

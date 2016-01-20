@@ -4,9 +4,11 @@ import static com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo.TYPE;
 
 import com.gollum.core.common.tileentities.GCLInventoryTileEntity;
 import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo;
 import com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo.EnumType;
 import com.gollum.jammyfurniture.common.crafting.DishwasherRecipes;
 import com.gollum.jammyfurniture.common.crafting.WashingMachineRecipes;
+import com.gollum.jammyfurniture.inits.ModBlocks;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
@@ -49,7 +51,7 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 		
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
-			if (state != null) {
+			if (state != null && state.getBlock() instanceof IronBlocksTwo) {
 				EnumType type = state.getValue(TYPE);
 				if (type == EnumType.DISHWASHER) {
 					return ModJammyFurniture.i18n.trans("Dishwasher");

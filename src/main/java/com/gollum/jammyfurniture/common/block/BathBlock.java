@@ -1,186 +1,181 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.core.tools.helper.blocks.HBlockContainer;
+import java.util.HashMap;
+import java.util.Random;
+
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.EnumPart;
+import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour.EnumType;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.item.ItemBath;
+import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
+import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BathBlock extends HBlockContainer {
+public class BathBlock extends JFBlock {
+	
+	public static enum EnumPart implements IStringSerializable {
+		
+		LEFT("left", 0),
+		RIGHT("right", 4);
+		
+		private final String name;
+		private final int value;
+		
+		private EnumPart(String name, int value) {
+			this.name = name;
+			this.value = value;
+		}
+		
+		public String toString() {
+			return this.name;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+		
+		public int getValue() {
+			return this.value;
+		}
+	}
+	
+	public static class PropertyPart extends PropertyEnum<EnumPart> {
+		protected PropertyPart(String name) {
+			super(name, EnumPart.class, Lists.newArrayList(EnumPart.values()));
+		}
+		public static PropertyPart create(String name) {
+			return new PropertyPart(name);
+		}
+	}
+	
+	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final PropertyPart PART = PropertyPart.create("part");
 	
 	public static final int[][] footBlockToHeadBlockMap = new int[][] { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
 	
 	public BathBlock(String registerName) {
-		super(registerName, Material.iron);
-		
+		super(registerName, Material.iron, TileEntityBath.class);
+		this.setItemBlockClass(ItemWoodBlocksFour.class);
+		this.setDefaultState(this.getDefaultState()
+			.withProperty(FACING, EnumFacing.NORTH)
+			.withProperty(PART, EnumPart.LEFT)
+		);
 		this.setItemBlockClass(ItemBath.class);
-	}
-	
-	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing
-	 * the block.
-	 */
-	@Override
-	public TileEntity createNewTileEntity(World world, int metadata) {
-		return new TileEntityBath();
 	}
 	
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
+	
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, BlockPos pos) {
+	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8F, 1.0F);
 	}
 	
-	/////////////
-	// Texture //
-	/////////////
+	////////////
+	// States //
+	////////////
 	
-	/* FIXME
 	@Override
-	public String getTextureKey () {
-		return "ceramic";
+	protected BlockState createBlockState() {
+		return new BlockState(this, new IProperty[]{
+			FACING,
+			PART,
+		});
 	}
-	*/
+	
+	public IBlockState getStateFromMeta(int meta) {
+		
+		IBlockState state = this.getDefaultState();
+		state = state
+			.withProperty(PART, EnumPart.RIGHT)
+			.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4])
+		;
+		if (meta < EnumPart.RIGHT.getValue()) {
+			state = state.withProperty(PART, EnumPart.LEFT);
+		}
+		return state;
+	}
+	
+	public int getMetaFromState(IBlockState state) {
+		if (state == null) {
+			return 0;
+		}
+		return state.getValue(PART).getValue()+ state.getValue(FACING).getHorizontalIndex();
+	}
 	
 	///////////
 	// Event //
 	///////////
 	
-	/**
-	 * Called right before the block is destroyed by a player. Args: world, x, y, z, metaData
-	 */
-	/* FIXME
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, int metadata) {
-		int direction = getDirection(metadata);
+	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
 		
+		EnumFacing facing = state.getValue(FACING);
+		EnumPart part = state.getValue(PART);
+		BlockPos pos2 = pos.add(part == EnumPart.LEFT ? facing.getDirectionVec() : facing.getOpposite().getDirectionVec());
 		
-		int x2 = x + footBlockToHeadBlockMap[direction][0];
-		int z2 = z + footBlockToHeadBlockMap[direction][1];
-		
-		boolean isHead = this.isBlockHead(metadata);
-		
-		if (isHead) {
-			x2 = x - footBlockToHeadBlockMap[direction][0];
-			z2 = z - footBlockToHeadBlockMap[direction][1];
-		}
-		
-		if (world.getBlock(x2, y, z2) == this) {
-			world.func_147480_a(x2, y, z2, true);
+		IBlockState state2 = world.getBlockState(pos2);
+		if (state2 != null && state2.getBlock() == this) {
+			world.destroyBlock(pos2, true);
 		}
 	}
-	*/
 	
-	/**
-	 * Called upon block activation (right click on the block.)
-	 */
-	/* FIXME
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, EntityPlayer player, int hitX, float hitY, float hitZ, float par9) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		int metadata = world.getBlockMetadata(x, y, z);
+		EnumFacing facing = state.getValue(FACING);
+		EnumPart part = state.getValue(PART);
+		facing = part == EnumPart.LEFT ? facing : facing.getOpposite();
 		
-		if (world.isRemote) {
-			return true;
-		} else {
-			metadata %= 4;
-			
-			if (metadata == 0) {
-				player.rotationYaw = 180.0F;
-			}
-			
-			if (metadata == 1) {
-				player.rotationYaw = -90.0F;
-			}
-			
-			if (metadata == 2) {
-				player.rotationYaw = 0.0F;
-			}
-			
-			if (metadata == 3) {
-				player.rotationYaw = 90.0F;
-			}
-			
-			return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
+		player.rotationYaw = 0.0F;
+		if (facing == facing.WEST) {
+			player.rotationYaw = 90.0F;
+		} else
+		if (facing == EnumFacing.NORTH) {
+			player.rotationYaw = 180.0F;
+		} else
+		if (facing == facing.EAST) {
+			player.rotationYaw = -90.0F;
 		}
+		
+		return EntityMountableBlock.onBlockActivated(world, pos, player, 0.5F, 0.4F, 0.5F);
 	}
-	*/
 	
+	////////////////////
+	// Rendu du block //
+	////////////////////
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getGCLRenderType() {
+		return ClientProxyJammyFurniture.woodBlocksFourRenderID;
+	}
 	
 	///////////////////
 	// Data du block //
 	///////////////////
 	
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
-	/* FIXME
 	@Override
-	public Item getItemDropped(int metadata, Random random, int j) {
-		return this.isBlockHead(metadata) ? super.getItemDropped(metadata, random, j): null;
-	}
-	*/
-	
-	/**
-	 * The type of render function that is called for this block
-	 */
-	@Override
-	public int getRenderType() {
-		return ClientProxyJammyFurniture.bathTubRenderID;
-	}
-	
-	/**
-	 * If this block doesn't render as an ordinary block it will return False
-	 * (examples: signs, buttons, stairs, etc)
-	 */
-	/* FIXME
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-	*/
-
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether
-	 * or not to render the shared face of two adjacent blocks and also whether
-	 * the player can attach torches, redstone wire, etc to this block.
-	 */
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-
-	public static boolean isBlockHead(int metadata) {
-		return (metadata & 7) != metadata;
-	}
-
-	public static int getDirection(int metadata) {
-		return metadata & 3;
-	}
-	
-	////////////
-	// Others //
-	////////////
-
-	public boolean rotateBlock(World world, int x, int y, int z, EnumFacing axis) {
-		/* FIXME
-		int rotate   = axis == EnumFacing.DOWN ? 3 : 1;
-		int metadata = world.getBlockMetadata(x, y, z);
-		
-		world.setBlockMetadataWithNotify(x, y, z, ((metadata + rotate) % 4), 2);
-		*/
-		return true;
+	public Item getItemDropped(IBlockState state, Random random, int fortune) {
+		return (state.getValue(PART) == EnumPart.LEFT) ? super.getItemDropped(state, random, fortune): null;
 	}
 }

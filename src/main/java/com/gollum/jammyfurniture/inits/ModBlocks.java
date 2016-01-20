@@ -74,7 +74,7 @@ public class ModBlocks {
 
 	public static void initBlock() {
 		
-//		ModBlocks.blockBathTub          = (BathBlock)  new BathBlock       ("Bath"            ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
+		ModBlocks.blockBathTub          = (BathBlock)  new BathBlock       ("Bath"            ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(3.0F).setResistance(1.0F).setStepSound(Block.soundTypeWood);
 		ModBlocks.blockLightsOn         = (BlockLights)new BlockLights     ("LightsOn" ,true  ).setCreativeTab(ModCreativeTab.tabJammyFurniture).setHardness(0.3F);
 		ModBlocks.blockLightsOff        = (BlockLights)new BlockLights     ("LightsOff",false )                                       .setHardness(0.3F);
 		
