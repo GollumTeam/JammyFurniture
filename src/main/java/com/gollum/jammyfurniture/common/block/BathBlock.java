@@ -69,8 +69,6 @@ public class BathBlock extends JFBlock {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyPart PART = PropertyPart.create("part");
 	
-	public static final int[][] footBlockToHeadBlockMap = new int[][] { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
-	
 	public BathBlock(String registerName) {
 		super(registerName, Material.iron, TileEntityBath.class);
 		this.setItemBlockClass(ItemWoodBlocksFour.class);
