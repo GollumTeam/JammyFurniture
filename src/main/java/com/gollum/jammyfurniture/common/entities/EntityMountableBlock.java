@@ -1,19 +1,52 @@
 package com.gollum.jammyfurniture.common.entities;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class EntityMountableBlock extends Entity {
+	
 	public int orgBlockPosX;
 	public int orgBlockPosY;
 	public int orgBlockPosZ;
 	public Block orgBlock;
 	public EntityPlayer player;
+	
+	public static boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, float hitX, float hitY, float hitZ) {
+		if (!world.isRemote) {
+			List listEMB = world.getEntitiesWithinAABB(EntityMountableBlock.class, AxisAlignedBB.getBoundingBox((double) x, (double) y, (double) z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D).expand(1.0D, 1.0D, 1.0D));
+			Iterator i = listEMB.iterator();
+			EntityMountableBlock mounting;
+			
+			do {
+				if (!i.hasNext()) {
+					double mountingX = (double) x + hitX;
+					double mountingY = (double) y + hitY;
+					double mountingZ = (double) z + hitZ;
+					
+					EntityMountableBlock entity = new EntityMountableBlock(world, player, x, y, z, mountingX, mountingY, mountingZ);
+					world.spawnEntityInWorld(entity);
+					entity.interact(player);
+					return true;
+				}
+	
+				mounting = (EntityMountableBlock) i.next();
+			} while (mounting.orgBlockPosX != x || mounting.orgBlockPosY != y || mounting.orgBlockPosZ != z);
+			
+			mounting.interact(player);
+			return true;
+		} else {
+			return true;
+		}
+	}
 	
 	public EntityMountableBlock(World world) {
 		super(world);
@@ -74,7 +107,7 @@ public class EntityMountableBlock extends Entity {
 			
 			if (block != null) {
 				if (block instanceof IBlockUnmountEvent) {
-					((IBlockUnmountEvent)block).onBlockPlacedBy(this.worldObj, this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ, this, this.player);
+					((IBlockUnmountEvent)block).onBlockUnmounted(this.worldObj, this.orgBlockPosX, this.orgBlockPosY, this.orgBlockPosZ, this, this.player);
 				}
 			}
 		}
@@ -90,11 +123,21 @@ public class EntityMountableBlock extends Entity {
 	 * (abstract) Protected helper method to read subclass entity data from NBT.
 	 */
 	public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+		this.orgBlockPosX = nbttagcompound.getInteger("x");
+		this.orgBlockPosX = nbttagcompound.getInteger("y");
+		this.orgBlockPosX = nbttagcompound.getInteger("z");
+		orgBlock = Block.getBlockById(nbttagcompound.getInteger("block"));
 	}
 
 	/**
 	 * (abstract) Protected helper method to write subclass entity data to NBT.
 	 */
 	public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+		nbttagcompound.setInteger("x", this.orgBlockPosX);
+		nbttagcompound.setInteger("y", this.orgBlockPosY);
+		nbttagcompound.setInteger("z", this.orgBlockPosZ);
+		nbttagcompound.setInteger("block", Block.getIdFromBlock(this.orgBlock));
 	}
+
+	
 }
