@@ -99,7 +99,7 @@ public class EntityMountableBlock extends Entity {
 				
 				if (block != null) {
 					if (block instanceof IBlockUnmountEvent) {
-						((IBlockUnmountEvent)block).onBlockPlacedBy(this.worldObj, this.orgBlockPos.getX(), this.orgBlockPos.getY(), this.orgBlockPos.getZ(), this, this.player);
+						((IBlockUnmountEvent)block).onBlockUnmounted(this.worldObj, this.orgBlockPos.getX(), this.orgBlockPos.getY(), this.orgBlockPos.getZ(), this, this.player);
 					}
 				}
 			}

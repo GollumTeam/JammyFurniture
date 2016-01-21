@@ -1,7 +1,6 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
@@ -19,7 +18,6 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

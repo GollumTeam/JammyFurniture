@@ -233,7 +233,7 @@ public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	}
 	
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
+	public void onBlockUnmounted(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
 		world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
 	}
 	
