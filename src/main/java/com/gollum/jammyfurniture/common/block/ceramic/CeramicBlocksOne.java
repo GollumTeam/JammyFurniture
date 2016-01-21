@@ -1,13 +1,11 @@
 package com.gollum.jammyfurniture.common.block.ceramic;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.EnumType;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.PropertyType;
 import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
@@ -132,7 +130,7 @@ public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0 , "bathroom_cupboard");
 		list.put(4 , "bathroom_sink");
 		list.put(8 , "kitchen");

@@ -1,7 +1,7 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
@@ -132,7 +132,7 @@ public class WoodBlocksThree extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0, "chair");
 		list.put(4, "radio");
 	}

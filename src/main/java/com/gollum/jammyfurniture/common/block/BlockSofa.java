@@ -1,9 +1,8 @@
 package com.gollum.jammyfurniture.common.block;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.google.common.collect.Lists;
 
@@ -135,7 +134,7 @@ public class BlockSofa extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0, "red");
 		list.put(4, "blue");
 		list.put(8, "green");

@@ -1,13 +1,11 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.EnumType;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.PropertyType;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
 import com.google.common.collect.Lists;
@@ -18,11 +16,8 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
@@ -154,7 +149,7 @@ public class WoodBlocksFour extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0, "wardrobe");
 		list.put(8, "coat_stand");
 	}

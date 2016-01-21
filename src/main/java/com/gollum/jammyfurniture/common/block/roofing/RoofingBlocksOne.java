@@ -1,12 +1,10 @@
 package com.gollum.jammyfurniture.common.block.roofing;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.EnumType;
-import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.PropertyType;
 import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 import com.google.common.collect.Lists;
 
@@ -126,7 +124,7 @@ public class RoofingBlocksOne extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0 , "roofing1");
 		list.put(4 , "roofing2");
 		list.put(8 , "roofing3");

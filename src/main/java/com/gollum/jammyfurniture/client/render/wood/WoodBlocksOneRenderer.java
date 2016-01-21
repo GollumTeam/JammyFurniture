@@ -37,9 +37,9 @@ public class WoodBlocksOneRenderer extends JFTileEntitySpecialRenderer {
 		EnumFacing facing = state.getValue(FACING);
 		EnumType type = state.getValue(TYPE);
 		
-		if (facing == EnumFacing.NORTH ) { rotation = 90 ; } else
-		if (facing == EnumFacing.WEST) { rotation = 180; } else
-		if (facing == EnumFacing.SOUTH ) { rotation = 270; }
+		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
+		if (facing == EnumFacing.SOUTH) { rotation = 180; } else
+		if (facing == EnumFacing.EAST ) { rotation = 270; }
 		
 		if (this.isInventory) {
 			rotation = 180;

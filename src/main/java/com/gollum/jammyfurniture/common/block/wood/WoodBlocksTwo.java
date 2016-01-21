@@ -1,11 +1,12 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.HashMap;
+import java.util.Map;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.block.IEnumSubBlock;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne.EnumType;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
 import com.google.common.collect.Lists;
 
@@ -28,40 +29,50 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksTwo extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
-		CUPBOARD_SHELF("cupboard_shelf", 0),
-		CUPBOARD      ("cupboard"      , 4),
-		TELEVISION    ("television"    , 8),
-		BASKET_RED    ("basket_red"    , 12),
-		BASKET_BLUE   ("basket_blue"   , 13),
-		BASKET_GREEN  ("basket_green"  , 14),
-		BASKET_GREY   ("basket_grey"   , 15);
+		CUPBOARD_SHELF("cupboard_shelf", 0, true),
+		CUPBOARD      ("cupboard"      , 4, true),
+		TELEVISION    ("television"    , 8, true),
+		BASKET_RED    ("basket_red"    , 12, false),
+		BASKET_BLUE   ("basket_blue"   , 13, false),
+		BASKET_GREEN  ("basket_green"  , 14, false),
+		BASKET_GREY   ("basket_grey"   , 15, false);
 		
 		private final String name;
-		private final int value;
+		private final int index;
+		private boolean facingPlane;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index, boolean facingPlane) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
+			this.facingPlane = facingPlane;
 		}
 		
+		@Override
 		public String toString() {
 			return this.name;
 		}
 		
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return this.facingPlane;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
-			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+			super(name, EnumType.class);
 		}
 		public static PropertyType create(String name) {
 			return new PropertyType(name);
@@ -89,64 +100,6 @@ public class WoodBlocksTwo extends JFBlock {
 			FACING,
 			TYPE,
 		});
-	}
-	
-	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = this.getDefaultState();
-		switch (meta) {
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				state = state.withProperty(TYPE, EnumType.CUPBOARD_SHELF).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-				state = state.withProperty(TYPE, EnumType.CUPBOARD).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-				state = state.withProperty(TYPE, EnumType.TELEVISION).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
-			case 12:
-				state = state.withProperty(TYPE, EnumType.BASKET_RED); break;
-			case 13:
-				state = state.withProperty(TYPE, EnumType.BASKET_BLUE); break;
-			case 14:
-				state = state.withProperty(TYPE, EnumType.BASKET_GREEN); break;
-			case 15:
-				state = state.withProperty(TYPE, EnumType.BASKET_GREY); break;
-			default:
-				state = state.withProperty(TYPE, EnumType.CUPBOARD_SHELF); break;
-		}
-		return state;
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		EnumType type = state.getValue(TYPE);
-		if (
-			type == EnumType.CUPBOARD_SHELF ||
-			type == EnumType.CUPBOARD ||
-			type == EnumType.TELEVISION
-		) {
-			return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
-		}
-		return state.getValue(TYPE).getValue();
-	}
-	
-	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
-		list.put(0 , "cupboard_shelf");
-		list.put(4 , "cupboard");
-		list.put(8 , "television");
-		list.put(12, "basket_red");
-		list.put(13, "basket_blue");
-		list.put(14, "basket_green");
-		list.put(15, "basket_grey");
 	}
 	
 	/////////////////////////////////

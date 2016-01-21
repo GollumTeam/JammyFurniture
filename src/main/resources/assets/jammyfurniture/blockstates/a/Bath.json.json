@@ -1,0 +1,17 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:chair" },
+		
+		"facing=north,part=left": {"model": "jammyfurniture:Bath" },
+		"facing=east,part=left": {"model": "jammyfurniture:Bath" },
+		"facing=west,part=left": {"model": "jammyfurniture:Bath" },
+		"facing=south,part=left": {"model": "jammyfurniture:Bath" },
+		
+		"facing=north,part=right": {"model": "jammyfurniture:Bath" },
+		"facing=east,part=right": {"model": "jammyfurniture:Bath" },
+		"facing=west,part=right": {"model": "jammyfurniture:Bath" },
+		"facing=south,part=right": {"model": "jammyfurniture:Bath" }
+		
+	}
+}

@@ -1,13 +1,10 @@
 package com.gollum.jammyfurniture.common.block.misc;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
-import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.EnumType;
-import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.PropertyType;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 import com.google.common.collect.Lists;
 
@@ -24,8 +21,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MiscBlocksOne extends JFBlock {
 	
@@ -120,7 +115,7 @@ public class MiscBlocksOne extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0 , "chimney");
 		list.put(4 , "mantle_piece");
 		list.put(8 , "christmas_tree");

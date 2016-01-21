@@ -1,14 +1,11 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo.EnumType;
-import com.gollum.jammyfurniture.common.block.iron.IronBlocksTwo.PropertyType;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
-import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
@@ -135,7 +132,7 @@ public class IronBlocksOne extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0, "fridge");
 		list.put(4, "freezer");
 		list.put(8, "cooker");

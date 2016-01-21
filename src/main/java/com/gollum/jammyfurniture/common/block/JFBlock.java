@@ -1,39 +1,30 @@
 package com.gollum.jammyfurniture.common.block;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 
 import com.gollum.core.common.blocks.ISimpleBlockRendered;
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
-import com.gollum.core.tools.helper.items.HItemBlock;
-import com.gollum.jammyfurniture.ModJammyFurniture;
+import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRendered {
 	
 	protected Class tileEntityClass;
-	
-	/**
-	 * TODO
-	 * @deprecated
-	 */
-	public JFBlock(String registerName, Material material, String textureKey, Class tileEntityClass, int[] listSubBlock) {
-		this(registerName, material, tileEntityClass);
-	}
 	
 	public JFBlock(String registerName, Material material, Class tileEntityClass) {
 		super(registerName, material);

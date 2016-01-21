@@ -1,19 +1,17 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.HashMap;
-
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.block.IEnumSubBlock;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.inits.ModBlocks;
-import com.google.common.collect.Lists;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,47 +21,56 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksOne extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
-		CLOCK_BASE    ("clock_base", 0),
-		CLOCK_MIDDLE  ("clock_middle", 1),
-		CLOCK_TOP     ("clock_top", 5),
-		BLINDS        ("blinds", 9),
-		CRAFTING_SIDE ("crafting_side", 13),
-		KITCHEN_SIDE  ("kitchen_side", 14),
-		TABLE         ("table", 15);
+		CLOCK_BASE    ("clock_base"   , 0 , false),
+		CLOCK_MIDDLE  ("clock_middle" , 1 , true),
+		CLOCK_TOP     ("clock_top"    , 5 , true),
+		BLINDS        ("blinds"       , 9 , true),
+		CRAFTING_SIDE ("crafting_side", 13, false),
+		KITCHEN_SIDE  ("kitchen_side" , 14, false),
+		TABLE         ("table"        , 15, false);
 		
 		private final String name;
-		private final int value;
+		private final int index;
+		private boolean facingPlane;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index, boolean facingPlane) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
+			this.facingPlane = facingPlane;
 		}
 		
+		@Override
 		public String toString() {
 			return this.name;
 		}
 		
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return this.facingPlane;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
-			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+			super(name, EnumType.class);
 		}
 		public static PropertyType create(String name) {
 			return new PropertyType(name);
@@ -92,64 +99,6 @@ public class WoodBlocksOne extends JFBlock {
 			FACING,
 			TYPE,
 		});
-	}
-	
-	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = this.getDefaultState();
-		switch (meta) {
-			case 0:
-				state = state.withProperty(TYPE, EnumType.CLOCK_BASE); break;
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-				state = state.withProperty(TYPE, EnumType.CLOCK_MIDDLE).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
-			case 5:
-			case 6:
-			case 7:
-			case 8:
-				state = state.withProperty(TYPE, EnumType.CLOCK_TOP).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
-			case 9:
-			case 10:
-			case 11:
-			case 12:
-				state = state.withProperty(TYPE, EnumType.BLINDS).withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]); break;
-			case 13:
-				state = state.withProperty(TYPE, EnumType.CRAFTING_SIDE); break;
-			case 14:
-				state = state.withProperty(TYPE, EnumType.KITCHEN_SIDE); break;
-			case 15:
-				state = state.withProperty(TYPE, EnumType.TABLE); break;
-			default:
-				state = state.withProperty(TYPE, EnumType.CLOCK_BASE); break;
-		}
-		return state;
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		EnumType type = state.getValue(TYPE);
-		if (
-			type == EnumType.CLOCK_MIDDLE ||
-			type == EnumType.CLOCK_TOP ||
-			type == EnumType.BLINDS
-		) {
-			return type.getValue() + state.getValue(FACING).getHorizontalIndex();
-		}
-		return type.getValue();
-	}
-	
-	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
-		list.put(0, "clock_base");
-		list.put(1, "clock_middle");
-		list.put(5, "clock_top");
-		list.put(9, "blinds");
-		list.put(13, "crafting_side");  
-		list.put(14, "kitchen_side");   
-		list.put(15, "table");
 	}
 	
 	/////////////////////////////////

@@ -1,10 +1,8 @@
 package com.gollum.jammyfurniture.common.block.head;
 
-import java.util.HashMap;
+import java.util.Map;
 
 import com.gollum.jammyfurniture.common.block.JFBlock;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.EnumType;
-import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree.PropertyType;
 import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
@@ -19,8 +17,6 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class JFMobHeads extends JFBlock {
 	
@@ -122,7 +118,7 @@ public abstract class JFMobHeads extends JFBlock {
 	}
 	
 	@Override
-	public void getSubNames(HashMap<Integer, String> list) {
+	public void getSubNames(Map<Integer, String> list) {
 		list.put(0,  "head1");
 		list.put(4,  "head2");
 		list.put(8,  "head3");

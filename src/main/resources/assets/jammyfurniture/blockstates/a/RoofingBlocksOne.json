@@ -1,0 +1,27 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:chair" },
+		
+		"facing=north,type=chair": {"model": "jammyfurniture:chair" },
+		"facing=east,type=chair": {"model": "jammyfurniture:chair" },
+		"facing=west,type=chair": {"model": "jammyfurniture:chair" },
+		"facing=south,type=chair": {"model": "jammyfurniture:chair" },
+		
+		"facing=north,type=radio": {"model": "jammyfurniture:radio" },
+		"facing=east,type=radio": {"model": "jammyfurniture:radio" },
+		"facing=west,type=radio": {"model": "jammyfurniture:radio" },
+		"facing=south,type=radio": {"model": "jammyfurniture:radio" },
+		
+		"facing=north,type=blinds_half": {"model": "jammyfurniture:blinds_half" },
+		"facing=east,type=blinds_half": {"model": "jammyfurniture:blinds_half" },
+		"facing=west,type=blinds_half": {"model": "jammyfurniture:blinds_half" },
+		"facing=south,type=blinds_half": {"model": "jammyfurniture:blinds_half" },
+		
+		"facing=north,type=blinds_close": {"model": "jammyfurniture:blinds_close" },
+		"facing=east,type=blinds_close": {"model": "jammyfurniture:blinds_close" },
+		"facing=west,type=blinds_close": {"model": "jammyfurniture:blinds_close" },
+		"facing=south,type=blinds_close": {"model": "jammyfurniture:blinds_close" }
+		
+	}
+}
