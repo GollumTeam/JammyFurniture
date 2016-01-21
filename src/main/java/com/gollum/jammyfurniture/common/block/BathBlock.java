@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.item.ItemBath;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
 
@@ -110,7 +111,7 @@ public class BathBlock extends HBlockContainer {
 				player.rotationYaw = 90.0F;
 			}
 			
-			return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
+			return EntityMountableBlock.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F);
 		}
 	}
 	

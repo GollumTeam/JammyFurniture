@@ -2,10 +2,10 @@ package com.gollum.jammyfurniture.common.block.ceramic;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.BlockMountable;
 import com.gollum.jammyfurniture.common.block.IBlockUnmountEvent;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.crafting.CeramicBlocksOneRecipes;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
 import net.minecraft.block.material.Material;
@@ -166,7 +166,7 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 						player.rotationYaw = 90.0F;
 					}
 					
-					return BlockMountable.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
+					return EntityMountableBlock.onBlockActivated(world, x, y, z, player, 0.5F, 0.4F, 0.5F);
 				default:
 					break;
 			}
@@ -195,7 +195,7 @@ public class CeramicBlocksOne extends JFMetadataBlock implements IBlockUnmountEv
 	}
 	
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
+	public void onBlockUnmounted(World world, int x, int y, int z, Entity entity, EntityPlayer player) {
 		world.playSoundAtEntity(player, ModJammyFurniture.MODID.toLowerCase()+":toilet", 1.0F, 1.0F);
 	}
 	

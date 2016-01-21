@@ -1,6 +1,7 @@
 package com.gollum.jammyfurniture.common.block;
 
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -84,7 +85,7 @@ public class BlockSofa extends JFMetadataBlock {
 			player.rotationYaw = 90.0F;
 		}
 		
-		return BlockMountable.onBlockActivated (world, x, y, z, player, 0.5F, 0.4F, 0.5F, 0, 0, 0, 0);
+		return EntityMountableBlock.onBlockActivated (world, x, y, z, player, 0.5F, 0.4F, 0.5F);
 		
 	}
 	

@@ -6,6 +6,6 @@ import net.minecraft.world.World;
 
 public interface IBlockUnmountEvent {
 	
-	public void onBlockPlacedBy(World world, int x, int y, int z, Entity entity, EntityPlayer player);
+	public void onBlockUnmounted(World world, int x, int y, int z, Entity entity, EntityPlayer player);
 	
 }
