@@ -1,9 +1,9 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.IEnumSubBlock;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.inits.ModBlocks;
@@ -152,12 +152,6 @@ public class WoodBlocksOne extends JFBlock {
 	///////////
 	
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
-	}
-	
-	@Override
 	public void onNeighborBlockChange(World World, BlockPos pos, IBlockState state, Block block) {
 		super.onNeighborBlockChange(World, pos, state, block);
 		TileEntityWoodBlocksOne titleEntity = (TileEntityWoodBlocksOne) World.getTileEntity(pos);
@@ -178,7 +172,7 @@ public class WoodBlocksOne extends JFBlock {
 				
 			// Exclus les les block horloge sauf sur la port
 			if (
-				this.isClock(itemStack) && !(state.getValue(FACING)  == side) // TODO a tester a fond
+				this.isClock(itemStack) && !(state.getValue(FACING)  == side)
 			) {
 				return false;
 			}

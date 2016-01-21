@@ -2,59 +2,62 @@ package com.gollum.jammyfurniture.common.block;
 
 import java.util.Random;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertyIndex;
+import com.gollum.core.tools.helper.states.IEnumIndexed;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.item.ItemBath;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.TileEntityBath;
-import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BathBlock extends JFBlock {
 	
-	public static enum EnumPart implements IStringSerializable {
+	public static enum EnumPart implements IEnumIndexed {
 		
 		LEFT("left", 0),
 		RIGHT("right", 4);
 		
 		private final String name;
-		private final int value;
+		private final int index;
 		
-		private EnumPart(String name, int value) {
+		private EnumPart(String name, int index) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
 		}
-		
+
+		@Override
 		public String toString() {
 			return this.name;
 		}
 		
+
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
 		}
 	}
 	
-	public static class PropertyPart extends PropertyEnum<EnumPart> {
+	public static class PropertyPart extends PropertyIndex<EnumPart> {
 		protected PropertyPart(String name) {
-			super(name, EnumPart.class, Lists.newArrayList(EnumPart.values()));
+			super(name, EnumPart.class);
 		}
 		public static PropertyPart create(String name) {
 			return new PropertyPart(name);
@@ -93,26 +96,6 @@ public class BathBlock extends JFBlock {
 			FACING,
 			PART,
 		});
-	}
-	
-	public IBlockState getStateFromMeta(int meta) {
-		
-		IBlockState state = this.getDefaultState();
-		state = state
-			.withProperty(PART, EnumPart.RIGHT)
-			.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4])
-		;
-		if (meta < EnumPart.RIGHT.getValue()) {
-			state = state.withProperty(PART, EnumPart.LEFT);
-		}
-		return state;
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		return state.getValue(PART).getValue()+ state.getValue(FACING).getHorizontalIndex();
 	}
 	
 	///////////

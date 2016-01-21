@@ -42,7 +42,7 @@ public class ItemWoodBlocksFour extends HItemBlock {
 		) {
 			state = state
 				.withProperty(PART, EnumPart.FOOT)
-				.withProperty(FACING, ((WoodBlocksFour)ModBlocks.blockWoodBlocksFour).getOrientation(player))
+				.withProperty(FACING, ModBlocks.blockWoodBlocksFour.getOrientationForPlayer(pos, player))
 			;
 			
 			if (placeBlockAt(itemStack, player, world, pos.up(), side, hitX, hitY, hitZ, state)) {

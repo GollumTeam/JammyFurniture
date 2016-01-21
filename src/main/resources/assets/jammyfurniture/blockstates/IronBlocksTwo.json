@@ -1,0 +1,17 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:dishwasher" },
+		
+		"facing=north,type=dishwasher": {"model": "jammyfurniture:dishwasher" },
+		"facing=east,type=dishwasher": {"model": "jammyfurniture:dishwasher" },
+		"facing=west,type=dishwasher": {"model": "jammyfurniture:dishwasher" },
+		"facing=south,type=dishwasher": {"model": "jammyfurniture:dishwasher" },
+		
+		"facing=north,type=washing_machine": {"model": "jammyfurniture:washing_machine" },
+		"facing=east,type=washing_machine": {"model": "jammyfurniture:washing_machine" },
+		"facing=west,type=washing_machine": {"model": "jammyfurniture:washing_machine" },
+		"facing=south,type=washing_machine": {"model": "jammyfurniture:washing_machine" }
+		
+	}
+}

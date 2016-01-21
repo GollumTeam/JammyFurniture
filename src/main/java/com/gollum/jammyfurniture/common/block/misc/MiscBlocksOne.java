@@ -3,6 +3,8 @@ package com.gollum.jammyfurniture.common.block.misc;
 import java.util.Map;
 import java.util.Random;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
@@ -24,36 +26,46 @@ import net.minecraft.world.World;
 
 public class MiscBlocksOne extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
-		CHIMNEY       ("chimney", 0),
-		MANTLE_PIECE  ("mantle_piece", 4),
-		CHRISTMAS_TREE("christmas_tree", 8);
+		CHIMNEY       ("chimney", 0, false),
+		MANTLE_PIECE  ("mantle_piece", 4, true),
+		CHRISTMAS_TREE("christmas_tree", 8, true);
 		
 		private final String name;
-		private final int value;
+		private final int index;
+		private boolean facingPlane;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index, boolean facingPlane) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
+			this.facingPlane = facingPlane;
 		}
 		
+		@Override
 		public String toString() {
 			return this.name;
 		}
 		
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return this.facingPlane;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
-			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+			super(name, EnumType.class);
 		}
 		public static PropertyType create(String name) {
 			return new PropertyType(name);
@@ -83,53 +95,9 @@ public class MiscBlocksOne extends JFBlock {
 		});
 	}
 	
-	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = this.getDefaultState();
-		switch (meta) {
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				state = state.withProperty(TYPE, EnumType.CHIMNEY); break;
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-				state = state.withProperty(TYPE, EnumType.MANTLE_PIECE); break;
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-				state = state.withProperty(TYPE, EnumType.CHRISTMAS_TREE); break;
-			default:
-				state = state.withProperty(TYPE, EnumType.CHIMNEY); break;
-		}
-		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
-	}
-	
-	@Override
-	public void getSubNames(Map<Integer, String> list) {
-		list.put(0 , "chimney");
-		list.put(4 , "mantle_piece");
-		list.put(8 , "christmas_tree");
-	}
-	
 	///////////
 	// Event //
 	///////////
-	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
-	}
 	
 	public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random random) {
 		

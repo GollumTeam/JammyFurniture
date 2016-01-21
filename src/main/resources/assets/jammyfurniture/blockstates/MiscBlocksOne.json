@@ -1,0 +1,22 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:chimney" },
+		
+		"facing=north,type=chimney": {"model": "jammyfurniture:chimney" },
+		"facing=east,type=chimney": {"model": "jammyfurniture:chimney" },
+		"facing=west,type=chimney": {"model": "jammyfurniture:chimney" },
+		"facing=south,type=chimney": {"model": "jammyfurniture:chimney" },
+		
+		"facing=north,type=mantle_piece": {"model": "jammyfurniture:mantle_piece" },
+		"facing=east,type=mantle_piece": {"model": "jammyfurniture:mantle_piece" },
+		"facing=west,type=mantle_piece": {"model": "jammyfurniture:mantle_piece" },
+		"facing=south,type=mantle_piece": {"model": "jammyfurniture:mantle_piece" },
+		
+		"facing=north,type=christmas_tree": {"model": "jammyfurniture:christmas_tree" },
+		"facing=east,type=christmas_tree": {"model": "jammyfurniture:christmas_tree" },
+		"facing=west,type=christmas_tree": {"model": "jammyfurniture:christmas_tree" },
+		"facing=south,type=christmas_tree": {"model": "jammyfurniture:christmas_tree" }
+		
+	}
+}

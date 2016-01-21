@@ -1,7 +1,7 @@
 {
 	"variants": {
 		
-		"inventory": {"model": "jammyfurniture:chair" },
+		"inventory": {"model": "jammyfurniture:Bath" },
 		
 		"facing=north,part=left": {"model": "jammyfurniture:Bath" },
 		"facing=east,part=left": {"model": "jammyfurniture:Bath" },

@@ -1,0 +1,27 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:roofing1" },
+		
+		"facing=north,type=roofing1": {"model": "jammyfurniture:roofing1" },
+		"facing=east,type=roofing1": {"model": "jammyfurniture:roofing1" },
+		"facing=west,type=roofing1": {"model": "jammyfurniture:roofing1" },
+		"facing=south,type=roofing1": {"model": "jammyfurniture:roofing1" },
+		
+		"facing=north,type=roofing2": {"model": "jammyfurniture:roofing2" },
+		"facing=east,type=roofing2": {"model": "jammyfurniture:roofing2" },
+		"facing=west,type=roofing2": {"model": "jammyfurniture:roofing2" },
+		"facing=south,type=roofing2": {"model": "jammyfurniture:roofing2" },
+		
+		"facing=north,type=roofing3": {"model": "jammyfurniture:roofing3" },
+		"facing=east,type=roofing3": {"model": "jammyfurniture:roofing3" },
+		"facing=west,type=roofing3": {"model": "jammyfurniture:roofing3" },
+		"facing=south,type=roofing3": {"model": "jammyfurniture:roofing3" },
+		
+		"facing=north,type=roofing4": {"model": "jammyfurniture:roofing4" },
+		"facing=east,type=roofing4": {"model": "jammyfurniture:roofing4" },
+		"facing=west,type=roofing4": {"model": "jammyfurniture:roofing4" },
+		"facing=south,type=roofing4": {"model": "jammyfurniture:roofing4" }
+		
+	}
+}

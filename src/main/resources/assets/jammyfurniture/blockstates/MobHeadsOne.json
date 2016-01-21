@@ -1,0 +1,27 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:head1" },
+		
+		"facing=north,type=head1": {"model": "jammyfurniture:head1" },
+		"facing=east,type=head1": {"model": "jammyfurniture:head1" },
+		"facing=west,type=head1": {"model": "jammyfurniture:head1" },
+		"facing=south,type=head1": {"model": "jammyfurniture:head1" },
+		
+		"facing=north,type=head2": {"model": "jammyfurniture:head2" },
+		"facing=east,type=head2": {"model": "jammyfurniture:head2" },
+		"facing=west,type=head2": {"model": "jammyfurniture:head2" },
+		"facing=south,type=head2": {"model": "jammyfurniture:head2" },
+		
+		"facing=north,type=head3": {"model": "jammyfurniture:head3" },
+		"facing=east,type=head3": {"model": "jammyfurniture:head3" },
+		"facing=west,type=head3": {"model": "jammyfurniture:head3" },
+		"facing=south,type=head3": {"model": "jammyfurniture:head3" },
+		
+		"facing=north,type=head4": {"model": "jammyfurniture:head4" },
+		"facing=east,type=head4": {"model": "jammyfurniture:head4" },
+		"facing=west,type=head4": {"model": "jammyfurniture:head4" },
+		"facing=south,type=head4": {"model": "jammyfurniture:head4" }
+		
+	}
+}

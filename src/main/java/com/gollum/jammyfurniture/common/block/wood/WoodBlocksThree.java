@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
 import com.gollum.jammyfurniture.inits.ModBlocks;
-import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -27,7 +27,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -35,7 +34,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksThree extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
 		CHAIR       ("chair", 0),
 		RADIO       ("radio", 4),
@@ -43,32 +42,48 @@ public class WoodBlocksThree extends JFBlock {
 		BLINDS_CLOSE("blinds_close", 12);
 		
 		private final String name;
-		private final int value;
+		private final int index;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
 		}
-		
+
+		@Override
 		public String toString() {
 			return this.name;
 		}
-		
+
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return true;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
-			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+			super(name, EnumType.class);
 		}
 		public static PropertyType create(String name) {
 			return new PropertyType(name);
+		}
+		
+		@Override
+		public EnumType[] getSubBlocksList () {
+			return new EnumType[]{
+				EnumType.CHAIR,
+				EnumType.RADIO,
+			};
 		}
 	}
 	
@@ -93,48 +108,6 @@ public class WoodBlocksThree extends JFBlock {
 			FACING,
 			TYPE,
 		});
-	}
-	
-	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = this.getDefaultState();
-		switch (meta) {
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				state = state.withProperty(TYPE, EnumType.CHAIR); break;
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-				state = state.withProperty(TYPE, EnumType.RADIO); break;
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-				state = state.withProperty(TYPE, EnumType.BLINDS_HALF); break;
-			case 12:
-			case 13:
-			case 14:
-			case 15:
-				state = state.withProperty(TYPE, EnumType.BLINDS_CLOSE); break;
-			default:
-				state = state.withProperty(TYPE, EnumType.CHAIR); break;
-		}
-		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
-	}
-	
-	@Override
-	public void getSubNames(Map<Integer, String> list) {
-		list.put(0, "chair");
-		list.put(4, "radio");
 	}
 	
 	/////////////////////////////////
@@ -201,12 +174,6 @@ public class WoodBlocksThree extends JFBlock {
 	///////////
 	// Event //
 	///////////
-	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
-	}
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {

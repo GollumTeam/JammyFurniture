@@ -2,6 +2,8 @@ package com.gollum.jammyfurniture.common.block.iron;
 
 import java.util.Map;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
@@ -27,35 +29,43 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class IronBlocksTwo extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
 		DISHWASHER     ("dishwasher", 0),
 		WASHING_MACHINE("washing_machine", 4);
 		
 		private final String name;
-		private final int value;
+		private final int index;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
 		}
-		
+
+		@Override
 		public String toString() {
 			return this.name;
 		}
-		
+
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return true;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
-			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+			super(name, EnumType.class);
 		}
 		public static PropertyType create(String name) {
 			return new PropertyType(name);
@@ -86,33 +96,6 @@ public class IronBlocksTwo extends JFBlock {
 		});
 	}
 	
-	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = this.getDefaultState();
-		switch (meta) {
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				state = state.withProperty(TYPE, EnumType.DISHWASHER); break;
-			default:
-				state = state.withProperty(TYPE, EnumType.WASHING_MACHINE); break;
-		}
-		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
-	}
-	
-	@Override
-	public void getSubNames(Map<Integer, String> list) {
-		list.put(0, "dishwasher");
-		list.put(4, "washing_machine");
-	}
-	
 	////////////////////
 	// Rendu du block //
 	////////////////////
@@ -126,12 +109,6 @@ public class IronBlocksTwo extends JFBlock {
 	///////////
 	// Event //
 	///////////
-	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
-	}
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {

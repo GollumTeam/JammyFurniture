@@ -1,19 +1,15 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
-import java.util.Map;
-
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
-import com.gollum.jammyfurniture.common.block.IEnumSubBlock;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksTwo;
-import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -106,7 +101,6 @@ public class WoodBlocksTwo extends JFBlock {
 	// Forme et collition du block //
 	/////////////////////////////////
 	
-	// TODO
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 
@@ -129,12 +123,6 @@ public class WoodBlocksTwo extends JFBlock {
 	///////////
 	// Event //
 	///////////
-	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
-	}
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {

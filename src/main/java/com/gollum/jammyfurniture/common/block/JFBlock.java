@@ -1,24 +1,13 @@
 package com.gollum.jammyfurniture.common.block;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-
 import com.gollum.core.common.blocks.ISimpleBlockRendered;
 import com.gollum.core.tools.helper.blocks.HBlockContainer;
-import com.google.common.collect.Lists;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -75,14 +64,6 @@ public abstract class JFBlock extends HBlockContainer implements ISimpleBlockRen
 	///////////////////
 	// Data du block //
 	///////////////////
-	
-	/**
-	 * @param entity
-	 * @return
-	 */
-	public EnumFacing getOrientation(Entity entity) {
-		return entity.getHorizontalFacing().getOpposite();
-	}
 	
 	/**
 	 * Is this block (a) opaque and (b) a full 1m cube? This determines whether

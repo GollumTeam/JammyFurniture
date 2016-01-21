@@ -3,6 +3,8 @@ package com.gollum.jammyfurniture.common.block.roofing;
 import java.util.List;
 import java.util.Map;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
@@ -27,7 +29,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RoofingBlocksOne extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
 		ROOFING1 ("roofing1", 0),
 		ROOFING2 ("roofing2", 4),
@@ -35,27 +37,35 @@ public class RoofingBlocksOne extends JFBlock {
 		ROOFING4 ("roofing4", 12);
 		
 		private final String name;
-		private final int value;
+		private final int index;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
 		}
-		
+
+		@Override
 		public String toString() {
 			return this.name;
 		}
-		
+
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return true;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
 			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
 		}
@@ -85,50 +95,6 @@ public class RoofingBlocksOne extends JFBlock {
 			FACING,
 			TYPE,
 		});
-	}
-	
-	public IBlockState getStateFromMeta(int meta) {
-		IBlockState state = this.getDefaultState();
-		switch (meta) {
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				state = state.withProperty(TYPE, EnumType.ROOFING1); break;
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-				state = state.withProperty(TYPE, EnumType.ROOFING2); break;
-			case 8:
-			case 9:
-			case 10:
-			case 11:
-				state = state.withProperty(TYPE, EnumType.ROOFING3); break;
-			case 12:
-			case 13:
-			case 14:
-			case 15:
-				state = state.withProperty(TYPE, EnumType.ROOFING4); break;
-			default:
-				state = state.withProperty(TYPE, EnumType.ROOFING1); break;
-		}
-		return state.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4]);
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		return state.getValue(TYPE).getValue() + state.getValue(FACING).getHorizontalIndex();
-	}
-	
-	@Override
-	public void getSubNames(Map<Integer, String> list) {
-		list.put(0 , "roofing1");
-		list.put(4 , "roofing2");
-		list.put(8 , "roofing3");
-		list.put(12, "roofing4");
 	}
 	
 	/////////////////////////////////
@@ -213,16 +179,6 @@ public class RoofingBlocksOne extends JFBlock {
 		if (isSelectBox) {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		}
-	}
-	
-	///////////
-	// Event //
-	///////////
-	
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
-		state = this.getStateFromMeta(stack.getItemDamage());
-		world.setBlockState(pos, state.withProperty(FACING, this.getOrientation(player)), 2);
 	}
 	
 	////////////////////

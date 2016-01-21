@@ -1,0 +1,27 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:bathroom_cupboard" },
+		
+		"facing=north,type=bathroom_cupboard": {"model": "jammyfurniture:bathroom_cupboard" },
+		"facing=east,type=bathroom_cupboard": {"model": "jammyfurniture:bathroom_cupboard" },
+		"facing=west,type=bathroom_cupboard": {"model": "jammyfurniture:bathroom_cupboard" },
+		"facing=south,type=bathroom_cupboard": {"model": "jammyfurniture:bathroom_cupboard" },
+		
+		"facing=north,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=east,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=west,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=south,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		
+		"facing=north,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=east,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=west,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=south,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		
+		"facing=north,type=toilet": {"model": "jammyfurniture:toilet" },
+		"facing=east,type=toilet": {"model": "jammyfurniture:toilet" },
+		"facing=west,type=toilet": {"model": "jammyfurniture:toilet" },
+		"facing=south,type=toilet": {"model": "jammyfurniture:toilet" }
+		
+	}
+}

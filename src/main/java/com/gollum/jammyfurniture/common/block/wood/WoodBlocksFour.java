@@ -3,6 +3,10 @@ package com.gollum.jammyfurniture.common.block.wood;
 import java.util.Map;
 import java.util.Random;
 
+import com.gollum.core.tools.helper.BlockHelper.PropertyIndex;
+import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
+import com.gollum.core.tools.helper.states.IEnumIndexed;
+import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
@@ -27,70 +31,81 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WoodBlocksFour extends JFBlock {
 	
-	public static enum EnumType implements IStringSerializable {
+	public static enum EnumType implements IEnumSubBlock {
 		
 		WARDROBE("wardrobe", 0),
 		COAT_STAND("coat_stand", 8);
 		
 		private final String name;
-		private final int value;
+		private final int index;
 		
-		private EnumType(String name, int value) {
+		private EnumType(String name, int index) {
 			this.name = name;
-			this.value = value;
+			this.index = index;
 		}
-		
+
+		@Override
 		public String toString() {
 			return this.name;
 		}
-		
+
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
+		}
+		
+		@Override
+		public boolean isFacingPlane() {
+			return true;
 		}
 	}
 	
-	public static enum EnumPart implements IStringSerializable {
+	public static enum EnumPart implements IEnumIndexed {
 		
 		FOOT("foot", 0),
 		HEAD("head", 4);
 		
 		private final String name;
-		private final int value;
+		private final int index;
 		
 		private EnumPart(String name, int value) {
 			this.name = name;
-			this.value = value;
+			this.index = value;
 		}
 		
+		@Override
 		public String toString() {
 			return this.name;
 		}
 		
+		@Override
 		public String getName() {
 			return this.name;
 		}
 		
-		public int getValue() {
-			return this.value;
+		@Override
+		public int getIndex() {
+			return this.index;
 		}
 	}
 	
-	public static class PropertyType extends PropertyEnum<EnumType> {
+	public static class PropertyType extends PropertySubBlock<EnumType> {
 		protected PropertyType(String name) {
-			super(name, EnumType.class, Lists.newArrayList(EnumType.values()));
+			super(name, EnumType.class);
 		}
 		public static PropertyType create(String name) {
 			return new PropertyType(name);
 		}
 	}
 	
-	public static class PropertyPart extends PropertyEnum<EnumPart> {
+	public static class PropertyPart extends PropertyIndex<EnumPart> {
 		protected PropertyPart(String name) {
-			super(name, EnumPart.class, Lists.newArrayList(EnumPart.values()));
+			super(name, EnumPart.class);
 		}
 		public static PropertyPart create(String name) {
 			return new PropertyPart(name);
@@ -122,36 +137,6 @@ public class WoodBlocksFour extends JFBlock {
 			TYPE,
 			PART,
 		});
-	}
-	
-	public IBlockState getStateFromMeta(int meta) {
-		
-		IBlockState state = this.getDefaultState();
-		state = state
-			.withProperty(PART, EnumPart.HEAD)
-			.withProperty(FACING, EnumFacing.HORIZONTALS[meta % 4])
-			.withProperty(TYPE, EnumType.COAT_STAND)
-		;
-		if (meta < EnumType.COAT_STAND.getValue()) {
-			state = state.withProperty(TYPE, EnumType.WARDROBE);
-		}
-		if ((meta % 8) < EnumPart.HEAD.getValue()) {
-			state = state.withProperty(PART, EnumPart.FOOT);
-		}
-		return state;
-	}
-	
-	public int getMetaFromState(IBlockState state) {
-		if (state == null) {
-			return 0;
-		}
-		return state.getValue(TYPE).getValue() + state.getValue(PART).getValue()+ state.getValue(FACING).getHorizontalIndex();
-	}
-	
-	@Override
-	public void getSubNames(Map<Integer, String> list) {
-		list.put(0, "wardrobe");
-		list.put(8, "coat_stand");
 	}
 	
 	/////////////////////////////////

@@ -1,0 +1,32 @@
+{
+	"variants": {
+		
+		"inventory": {"model": "jammyfurniture:fridge" },
+		
+		"facing=north,type=fridge": {"model": "jammyfurniture:fridge" },
+		"facing=east,type=fridge": {"model": "jammyfurniture:fridge" },
+		"facing=west,type=fridge": {"model": "jammyfurniture:fridge" },
+		"facing=south,type=fridge": {"model": "jammyfurniture:fridge" },
+		
+		"facing=north,type=freezer": {"model": "jammyfurniture:freezer" },
+		"facing=east,type=freezer": {"model": "jammyfurniture:freezer" },
+		"facing=west,type=freezer": {"model": "jammyfurniture:freezer" },
+		"facing=south,type=freezer": {"model": "jammyfurniture:freezer" },
+		
+		"facing=north,type=cooker": {"model": "jammyfurniture:cooker" },
+		"facing=east,type=cooker": {"model": "jammyfurniture:cooker" },
+		"facing=west,type=cooker": {"model": "jammyfurniture:cooker" },
+		"facing=south,type=cooker": {"model": "jammyfurniture:cooker" },
+		
+		"facing=north,type=rubbish_bin": {"model": "jammyfurniture:rubbish_bin" },
+		"facing=east,type=rubbish_bin": {"model": "jammyfurniture:rubbish_bin" },
+		"facing=west,type=rubbish_bin": {"model": "jammyfurniture:rubbish_bin" },
+		"facing=south,type=rubbish_bin": {"model": "jammyfurniture:rubbish_bin" },
+		
+		"facing=north,type=coffee_table": {"model": "jammyfurniture:coffee_table" },
+		"facing=east,type=coffee_table": {"model": "jammyfurniture:coffee_table" },
+		"facing=west,type=coffee_table": {"model": "jammyfurniture:coffee_table" },
+		"facing=south,type=coffee_table": {"model": "jammyfurniture:coffee_table" }
+		
+	}
+}
