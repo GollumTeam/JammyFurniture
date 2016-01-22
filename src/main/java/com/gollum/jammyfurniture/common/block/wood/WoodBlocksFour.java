@@ -2,6 +2,8 @@ package com.gollum.jammyfurniture.common.block.wood;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import com.gollum.core.tools.helper.BlockHelper.PropertyIndex;
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
@@ -20,8 +22,10 @@ import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
@@ -110,6 +114,11 @@ public class WoodBlocksFour extends JFBlock {
 		public static PropertyPart create(String name) {
 			return new PropertyPart(name);
 		}
+		
+		@Override
+		public EnumPart getEnumFromMeta(int meta) {
+			return super.getEnumFromMeta(meta % 8);
+		}
 	}
 	
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
@@ -159,6 +168,10 @@ public class WoodBlocksFour extends JFBlock {
 	///////////
 	// Event //
 	///////////
+	
+	@Override
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase player, ItemStack stack) {
+	}
 	
 	@Override
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {

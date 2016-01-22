@@ -13,10 +13,10 @@
 		"facing=west,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
 		"facing=south,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
 		
-		"facing=north,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
-		"facing=east,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
-		"facing=west,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
-		"facing=south,type=bathroom_sink": {"model": "jammyfurniture:bathroom_sink" },
+		"facing=north,type=kitchen": {"model": "jammyfurniture:kitchen" },
+		"facing=east,type=kitchen": {"model": "jammyfurniture:kitchen" },
+		"facing=west,type=kitchen": {"model": "jammyfurniture:kitchen" },
+		"facing=south,type=kitchen": {"model": "jammyfurniture:kitchen" },
 		
 		"facing=north,type=toilet": {"model": "jammyfurniture:toilet" },
 		"facing=east,type=toilet": {"model": "jammyfurniture:toilet" },

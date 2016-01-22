@@ -3,25 +3,25 @@
 		
 		"inventory": {"model": "jammyfurniture:red" },
 		
-		"facing=north,color=red": {"model": "jammyfurniture:red" },
-		"facing=east,color=red": {"model": "jammyfurniture:red" },
-		"facing=west,color=red": {"model": "jammyfurniture:red" },
-		"facing=south,color=red": {"model": "jammyfurniture:red" },
+		"color=red,facing=north": {"model": "jammyfurniture:red" },
+		"color=red,facing=east" : {"model": "jammyfurniture:red" },
+		"color=red,facing=west" : {"model": "jammyfurniture:red" },
+		"color=red,facing=south": {"model": "jammyfurniture:red" },
 		
-		"facing=north,color=blue": {"model": "jammyfurniture:blue" },
-		"facing=east,color=blue": {"model": "jammyfurniture:blue" },
-		"facing=west,color=blue": {"model": "jammyfurniture:blue" },
-		"facing=south,color=blue": {"model": "jammyfurniture:blue" },
+		"color=blue,facing=north": {"model": "jammyfurniture:blue" },
+		"color=blue,facing=east" : {"model": "jammyfurniture:blue" },
+		"color=blue,facing=west" : {"model": "jammyfurniture:blue" },
+		"color=blue,facing=south": {"model": "jammyfurniture:blue" },
 		
-		"facing=north,color=green": {"model": "jammyfurniture:green" },
-		"facing=east,color=green": {"model": "jammyfurniture:green" },
-		"facing=west,color=green": {"model": "jammyfurniture:green" },
-		"facing=south,color=green": {"model": "jammyfurniture:green" },
+		"color=green,facing=north": {"model": "jammyfurniture:green" },
+		"color=green,facing=east" : {"model": "jammyfurniture:green" },
+		"color=green,facing=west" : {"model": "jammyfurniture:green" },
+		"color=green,facing=south": {"model": "jammyfurniture:green" },
 		
-		"facing=north,color=grey": {"model": "jammyfurniture:grey" },
-		"facing=east,color=grey": {"model": "jammyfurniture:grey" },
-		"facing=west,color=grey": {"model": "jammyfurniture:grey" },
-		"facing=south,color=grey": {"model": "jammyfurniture:grey" }
+		"color=grey,facing=north": {"model": "jammyfurniture:grey" },
+		"color=grey,facing=east" : {"model": "jammyfurniture:grey" },
+		"color=grey,facing=west" : {"model": "jammyfurniture:grey" },
+		"color=grey,facing=south": {"model": "jammyfurniture:grey" }
 		
 	}
 }
