@@ -1,24 +1,24 @@
 package com.gollum.jammyfurniture.common.building.handler;
 
-import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.building.Building.Unity;
+import com.gollum.core.common.building.Building.EnumRotate;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne;
-import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
-	protected boolean mustApply (World world, int x, int y, int z, Block block) {
-		return block instanceof IronBlocksOne;
+	protected boolean mustApply (World world, BlockPos pos, IBlockState state) {
+		return 
+			state != null && state.getBlock() instanceof IronBlocksOne;
 	}
 	
 	@Override
-	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
+	public void applyOrientation(World world, BlockPos pos, IBlockState state, EnumFacing facing, EnumRotate rotate) {
 		/* FIXME
 		int subBlock = ((IronBlocksOne)block).getEnabledMetadata(metadata);
 		

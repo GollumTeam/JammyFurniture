@@ -3,25 +3,26 @@ package com.gollum.jammyfurniture.common.building.handler;
 import java.util.HashMap;
 import java.util.Random;
 
-import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.building.Building.Unity;
+import com.gollum.core.common.building.Building.EnumRotate;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
-import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
 import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
-	protected boolean mustApply (World world, int x, int y, int z, Block block) {
-		return block instanceof CeramicBlocksOne;
+	protected boolean mustApply (World world, BlockPos pos, IBlockState state) {
+		return 
+			state != null && state.getBlock() instanceof CeramicBlocksOne;
 	}
 	
 	@Override
-	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
+	public void applyOrientation(World world, BlockPos pos, IBlockState state, EnumFacing facing, EnumRotate rotate) {
 		/* FIXME
 		int subBlock = ((CeramicBlocksOne)block).getEnabledMetadata(metadata);
 		
