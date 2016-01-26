@@ -1,55 +1,49 @@
 package com.gollum.jammyfurniture.common.building.handler;
 
-import java.util.HashMap;
-import java.util.Random;
+import static com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.TYPE;
 
 import com.gollum.core.common.building.Building.EnumRotate;
+import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
+import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne.EnumType;
+import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public class CeramicBlocksOneBuildingHandler extends JFBlockHandler {
-	
+public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
+
 	@Override
-	protected boolean mustApply (World world, BlockPos pos, IBlockState state) {
-		return 
-			state != null && state.getBlock() instanceof CeramicBlocksOne;
+	protected boolean mustApply (World world, BlockPos pos, Unity unity) {
+		return unity.state.getBlock() instanceof CeramicBlocksOne;
 	}
-	
+
+	@Override
 	protected void applyExtra(
-		Block block,
 		World world,
-		Random random, 
-		int x, int y, int z, 
-		HashMap<String, String> extra,
-		int initX, int initY, int initZ, 
-		int rotate,
-		int dx, int dz,
+		BlockPos pos,
+		Unity unity,
+		BlockPos initPos,
+		EnumRotate rotate,
 		int maxX, int maxZ
 	) {
-		/* FIXME
-		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = ((CeramicBlocksOne)block).getEnabledMetadata(metadata);
+		EnumType type = unity.state.getValue(TYPE);
 		
 		if (
-			subBlock == 4 ||
-			subBlock == 8
+			type == EnumType.BATHROOM_SINK ||
+			type == EnumType.KITCHEN
 		) {
-			TileEntity te  = world.getTileEntity (x, y, z);
+			TileEntity te  = world.getTileEntity (pos);
 			if (te instanceof TileEntityCeramicBlocksOne) {
 				
-				boolean open = false; try { open = Boolean.parseBoolean(extra.get("open")); } catch (Exception e) {}
+				boolean open = false; try { open = Boolean.parseBoolean(unity.extra.get("open")); } catch (Exception e) {}
 				
 				if (((TileEntityCeramicBlocksOne) te).waterIsOn() != open) {
 					((TileEntityCeramicBlocksOne) te).toggleWater();
 				}
 			}
 		}
-		*/
-		
 	}
 }
