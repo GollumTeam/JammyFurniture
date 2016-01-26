@@ -1,17 +1,11 @@
 package com.gollum.jammyfurniture.common.building.handler;
 
-import java.util.HashMap;
-import java.util.Random;
-
 import com.gollum.core.ModGollumCoreLib;
 import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
-import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
 import com.gollum.jammyfurniture.common.block.iron.IronBlocksOne;
-import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
-import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -51,12 +45,10 @@ public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
 	protected void applyExtra(
-		Block block,
 		World world,
-		Random random, 
-		int x, int y, int z, 
+		int x, int y, int z,
 		Unity unity,
-		int initX, int initY, int initZ, 
+		int initX, int initY, int initZ,
 		int rotate,
 		int dx, int dz,
 		int maxX, int maxZ
@@ -64,7 +56,7 @@ public class IronBlocksOneBuildingHandler extends BuildingBlockHandler {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		int orientation = this.rotateOrientation(rotate, unity.orientation);
-		int subBlock = ((IronBlocksOne)block).getEnabledMetadata(metadata);
+		int subBlock = ((IronBlocksOne)unity.block).getEnabledMetadata(metadata);
 		
 		if (subBlock == 12) {
 			TileEntity te = world.getTileEntity(x, y, z);

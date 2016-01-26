@@ -5,7 +5,6 @@ import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
 
-import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 public class WoodBlocksTwoBuildingHandler extends BuildingBlockHandler {
