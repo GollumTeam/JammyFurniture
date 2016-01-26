@@ -1,13 +1,11 @@
 package com.gollum.jammyfurniture.common.building.handler;
 
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
-
 import com.gollum.core.ModGollumCoreLib;
 import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.BlockLights;
-import com.gollum.jammyfurniture.common.block.roofing.RoofingBlocksOne;
+
+import net.minecraft.world.World;
 
 public class BlockLightsBuildingHandler extends BuildingBlockHandler {
 	

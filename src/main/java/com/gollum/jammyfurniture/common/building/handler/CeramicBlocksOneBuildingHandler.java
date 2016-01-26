@@ -1,19 +1,13 @@
 package com.gollum.jammyfurniture.common.building.handler;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityCommandBlock;
-import net.minecraft.world.World;
-
 import com.gollum.core.ModGollumCoreLib;
-import com.gollum.core.common.building.Builder;
 import com.gollum.core.common.building.Building.Unity;
 import com.gollum.core.common.building.handler.BuildingBlockHandler;
 import com.gollum.jammyfurniture.common.block.ceramic.CeramicBlocksOne;
 import com.gollum.jammyfurniture.common.tilesentities.ceramic.TileEntityCeramicBlocksOne;
+
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
@@ -52,19 +46,17 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 
 	@Override
 	protected void applyExtra(
-		Block block,
 		World world,
-		Random random, 
-		int x, int y, int z, 
+		int x, int y, int z,
 		Unity unity,
-		int initX, int initY, int initZ, 
+		int initX, int initY, int initZ,
 		int rotate,
 		int dx, int dz,
 		int maxX, int maxZ
 	) {
 		
 		int metadata = world.getBlockMetadata(x, y, z);
-		int subBlock = ((CeramicBlocksOne)block).getEnabledMetadata(metadata);
+		int subBlock = ((CeramicBlocksOne)unity.block).getEnabledMetadata(metadata);
 		
 		if (
 			subBlock == 4 ||
