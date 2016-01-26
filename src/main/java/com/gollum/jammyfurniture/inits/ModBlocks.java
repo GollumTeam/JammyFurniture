@@ -18,19 +18,8 @@ import com.gollum.jammyfurniture.common.block.wood.WoodBlocksFour;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
-import com.gollum.jammyfurniture.common.building.handler.BathBlockBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.BlockLightsBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.BlockSofaBuildingHandler;
 import com.gollum.jammyfurniture.common.building.handler.CeramicBlocksOneBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.IronBlocksOneBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.IronBlocksTwoBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.JFMobHeadsBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.MiscBlocksOneBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.RoofingBlocksOneBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.WoodBlocksFourBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.WoodBlocksOneBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.WoodBlocksThreeBuildingHandler;
-import com.gollum.jammyfurniture.common.building.handler.WoodBlocksTwoBuildingHandler;
+import com.gollum.jammyfurniture.common.building.handler.JFBlockHandler;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCorner;
@@ -106,21 +95,8 @@ public class ModBlocks {
 	}
 	
 	public static void initHandlerRotation () {
-		
-		BuildingBlockRegistry.register(new BathBlockBuildingHandler());
-		BuildingBlockRegistry.register(new BlockLightsBuildingHandler());
-		BuildingBlockRegistry.register(new WoodBlocksOneBuildingHandler());
-		BuildingBlockRegistry.register(new WoodBlocksTwoBuildingHandler());
-		BuildingBlockRegistry.register(new WoodBlocksThreeBuildingHandler());
-		BuildingBlockRegistry.register(new WoodBlocksFourBuildingHandler());
-		BuildingBlockRegistry.register(new IronBlocksOneBuildingHandler());
-		BuildingBlockRegistry.register(new IronBlocksTwoBuildingHandler());
 		BuildingBlockRegistry.register(new CeramicBlocksOneBuildingHandler());
-		BuildingBlockRegistry.register(new RoofingBlocksOneBuildingHandler());
-		BuildingBlockRegistry.register(new MiscBlocksOneBuildingHandler());
-		BuildingBlockRegistry.register(new JFMobHeadsBuildingHandler());
-		BuildingBlockRegistry.register(new BlockSofaBuildingHandler());
-		
+		BuildingBlockRegistry.register(new JFBlockHandler());
 	}
 	
 	
