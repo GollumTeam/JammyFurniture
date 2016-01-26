@@ -11,14 +11,16 @@ import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
 public class WoodBlocksTwoBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
-	protected boolean mustApply (World world, int x, int y, int z, Block block) {
-		return block instanceof WoodBlocksTwo;
+	protected boolean mustApply (World world, int x, int y, int z, Unity unity) {
+		return unity.block instanceof WoodBlocksTwo;
 	}
 	
 	@Override
-	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
+	protected int applyMetadata(World world, int x, int y, int z, int metadata, Unity unity, int rotate) {
 		
-		int subBlock = ((WoodBlocksTwo)block).getEnabledMetadata(metadata);
+		int orientation = this.rotateOrientation(rotate, unity.orientation);
+		
+		int subBlock = ((WoodBlocksTwo)unity.block).getEnabledMetadata(metadata);
 		
 		if (
 			subBlock == 0 ||
@@ -32,12 +34,11 @@ public class WoodBlocksTwoBuildingHandler extends BuildingBlockHandler {
 			if (orientation == Unity.ORIENTATION_LEFT)  { metadata = subBlock + 3; } else 
 			if (orientation == Unity.ORIENTATION_RIGTH) { metadata = subBlock + 1; } else 
 			{
-				ModGollumCoreLib.log.severe("Bad orientation : "+orientation+" name:"+block.getUnlocalizedName()+" pos:"+x+","+y+","+z);
+				ModGollumCoreLib.log.severe("Bad orientation : "+orientation+" name:"+unity.block.getUnlocalizedName()+" pos:"+x+","+y+","+z);
 			}
 		}
 		
-		world.setBlockMetadataWithNotify(x, y, z, metadata, 0);
-		return;
+		return metadata;
 		
 	}
 	

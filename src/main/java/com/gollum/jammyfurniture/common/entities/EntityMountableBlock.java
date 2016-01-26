@@ -127,7 +127,7 @@ public class EntityMountableBlock extends Entity {
 		this.orgBlockPosX = nbttagcompound.getInteger("x");
 		this.orgBlockPosX = nbttagcompound.getInteger("y");
 		this.orgBlockPosX = nbttagcompound.getInteger("z");
-		orgBlock = Block.getBlockById(nbttagcompound.getInteger("block"));
+		this.orgBlockID = nbttagcompound.getInteger("block");
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class EntityMountableBlock extends Entity {
 		nbttagcompound.setInteger("x", this.orgBlockPosX);
 		nbttagcompound.setInteger("y", this.orgBlockPosY);
 		nbttagcompound.setInteger("z", this.orgBlockPosZ);
-		nbttagcompound.setInteger("block", Block.getIdFromBlock(this.orgBlock));
+		nbttagcompound.setInteger("block", this.orgBlockID);
 	}
 
 	
