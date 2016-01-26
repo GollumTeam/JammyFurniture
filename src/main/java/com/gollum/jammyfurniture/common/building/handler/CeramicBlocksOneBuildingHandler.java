@@ -16,14 +16,16 @@ import net.minecraft.world.World;
 public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 	
 	@Override
-	protected boolean mustApply (World world, int x, int y, int z, Block block) {
-		return block instanceof CeramicBlocksOne;
+	protected boolean mustApply (World world, int x, int y, int z, Unity unity) {
+		return unity.block instanceof CeramicBlocksOne;
 	}
 	
 	@Override
-	public void applyOrientation(World world, int x, int y, int z, Block block, int metadata, int orientation, int rotate) {
+	protected int applyMetadata(World world, int x, int y, int z, int metadata, Unity unity, int rotate) {
 		
-		int subBlock = ((CeramicBlocksOne)block).getEnabledMetadata(metadata);
+		int orientation = this.rotateOrientation(rotate, unity.orientation);
+		
+		int subBlock = ((CeramicBlocksOne)unity.block).getEnabledMetadata(metadata);
 		
 		if (
 			subBlock == 0 ||
@@ -38,21 +40,21 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 			if (orientation == Unity.ORIENTATION_LEFT)  { metadata = subBlock + 3; } else 
 			if (orientation == Unity.ORIENTATION_RIGTH) { metadata = subBlock + 1; } else 
 			{
-				ModGollumCoreLib.log.severe("Bad orientation : "+orientation+" name:"+block.getUnlocalizedName()+" pos:"+x+","+y+","+z);
+				ModGollumCoreLib.log.severe("Bad orientation : "+orientation+" name:"+unity.block.getUnlocalizedName()+" pos:"+x+","+y+","+z);
 			}
 		}
 		
-		world.setBlockMetadataWithNotify(x, y, z, metadata, 0);
-		return;
+		return metadata;
 		
 	}
 
+	@Override
 	protected void applyExtra(
 		Block block,
 		World world,
 		Random random, 
 		int x, int y, int z, 
-		HashMap<String, String> extra,
+		Unity unity,
 		int initX, int initY, int initZ, 
 		int rotate,
 		int dx, int dz,
@@ -69,7 +71,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 			TileEntity te  = world.getTileEntity (x, y, z);
 			if (te instanceof TileEntityCeramicBlocksOne) {
 				
-				boolean open = false; try { open = Boolean.parseBoolean(extra.get("open")); } catch (Exception e) {}
+				boolean open = false; try { open = Boolean.parseBoolean(unity.extra.get("open")); } catch (Exception e) {}
 				
 				if (((TileEntityCeramicBlocksOne) te).waterIsOn() != open) {
 					((TileEntityCeramicBlocksOne) te).toggleWater();
