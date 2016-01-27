@@ -5,371 +5,369 @@
 	],
 	
 	"sets": {
-		"1x1x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_base" } },
-		"1x1x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_base" } },
-		"0x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_base" } },
-		"2x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_base" } },
+		"1x1x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_base" } },
+		"1x1x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_base" } },
+		"0x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_base" } },
+		"2x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_base" } },
 				
-		"1x2x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_middle", "facing": "north" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"1x2x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_middle", "facing": "south" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"0x2x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_middle", "facing": "east"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"2x2x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_middle", "facing": "west"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x2x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_middle", "facing": "north" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x2x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_middle", "facing": "south" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"0x2x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_middle", "facing": "east"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"2x2x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_middle", "facing": "west"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
 				
-		"1x3x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_top", "facing": "north" } },
-		"1x3x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_top", "facing": "south" } },
-		"0x3x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_top", "facing": "east"  } },
-		"2x3x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"clock_top", "facing": "west"  } },
+		"1x3x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_top", "facing": "north" } },
+		"1x3x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_top", "facing": "south" } },
+		"0x3x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_top", "facing": "east"  } },
+		"2x3x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "clock_top", "facing": "west"  } },
 				
-		"5x1x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"blinds", "facing": "north" } },
-		"5x1x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"blinds", "facing": "south" } },
-		"4x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"blinds", "facing": "east"  } },
-		"6x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"blinds", "facing": "west"  } },
+		"5x1x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "blinds", "facing": "north" } },
+		"5x1x2": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "blinds", "facing": "south" } },
+		"4x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "blinds", "facing": "east"  } },
+		"6x1x1": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "blinds", "facing": "west"  } },
 		
-		"8x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"crafting_side" } } ,
-		"9x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"kitchen_side"  } },
-		"10x1x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type":"table"         } },
+		"8x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "crafting_side" } } ,
+		"9x1x0" : { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "kitchen_side"  } },
+		"10x1x0": { "block": "JammyFurniture:WoodBlocksOne", "states": { "type": "table"         } },
 				
-		"1x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "up"   , "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"1x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "down" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"0x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "right", "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"2x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 0, "orientation": "left" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard_shelf", "facing": "north" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard_shelf", "facing": "south" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"0x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard_shelf", "facing": "east"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"2x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard_shelf", "facing": "west"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
 				
-		"1x3x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "up"   , "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"1x3x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "down" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"0x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "right", "contents": [ [ { "element": "minecraft:grass" } ] ] },
-		"2x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 4, "orientation": "left" , "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x3x4": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard", "facing": "north" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"1x3x6": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard", "facing": "south" }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"0x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard", "facing": "east"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
+		"2x3x5": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "cupboard", "facing": "west"  }, "contents": [ [ { "element": "minecraft:grass" } ] ] },
 			
-		"5x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "up"    },
-		"5x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "down"  },
-		"4x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "right" },
-		"6x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 8, "orientation": "left"  },
+		"5x1x4": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "television", "facing": "north" } },
+		"5x1x6": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "television", "facing": "south" } },
+		"4x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "television", "facing": "east"  } },
+		"6x1x5": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "television", "facing": "west"  } },
 		
-		"8x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 12 },
-		"9x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 13 },
-		"10x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 14 },
-		"11x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "metadata": 15 },
+		"8x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "basket_red"   } },
+		"9x1x2" : { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "basket_blue"  } },
+		"10x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "basket_green" } },
+		"11x1x2": { "block": "JammyFurniture:WoodBlocksTwo", "states": { "type": "basket_grey"  } },
 				
-		"1x1x8" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "up"    },
-		"1x1x10": { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "down"  },
-		"0x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "right" },
-		"2x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 0, "orientation": "left"  },
+		"1x1x8" : { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "chair", "facing": "north" } },
+		"1x1x10": { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "chair", "facing": "south" } },
+		"0x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "chair", "facing": "east"  } },
+		"2x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "chair", "facing": "west"  } },
 				
-		"5x1x8" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "up"    },
-		"5x1x10": { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "down"  },
-		"4x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "right" },
-		"6x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "metadata": 4, "orientation": "left"  },
+		"5x1x8" : { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "radio", "facing": "north" } },
+		"5x1x10": { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "radio", "facing": "south" } },
+		"4x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "radio", "facing": "east"  } },
+		"6x1x9" : { "block": "JammyFurniture:WoodBlocksThree", "states": { "type": "radio", "facing": "west"  } },
 				
-		"9x1x4" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "up"    },
-		"9x1x6" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "down"  },
-		"8x1x5" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "right" },
-		"10x1x5": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 0, "orientation": "left"  },
+		"9x1x4" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "north" } },
+		"9x1x6" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "south" } },
+		"8x1x5" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "east"  } },
+		"10x1x5": { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "west"  } },
 				
-		"9x2x4" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "up"    },
-		"9x2x6" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "down"  },
-		"8x2x5" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "right" },
-		"10x2x5": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 4, "orientation": "left"  },
+		"9x2x4" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "north", "part": "head" } },
+		"9x2x6" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "south", "part": "head" } },
+		"8x2x5" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "east" , "part": "head" } },
+		"10x2x5": { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "wardrobe", "facing": "west" , "part": "head" } },
 				
-		"9x1x8" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "up"    },
-		"9x1x10": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "down"  },
-		"8x1x9" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "right" },
-		"10x1x9": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 8, "orientation": "left"  },
+		"9x1x8" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "north" } },
+		"9x1x10": { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "south" } },
+		"8x1x9" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "east"  } },
+		"10x1x9": { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "west"  } },
 				
-		"9x2x8" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "up"    },
-		"9x2x10": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "down"  },
-		"8x2x9" : { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "right" },
-		"10x2x9": { "block": "JammyFurniture:WoodBlocksFour", "metadata": 12, "orientation": "left"  },
-
-		"13x1x0": { "block": "JammyFurniture:IronBlocksOne", "metadata": 0, "orientation": "up"    },
-		"13x1x2": { "block": "JammyFurniture:IronBlocksOne", "metadata": 0, "orientation": "down"  },
-		"12x1x1": { "block": "JammyFurniture:IronBlocksOne", "metadata": 0, "orientation": "right" },
-		"14x1x1": { "block": "JammyFurniture:IronBlocksOne", "metadata": 0, "orientation": "left"  },
-
-		"13x3x0": { "block": "JammyFurniture:IronBlocksOne", "metadata": 4, "orientation": "up"    },
-		"13x3x2": { "block": "JammyFurniture:IronBlocksOne", "metadata": 4, "orientation": "down"  },
-		"12x3x1": { "block": "JammyFurniture:IronBlocksOne", "metadata": 4, "orientation": "right" },
-		"14x3x1": { "block": "JammyFurniture:IronBlocksOne", "metadata": 4, "orientation": "left"  },
-
-		"13x1x4": { "block": "JammyFurniture:IronBlocksOne", "metadata": 8, "orientation": "up"    },
-		"13x1x6": { "block": "JammyFurniture:IronBlocksOne", "metadata": 8, "orientation": "down"  },
-		"12x1x5": { "block": "JammyFurniture:IronBlocksOne", "metadata": 8, "orientation": "right" },
-		"14x1x5": { "block": "JammyFurniture:IronBlocksOne", "metadata": 8, "orientation": "left"  },
-
-		"17x1x0": { "block": "JammyFurniture:IronBlocksOne", "metadata": 12, "orientation": "up"    },
-		"17x1x2": { "block": "JammyFurniture:IronBlocksOne", "metadata": 12, "orientation": "down"  },
-		"16x1x1": { "block": "JammyFurniture:IronBlocksOne", "metadata": 12, "orientation": "right" },
-		"18x1x1": { "block": "JammyFurniture:IronBlocksOne", "metadata": 12, "orientation": "left"  },
-
-		"17x1x4": { "block": "JammyFurniture:IronBlocksOne", "metadata": 13 },
-
-		"13x1x8" : { "block": "JammyFurniture:IronBlocksTwo", "metadata": 0, "orientation": "up"    },
-		"13x1x10": { "block": "JammyFurniture:IronBlocksTwo", "metadata": 0, "orientation": "down"  },
-		"12x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "metadata": 0, "orientation": "right" },
-		"14x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "metadata": 0, "orientation": "left"  },
-
-		"17x1x8" : { "block": "JammyFurniture:IronBlocksTwo", "metadata": 4, "orientation": "up"    },
-		"17x1x10": { "block": "JammyFurniture:IronBlocksTwo", "metadata": 4, "orientation": "down"  },
-		"16x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "metadata": 4, "orientation": "right" },
-		"18x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "metadata": 4, "orientation": "left"  },
-
-		"21x1x0": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 0, "orientation": "up"    },
-		"21x1x2": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 0, "orientation": "down"  },
-		"20x1x1": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 0, "orientation": "right" },
-		"22x1x1": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 0, "orientation": "left"  },
-
-		"21x1x4": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 4, "orientation": "up"   , "extra": { "open": "true" } },
-		"21x1x6": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 4, "orientation": "down" , "extra": { "open": "true" } },
-		"20x1x5": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 4, "orientation": "right"},
-		"22x1x5": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 4, "orientation": "left" },
-
-		"21x1x8" : { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 8, "orientation": "up"   , "extra": { "open": "true" } },
-		"21x1x10": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 8, "orientation": "down" , "extra": { "open": "true" } },
-		"20x1x9" : { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 8, "orientation": "right" },
-		"22x1x9" : { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 8, "orientation": "left"  },
-
-		"21x1x12": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 12, "orientation": "up"    },
-		"21x1x14": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 12, "orientation": "down"  },
-		"20x1x13": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 12, "orientation": "right" },
-		"22x1x13": { "block": "JammyFurniture:CeramicBlocksOne", "metadata": 12, "orientation": "left"  },
-
-		"25x1x0": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 0, "orientation": "up"    },
-		"25x1x2": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 0, "orientation": "down"  },
-		"24x1x1": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 0, "orientation": "right" },
-		"26x1x1": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 0, "orientation": "left"  },
-
-		"25x1x4": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 4, "orientation": "up"   },
-		"25x1x6": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 4, "orientation": "down" },
-		"24x1x5": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 4, "orientation": "right"},
-		"26x1x5": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 4, "orientation": "left" },
-
-		"25x1x8" : { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 8, "orientation": "up"    },
-		"25x1x10": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 8, "orientation": "down"  },
-		"24x1x9" : { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 8, "orientation": "right" },
-		"26x1x9" : { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 8, "orientation": "left"  },
-
-		"25x1x12": { "block": "JammyFurniture:RoofingBlocksOne", "metadata": 12 },
-
-		"29x1x0": { "block": "JammyFurniture:MiscBlocksOne", "metadata": 0 },
-
-		"29x1x4": { "block": "JammyFurniture:MiscBlocksOne", "metadata": 4, "orientation": "up"   },
-		"29x1x6": { "block": "JammyFurniture:MiscBlocksOne", "metadata": 4, "orientation": "down" },
-		"28x1x5": { "block": "JammyFurniture:MiscBlocksOne", "metadata": 4, "orientation": "right"},
-		"30x1x5": { "block": "JammyFurniture:MiscBlocksOne", "metadata": 4, "orientation": "left" },
-
-		"29x1x8" : { "block": "JammyFurniture:MiscBlocksOne", "metadata": 8, "orientation": "up"    },
-		"29x1x10": { "block": "JammyFurniture:MiscBlocksOne", "metadata": 8, "orientation": "down"  },
-		"28x1x9" : { "block": "JammyFurniture:MiscBlocksOne", "metadata": 8, "orientation": "right" },
-		"30x1x9" : { "block": "JammyFurniture:MiscBlocksOne", "metadata": 8, "orientation": "left"  },
-
-		"33x1x0": { "block": "JammyFurniture:MobHeadsOne", "metadata": 0, "orientation": "up"    },
-		"33x1x2": { "block": "JammyFurniture:MobHeadsOne", "metadata": 0, "orientation": "down"  },
-		"32x1x1": { "block": "JammyFurniture:MobHeadsOne", "metadata": 0, "orientation": "right" },
-		"34x1x1": { "block": "JammyFurniture:MobHeadsOne", "metadata": 0, "orientation": "left"  },
-
-		"33x1x4": { "block": "JammyFurniture:MobHeadsOne", "metadata": 4, "orientation": "up"   },
-		"33x1x6": { "block": "JammyFurniture:MobHeadsOne", "metadata": 4, "orientation": "down" },
-		"32x1x5": { "block": "JammyFurniture:MobHeadsOne", "metadata": 4, "orientation": "right"},
-		"34x1x5": { "block": "JammyFurniture:MobHeadsOne", "metadata": 4, "orientation": "left" },
-
-		"33x1x8" : { "block": "JammyFurniture:MobHeadsOne", "metadata": 8, "orientation": "up"    },
-		"33x1x10": { "block": "JammyFurniture:MobHeadsOne", "metadata": 8, "orientation": "down"  },
-		"32x1x9" : { "block": "JammyFurniture:MobHeadsOne", "metadata": 8, "orientation": "right" },
-		"34x1x9" : { "block": "JammyFurniture:MobHeadsOne", "metadata": 8, "orientation": "left"  },
-
-		"33x1x12": { "block": "JammyFurniture:MobHeadsOne", "metadata": 12, "orientation": "up"    },
-		"33x1x14": { "block": "JammyFurniture:MobHeadsOne", "metadata": 12, "orientation": "down"  },
-		"32x1x13": { "block": "JammyFurniture:MobHeadsOne", "metadata": 12, "orientation": "right" },
-		"34x1x13": { "block": "JammyFurniture:MobHeadsOne", "metadata": 12, "orientation": "left"  },
-
-		"37x1x0": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 0, "orientation": "up"    },
-		"37x1x2": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 0, "orientation": "down"  },
-		"36x1x1": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 0, "orientation": "right" },
-		"38x1x1": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 0, "orientation": "left"  },
-
-		"37x1x4": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 4, "orientation": "up"   },
-		"37x1x6": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 4, "orientation": "down" },
-		"36x1x5": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 4, "orientation": "right"},
-		"38x1x5": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 4, "orientation": "left" },
-
-		"37x1x8" : { "block": "JammyFurniture:MobHeadsTwo", "metadata": 8, "orientation": "up"    },
-		"37x1x10": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 8, "orientation": "down"  },
-		"36x1x9" : { "block": "JammyFurniture:MobHeadsTwo", "metadata": 8, "orientation": "right" },
-		"38x1x9" : { "block": "JammyFurniture:MobHeadsTwo", "metadata": 8, "orientation": "left"  },
-
-		"37x1x12": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 12, "orientation": "up"    },
-		"37x1x14": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 12, "orientation": "down"  },
-		"36x1x13": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 12, "orientation": "right" },
-		"38x1x13": { "block": "JammyFurniture:MobHeadsTwo", "metadata": 12, "orientation": "left"  },
-
-		"41x1x0": { "block": "JammyFurniture:MobHeadsThree", "metadata": 0, "orientation": "up"    },
-		"41x1x2": { "block": "JammyFurniture:MobHeadsThree", "metadata": 0, "orientation": "down"  },
-		"40x1x1": { "block": "JammyFurniture:MobHeadsThree", "metadata": 0, "orientation": "right" },
-		"42x1x1": { "block": "JammyFurniture:MobHeadsThree", "metadata": 0, "orientation": "left"  },
-
-		"41x1x4": { "block": "JammyFurniture:MobHeadsThree", "metadata": 4, "orientation": "up"    },
-		"41x1x6": { "block": "JammyFurniture:MobHeadsThree", "metadata": 4, "orientation": "down"  },
-		"40x1x5": { "block": "JammyFurniture:MobHeadsThree", "metadata": 4, "orientation": "right" },
-		"42x1x5": { "block": "JammyFurniture:MobHeadsThree", "metadata": 4, "orientation": "left"  },
-
-		"41x1x8" : { "block": "JammyFurniture:MobHeadsThree", "metadata": 8, "orientation": "up"    },
-		"41x1x10": { "block": "JammyFurniture:MobHeadsThree", "metadata": 8, "orientation": "down"  },
-		"40x1x9" : { "block": "JammyFurniture:MobHeadsThree", "metadata": 8, "orientation": "right" },
-		"42x1x9" : { "block": "JammyFurniture:MobHeadsThree", "metadata": 8, "orientation": "left"  },
-
-		"41x1x12": { "block": "JammyFurniture:MobHeadsThree", "metadata": 12, "orientation": "up"    },
-		"41x1x14": { "block": "JammyFurniture:MobHeadsThree", "metadata": 12, "orientation": "down"  },
-		"40x1x13": { "block": "JammyFurniture:MobHeadsThree", "metadata": 12, "orientation": "right" },
-		"42x1x13": { "block": "JammyFurniture:MobHeadsThree", "metadata": 12, "orientation": "left"  },
-
-		"45x1x0": { "block": "JammyFurniture:MobHeadsFour", "metadata": 0, "orientation": "up"    },
-		"45x1x2": { "block": "JammyFurniture:MobHeadsFour", "metadata": 0, "orientation": "down"  },
-		"44x1x1": { "block": "JammyFurniture:MobHeadsFour", "metadata": 0, "orientation": "right" },
-		"46x1x1": { "block": "JammyFurniture:MobHeadsFour", "metadata": 0, "orientation": "left"  },
-
-		"45x1x4": { "block": "JammyFurniture:MobHeadsFour", "metadata": 4, "orientation": "up"   },
-		"45x1x6": { "block": "JammyFurniture:MobHeadsFour", "metadata": 4, "orientation": "down" },
-		"44x1x5": { "block": "JammyFurniture:MobHeadsFour", "metadata": 4, "orientation": "right"},
-		"46x1x5": { "block": "JammyFurniture:MobHeadsFour", "metadata": 4, "orientation": "left" },
-
-		"45x1x8" : { "block": "JammyFurniture:MobHeadsFour", "metadata": 8, "orientation": "up"    },
-		"45x1x10": { "block": "JammyFurniture:MobHeadsFour", "metadata": 8, "orientation": "down"  },
-		"44x1x9" : { "block": "JammyFurniture:MobHeadsFour", "metadata": 8, "orientation": "right" },
-		"46x1x9" : { "block": "JammyFurniture:MobHeadsFour", "metadata": 8, "orientation": "left"  },
-
-		"45x1x12": { "block": "JammyFurniture:MobHeadsFour", "metadata": 12, "orientation": "up"    },
-		"45x1x14": { "block": "JammyFurniture:MobHeadsFour", "metadata": 12, "orientation": "down"  },
-		"44x1x13": { "block": "JammyFurniture:MobHeadsFour", "metadata": 12, "orientation": "right" },
-		"46x1x13": { "block": "JammyFurniture:MobHeadsFour", "metadata": 12, "orientation": "left"  },
-
-
-
-		"33x1x16": { "block": "JammyFurniture:ArmChair", "metadata": 0, "orientation": "up"    },
-		"33x1x18": { "block": "JammyFurniture:ArmChair", "metadata": 0, "orientation": "down"  },
-		"32x1x17": { "block": "JammyFurniture:ArmChair", "metadata": 0, "orientation": "right" },
-		"34x1x17": { "block": "JammyFurniture:ArmChair", "metadata": 0, "orientation": "left"  },
-
-		"33x1x20": { "block": "JammyFurniture:ArmChair", "metadata": 4, "orientation": "up"   },
-		"33x1x22": { "block": "JammyFurniture:ArmChair", "metadata": 4, "orientation": "down" },
-		"32x1x21": { "block": "JammyFurniture:ArmChair", "metadata": 4, "orientation": "right"},
-		"34x1x21": { "block": "JammyFurniture:ArmChair", "metadata": 4, "orientation": "left" },
-
-		"33x1x24": { "block": "JammyFurniture:ArmChair", "metadata": 8, "orientation": "up"    },
-		"33x1x26": { "block": "JammyFurniture:ArmChair", "metadata": 8, "orientation": "down"  },
-		"32x1x25": { "block": "JammyFurniture:ArmChair", "metadata": 8, "orientation": "right" },
-		"34x1x25": { "block": "JammyFurniture:ArmChair", "metadata": 8, "orientation": "left"  },
-
-		"33x1x28": { "block": "JammyFurniture:ArmChair", "metadata": 12, "orientation": "up"    },
-		"33x1x30": { "block": "JammyFurniture:ArmChair", "metadata": 12, "orientation": "down"  },
-		"32x1x29": { "block": "JammyFurniture:ArmChair", "metadata": 12, "orientation": "right" },
-		"34x1x29": { "block": "JammyFurniture:ArmChair", "metadata": 12, "orientation": "left"  },
-
-		"37x1x16": { "block": "JammyFurniture:SofaLeft", "metadata": 0, "orientation": "up"    },
-		"37x1x18": { "block": "JammyFurniture:SofaLeft", "metadata": 0, "orientation": "down"  },
-		"36x1x17": { "block": "JammyFurniture:SofaLeft", "metadata": 0, "orientation": "right" },
-		"38x1x17": { "block": "JammyFurniture:SofaLeft", "metadata": 0, "orientation": "left"  },
-
-		"37x1x20": { "block": "JammyFurniture:SofaLeft", "metadata": 4, "orientation": "up"   },
-		"37x1x22": { "block": "JammyFurniture:SofaLeft", "metadata": 4, "orientation": "down" },
-		"36x1x21": { "block": "JammyFurniture:SofaLeft", "metadata": 4, "orientation": "right"},
-		"38x1x21": { "block": "JammyFurniture:SofaLeft", "metadata": 4, "orientation": "left" },
-
-		"37x1x24": { "block": "JammyFurniture:SofaLeft", "metadata": 8, "orientation": "up"    },
-		"37x1x26": { "block": "JammyFurniture:SofaLeft", "metadata": 8, "orientation": "down"  },
-		"36x1x25": { "block": "JammyFurniture:SofaLeft", "metadata": 8, "orientation": "right" },
-		"38x1x25": { "block": "JammyFurniture:SofaLeft", "metadata": 8, "orientation": "left"  },
-
-		"37x1x28": { "block": "JammyFurniture:SofaLeft", "metadata": 12, "orientation": "up"    },
-		"37x1x30": { "block": "JammyFurniture:SofaLeft", "metadata": 12, "orientation": "down"  },
-		"36x1x29": { "block": "JammyFurniture:SofaLeft", "metadata": 12, "orientation": "right" },
-		"38x1x29": { "block": "JammyFurniture:SofaLeft", "metadata": 12, "orientation": "left"  },
-
-		"41x1x16": { "block": "JammyFurniture:SofaRight", "metadata": 0, "orientation": "up"    },
-		"41x1x18": { "block": "JammyFurniture:SofaRight", "metadata": 0, "orientation": "down"  },
-		"40x1x17": { "block": "JammyFurniture:SofaRight", "metadata": 0, "orientation": "right" },
-		"42x1x17": { "block": "JammyFurniture:SofaRight", "metadata": 0, "orientation": "left"  },
-
-		"41x1x20": { "block": "JammyFurniture:SofaRight", "metadata": 4, "orientation": "up"    },
-		"41x1x22": { "block": "JammyFurniture:SofaRight", "metadata": 4, "orientation": "down"  },
-		"40x1x21": { "block": "JammyFurniture:SofaRight", "metadata": 4, "orientation": "right" },
-		"42x1x21": { "block": "JammyFurniture:SofaRight", "metadata": 4, "orientation": "left"  },
-
-		"41x1x24": { "block": "JammyFurniture:SofaRight", "metadata": 8, "orientation": "up"    },
-		"41x1x26": { "block": "JammyFurniture:SofaRight", "metadata": 8, "orientation": "down"  },
-		"40x1x25": { "block": "JammyFurniture:SofaRight", "metadata": 8, "orientation": "right" },
-		"42x1x25": { "block": "JammyFurniture:SofaRight", "metadata": 8, "orientation": "left"  },
-
-		"41x1x28": { "block": "JammyFurniture:SofaRight", "metadata": 12, "orientation": "up"    },
-		"41x1x30": { "block": "JammyFurniture:SofaRight", "metadata": 12, "orientation": "down"  },
-		"40x1x29": { "block": "JammyFurniture:SofaRight", "metadata": 12, "orientation": "right" },
-		"42x1x29": { "block": "JammyFurniture:SofaRight", "metadata": 12, "orientation": "left"  },
-
-		"45x1x16": { "block": "JammyFurniture:SofaCenter", "metadata": 0, "orientation": "up"    },
-		"45x1x18": { "block": "JammyFurniture:SofaCenter", "metadata": 0, "orientation": "down"  },
-		"44x1x17": { "block": "JammyFurniture:SofaCenter", "metadata": 0, "orientation": "right" },
-		"46x1x17": { "block": "JammyFurniture:SofaCenter", "metadata": 0, "orientation": "left"  },
-
-		"45x1x20": { "block": "JammyFurniture:SofaCenter", "metadata": 4, "orientation": "up"   },
-		"45x1x22": { "block": "JammyFurniture:SofaCenter", "metadata": 4, "orientation": "down" },
-		"44x1x21": { "block": "JammyFurniture:SofaCenter", "metadata": 4, "orientation": "right"},
-		"46x1x21": { "block": "JammyFurniture:SofaCenter", "metadata": 4, "orientation": "left" },
-
-		"45x1x24": { "block": "JammyFurniture:SofaCenter", "metadata": 8, "orientation": "up"    },
-		"45x1x26": { "block": "JammyFurniture:SofaCenter", "metadata": 8, "orientation": "down"  },
-		"44x1x25": { "block": "JammyFurniture:SofaCenter", "metadata": 8, "orientation": "right" },
-		"46x1x25": { "block": "JammyFurniture:SofaCenter", "metadata": 8, "orientation": "left"  },
-
-		"45x1x28": { "block": "JammyFurniture:SofaCenter", "metadata": 12, "orientation": "up"    },
-		"45x1x30": { "block": "JammyFurniture:SofaCenter", "metadata": 12, "orientation": "down"  },
-		"44x1x29": { "block": "JammyFurniture:SofaCenter", "metadata": 12, "orientation": "right" },
-		"46x1x29": { "block": "JammyFurniture:SofaCenter", "metadata": 12, "orientation": "left"  },
-
-		"29x1x16": { "block": "JammyFurniture:SofaCorner", "metadata": 0, "orientation": "up"    },
-		"29x1x18": { "block": "JammyFurniture:SofaCorner", "metadata": 0, "orientation": "down"  },
-		"28x1x17": { "block": "JammyFurniture:SofaCorner", "metadata": 0, "orientation": "right" },
-		"30x1x17": { "block": "JammyFurniture:SofaCorner", "metadata": 0, "orientation": "left"  },
-
-		"29x1x20": { "block": "JammyFurniture:SofaCorner", "metadata": 4, "orientation": "up"   },
-		"29x1x22": { "block": "JammyFurniture:SofaCorner", "metadata": 4, "orientation": "down" },
-		"28x1x21": { "block": "JammyFurniture:SofaCorner", "metadata": 4, "orientation": "right"},
-		"30x1x21": { "block": "JammyFurniture:SofaCorner", "metadata": 4, "orientation": "left" },
-
-		"29x1x24": { "block": "JammyFurniture:SofaCorner", "metadata": 8, "orientation": "up"    },
-		"29x1x26": { "block": "JammyFurniture:SofaCorner", "metadata": 8, "orientation": "down"  },
-		"28x1x25": { "block": "JammyFurniture:SofaCorner", "metadata": 8, "orientation": "right" },
-		"30x1x25": { "block": "JammyFurniture:SofaCorner", "metadata": 8, "orientation": "left"  },
-
-		"29x1x28": { "block": "JammyFurniture:SofaCorner", "metadata": 12, "orientation": "up"    },
-		"29x1x30": { "block": "JammyFurniture:SofaCorner", "metadata": 12, "orientation": "down"  },
-		"28x1x29": { "block": "JammyFurniture:SofaCorner", "metadata": 12, "orientation": "right" },
-		"30x1x29": { "block": "JammyFurniture:SofaCorner", "metadata": 12, "orientation": "left"  },
-
-
-
-		"1x1x16": { "block": "JammyFurniture:LightsOn", "metadata": 0, "orientation": "up"    },
-
-		"1x1x20": { "block": "JammyFurniture:LightsOn", "metadata": 4, "orientation": "up"   },
-		"1x1x22": { "block": "JammyFurniture:LightsOn", "metadata": 4, "orientation": "down" },
-		"0x1x21": { "block": "JammyFurniture:LightsOn", "metadata": 4, "orientation": "right"},
-		"2x1x21": { "block": "JammyFurniture:LightsOn", "metadata": 4, "orientation": "left" },
-
-		"1x1x24": { "block": "JammyFurniture:LightsOn", "metadata": 8, "orientation": "up"    },
-
-		"5x1x16": { "block": "JammyFurniture:LightsOff", "metadata": 0, "orientation": "up"    },
-
-		"5x1x20": { "block": "JammyFurniture:LightsOff", "metadata": 4, "orientation": "up"   },
-		"5x1x22": { "block": "JammyFurniture:LightsOff", "metadata": 4, "orientation": "down" },
-		"4x1x21": { "block": "JammyFurniture:LightsOff", "metadata": 4, "orientation": "right"},
-		"6x1x21": { "block": "JammyFurniture:LightsOff", "metadata": 4, "orientation": "left" },
-
-		"5x1x24": { "block": "JammyFurniture:LightsOff", "metadata": 8, "orientation": "up"    },
-
-		"10x1x20": { "block": "JammyFurniture:Bath", "metadata": 0, "orientation": "down"  },
-		"10x1x19": { "block": "JammyFurniture:Bath", "metadata": 4, "orientation": "up"    },
-		"10x1x22": { "block": "JammyFurniture:Bath", "metadata": 0, "orientation": "up"    },
-		"10x1x23": { "block": "JammyFurniture:Bath", "metadata": 4, "orientation": "down"  },
-		"9x1x21" : { "block": "JammyFurniture:Bath", "metadata": 0, "orientation": "left"  },
-		"8x1x21" : { "block": "JammyFurniture:Bath", "metadata": 4, "orientation": "right" },
-		"11x1x21": { "block": "JammyFurniture:Bath", "metadata": 0, "orientation": "right" },
-		"12x1x21": { "block": "JammyFurniture:Bath", "metadata": 4, "orientation": "left"  }
+		"9x2x8" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "north", "part": "head"  } },
+		"9x2x10": { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "south", "part": "head"  } },
+		"8x2x9" : { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "east" , "part": "head"  } },
+		"10x2x9": { "block": "JammyFurniture:WoodBlocksFour", "states": { "type": "coat_stand", "facing": "west" , "part": "head"  } },
+
+		"13x1x0": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "fridge", "facing": "north" } },
+		"13x1x2": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "fridge", "facing": "south" } },
+		"12x1x1": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "fridge", "facing": "east"  } },
+		"14x1x1": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "fridge", "facing": "west"  } },
+
+		"13x3x0": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "freezer", "facing": "north" } },
+		"13x3x2": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "freezer", "facing": "south" } },
+		"12x3x1": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "freezer", "facing": "east"  } },
+		"14x3x1": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "freezer", "facing": "west"  } },
+
+		"13x1x4": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "cooker", "facing": "north" } },
+		"13x1x6": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "cooker", "facing": "south" } },
+		"12x1x5": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "cooker", "facing": "east"  } },
+		"14x1x5": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "cooker", "facing": "west"  } },
+
+		"17x1x0": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "rubbish_bin", "facing": "north" } },
+		"17x1x2": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "rubbish_bin", "facing": "south" } },
+		"16x1x1": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "rubbish_bin", "facing": "east"  } },
+		"18x1x1": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "rubbish_bin", "facing": "west"  } },
+
+		"17x1x4": { "block": "JammyFurniture:IronBlocksOne", "states": { "type": "coffee_table" } },
+
+		"13x1x8" : { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "dishwasher", "facing": "north" } },
+		"13x1x10": { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "dishwasher", "facing": "south" } },
+		"12x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "dishwasher", "facing": "east"  } },
+		"14x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "dishwasher", "facing": "west"  } },
+
+		"17x1x8" : { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "washing_machine", "facing": "north" } },
+		"17x1x10": { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "washing_machine", "facing": "south" } },
+		"16x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "washing_machine", "facing": "east"  } },
+		"18x1x9" : { "block": "JammyFurniture:IronBlocksTwo", "states": { "type": "washing_machine", "facing": "west"  } },
+
+		"21x1x0": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_cupboard", "facing": "north" } },
+		"21x1x2": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_cupboard", "facing": "south" } },
+		"20x1x1": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_cupboard", "facing": "east"  } },
+		"22x1x1": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_cupboard", "facing": "west"  } },
+
+		"21x1x4": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_sink", "facing": "north" }, "extra": { "open": "true" } },
+		"21x1x6": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_sink", "facing": "south" }, "extra": { "open": "true" } },
+		"20x1x5": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_sink", "facing": "east"  } },
+		"22x1x5": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "bathroom_sink", "facing": "west"  } },
+
+		"21x1x8" : { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "kitchen", "facing": "north" }, "extra": { "open": "true" } },
+		"21x1x10": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "kitchen", "facing": "south" }, "extra": { "open": "true" } },
+		"20x1x9" : { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "kitchen", "facing": "east"  } },
+		"22x1x9" : { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "kitchen", "facing": "west"  } },
+
+		"21x1x12": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "toilet", "facing": "north" } },
+		"21x1x14": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "toilet", "facing": "south" } },
+		"20x1x13": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "toilet", "facing": "east"  } },
+		"22x1x13": { "block": "JammyFurniture:CeramicBlocksOne", "states": { "type": "toilet", "facing": "west"  } },
+
+		"25x1x0": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing1", "facing": "north" } },
+		"25x1x2": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing1", "facing": "south" } },
+		"24x1x1": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing1", "facing": "east"  } },
+		"26x1x1": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing1", "facing": "west"  } },
+
+		"25x1x4": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing2", "facing": "north" } },
+		"25x1x6": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing2", "facing": "south" } },
+		"24x1x5": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing2", "facing": "east"  } },
+		"26x1x5": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing2", "facing": "west"  } },
+
+		"25x1x8" : { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing3", "facing": "north" } },
+		"25x1x10": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing3", "facing": "south" } },
+		"24x1x9" : { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing3", "facing": "east"  } },
+		"26x1x9" : { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing3", "facing": "west"  } },
+
+		"25x1x12": { "block": "JammyFurniture:RoofingBlocksOne", "states": { "type": "roofing4" } },
+
+		"29x1x0": { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "chimney" } },
+
+		"29x1x4": { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "mantle_piece", "facing": "north" } },
+		"29x1x6": { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "mantle_piece", "facing": "south" } },
+		"28x1x5": { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "mantle_piece", "facing": "east"  } },
+		"30x1x5": { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "mantle_piece", "facing": "west"  } },
+
+		"29x1x8" : { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "christmas_tree", "facing": "north" } },
+		"29x1x10": { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "christmas_tree", "facing": "south" } },
+		"28x1x9" : { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "christmas_tree", "facing": "east"  } },
+		"30x1x9" : { "block": "JammyFurniture:MiscBlocksOne", "states": { "type": "christmas_tree", "facing": "west"  } },
+
+		"33x1x0": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head1", "facing": "north" } },
+		"33x1x2": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head1", "facing": "south" } },
+		"32x1x1": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head1", "facing": "east"  } },
+		"34x1x1": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head1", "facing": "west"  } },
+
+		"33x1x4": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head2", "facing": "north" } },
+		"33x1x6": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head2", "facing": "south" } },
+		"32x1x5": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head2", "facing": "east"  } },
+		"34x1x5": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head2", "facing": "west"  } },
+
+		"33x1x8" : { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head3", "facing": "north" } },
+		"33x1x10": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head3", "facing": "south" } },
+		"32x1x9" : { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head3", "facing": "east"  } },
+		"34x1x9" : { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head3", "facing": "west"  } },
+
+		"33x1x12": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head4", "facing": "north" } },
+		"33x1x14": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head4", "facing": "south" } },
+		"32x1x13": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head4", "facing": "east"  } },
+		"34x1x13": { "block": "JammyFurniture:MobHeadsOne", "states": { "type": "head4", "facing": "west"  } },
+
+		"37x1x0": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head1", "facing": "north" } },
+		"37x1x2": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head1", "facing": "south" } },
+		"36x1x1": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head1", "facing": "east"  } },
+		"38x1x1": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head1", "facing": "west"  } },
+
+		"37x1x4": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head2", "facing": "north" } },
+		"37x1x6": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head2", "facing": "south" } },
+		"36x1x5": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head2", "facing": "east"  } },
+		"38x1x5": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head2", "facing": "west"  } },
+
+		"37x1x8" : { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head3", "facing": "north" } },
+		"37x1x10": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head3", "facing": "south" } },
+		"36x1x9" : { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head3", "facing": "east"  } },
+		"38x1x9" : { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head3", "facing": "west"  } },
+
+		"37x1x12": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head4", "facing": "north" } },
+		"37x1x14": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head4", "facing": "south" } },
+		"36x1x13": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head4", "facing": "east"  } },
+		"38x1x13": { "block": "JammyFurniture:MobHeadsTwo", "states": { "type": "head4", "facing": "west"  } },
+
+		"41x1x0": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head1", "facing": "north" } },
+		"41x1x2": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head1", "facing": "south" } },
+		"40x1x1": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head1", "facing": "east"  } },
+		"42x1x1": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head1", "facing": "west"  } },
+
+		"41x1x4": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head2", "facing": "north" } },
+		"41x1x6": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head2", "facing": "south" } },
+		"40x1x5": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head2", "facing": "east"  } },
+		"42x1x5": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head2", "facing": "west"  } },
+
+		"41x1x8" : { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head3", "facing": "north" } },
+		"41x1x10": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head3", "facing": "south" } },
+		"40x1x9" : { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head3", "facing": "east"  } },
+		"42x1x9" : { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head3", "facing": "west"  } },
+
+		"41x1x12": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head4", "facing": "north" } },
+		"41x1x14": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head4", "facing": "south" } },
+		"40x1x13": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head4", "facing": "east"  } },
+		"42x1x13": { "block": "JammyFurniture:MobHeadsThree", "states": { "type": "head4", "facing": "west"  } },
+
+		"45x1x0": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head1", "facing": "north" } },
+		"45x1x2": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head1", "facing": "south" } },
+		"44x1x1": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head1", "facing": "east"  } },
+		"46x1x1": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head1", "facing": "west"  } },
+
+		"45x1x4": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head2", "facing": "north" } },
+		"45x1x6": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head2", "facing": "south" } },
+		"44x1x5": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head2", "facing": "east"  } },
+		"46x1x5": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head2", "facing": "west"  } },
+
+		"45x1x8" : { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head3", "facing": "north" } },
+		"45x1x10": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head3", "facing": "south" } },
+		"44x1x9" : { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head3", "facing": "east"  } },
+		"46x1x9" : { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head3", "facing": "west"  } },
+
+		"45x1x12": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head4", "facing": "north" } },
+		"45x1x14": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head4", "facing": "south" } },
+		"44x1x13": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head4", "facing": "east"  } },
+		"46x1x13": { "block": "JammyFurniture:MobHeadsFour", "states": { "type": "head4", "facing": "west"  } },
+		
+		
+		"33x1x16": { "block": "JammyFurniture:ArmChair", "states": { "color": "red", "facing": "north" } },
+		"33x1x18": { "block": "JammyFurniture:ArmChair", "states": { "color": "red", "facing": "south" } },
+		"32x1x17": { "block": "JammyFurniture:ArmChair", "states": { "color": "red", "facing": "east"  } },
+		"34x1x17": { "block": "JammyFurniture:ArmChair", "states": { "color": "red", "facing": "west"  } },
+
+		"33x1x20": { "block": "JammyFurniture:ArmChair", "states": { "color": "blue", "facing": "north" } },
+		"33x1x22": { "block": "JammyFurniture:ArmChair", "states": { "color": "blue", "facing": "south" } },
+		"32x1x21": { "block": "JammyFurniture:ArmChair", "states": { "color": "blue", "facing": "east"  } },
+		"34x1x21": { "block": "JammyFurniture:ArmChair", "states": { "color": "blue", "facing": "west"  } },
+
+		"33x1x24": { "block": "JammyFurniture:ArmChair", "states": { "color": "green", "facing": "north" } },
+		"33x1x26": { "block": "JammyFurniture:ArmChair", "states": { "color": "green", "facing": "south" } },
+		"32x1x25": { "block": "JammyFurniture:ArmChair", "states": { "color": "green", "facing": "east"  } },
+		"34x1x25": { "block": "JammyFurniture:ArmChair", "states": { "color": "green", "facing": "west"  } },
+
+		"33x1x28": { "block": "JammyFurniture:ArmChair", "states": { "color": "grey", "facing": "north" } },
+		"33x1x30": { "block": "JammyFurniture:ArmChair", "states": { "color": "grey", "facing": "south" } },
+		"32x1x29": { "block": "JammyFurniture:ArmChair", "states": { "color": "grey", "facing": "east"  } },
+		"34x1x29": { "block": "JammyFurniture:ArmChair", "states": { "color": "grey", "facing": "west"  } },
+
+		"37x1x16": { "block": "JammyFurniture:SofaLeft", "states": { "color": "red", "facing": "north" } },
+		"37x1x18": { "block": "JammyFurniture:SofaLeft", "states": { "color": "red", "facing": "south" } },
+		"36x1x17": { "block": "JammyFurniture:SofaLeft", "states": { "color": "red", "facing": "east"  } },
+		"38x1x17": { "block": "JammyFurniture:SofaLeft", "states": { "color": "red", "facing": "west"  } },
+
+		"37x1x20": { "block": "JammyFurniture:SofaLeft", "states": { "color": "blue", "facing": "north" } },
+		"37x1x22": { "block": "JammyFurniture:SofaLeft", "states": { "color": "blue", "facing": "south" } },
+		"36x1x21": { "block": "JammyFurniture:SofaLeft", "states": { "color": "blue", "facing": "east"  } },
+		"38x1x21": { "block": "JammyFurniture:SofaLeft", "states": { "color": "blue", "facing": "west"  } },
+
+		"37x1x24": { "block": "JammyFurniture:SofaLeft", "states": { "color": "green", "facing": "north" } },
+		"37x1x26": { "block": "JammyFurniture:SofaLeft", "states": { "color": "green", "facing": "south" } },
+		"36x1x25": { "block": "JammyFurniture:SofaLeft", "states": { "color": "green", "facing": "east"  } },
+		"38x1x25": { "block": "JammyFurniture:SofaLeft", "states": { "color": "green", "facing": "west"  } },
+
+		"37x1x28": { "block": "JammyFurniture:SofaLeft", "states": { "color": "grey", "facing": "north" } },
+		"37x1x30": { "block": "JammyFurniture:SofaLeft", "states": { "color": "grey", "facing": "south" } },
+		"36x1x29": { "block": "JammyFurniture:SofaLeft", "states": { "color": "grey", "facing": "east"  } },
+		"38x1x29": { "block": "JammyFurniture:SofaLeft", "states": { "color": "grey", "facing": "west"  } },
+
+		"41x1x16": { "block": "JammyFurniture:SofaRight", "states": { "color": "red", "facing": "north" } },
+		"41x1x18": { "block": "JammyFurniture:SofaRight", "states": { "color": "red", "facing": "south" } },
+		"40x1x17": { "block": "JammyFurniture:SofaRight", "states": { "color": "red", "facing": "east"  } },
+		"42x1x17": { "block": "JammyFurniture:SofaRight", "states": { "color": "red", "facing": "west"  } },
+
+		"41x1x20": { "block": "JammyFurniture:SofaRight", "states": { "color": "blue", "facing": "north" } },
+		"41x1x22": { "block": "JammyFurniture:SofaRight", "states": { "color": "blue", "facing": "south" } },
+		"40x1x21": { "block": "JammyFurniture:SofaRight", "states": { "color": "blue", "facing": "east"  } },
+		"42x1x21": { "block": "JammyFurniture:SofaRight", "states": { "color": "blue", "facing": "west"  } },
+
+		"41x1x24": { "block": "JammyFurniture:SofaRight", "states": { "color": "green", "facing": "north" } },
+		"41x1x26": { "block": "JammyFurniture:SofaRight", "states": { "color": "green", "facing": "south" } },
+		"40x1x25": { "block": "JammyFurniture:SofaRight", "states": { "color": "green", "facing": "east"  } },
+		"42x1x25": { "block": "JammyFurniture:SofaRight", "states": { "color": "green", "facing": "west"  } },
+
+		"41x1x28": { "block": "JammyFurniture:SofaRight", "states": { "color": "grey", "facing": "north" } },
+		"41x1x30": { "block": "JammyFurniture:SofaRight", "states": { "color": "grey", "facing": "south" } },
+		"40x1x29": { "block": "JammyFurniture:SofaRight", "states": { "color": "grey", "facing": "east"  } },
+		"42x1x29": { "block": "JammyFurniture:SofaRight", "states": { "color": "grey", "facing": "west"  } },
+
+		"45x1x16": { "block": "JammyFurniture:SofaCenter", "states": { "color": "red", "facing": "north" } },
+		"45x1x18": { "block": "JammyFurniture:SofaCenter", "states": { "color": "red", "facing": "south" } },
+		"44x1x17": { "block": "JammyFurniture:SofaCenter", "states": { "color": "red", "facing": "east"  } },
+		"46x1x17": { "block": "JammyFurniture:SofaCenter", "states": { "color": "red", "facing": "west"  } },
+
+		"45x1x20": { "block": "JammyFurniture:SofaCenter", "states": { "color": "blue", "facing": "north" } },
+		"45x1x22": { "block": "JammyFurniture:SofaCenter", "states": { "color": "blue", "facing": "south" } },
+		"44x1x21": { "block": "JammyFurniture:SofaCenter", "states": { "color": "blue", "facing": "east"  } },
+		"46x1x21": { "block": "JammyFurniture:SofaCenter", "states": { "color": "blue", "facing": "west"  } },
+
+		"45x1x24": { "block": "JammyFurniture:SofaCenter", "states": { "color": "green", "facing": "north" } },
+		"45x1x26": { "block": "JammyFurniture:SofaCenter", "states": { "color": "green", "facing": "south" } },
+		"44x1x25": { "block": "JammyFurniture:SofaCenter", "states": { "color": "green", "facing": "east"  } },
+		"46x1x25": { "block": "JammyFurniture:SofaCenter", "states": { "color": "green", "facing": "west"  } },
+
+		"45x1x28": { "block": "JammyFurniture:SofaCenter", "states": { "color": "grey", "facing": "north" } },
+		"45x1x30": { "block": "JammyFurniture:SofaCenter", "states": { "color": "grey", "facing": "south" } },
+		"44x1x29": { "block": "JammyFurniture:SofaCenter", "states": { "color": "grey", "facing": "east"  } },
+		"46x1x29": { "block": "JammyFurniture:SofaCenter", "states": { "color": "grey", "facing": "west"  } },
+
+		"29x1x16": { "block": "JammyFurniture:SofaCorner", "states": { "color": "red", "facing": "north" } },
+		"29x1x18": { "block": "JammyFurniture:SofaCorner", "states": { "color": "red", "facing": "south" } },
+		"28x1x17": { "block": "JammyFurniture:SofaCorner", "states": { "color": "red", "facing": "east"  } },
+		"30x1x17": { "block": "JammyFurniture:SofaCorner", "states": { "color": "red", "facing": "west"  } },
+		
+		"29x1x20": { "block": "JammyFurniture:SofaCorner", "states": { "color": "blue", "facing": "north" } },
+		"29x1x22": { "block": "JammyFurniture:SofaCorner", "states": { "color": "blue", "facing": "south" } },
+		"28x1x21": { "block": "JammyFurniture:SofaCorner", "states": { "color": "blue", "facing": "east"  } },
+		"30x1x21": { "block": "JammyFurniture:SofaCorner", "states": { "color": "blue", "facing": "west"  } },
+		
+		"29x1x24": { "block": "JammyFurniture:SofaCorner", "states": { "color": "green", "facing": "north" } },
+		"29x1x26": { "block": "JammyFurniture:SofaCorner", "states": { "color": "green", "facing": "south" } },
+		"28x1x25": { "block": "JammyFurniture:SofaCorner", "states": { "color": "green", "facing": "east"  } },
+		"30x1x25": { "block": "JammyFurniture:SofaCorner", "states": { "color": "green", "facing": "west"  } },
+		
+		"29x1x28": { "block": "JammyFurniture:SofaCorner", "states": { "color": "grey", "facing": "north" } },
+		"29x1x30": { "block": "JammyFurniture:SofaCorner", "states": { "color": "grey", "facing": "south" } },
+		"28x1x29": { "block": "JammyFurniture:SofaCorner", "states": { "color": "grey", "facing": "east"  } },
+		"30x1x29": { "block": "JammyFurniture:SofaCorner", "states": { "color": "grey", "facing": "west"  } },
+		
+		
+		"1x1x16": { "block": "JammyFurniture:LightsOn", "states": { "type": "light" } },
+		
+		"1x1x20": { "block": "JammyFurniture:LightsOn", "states": { "type": "outdoor_lamp", "facing": "north" } },
+		"1x1x22": { "block": "JammyFurniture:LightsOn", "states": { "type": "outdoor_lamp", "facing": "south" } },
+		"0x1x21": { "block": "JammyFurniture:LightsOn", "states": { "type": "outdoor_lamp", "facing": "east"  } },
+		"2x1x21": { "block": "JammyFurniture:LightsOn", "states": { "type": "outdoor_lamp", "facing": "west"  } },
+		
+		"1x1x24": { "block": "JammyFurniture:LightsOn", "states": { "type": "table_lamp" } },
+		
+		"5x1x16": { "block": "JammyFurniture:LightsOff", "states": { "type": "light" } },
+		
+		"5x1x20": { "block": "JammyFurniture:LightsOff", "states": { "type": "outdoor_lamp", "facing": "north" } },
+		"5x1x22": { "block": "JammyFurniture:LightsOff", "states": { "type": "outdoor_lamp", "facing": "south" } },
+		"4x1x21": { "block": "JammyFurniture:LightsOff", "states": { "type": "outdoor_lamp", "facing": "east"  } },
+		"6x1x21": { "block": "JammyFurniture:LightsOff", "states": { "type": "outdoor_lamp", "facing": "west"  } },
+		
+		"5x1x24": { "block": "JammyFurniture:LightsOff", "states": { "type": "table_lamp" } },
+		
+		"10x1x20": { "block": "JammyFurniture:Bath", "states": { "part": "left" , "facing": "south" } },
+		"10x1x19": { "block": "JammyFurniture:Bath", "states": { "part": "right", "facing": "north" } },
+		"10x1x22": { "block": "JammyFurniture:Bath", "states": { "part": "left" , "facing": "north" } },
+		"10x1x23": { "block": "JammyFurniture:Bath", "states": { "part": "right", "facing": "south" } },
+		"9x1x21" : { "block": "JammyFurniture:Bath", "states": { "part": "right", "facing": "west"  } },
+		"8x1x21" : { "block": "JammyFurniture:Bath", "states": { "part": "left" , "facing": "east"  } },
+		"11x1x21": { "block": "JammyFurniture:Bath", "states": { "part": "right", "facing": "east"  } },
+		"12x1x21": { "block": "JammyFurniture:Bath", "states": { "part": "left" , "facing": "west"  } }
 		
 	}
 }

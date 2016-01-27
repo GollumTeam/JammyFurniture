@@ -45,7 +45,6 @@ public class BathBlock extends JFBlock {
 			return this.name;
 		}
 		
-
 		@Override
 		public String getName() {
 			return this.name;

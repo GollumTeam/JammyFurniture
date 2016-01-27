@@ -33,7 +33,7 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 		} else {
 			
 			if (type == EnumPart.LEFT) {
-				renderModel(x, y, z, (rotation + 180) % 360, false);
+				renderModel(x, y, z, rotation, false);
 			} else {
 				renderModel(x, y, z, rotation, true);
 			}

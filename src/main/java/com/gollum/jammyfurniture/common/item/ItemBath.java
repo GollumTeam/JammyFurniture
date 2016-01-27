@@ -3,6 +3,7 @@ package com.gollum.jammyfurniture.common.item;
 import static com.gollum.jammyfurniture.common.block.BathBlock.FACING;
 import static com.gollum.jammyfurniture.common.block.BathBlock.PART;
 
+import com.gollum.core.tools.helper.items.HItemBlock;
 import com.gollum.jammyfurniture.common.block.BathBlock.EnumPart;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
@@ -15,7 +16,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class ItemBath extends ItemBlock {
+public class ItemBath extends HItemBlock {
 	
 	private Block block;
 	
@@ -42,12 +43,15 @@ public class ItemBath extends ItemBlock {
 			world.doesBlockHaveSolidTopSurface(world, pos)
 		) {
 			state = state
-				.withProperty(FACING, facing)
+				.withProperty(FACING, facing.getOpposite())
 			;
 			
 			if (placeBlockAt(itemStack, player, world, pos1, side, hitX, hitY, hitZ, state)) {
 				
-				state = state.withProperty(PART, EnumPart.RIGHT);
+				state = state
+					.withProperty(PART, EnumPart.RIGHT)
+					.withProperty(FACING, facing)
+				;
 				placeBlockAt(itemStack, player, world, pos2, side, hitX, hitY, hitZ, state);
 				
 			} else {

@@ -1,6 +1,5 @@
 package com.gollum.jammyfurniture.inits;
 
-import com.gollum.core.inits.ModItems;
 import com.gollum.core.tools.registry.BuildingBlockRegistry;
 import com.gollum.jammyfurniture.common.block.BathBlock;
 import com.gollum.jammyfurniture.common.block.BlockLights;
@@ -19,6 +18,7 @@ import com.gollum.jammyfurniture.common.block.wood.WoodBlocksOne;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksThree;
 import com.gollum.jammyfurniture.common.block.wood.WoodBlocksTwo;
 import com.gollum.jammyfurniture.common.building.handler.CeramicBlocksOneBuildingHandler;
+import com.gollum.jammyfurniture.common.building.handler.IronBlocksOneBuildingHandler;
 import com.gollum.jammyfurniture.common.building.handler.JFBlockHandler;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntityArmChair;
 import com.gollum.jammyfurniture.common.tilesentities.sofa.TileEntitySofaCenter;
@@ -96,6 +96,7 @@ public class ModBlocks {
 	
 	public static void initHandlerRotation () {
 		BuildingBlockRegistry.register(new CeramicBlocksOneBuildingHandler());
+		BuildingBlockRegistry.register(new IronBlocksOneBuildingHandler());
 		BuildingBlockRegistry.register(new JFBlockHandler());
 	}
 	
