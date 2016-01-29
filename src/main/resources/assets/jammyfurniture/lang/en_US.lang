@@ -115,6 +115,7 @@ jammyfurniture.clock.midnight=It's midnight, I wouldn't go outside if I were you
 jammyfurniture.clock.night=It's night.
 jammyfurniture.clock.dawn=It's dawn.
 
+jammyfurniture.config.tellTheTime=Tell the time
 jammyfurniture.config.Head Sounds=Sound's Head
 jammyfurniture.config.soundHeadChicken=Chicken Head
 jammyfurniture.config.soundHeadCow=Cow Head

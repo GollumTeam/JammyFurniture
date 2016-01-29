@@ -1,5 +1,7 @@
 package com.gollum.jammyfurniture.common.block.wood;
 
+import static com.gollum.jammyfurniture.ModJammyFurniture.config;
+
 import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
@@ -135,7 +137,7 @@ public class WoodBlocksOne extends JFMetadataBlock {
 			case 5:
 				
 				// Clock top
-				if (world.isRemote) {
+				if (world.isRemote && !config.tellTheTime) {
 					return true;
 				}
 				

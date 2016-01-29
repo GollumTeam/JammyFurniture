@@ -116,6 +116,7 @@ jammyfurniture.clock.midnight=Il est minuit, je n'irai pas à l'extérieur, si j
 jammyfurniture.clock.night=Il fait nuit.
 jammyfurniture.clock.dawn=C'est l'aube.
 
+jammyfurniture.config.tellTheTime=Horloge Parlante
 jammyfurniture.config.Head Sounds=Son des têtes
 jammyfurniture.config.soundHeadChicken=Tête de poulet
 jammyfurniture.config.soundHeadCow=Tête de vache
