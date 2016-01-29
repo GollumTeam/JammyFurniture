@@ -1,7 +1,6 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksTwo;
 
@@ -95,7 +94,7 @@ public class IronBlocksTwo extends JFMetadataBlock {
 	 * The type of render function that is called for this block
 	 */
 	public int getRenderType() {
-		return ClientProxyJammyFurniture.ironBlocksTwoRenderID;
+		return ModJammyFurniture.ironBlocksTwoRenderID;
 	}
 	
 	////////////

@@ -2,7 +2,7 @@ package com.gollum.jammyfurniture.common.block.roofing;
 
 import java.util.List;
 
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.roofing.TileEntityRoofingBlocksOne;
 
@@ -138,7 +138,7 @@ public class RoofingBlocksOne extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ClientProxyJammyFurniture.roofingBlocksOneRenderID;
+		return ModJammyFurniture.roofingBlocksOneRenderID;
 	}
 	
 	////////////
