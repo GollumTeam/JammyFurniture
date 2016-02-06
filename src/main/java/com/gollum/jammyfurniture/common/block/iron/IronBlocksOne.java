@@ -1,7 +1,6 @@
 package com.gollum.jammyfurniture.common.block.iron;
 
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 
@@ -148,7 +147,7 @@ public class IronBlocksOne extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ClientProxyJammyFurniture.ironBlocksOneRenderID;
+		return ModJammyFurniture.ironBlocksOneRenderID;
 	}
 	
 	////////////

@@ -2,7 +2,7 @@ package com.gollum.jammyfurniture.common.block.misc;
 
 import java.util.Random;
 
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFMetadataBlock;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 
@@ -68,7 +68,7 @@ public class MiscBlocksOne extends JFMetadataBlock {
 	///////////////////
 	
 	public int getRenderType() {
-		return ClientProxyJammyFurniture.miscBlocksOneRenderID;
+		return ModJammyFurniture.miscBlocksOneRenderID;
 	}
 	
 	//////////////////////////

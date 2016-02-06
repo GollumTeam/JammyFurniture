@@ -1,6 +1,6 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 
 import net.minecraft.block.material.Material;
@@ -98,7 +98,7 @@ public class BlockSofa extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ClientProxyJammyFurniture.sofaRenderID;
+		return ModJammyFurniture.sofaRenderID;
 	}
 	
 	//////////////////////////

@@ -73,6 +73,27 @@ public class ModJammyFurniture extends GollumMod {
 	 */
 	public static ConfigJammyFuniture config;
 	
+	/////////////////
+	// Renders IDs //
+	/////////////////
+	
+	public static int woodBlocksOneRenderID;
+	public static int woodBlocksTwoRenderID;
+	public static int woodBlocksThreeRenderID;
+	public static int woodBlocksFourRenderID;
+	public static int bathTubRenderID;
+	public static int ironBlocksOneRenderID;
+	public static int ironBlocksTwoRenderID;
+	public static int ceramicBlocksOneRenderID;
+	public static int roofingBlocksOneRenderID;
+	public static int mobHeadsOneRenderID;
+	public static int mobHeadsTwoRenderID;
+	public static int mobHeadsThreeRenderID;
+	public static int mobHeadsFourRenderID;
+	public static int sofaRenderID;
+	public static int miscBlocksOneRenderID;
+	public static int lightsRenderID;
+	
 	/////////////
 	// GUI IDs //
 	/////////////
@@ -87,8 +108,6 @@ public class ModJammyFurniture extends GollumMod {
 	public static final int GUI_DISHWASHER_ID       = 7;
 	public static final int GUI_CRAFTSIDE_ID        = 8;
 	public static final int GUI_WARDROBE_ID         = 9;
-	
-	
 	
 	@EventHandler public void handler(FMLPreInitializationEvent event)  { super.handler (event); }
 	@EventHandler public void handler(FMLInitializationEvent event)     { super.handler (event); }

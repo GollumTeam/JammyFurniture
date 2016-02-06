@@ -6,6 +6,8 @@ import com.gollum.core.common.config.ConfigProp.Type;
 
 public class ConfigJammyFuniture extends Config {
 	
+	@ConfigProp public boolean tellTheTime = true;
+	
 	////////////////
 	// Blocks IDs //
 	////////////////

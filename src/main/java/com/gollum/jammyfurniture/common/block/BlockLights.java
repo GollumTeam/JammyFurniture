@@ -1,6 +1,6 @@
 package com.gollum.jammyfurniture.common.block;
 
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
@@ -96,7 +96,7 @@ public class BlockLights extends JFMetadataBlock {
 	 */
 	@Override
 	public int getRenderType() {
-		return ClientProxyJammyFurniture.lightsRenderID;
+		return ModJammyFurniture.lightsRenderID;
 	}
 	
 	//////////////////////////
