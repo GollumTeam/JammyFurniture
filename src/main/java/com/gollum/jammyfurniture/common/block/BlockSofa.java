@@ -2,7 +2,7 @@ package com.gollum.jammyfurniture.common.block;
 
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 
 import net.minecraft.block.material.Material;
@@ -134,7 +134,7 @@ public class BlockSofa extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.sofaRenderID;
+		return ModJammyFurniture.sofaRenderID;
 	}
 	
 }

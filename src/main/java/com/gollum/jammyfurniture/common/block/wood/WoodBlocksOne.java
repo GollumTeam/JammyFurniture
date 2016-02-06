@@ -3,8 +3,9 @@ package com.gollum.jammyfurniture.common.block.wood;
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
+import static com.gollum.jammyfurniture.ModJammyFurniture.config;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksOne;
 import com.gollum.jammyfurniture.inits.ModBlocks;
 
@@ -144,7 +145,7 @@ public class WoodBlocksOne extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.woodBlocksOneRenderID;
+		return ModJammyFurniture.woodBlocksOneRenderID;
 	}
 	
 	///////////
@@ -168,85 +169,86 @@ public class WoodBlocksOne extends JFBlock {
 		EnumType   type      = state.getValue(TYPE);
 		EnumFacing facing    = state.getValue(FACING);
 		
-		if (type == EnumType.CLOCK_MIDDLE) { // Horloge milieux
+		switch(type) {
+			case CLOCK_MIDDLE: // Horloge milieux
 				
-			// Exclus les les block horloge sauf sur la port
-			if (
-				this.isClock(itemStack) && !(state.getValue(FACING)  == side)
-			) {
-				return false;
-			}
-			
-			if (te != null && te instanceof TileEntityWoodBlocksOne) {
-				TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
-				player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CLOCK_ID, world, pos.getX(), pos.getY(), pos.getZ());
+				// Exclus les les block horloge sauf sur la port
+				if (
+					this.isClock(itemStack) && !(state.getValue(FACING)  == side)
+				) {
+					return false;
+				}
+				
+				if (te != null && te instanceof TileEntityWoodBlocksOne) {
+					TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CLOCK_ID, world, pos.getX(), pos.getY(), pos.getZ());
+					return true;
+				}
+				break;
+				
+			case CLOCK_TOP: // Horloge du haut
+				
+				// Clock top
+				if (world.isRemote && !config.tellTheTime) {
+					return true;
+				}
+				
+				int time = (int) world.getWorldTime() % 24000;
+				int hour = ((time / 1000)+6) % 24;
+				int min = (time - (time/1000)*1000) * 60 / 1000;
+				boolean am = hour < 13 && hour >= 1;
+				int hour12 = hour % 12;
+				hour12 = (am && hour12 == 0) ? 12 : hour12;
+				
+				int paddingH = ModJammyFurniture.i18n.transInt("clock.paddingH");
+				int paddingM = ModJammyFurniture.i18n.transInt("clock.paddingM");
+				boolean hour12Format = !ModJammyFurniture.i18n.trans("clock.format").equals("24");
+				
+				
+				String strH = String.format("%0"+paddingH+"d", (hour12Format) ? hour12 : hour);
+				String strM = String.format("%0"+paddingM+"d", min);
+				
+				ModJammyFurniture.log.debug ("%0"+paddingM+"d", strM);
+				
+				player.addChatMessage(new ChatComponentText(ModJammyFurniture.i18n.trans("clock.displayTime", strH, strM, ModJammyFurniture.i18n.trans("clock.format."+((am)? "am" : "pm")))));
+				
+				String message = null;
+				
+				ModJammyFurniture.log.debug ("time = "+time+" H = "+hour);
+				
+				if (time >= 12000 && time <= 24000) { message = ModJammyFurniture.i18n.trans("clock.night");     }
+				if (hour >= 6  && hour <= 12)       { message = ModJammyFurniture.i18n.trans("clock.morning");   }
+				if (hour >= 12 && hour < 18)        { message = ModJammyFurniture.i18n.trans("clock.afternoon"); }
+				if (time >= 23000 || time <= 300)   { message = ModJammyFurniture.i18n.trans("clock.dawn");      }
+				if (time >= 11700 && time <= 13300) { message = ModJammyFurniture.i18n.trans("clock.dusk");      }
+				if (hour == 12)                     { message = ModJammyFurniture.i18n.trans("clock.midday");    }
+				if (hour == 0)                      { message = ModJammyFurniture.i18n.trans("clock.midnight");  }
+				
+				
+				if (message != null) {
+					player.addChatMessage(new ChatComponentText(message));
+				}
+				
 				return true;
-			}
-			
-		} else
-		if (type == EnumType.CLOCK_TOP) { // Horloge du haut
-			
-			// Clock top
-			if (world.isRemote) {
+				
+			case BLINDS: // Le store en position initial
+				
+				state = ModBlocks.blockWoodBlocksThree.getDefaultState()
+					.withProperty(WoodBlocksThree.TYPE, WoodBlocksThree.EnumType.BLINDS_HALF)
+					.withProperty(WoodBlocksThree.FACING, facing)
+				;
+				world.setBlockState(pos, state, 2);
 				return true;
-			}
-			
-			int time = (int) world.getWorldTime() % 24000;
-			int hour = ((time / 1000)+6) % 24;
-			int min = (time - (time/1000)*1000) * 60 / 1000;
-			boolean am = hour < 13 && hour >= 1;
-			int hour12 = hour % 12;
-			hour12 = (am && hour12 == 0) ? 12 : hour12;
-			
-			int paddingH = ModJammyFurniture.i18n.transInt("clock.paddingH");
-			int paddingM = ModJammyFurniture.i18n.transInt("clock.paddingM");
-			boolean hour12Format = !ModJammyFurniture.i18n.trans("clock.format").equals("24");
-			
-			
-			String strH = String.format("%0"+paddingH+"d", (hour12Format) ? hour12 : hour);
-			String strM = String.format("%0"+paddingM+"d", min);
-			
-			ModJammyFurniture.log.debug ("%0"+paddingM+"d", strM);
-			
-			player.addChatMessage(new ChatComponentText(ModJammyFurniture.i18n.trans("clock.displayTime", strH, strM, ModJammyFurniture.i18n.trans("clock.format."+((am)? "am" : "pm")))));
-			
-			String message = null;
-			
-			ModJammyFurniture.log.debug ("time = "+time+" H = "+hour);
-			
-			if (time >= 12000 && time <= 24000) { message = ModJammyFurniture.i18n.trans("clock.night");     }
-			if (hour >= 6  && hour <= 12)       { message = ModJammyFurniture.i18n.trans("clock.morning");   }
-			if (hour >= 12 && hour < 18)        { message = ModJammyFurniture.i18n.trans("clock.afternoon"); }
-			if (time >= 23000 || time <= 300)   { message = ModJammyFurniture.i18n.trans("clock.dawn");      }
-			if (time >= 11700 && time <= 13300) { message = ModJammyFurniture.i18n.trans("clock.dusk");      }
-			if (hour == 12)                     { message = ModJammyFurniture.i18n.trans("clock.midday");    }
-			if (hour == 0)                      { message = ModJammyFurniture.i18n.trans("clock.midnight");  }
-			
-			
-			if (message != null) {
-				player.addChatMessage(new ChatComponentText(message));
-			}
-			
-			return true;
-			
-		} else 
-		if (type == EnumType.BLINDS) { // Le store en position initial
-			
-			state = ModBlocks.blockWoodBlocksThree.getDefaultState()
-				.withProperty(WoodBlocksThree.TYPE, WoodBlocksThree.EnumType.BLINDS_HALF)
-				.withProperty(WoodBlocksThree.FACING, facing)
-			;
-			world.setBlockState(pos, state, 2);
-			return true;
-			
-		} else
-		if (type == EnumType.CRAFTING_SIDE) { // table de craft
-			
-			if (te != null && te instanceof TileEntityWoodBlocksOne) {
-				TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
-				player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CRAFTSIDE_ID, world, pos.getX(), pos.getY(), pos.getZ());
-				return true;
-			}
+				
+			case CRAFTING_SIDE: // table de craft
+				
+				if (te != null && te instanceof TileEntityWoodBlocksOne) {
+					TileEntityWoodBlocksOne teWoodBlocks = (TileEntityWoodBlocksOne)te;
+					player.openGui(ModJammyFurniture.instance, ModJammyFurniture.GUI_CRAFTSIDE_ID, world, pos.getX(), pos.getY(), pos.getZ());
+					return true;
+				}
+			default:
+				break;
 		}
 		
 		return false;

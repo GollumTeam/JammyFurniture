@@ -10,7 +10,6 @@ import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumIndexed;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksFour;
@@ -205,7 +204,7 @@ public class WoodBlocksFour extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.woodBlocksFourRenderID;
+		return ModJammyFurniture.woodBlocksFourRenderID;
 	}
 	
 	///////////////////

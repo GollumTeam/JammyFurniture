@@ -2,8 +2,8 @@ package com.gollum.jammyfurniture.common.block.head;
 
 import static com.gollum.jammyfurniture.ModJammyFurniture.config;
 
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.head.JFMobHeads.EnumType;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.head.TileEntityMobHeadsOne;
 
 import net.minecraft.block.state.IBlockState;
@@ -90,6 +90,6 @@ public class MobHeadsOne extends JFMobHeads {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.mobHeadsOneRenderID;
+		return ModJammyFurniture.mobHeadsOneRenderID;
 	}
 }

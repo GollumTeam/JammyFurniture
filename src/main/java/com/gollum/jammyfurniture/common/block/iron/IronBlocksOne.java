@@ -5,7 +5,6 @@ import java.util.Map;
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.tilesentities.iron.TileEntityIronBlocksOne;
 import com.google.common.collect.Lists;
@@ -133,7 +132,7 @@ public class IronBlocksOne extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.ironBlocksOneRenderID;
+		return ModJammyFurniture.ironBlocksOneRenderID;
 	}
 	
 	///////////

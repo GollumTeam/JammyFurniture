@@ -5,8 +5,8 @@ import java.util.Random;
 
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.misc.TileEntityMiscBlockOne;
 import com.google.common.collect.Lists;
 
@@ -23,6 +23,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MiscBlocksOne extends JFBlock {
 	
@@ -115,10 +117,11 @@ public class MiscBlocksOne extends JFBlock {
 	////////////////////
 	// Rendu du block //
 	////////////////////
-	
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.miscBlocksOneRenderID;
+		return ModJammyFurniture.miscBlocksOneRenderID;
 	}
 	
 }

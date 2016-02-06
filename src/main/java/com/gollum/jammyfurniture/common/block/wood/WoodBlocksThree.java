@@ -6,7 +6,6 @@ import java.util.Random;
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
 import com.gollum.jammyfurniture.ModJammyFurniture;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
 import com.gollum.jammyfurniture.common.block.JFBlock;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.tilesentities.wood.TileEntityWoodBlocksThree;
@@ -226,7 +225,7 @@ public class WoodBlocksThree extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.woodBlocksThreeRenderID;
+		return ModJammyFurniture.woodBlocksThreeRenderID;
 	}
 	
 	///////////////////

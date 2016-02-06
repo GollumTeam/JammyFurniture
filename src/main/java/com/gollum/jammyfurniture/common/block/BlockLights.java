@@ -2,7 +2,7 @@ package com.gollum.jammyfurniture.common.block;
 
 import com.gollum.core.tools.helper.BlockHelper.PropertySubBlock;
 import com.gollum.core.tools.helper.states.IEnumSubBlock;
-import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOff;
 import com.gollum.jammyfurniture.common.tilesentities.light.TileEntityLightsOn;
 import com.gollum.jammyfurniture.inits.ModBlocks;
@@ -117,6 +117,7 @@ public class BlockLights extends JFBlock {
 		if (type == EnumType.TABLE_LAMP) {
 			this.setBlockBounds(0.315F, 0.0F, 0.315F, 0.685F, 0.875F, 0.685F);
 		}
+		
 	}
 	
 	////////////////////
@@ -126,7 +127,7 @@ public class BlockLights extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.lightsRenderID;
+		return ModJammyFurniture.lightsRenderID;
 	}
 	
 	///////////

@@ -5,6 +5,7 @@ import java.util.Random;
 import com.gollum.core.tools.helper.BlockHelper.PropertyIndex;
 import com.gollum.core.tools.helper.states.IEnumIndexed;
 import com.gollum.jammyfurniture.client.ClientProxyJammyFurniture;
+import com.gollum.jammyfurniture.ModJammyFurniture;
 import com.gollum.jammyfurniture.common.entities.EntityMountableBlock;
 import com.gollum.jammyfurniture.common.item.ItemBath;
 import com.gollum.jammyfurniture.common.item.ItemWoodBlocksFour;
@@ -148,7 +149,7 @@ public class BathBlock extends JFBlock {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGCLRenderType() {
-		return ClientProxyJammyFurniture.woodBlocksFourRenderID;
+		return ModJammyFurniture.woodBlocksFourRenderID;
 	}
 	
 	///////////////////
