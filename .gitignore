@@ -6,4 +6,8 @@
 /build/
 /eclipse/
 /run/
+/out/
 *.launch
+*iml
+*.ipr
+*.iws
