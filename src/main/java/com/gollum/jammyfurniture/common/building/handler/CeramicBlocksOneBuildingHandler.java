@@ -29,7 +29,7 @@ public class CeramicBlocksOneBuildingHandler extends BuildingBlockHandler {
 		EnumRotate rotate,
 		int maxX, int maxZ
 	) {
-		EnumType type = unity.state.getValue(TYPE);
+		EnumType type = (EnumType) unity.state.getValue(TYPE);
 		
 		if (
 			type == EnumType.BATHROOM_SINK ||

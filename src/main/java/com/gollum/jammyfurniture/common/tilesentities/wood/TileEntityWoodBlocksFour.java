@@ -29,7 +29,7 @@ public class TileEntityWoodBlocksFour extends GCLInventoryTileEntity {
 	 * Returns the name of the inventory.
 	 */
 	@Override
-	public String getCommandSenderName() {
+	public String getName() {
 		return ModJammyFurniture.i18n.trans("Wardrobe");
 	}
 	

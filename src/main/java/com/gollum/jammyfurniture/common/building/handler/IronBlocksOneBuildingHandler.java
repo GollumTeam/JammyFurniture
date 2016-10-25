@@ -37,8 +37,8 @@ public class IronBlocksOneBuildingHandler extends JFBlockHandler {
 		int maxX, int maxZ
 	) {
 
-		EnumType   type   = unity.state.getValue(TYPE);
-		EnumFacing facing = unity.state.getValue(FACING);
+		EnumType   type   = (EnumType) unity.state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) unity.state.getValue(FACING);
 		
 		if (type == EnumType.RUBBISH_BIN) {
 			TileEntity te = world.getTileEntity(pos);

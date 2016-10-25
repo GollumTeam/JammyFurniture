@@ -29,7 +29,7 @@ public class TileEntityWoodBlocksOne extends GCLInventoryTileEntity {
 	///////////////
 	
 	@Override
-	public String getCommandSenderName() {
+	public String getName() {
 		return ModJammyFurniture.i18n.trans("Hidey Hole");
 	}
 	

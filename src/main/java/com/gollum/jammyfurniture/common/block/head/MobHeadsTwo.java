@@ -27,8 +27,8 @@ public class MobHeadsTwo extends JFMobHeads {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 
 		if (type == EnumType.HEAD_1) {
 			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.25F, 0.25F, 0.425F, 0.75F, 0.75F, 1.0F);
@@ -62,8 +62,8 @@ public class MobHeadsTwo extends JFMobHeads {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		EnumType   type      = state.getValue(TYPE);
-		EnumFacing facing    = state.getValue(FACING);
+		EnumType   type      = (EnumType) state.getValue(TYPE);
+		EnumFacing facing    = (EnumFacing) state.getValue(FACING);
 		
 		if (type == EnumType.HEAD_1) {
 			return true;

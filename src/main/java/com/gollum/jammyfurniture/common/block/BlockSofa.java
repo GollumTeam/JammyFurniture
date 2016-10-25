@@ -107,7 +107,7 @@ public class BlockSofa extends JFBlock {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		EnumFacing facing    = state.getValue(FACING);
+		EnumFacing facing    = (EnumFacing) state.getValue(FACING);
 		
 		if (world.isRemote) {
 			return true;

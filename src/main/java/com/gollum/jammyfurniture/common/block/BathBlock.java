@@ -111,8 +111,8 @@ public class BathBlock extends JFBlock {
 	@Override
 	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
 		
-		EnumFacing facing = state.getValue(FACING);
-		EnumPart part = state.getValue(PART);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumPart part = (EnumPart) state.getValue(PART);
 		BlockPos pos2 = pos.add(part == EnumPart.LEFT ? facing.getDirectionVec() : facing.getOpposite().getDirectionVec());
 		
 		IBlockState state2 = world.getBlockState(pos2);
@@ -124,8 +124,8 @@ public class BathBlock extends JFBlock {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		EnumFacing facing = state.getValue(FACING);
-		EnumPart part = state.getValue(PART);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumPart part = (EnumPart) state.getValue(PART);
 		facing = part == EnumPart.LEFT ? facing : facing.getOpposite();
 		
 		player.rotationYaw = 0.0F;

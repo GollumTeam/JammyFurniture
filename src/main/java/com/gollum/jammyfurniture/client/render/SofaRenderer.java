@@ -35,8 +35,8 @@ public class SofaRenderer extends JFTileEntitySpecialRenderer {
 		
 		float rotation = 0;
 		IBlockState state  = this.getBlock(tileentity).getStateFromMeta(metadata);
-		EnumFacing facing  = state.getValue(FACING);
-		EnumColor  color   = state.getValue(COLOR);
+		EnumFacing facing  = (EnumFacing) state.getValue(FACING);
+		EnumColor  color   = (EnumColor) state.getValue(COLOR);
 		String     texture = this.getPrefrixeTexture (tileentity)+"_"+color.getName();
 		
 		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else

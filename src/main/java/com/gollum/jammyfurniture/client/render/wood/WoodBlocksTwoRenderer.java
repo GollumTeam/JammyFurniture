@@ -29,8 +29,8 @@ public class WoodBlocksTwoRenderer extends JFTileEntitySpecialRenderer {
 		
 		float rotation = 0;
 		IBlockState state = ModBlocks.blockWoodBlocksTwo.getStateFromMeta(metadata);
-		EnumFacing facing = state.getValue(FACING);
-		EnumType type = state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		
 		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
 		if (facing == EnumFacing.SOUTH) { rotation = 180; } else

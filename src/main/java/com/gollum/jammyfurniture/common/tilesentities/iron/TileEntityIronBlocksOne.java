@@ -63,7 +63,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
 			if (state != null && state.getBlock() instanceof IronBlocksOne) {
-				EnumType type = state.getValue(TYPE);
+				EnumType type = (EnumType) state.getValue(TYPE);
 				if (type == EnumType.FRIDGE || type == EnumType.FREEZER) {
 					return this.INV_SIZE_FRIDGE;
 				} else if (type == EnumType.COOKER) {
@@ -93,12 +93,12 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 	 * Returns the name of the inventory.
 	 */
 	@Override
-	public String getCommandSenderName() {
+	public String getName() {
 		
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
 			if (state != null && state.getBlock() instanceof IronBlocksOne) {
-				EnumType type = state.getValue(TYPE);
+				EnumType type = (EnumType) state.getValue(TYPE);
 				if (type == EnumType.FRIDGE) {
 					return ModJammyFurniture.i18n.trans("Fridge");
 				} else 
@@ -161,7 +161,7 @@ public class TileEntityIronBlocksOne extends GCLInventoryTileEntity {
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
 			if (state != null && state.getBlock() instanceof IronBlocksOne) {
-				EnumType type = state.getValue(TYPE);
+				EnumType type = (EnumType) state.getValue(TYPE);
 				
 				if (type == EnumType.RUBBISH_BIN) {
 					

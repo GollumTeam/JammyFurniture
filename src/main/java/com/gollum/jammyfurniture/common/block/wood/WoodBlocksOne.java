@@ -109,8 +109,8 @@ public class WoodBlocksOne extends JFBlock {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 
 		if (type == EnumType.CLOCK_BASE) {
 			this.setBlockBounds(0.13F, 0.0F, 0.13F, 0.87F, 1.0F, 0.87F);
@@ -166,8 +166,8 @@ public class WoodBlocksOne extends JFBlock {
 
 		ItemStack  itemStack = player.inventory.getCurrentItem();
 		TileEntity te        = world.getTileEntity(pos);
-		EnumType   type      = state.getValue(TYPE);
-		EnumFacing facing    = state.getValue(FACING);
+		EnumType   type      = (EnumType) state.getValue(TYPE);
+		EnumFacing facing    = (EnumFacing) state.getValue(FACING);
 		
 		switch(type) {
 			case CLOCK_MIDDLE: // Horloge milieux
@@ -264,7 +264,7 @@ public class WoodBlocksOne extends JFBlock {
 			return false;
 		}
 		IBlockState state = this.getStateFromMeta(itemStack.getItemDamage());
-		EnumType type = state.getValue(TYPE);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		
 		return 
 			state !=  null &&
@@ -281,7 +281,7 @@ public class WoodBlocksOne extends JFBlock {
 	////////////
 
 	public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
-		EnumType type = world.getBlockState(pos).getValue(TYPE);
+		EnumType type = (EnumType) world.getBlockState(pos).getValue(TYPE);
 		
 		if (type == EnumType.CLOCK_MIDDLE || type == EnumType.CLOCK_TOP || type == EnumType.BLINDS) {
 			return super.rotateBlock(world, pos, axis);

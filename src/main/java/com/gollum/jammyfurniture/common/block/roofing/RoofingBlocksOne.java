@@ -100,11 +100,12 @@ public class RoofingBlocksOne extends JFBlock {
 	/////////////////////////////////
 	// Forme et collition du block //
 	/////////////////////////////////
-	
-	public void addCollisionBoxesToList(World world, BlockPos pos, IBlockState state, AxisAlignedBB axisAlignedBB, List<AxisAlignedBB> list, Entity entity) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+	@Override
+	public void addCollisionBoxesToList(World world, BlockPos pos, IBlockState state, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
+
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 		
 		if (type == EnumType.ROOFING1 || type == EnumType.ROOFING2 | type == EnumType.ROOFING3) {
 			

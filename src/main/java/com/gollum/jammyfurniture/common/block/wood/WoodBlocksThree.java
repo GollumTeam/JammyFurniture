@@ -112,10 +112,10 @@ public class WoodBlocksThree extends JFBlock {
 	/////////////////////////////////
 	
 	@Override
-	public void addCollisionBoxesToList(World world, BlockPos pos, IBlockState state, AxisAlignedBB axisAlignedBB, List<AxisAlignedBB> list, Entity entity) {
+	public void addCollisionBoxesToList(World world, BlockPos pos, IBlockState state, AxisAlignedBB axisAlignedBB, List list, Entity entity) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 		
 		if (type == EnumType.CHAIR) {
 			this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 0.5F, 0.85F);
@@ -142,8 +142,8 @@ public class WoodBlocksThree extends JFBlock {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 		
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 		
 		if (type == EnumType.CHAIR) {
 			if (isSelectBox) this.setBlockBounds(0.15F, 0.0F, 0.15F, 0.85F, 1.0F, 0.85F);
@@ -177,8 +177,8 @@ public class WoodBlocksThree extends JFBlock {
 		
 		ItemStack  itemStack = player.inventory.getCurrentItem();
 		TileEntity te        = world.getTileEntity(pos);
-		EnumType   type      = state.getValue(TYPE);
-		EnumFacing facing    = state.getValue(FACING);
+		EnumType   type      = (EnumType) state.getValue(TYPE);
+		EnumFacing facing    = (EnumFacing) state.getValue(FACING);
 		
 		if (type == EnumType.RADIO) {
 			
@@ -237,14 +237,14 @@ public class WoodBlocksThree extends JFBlock {
 	 */
 	@Override
 	public Item getItemDropped(IBlockState state, Random random, int j) {
-		EnumType type = state.getValue(TYPE);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		return (type == EnumType.BLINDS_HALF || type == EnumType.BLINDS_CLOSE) ? ModBlocks.blockWoodBlocksOne.getBlockItem() : ModBlocks.blockWoodBlocksThree.getBlockItem();
 	}
 	
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos, EntityPlayer player) {
 		IBlockState state = world.getBlockState(pos);
-		EnumType type = state.getValue(TYPE);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		return (type == EnumType.BLINDS_HALF || type == EnumType.BLINDS_CLOSE) ? new ItemStack (ModBlocks.blockWoodBlocksOne, 1, 9) : super.getPickBlock(target, world, pos, player);
 	}
 }

@@ -109,8 +109,8 @@ public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 
 		if (type == EnumType.BATHROOM_CUPBOARD) {
 			if (facing == EnumFacing.NORTH) this.setBlockBounds(0.1F, 0.0F, 0.6F, 0.9F, 1.0F, 1.0F);
@@ -141,8 +141,8 @@ public class CeramicBlocksOne extends JFBlock implements IBlockUnmountEvent {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		EnumType   type   = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType   type   = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 		TileEntity te     = world.getTileEntity(pos);
 		
 		

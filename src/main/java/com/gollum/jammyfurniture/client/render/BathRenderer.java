@@ -19,8 +19,8 @@ public class BathRenderer extends JFTileEntitySpecialRenderer {
 		
 		float rotation = 0;
 		IBlockState state = ModBlocks.blockBathTub.getStateFromMeta(metadata);
-		EnumFacing facing = state.getValue(FACING);
-		EnumPart type = state.getValue(PART);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumPart type = (EnumPart) state.getValue(PART);
 
 		if (facing == EnumFacing.NORTH ) { rotation = 90 ; } else
 		if (facing == EnumFacing.WEST) { rotation = 180; } else

@@ -112,7 +112,7 @@ public class IronBlocksTwo extends JFBlock {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		EnumType type = state.getValue(TYPE);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		TileEntity te        = world.getTileEntity(pos);
 		
 		if (te != null && te instanceof TileEntityIronBlocksTwo) {

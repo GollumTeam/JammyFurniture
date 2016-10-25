@@ -102,8 +102,8 @@ public class BlockLights extends JFBlock {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 
 		if (type == EnumType.LIGHT) {
 			this.setBlockBounds(0.25F, 0.385F, 0.315F, 0.685F, 1.0F, 0.75F);
@@ -136,8 +136,8 @@ public class BlockLights extends JFBlock {
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
-		EnumType type = state.getValue(TYPE);
-		EnumFacing orientaion = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing orientaion = (EnumFacing) state.getValue(FACING);
 		Block block  = state.getBlock();
 		IBlockState newState = null;
 		if (block == ModBlocks.blockLightsOn) {

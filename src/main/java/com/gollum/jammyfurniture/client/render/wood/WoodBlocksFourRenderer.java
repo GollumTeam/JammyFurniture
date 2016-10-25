@@ -34,9 +34,9 @@ public class WoodBlocksFourRenderer extends JFTileEntitySpecialRenderer {
 		TileEntityWoodBlocksFour tileEntityWood = (TileEntityWoodBlocksFour)tileEntity;
 		float rotation = 0;
 		IBlockState state = ModBlocks.blockWoodBlocksFour.getStateFromMeta(metadata);
-		EnumFacing facing = state.getValue(FACING);
-		EnumType type = state.getValue(TYPE);
-		EnumPart part = state.getValue(PART);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumPart part = (EnumPart) state.getValue(PART);
 		
 		if (facing == EnumFacing.WEST ) { rotation = 90 ; } else
 		if (facing == EnumFacing.SOUTH) { rotation = 180; } else

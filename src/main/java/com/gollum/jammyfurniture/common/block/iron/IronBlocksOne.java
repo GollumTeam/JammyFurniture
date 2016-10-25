@@ -108,8 +108,8 @@ public class IronBlocksOne extends JFBlock {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 		
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 		
 		if (type == EnumType.RUBBISH_BIN) {
 			this.setBlockBounds(0.05F, 0.0F, 0.05F, 0.95F, 1.0F, 0.95F);
@@ -170,7 +170,7 @@ public class IronBlocksOne extends JFBlock {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 		
-		EnumType type = state.getValue(TYPE);;
+		EnumType type = (EnumType) state.getValue(TYPE);;
 		TileEntity te   = world.getTileEntity(pos);
 		
 		if (te != null && te instanceof TileEntityIronBlocksOne) {
@@ -200,7 +200,7 @@ public class IronBlocksOne extends JFBlock {
 	////////////
 
 	public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
-		EnumType type = world.getBlockState(pos).getValue(TYPE);
+		EnumType type = (EnumType) world.getBlockState(pos).getValue(TYPE);
 		
 		if (type == EnumType.FRIDGE || type == EnumType.FREEZER || type == EnumType.COOKER) {
 			return super.rotateBlock(world, pos, axis);

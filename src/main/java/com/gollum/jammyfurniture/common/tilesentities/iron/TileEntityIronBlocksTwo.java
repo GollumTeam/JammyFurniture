@@ -47,12 +47,12 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	///////////////
 	
 	@Override
-	public String getCommandSenderName() {
+	public String getName() {
 		
 		if (this.worldObj != null) {
 			IBlockState state = this.worldObj.getBlockState(this.pos);
 			if (state != null && state.getBlock() instanceof IronBlocksTwo) {
-				EnumType type = state.getValue(TYPE);
+				EnumType type = (EnumType) state.getValue(TYPE);
 				if (type == EnumType.DISHWASHER) {
 					return ModJammyFurniture.i18n.trans("Dishwasher");
 				} else
@@ -72,7 +72,7 @@ public class TileEntityIronBlocksTwo extends GCLInventoryTileEntity {
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
 		IBlockState state = this.worldObj.getBlockState(this.pos);
-		EnumType type = state.getValue(TYPE);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		return 
 			(slot == INDEX_SLOT_BURN && this.isItemFuel(itemStack)) ||
 			(

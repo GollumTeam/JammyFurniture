@@ -103,8 +103,8 @@ public class WoodBlocksTwo extends JFBlock {
 	@Override
 	protected void getCollisionBoundingBox(IBlockState state, boolean isSelectBox) {
 
-		EnumType type = state.getValue(TYPE);
-		EnumFacing facing = state.getValue(FACING);
+		EnumType type = (EnumType) state.getValue(TYPE);
+		EnumFacing facing = (EnumFacing) state.getValue(FACING);
 
 		if (type == EnumType.CUPBOARD_SHELF || type == EnumType.CUPBOARD) {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -169,7 +169,7 @@ public class WoodBlocksTwo extends JFBlock {
 	////////////
 
 	public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
-		EnumType type = world.getBlockState(pos).getValue(TYPE);
+		EnumType type = (EnumType) world.getBlockState(pos).getValue(TYPE);
 		
 		if (type == EnumType.CUPBOARD_SHELF || type == EnumType.CUPBOARD || type == EnumType.TELEVISION) {
 			return super.rotateBlock(world, pos, axis);

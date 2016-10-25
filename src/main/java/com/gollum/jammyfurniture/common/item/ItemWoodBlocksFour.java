@@ -28,7 +28,7 @@ public class ItemWoodBlocksFour extends HItemBlock {
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		IBlockState state = ModBlocks.blockWoodBlocksFour.getStateFromMeta(itemStack.getItemDamage());
-		EnumType type = state.getValue(TYPE);
+		EnumType type = (EnumType) state.getValue(TYPE);
 		
 
 		if (
